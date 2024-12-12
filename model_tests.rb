@@ -953,10 +953,9 @@ class ModelTests < Minitest::Test
     result = sim_test('heatpump_plantloop_eir_heatrecovery.py')
   end
 
-  # TODO: To be added in the next official release after: 3.8.0
-  # def test_heatpump_plantloop_eir_heatrecovery_osm
-  #   result = sim_test('heatpump_plantloop_eir_heatrecovery.osm')
-  # end
+  def test_heatpump_plantloop_eir_heatrecovery_osm
+    result = sim_test('heatpump_plantloop_eir_heatrecovery.osm')
+  end
 
   def test_heatpump_varspeed_rb
     result = sim_test('heatpump_varspeed.rb')
