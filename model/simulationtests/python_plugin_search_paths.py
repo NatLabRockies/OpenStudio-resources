@@ -66,6 +66,9 @@ out_trend_var.setReportingFrequency("Timestep")
 pluginClassName = "AverageZoneTemps"
 
 python_plugin_file_content = f"""from pyenergyplus.plugin import EnergyPlusPlugin
+# NOTE: This external script must be locatable, so we'll add it to the PythonPluginSearchPaths
+import python_plugin_search_paths_script
+
 
 class {pluginClassName}(EnergyPlusPlugin):
 
@@ -117,6 +120,13 @@ external_file = external_file.get()
 # create the python plugin instance object
 python_plugin_instance = openstudio.model.PythonPluginInstance(external_file, pluginClassName)
 python_plugin_instance.setRunDuringWarmupDays(False)
+
+# create the python plugin search paths object (this test should fail without it)
+python_plugin_search_paths = model.getPythonPluginSearchPaths()
+python_plugin_search_paths.setAddCurrentWorkingDirectorytoSearchPath(True)
+python_plugin_search_paths.setAddInputFileDirectorytoSearchPath(True)
+python_plugin_search_paths.setAddepinEnvironmentVariabletoSearchPath(True)
+python_plugin_search_paths.addSearchPath(str(Path(__file__).parent))
 
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm(osm_save_directory=None, osm_name="in.osm")

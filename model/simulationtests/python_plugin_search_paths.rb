@@ -70,7 +70,9 @@ out_trend_var.setReportingFrequency('Timestep')
 pluginClassName = 'AverageZoneTemps'
 
 python_plugin_file_content = ''"from pyenergyplus.plugin import EnergyPlusPlugin
+# NOTE: This external script must be locatable, so we'll add it to the PythonPluginSearchPaths
 import python_plugin_search_paths_script
+
 
 class #{pluginClassName}(EnergyPlusPlugin):
 
@@ -112,7 +114,8 @@ class #{pluginClassName}(EnergyPlusPlugin):
 
 # Write it to a temporary directory so we don't pollute the current directory
 # ExternalFile will copy it
-pluginPath = File.join(Dir.tmpdir, 'python_plugin_program.py')
+stem = File.basename(__FILE__, File.extname(__FILE__))
+pluginPath = File.join(Dir.tmpdir, "#{stem}_program.py")
 File.write(pluginPath, python_plugin_file_content)
 
 # create the external file object
