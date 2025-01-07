@@ -34,7 +34,6 @@ model.add_design_days
 model.add_thermostats({ 'heating_setpoint' => 24,
                         'cooling_setpoint' => 28 })
 
-
 # In order to produce more consistent results between different runs,
 # we sort the zones by names
 # (There's only one here, but just in case this would be copy pasted somewhere
