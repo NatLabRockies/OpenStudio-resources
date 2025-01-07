@@ -2147,6 +2147,18 @@ class ModelTests < Minitest::Test
     result = sim_test('zone_hvac_cooling_panel.osm')
   end
 
+  def test_zone_hvac_evaporative_cooler_rb
+    result = sim_test('zone_hvac_evaporative_cooler.rb')
+  end
+
+  # def test_zone_hvac_evaporative_cooler_py
+    # result = sim_test('zone_hvac_evaporative_cooler.py')
+  # end
+
+  # def test_zone_hvac_evaporative_cooler_osm
+    # result = sim_test('zone_hvac_evaporative_cooler.osm')
+  # end
+
   def test_zone_hvac_equipment_list_rb
     result = sim_test('zone_hvac_equipment_list.rb')
   end
