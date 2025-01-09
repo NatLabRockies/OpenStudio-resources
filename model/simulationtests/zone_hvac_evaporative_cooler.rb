@@ -18,9 +18,6 @@ model.add_windows({ 'wwr' => 0.4,
                     'offset' => 1,
                     'application_type' => 'Above Floor' })
 
-# add ASHRAE System type 03, PSZ-AC
-model.add_hvac({ 'ashrae_sys_num' => '03' })
-
 # assign constructions from a local library to the walls/windows/etc. in the model
 model.set_constructions
 
@@ -40,18 +37,18 @@ model.add_thermostats({ 'heating_setpoint' => 24,
 # else...)
 zones = model.getThermalZones.sort_by { |z| z.name.to_s }
 z = zones[0]
-air_system = z.airLoopHVAC.get
-
-oa_node = air_system.airLoopHVACOutdoorAirSystem.get.outboardOANode.get
 
 # Add ZoneHVACEvaporativeCoolerUnit
 zoneHVACEvaporativeCoolerUnit = OpenStudio::Model::ZoneHVACEvaporativeCoolerUnit.new(model)
 direct_evap = zoneHVACEvaporativeCoolerUnit.firstEvaporativeCooler
-direct_evap.addToNode(oa_node)
 indirect_evap = OpenStudio::Model::EvaporativeCoolerIndirectResearchSpecial.new(model)
-indirect_evap.addToNode(oa_node)
 zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(indirect_evap)
 zoneHVACEvaporativeCoolerUnit.addToThermalZone(z)
+
+z.zoneAirNode.setName("#{z.nameString} Zone Air Node")
+# z.returnAirModelObjects.modelObjects[0].setName("#{z.nameString} Zone Return Air Node")
+z.inletPortList.modelObjects[0].setName("#{z.nameString} Zone Inlet Node")
+z.exhaustPortList.modelObjects[0].setName("#{z.nameString} Zone Exhaust Air Node")
 
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm({ 'osm_save_directory' => Dir.pwd,
