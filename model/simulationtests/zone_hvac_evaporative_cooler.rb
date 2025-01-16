@@ -65,8 +65,8 @@ def make_zone_hvac_cooler(z, direct_is_first: false, add_secondary: true, fan_pl
       zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(direct_evap)
     end
   end
-  indirect_evap.setName("#{z.nameString} Indirect Evaporative Cooler") unless indirect_evap.nil?
-  direct_evap.setName("#{z.nameString} Direct Evaporative Cooler") unless direct_evap.nil?
+  indirect_evap&.setName("#{z.nameString} Indirect Evaporative Cooler")
+  direct_evap&.setName("#{z.nameString} Direct Evaporative Cooler")
   supplyAirFan.setName("#{z.nameString} Supply Fan")
   zoneHVACEvaporativeCoolerUnit.setName("#{z.nameString} Evap Unit")
   # zoneHVACEvaporativeCoolerUnit.resetSecondEvaporativeCooler
@@ -92,24 +92,23 @@ def make_zone_hvac_cooler(z, direct_is_first: false, add_secondary: true, fan_pl
   z.exhaustPortList.modelObjects[0].setName("#{z.nameString} Zone Air Exhaust Node")
 end
 
-
 # In order to produce more consistent results between different runs,
 # we sort the zones by names
 zones = model.getThermalZones.sort_by { |z| z.name.to_s }
 
 configs = [
-  {zone_name: "DirectFirst", direct_is_first: true, add_secondary: true},
+  { zone_name: 'DirectFirst', direct_is_first: true, add_secondary: true },
 
   # Mimic SMStore8 from StripMallZoneEvapCoolerAutosized.idf
   # https://github.com/NREL/EnergyPlus/blob/31e3c33467c5873371bf48b12a7318215971c315/testfiles/StripMallZoneEvapCoolerAutosized.idf#L4767-L4784
-  {zone_name: "IndirectFirst", direct_is_first: false, add_secondary: true},
+  { zone_name: 'IndirectFirst', direct_is_first: false, add_secondary: true },
 
-  {zone_name: "DirectOnly", direct_is_first: true, add_secondary: false},
+  { zone_name: 'DirectOnly', direct_is_first: true, add_secondary: false },
 
-  {zone_name: "IndirectOnly", direct_is_first: false, add_secondary: false},
+  { zone_name: 'IndirectOnly', direct_is_first: false, add_secondary: false }
 ]
-fan_placements = ["BlowThrough", "DrawThrough"]
-raise "Mismatch" unless configs.size * fan_placements.size == zones.size
+fan_placements = ['BlowThrough', 'DrawThrough']
+raise 'Mismatch' unless configs.size * fan_placements.size == zones.size
 
 configs.product(fan_placements).zip(zones).each do |(config, fan_placement), z|
   z.setName("#{config[:zone_name]} #{fan_placement} Zn")
