@@ -2151,10 +2151,9 @@ class ModelTests < Minitest::Test
     result = sim_test('zone_hvac_evaporative_cooler.rb')
   end
 
-  # TODO: pending being happy with the ruby test
-  # def test_zone_hvac_evaporative_cooler_py
-  #   result = sim_test('zone_hvac_evaporative_cooler.py')
-  # end
+  def test_zone_hvac_evaporative_cooler_py
+    result = sim_test('zone_hvac_evaporative_cooler.py')
+  end
 
   # TODO: To be added in the next official release after: 3.9.0
   # def test_zone_hvac_evaporative_cooler_osm
