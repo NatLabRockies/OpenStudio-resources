@@ -5,10 +5,10 @@ require_relative 'lib/baseline_model'
 
 model = BaselineModel.new
 
-# make a 2 stories, 100m X 50m, 2 zone building
+# make a 8 stories, 100m X 50m, 8 zone building
 model.add_geometry({ 'length' => 100,
                      'width' => 50,
-                     'num_floors' => 2,
+                     'num_floors' => 8,
                      'floor_to_floor_height' => 4,
                      'plenum_height' => 0,
                      'perimeter_zone_depth' => 0 })
@@ -31,8 +31,10 @@ model.add_design_days
 model.add_thermostats({ 'heating_setpoint' => 24,
                         'cooling_setpoint' => 28 })
 
-def make_zone_hvac_cooler(z, direct_is_first: false)
+def make_zone_hvac_cooler(z, direct_is_first: false, add_secondary: true, fan_placement: 'BlowThrough')
   model = z.model
+  indirect_evap = nil
+  direct_evap = nil
   if direct_is_first
     # There is a default ctor
     zoneHVACEvaporativeCoolerUnit = OpenStudio::Model::ZoneHVACEvaporativeCoolerUnit.new(model)
@@ -44,8 +46,10 @@ def make_zone_hvac_cooler(z, direct_is_first: false)
     supplyAirFan.remove
     supplyAirFan = fan_system
     # An optional Second EvaporativeCooler
-    indirect_evap = OpenStudio::Model::EvaporativeCoolerIndirectResearchSpecial.new(model)
-    zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(indirect_evap)
+    if add_secondary
+      indirect_evap = OpenStudio::Model::EvaporativeCoolerIndirectResearchSpecial.new(model)
+      zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(indirect_evap)
+    end
   else
     # And an explicit Ctor:
     # ZoneHVACEvaporativeCoolerUnit(const Model& model, Schedule& availabilitySchedule, HVACComponent& supplyAirFan, HVACComponent& firstEvaporativeCooler);
@@ -56,13 +60,15 @@ def make_zone_hvac_cooler(z, direct_is_first: false)
       model, model.alwaysOnDiscreteSchedule, supplyAirFan, indirect_evap
     )
     # An optional Second EvaporativeCooler
-    direct_evap = OpenStudio::Model::EvaporativeCoolerDirectResearchSpecial.new(model, model.alwaysOnDiscreteSchedule)
-    zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(direct_evap)
+    if add_secondary
+      direct_evap = OpenStudio::Model::EvaporativeCoolerDirectResearchSpecial.new(model, model.alwaysOnDiscreteSchedule)
+      zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(direct_evap)
+    end
   end
-  indirect_evap.setName("#{z.nameString} Indirect Evaporative Cooler")
-  direct_evap.setName("#{z.nameString} Direct Evaporative Cooler")
+  indirect_evap.setName("#{z.nameString} Indirect Evaporative Cooler") unless indirect_evap.nil?
+  direct_evap.setName("#{z.nameString} Direct Evaporative Cooler") unless direct_evap.nil?
   supplyAirFan.setName("#{z.nameString} Supply Fan")
-  zoneHVACEvaporativeCoolerUnit.setName("#{z.nameString} Zone Evap Unit")
+  zoneHVACEvaporativeCoolerUnit.setName("#{z.nameString} Evap Unit")
   # zoneHVACEvaporativeCoolerUnit.resetSecondEvaporativeCooler
   #
   # Redoing what the default constructor does for demonstration purposes
@@ -70,7 +76,7 @@ def make_zone_hvac_cooler(z, direct_is_first: false)
   zoneHVACEvaporativeCoolerUnit.autosizeDesignSupplyAirFlowRate
   zoneHVACEvaporativeCoolerUnit.setAvailabilitySchedule(model.alwaysOnDiscreteSchedule)
   zoneHVACEvaporativeCoolerUnit.setSupplyAirFan(zoneHVACEvaporativeCoolerUnit.supplyAirFan)
-  zoneHVACEvaporativeCoolerUnit.setFanPlacement('BlowThrough')
+  zoneHVACEvaporativeCoolerUnit.setFanPlacement(fan_placement)
   zoneHVACEvaporativeCoolerUnit.setCoolerUnitControlMethod('ZoneCoolingLoadVariableSpeedFan')
   zoneHVACEvaporativeCoolerUnit.setThrottlingRangeTemperatureDifference(1.1)
   zoneHVACEvaporativeCoolerUnit.setCoolingLoadControlThresholdHeatTransferRate(100.0)
@@ -91,15 +97,29 @@ end
 # we sort the zones by names
 zones = model.getThermalZones.sort_by { |z| z.name.to_s }
 
-z1 = zones[0]
-z1.setName("Direct First Zone")
-make_zone_hvac_cooler(z1, direct_is_first: true)
+configs = [
+  {zone_name: "DirectFirst", direct_is_first: true, add_secondary: true},
 
-# Mimic SMStore8 from StripMallZoneEvapCoolerAutosized.idf
-# https://github.com/NREL/EnergyPlus/blob/31e3c33467c5873371bf48b12a7318215971c315/testfiles/StripMallZoneEvapCoolerAutosized.idf#L4767-L4784
-z2 = zones[1]
-z2.setName("Indirect First Zone")
-make_zone_hvac_cooler(z2, direct_is_first: false)
+  # Mimic SMStore8 from StripMallZoneEvapCoolerAutosized.idf
+  # https://github.com/NREL/EnergyPlus/blob/31e3c33467c5873371bf48b12a7318215971c315/testfiles/StripMallZoneEvapCoolerAutosized.idf#L4767-L4784
+  {zone_name: "IndirectFirst", direct_is_first: false, add_secondary: true},
+
+  {zone_name: "DirectOnly", direct_is_first: true, add_secondary: false},
+
+  {zone_name: "IndirectOnly", direct_is_first: false, add_secondary: false},
+]
+fan_placements = ["BlowThrough", "DrawThrough"]
+raise "Mismatch" unless configs.size * fan_placements.size == zones.size
+
+configs.product(fan_placements).zip(zones).each do |(config, fan_placement), z|
+  z.setName("#{config[:zone_name]} #{fan_placement} Zn")
+  make_zone_hvac_cooler(
+    z,
+    direct_is_first: config[:direct_is_first],
+    add_secondary: config[:add_secondary],
+    fan_placement: fan_placement
+  )
+end
 
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm({ 'osm_save_directory' => Dir.pwd,
