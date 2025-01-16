@@ -1,7 +1,7 @@
-import openstudio
-
-from lib.baseline_model import BaselineModel
 from itertools import product
+
+import openstudio
+from lib.baseline_model import BaselineModel
 
 model = BaselineModel()
 
@@ -24,7 +24,12 @@ model.add_design_days()
 model.add_thermostats(heating_setpoint=19, cooling_setpoint=26)
 
 
-def make_zone_hvac_cooler(z: openstudio.model.ThermalZone, direct_is_first: bool = False, add_secondary: bool = True, fan_placement: str = 'BlowThrough'):
+def make_zone_hvac_cooler(
+    z: openstudio.model.ThermalZone,
+    direct_is_first: bool = False,
+    add_secondary: bool = True,
+    fan_placement: str = "BlowThrough",
+):
     model = z.model()
     indirect_evap = None
     direct_evap = None
@@ -49,12 +54,13 @@ def make_zone_hvac_cooler(z: openstudio.model.ThermalZone, direct_is_first: bool
 
         indirect_evap = openstudio.model.EvaporativeCoolerIndirectResearchSpecial(model)
         zoneHVACEvaporativeCoolerUnit = openstudio.model.ZoneHVACEvaporativeCoolerUnit(
-          model, model.alwaysOnDiscreteSchedule(), supplyAirFan, indirect_evap
+            model, model.alwaysOnDiscreteSchedule(), supplyAirFan, indirect_evap
         )
         # An optional Second EvaporativeCooler
         if add_secondary:
-            direct_evap = openstudio.model.EvaporativeCoolerDirectResearchSpecial(model,
-                                                                                  model.alwaysOnDiscreteSchedule())
+            direct_evap = openstudio.model.EvaporativeCoolerDirectResearchSpecial(
+                model, model.alwaysOnDiscreteSchedule()
+            )
             zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(direct_evap)
 
     if indirect_evap is not None:
@@ -71,7 +77,7 @@ def make_zone_hvac_cooler(z: openstudio.model.ThermalZone, direct_is_first: bool
     zoneHVACEvaporativeCoolerUnit.autosizeDesignSupplyAirFlowRate()
     zoneHVACEvaporativeCoolerUnit.setAvailabilitySchedule(model.alwaysOnDiscreteSchedule())
     zoneHVACEvaporativeCoolerUnit.setFanPlacement(fan_placement)
-    zoneHVACEvaporativeCoolerUnit.setCoolerUnitControlMethod('ZoneCoolingLoadVariableSpeedFan')
+    zoneHVACEvaporativeCoolerUnit.setCoolerUnitControlMethod("ZoneCoolingLoadVariableSpeedFan")
     zoneHVACEvaporativeCoolerUnit.setThrottlingRangeTemperatureDifference(1.1)
     zoneHVACEvaporativeCoolerUnit.setCoolingLoadControlThresholdHeatTransferRate(100.0)
     zoneHVACEvaporativeCoolerUnit.setShutOffRelativeHumidity(100.0)
@@ -87,31 +93,29 @@ def make_zone_hvac_cooler(z: openstudio.model.ThermalZone, direct_is_first: bool
 
     return zoneHVACEvaporativeCoolerUnit
 
+
 # In order to produce more consistent results between different runs,
 # we sort the zones by names
 zones = sorted(model.getThermalZones(), key=lambda z: z.nameString())
 
 configs = [
-  { 'zone_name': 'DirectFirst', 'direct_is_first': True, 'add_secondary': True },
-
-  # Mimic SMStore8 from StripMallZoneEvapCoolerAutosized.idf
-  # https://github.com/NREL/EnergyPlus/blob/31e3c33467c5873371bf48b12a7318215971c315/testfiles/StripMallZoneEvapCoolerAutosized.idf#L4767-L4784
-  { 'zone_name': 'IndirectFirst', 'direct_is_first': False, 'add_secondary': True },
-
-  { 'zone_name': 'DirectOnly', 'direct_is_first': True, 'add_secondary': False },
-
-  { 'zone_name': 'IndirectOnly', 'direct_is_first': False, 'add_secondary': False }
+    {"zone_name": "DirectFirst", "direct_is_first": True, "add_secondary": True},
+    # Mimic SMStore8 from StripMallZoneEvapCoolerAutosized.idf
+    # https://github.com/NREL/EnergyPlus/blob/31e3c33467c5873371bf48b12a7318215971c315/testfiles/StripMallZoneEvapCoolerAutosized.idf#L4767-L4784
+    {"zone_name": "IndirectFirst", "direct_is_first": False, "add_secondary": True},
+    {"zone_name": "DirectOnly", "direct_is_first": True, "add_secondary": False},
+    {"zone_name": "IndirectOnly", "direct_is_first": False, "add_secondary": False},
 ]
-fan_placements = ['BlowThrough', 'DrawThrough']
+fan_placements = ["BlowThrough", "DrawThrough"]
 assert len(configs) * len(fan_placements) == len(zones)
 
 for (config, fan_placement), z in zip(product(configs, fan_placements), zones):
     z.setName(f"{config['zone_name']} {fan_placement} Zn")
     make_zone_hvac_cooler(
         z=z,
-        direct_is_first=config['direct_is_first'],
-        add_secondary=config['add_secondary'],
-        fan_placement=fan_placement
+        direct_is_first=config["direct_is_first"],
+        add_secondary=config["add_secondary"],
+        fan_placement=fan_placement,
     )
 
 # save the OpenStudio model (.osm)
