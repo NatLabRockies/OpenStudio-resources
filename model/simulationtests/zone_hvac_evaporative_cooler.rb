@@ -40,11 +40,30 @@ z = zones[0]
 
 # Add ZoneHVACEvaporativeCoolerUnit
 zoneHVACEvaporativeCoolerUnit = OpenStudio::Model::ZoneHVACEvaporativeCoolerUnit.new(model)
+# There is an alternative constructor
+# ZoneHVACEvaporativeCoolerUnit(const Model& model, Schedule& availabilitySchedule, HVACComponent& supplyAirFan, HVACComponent& firstEvaporativeCooler);
 direct_evap = zoneHVACEvaporativeCoolerUnit.firstEvaporativeCooler
+
+# Redoing what the default constructor does for demonstration purposes
+# zoneHVACEvaporativeCoolerUnit.setDesignSupplyAirFlowRate(1.0)
+zoneHVACEvaporativeCoolerUnit.autosizeDesignSupplyAirFlowRate
+zoneHVACEvaporativeCoolerUnit.setAvailabilitySchedule(model.alwaysOnDiscreteSchedule)
+zoneHVACEvaporativeCoolerUnit.setSupplyAirFan(zoneHVACEvaporativeCoolerUnit.supplyAirFan)
+zoneHVACEvaporativeCoolerUnit.setFanPlacement("BlowThrough")
+zoneHVACEvaporativeCoolerUnit.setCoolerUnitControlMethod("ZoneTemperatureDeadbandOnOffCycling")
+zoneHVACEvaporativeCoolerUnit.setThrottlingRangeTemperatureDifference(1.0)
+zoneHVACEvaporativeCoolerUnit.setCoolingLoadControlThresholdHeatTransferRate(100.0)
+zoneHVACEvaporativeCoolerUnit.setShutOffRelativeHumidity(100.0)
+
+# An optional Second EvporativeCooler
 indirect_evap = OpenStudio::Model::EvaporativeCoolerIndirectResearchSpecial.new(model)
 zoneHVACEvaporativeCoolerUnit.setSecondEvaporativeCooler(indirect_evap)
+# zoneHVACEvaporativeCoolerUnit.resetSecondEvaporativeCooler
+
+# Add it to a ThermalZone
 zoneHVACEvaporativeCoolerUnit.addToThermalZone(z)
 
+# Rename nodes for clarity
 z.zoneAirNode.setName("#{z.nameString} Zone Air Node")
 # z.returnAirModelObjects.modelObjects[0].setName("#{z.nameString} Zone Return Air Node")
 z.inletPortList.modelObjects[0].setName("#{z.nameString} Zone Inlet Node")
