@@ -1215,9 +1215,14 @@ zones.each_with_index do |zn, zone_index|
     term.addToThermalZone(zn)
     vrf.addTerminal(term)
 
+  when 44
+    zoneHVACEvaporativeCoolerUnit = OpenStudio::Model::ZoneHVACEvaporativeCoolerUnit.new(model)
+    zoneHVACEvaporativeCoolerUnit.autosizeDesignSupplyAirFlowRate
+    zoneHVACEvaporativeCoolerUnit.addToThermalZone(zn)
+
   when 26, 27, 28, 29, 30, 31, 32, 33, 38, 40, 43
     # Previously used for the unitary systems, dehum, etc
-  when 0, 44
+  when 0
     # This wasn't assigned yet and is for grabs
     puts "Nothing added to #{zn.name}, index #{zone_index}"
   else
