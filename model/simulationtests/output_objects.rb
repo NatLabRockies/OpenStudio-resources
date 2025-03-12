@@ -104,7 +104,7 @@ output_table.addSummaryReports(['OutdoorAirSummary', 'ObjectCountSummary'])
 if Gem::Version.new(OpenStudio.openStudioVersion) > Gem::Version.new('3.9.0')
   output_table.addSummaryReport('ThermalResilienceSummary')
   output_rs = model.getOutputControlResilienceSummaries
-  output_rs.setHeatIndexAlgorithm('Extended')  # Default is 'Simplified'
+  output_rs.setHeatIndexAlgorithm('Extended') # Default is 'Simplified'
 end
 
 # save the OpenStudio model (.osm)
