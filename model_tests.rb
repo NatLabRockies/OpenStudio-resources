@@ -1351,6 +1351,19 @@ class ModelTests < Minitest::Test
     result = sim_test('output_objects_2.osm')
   end
 
+  def test_output_tables_rb
+    result = sim_test('output_tables.rb')
+  end
+
+  def test_output_tables_py
+    result = sim_test('output_tables.py')
+  end
+
+  # TODO: To be added in the next official release after: 3.9.0
+  # def test_output_tables_osm
+  #   result = sim_test('output_tables.osm')
+  # end
+
   def test_performanceprecisiontradeoffs_rb
     result = sim_test('performanceprecisiontradeoffs.rb')
   end
