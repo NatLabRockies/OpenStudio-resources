@@ -69,7 +69,7 @@ groups = [
   ['Fan Electricity Energy', 'SumOrAverage'],
   ['Fan Rise in Air Temperature', 'SumOrAverage'],
   ['Fan Electricity Rate', 'Maximum'],
-  ['Fan Rise in Air Temperature', 'ValueWhenMaximumOrMinimum'],
+  ['Fan Rise in Air Temperature', 'ValueWhenMaximumOrMinimum']
 ]
 output_table_monthly.addMonthlyVariableGroup(groups[0][0], groups[0][1])
 
@@ -79,6 +79,7 @@ output_table_monthly.addMonthlyVariableGroup(OpenStudio::Model::MonthlyVariableG
 raise unless output_table_monthly.numberofMonthlyVariableGroups == 2
 # This is a vector of MonthlyVariableGroup
 raise unless output_table_monthly.monthlyVariableGroups.size == 2
+
 first_monthly_group = output_table_monthly.monthlyVariableGroups.first
 # This returns an OptionalMonthlyVariableGroup
 first_monthly_group_ = output_table_monthly.getMonthlyVariableGroup(0)
@@ -102,15 +103,15 @@ raise unless output_table_monthly.numberofMonthlyVariableGroups == 4
 ###############################################################################
 
 output_table_annual = OpenStudio::Model::OutputTableAnnual.new(model)
-output_table_annual.setName("Electricity Report")
+output_table_annual.setName('Electricity Report')
 output_table_annual.setSchedule(model.alwaysOnDiscreteSchedule)
-output_table_annual.setFilter("Zone 1")
+output_table_annual.setFilter('Zone 1')
 output_table_annual.resetFilter
 
 groups = [
-  #variableorMeterorEMSVariableorField, aggregationType, digitsAfterDecimal
+  # variableorMeterorEMSVariableorField, aggregationType, digitsAfterDecimal
   ['Electricity:Facility', 'SumOrAverage', 3],
-  ['Electricity:Facility', 'Maximum', 1],
+  ['Electricity:Facility', 'Maximum', 1]
 ]
 
 output_table_annual.addAnnualVariableGroup(groups[0][0], groups[0][1], groups[0][2])
@@ -121,6 +122,7 @@ output_table_annual.addAnnualVariableGroup(OpenStudio::Model::AnnualVariableGrou
 raise unless output_table_annual.numberofAnnualVariableGroups == 2
 # This is a vector of AnnualVariableGroup
 raise unless output_table_annual.annualVariableGroups.size == 2
+
 first_annual_group = output_table_annual.annualVariableGroups.first
 # This returns an OptionalAnnualVariableGroup
 first_annual_group_ = output_table_annual.getAnnualVariableGroup(0)
