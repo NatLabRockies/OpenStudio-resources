@@ -435,7 +435,7 @@ class ModelTests < Minitest::Test
 
   # TODO: To be added in the next official release after: 3.9.0
   # def test_coilsystem_cooling_water_osm
-    # result = sim_test('coilsystem_cooling_water.osm')
+  # result = sim_test('coilsystem_cooling_water.osm')
   # end
 
   def test_coolingtowers_osm

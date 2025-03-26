@@ -140,4 +140,4 @@ heating_coil.airOutletModelObject.get.setName("#{airloop.name} Heating Coil Air 
 
 # save the OpenStudio model (.osm)
 m.save_openstudio_osm({ 'osm_save_directory' => Dir.pwd,
-                            'osm_name' => 'in.osm' })
+                        'osm_name' => 'in.osm' })
