@@ -40,12 +40,11 @@ zones = m.getThermalZones.sort_by { |z| z.name.to_s }
 
 ### Water Size Economizer Model ###
 
-# CoilSystemCoolingWater
 zone = zones[0]
 airloop = zone.airLoopHVAC.get
 airloop.setName('AirLoopHVAC CoilSystemCoolingWater')
 
-# create a CoilSystem object
+# create a CoilSystemCoolingWater object
 coil_system = OpenStudio::Model::CoilSystemCoolingWater.new(m)
 coil_system.setName('CoilSystemCoolingWater WaterSize')
 
@@ -84,41 +83,69 @@ heating_coil.airOutletModelObject.get.setName("#{airloop.name} Heating Coil Air 
 
 ### Wrap Around Water Coil Heat Recovery Mode ###
 
-# CoilSystemCoolingWater
+# create heat recovery plant loop
+hr_loop = OpenStudio::Model::PlantLoop.new(m)
+hr_loop.setName('Run Around Coil HR Loop')
+
+plant_siz = hr_loop.sizingPlant
+plant_siz.setLoopType('cooling')
+plant_siz.setDesignLoopExitTemperature(7)
+plant_siz.setLoopDesignTemperatureDifference(4)
+
+# create supply side pump
+pump = OpenStudio::Model::PumpVariableSpeed.new(m)
+pump.setName('HR Circ Pump')
+pump.setCoefficient1ofthePartLoadPerformanceCurve(0)
+pump.setCoefficient2ofthePartLoadPerformanceCurve(1)
+pump.setCoefficient3ofthePartLoadPerformanceCurve(0)
+pump.setCoefficient4ofthePartLoadPerformanceCurve(0)
+
+hr_loop.addSupplyBranchForComponent(pump)
+
 zone = zones[1]
 airloop = zone.airLoopHVAC.get
 airloop.setName('AirLoopHVAC CoilSystemCoolingWater')
 
-# create a CoilSystem object
-coil_system = OpenStudio::Model::CoilSystemCoolingWater.new(m)
-coil_system.setName('CoilSystemCoolingWater WrapAround')
+oa_sys = airloop.airLoopHVACOutdoorAirSystem.get
 
-# Replace the default CoilCoolingWater with CoilSystem, then remove the default one
-# Note: it's probably going to end up badly controlled when you place the
-# CoilSystem directly on the AirLoopHVAC path and not inside another component
-# (such as UnitarySys, cf: https://github.com/NREL/EnergyPlus/issues/7222)
-water_coil = coil_system.coolingCoil.to_CoilCoolingWater.get
-water_coil.setName('CoilSystemCoolingWater WrapAround CoolingCoil')
+primary_coil = OpenStudio::Model::CoilCoolingWater.new(m, m.alwaysOnDiscreteSchedule)
+primary_coil.setName("#{airloop.name.get} Primary HR Coil")
+# primary_coil.setDesignWaterTemperatureDifference(4)
 
-outdoorAirSystem = airloop.airLoopHVACOutdoorAirSystem.get
+companion_coil = OpenStudio::Model::CoilCoolingWater.new(m, m.alwaysOnDiscreteSchedule)
+companion_coil.setName("#{airloop.name.get} Companion HR Coil")
+# companion_coil.setDesignWaterTemperatureDifference(4)
 
-coil = airloop.supplyComponents(OpenStudio::Model::CoilCoolingWater.iddObjectType).first.to_CoilCoolingWater.get
-# Note that we connect the CoilSystem, NOT the underlying CoilCoolingWater
-outdoorAirSystem.addToNode(coil.airOutletModelObject.get.to_Node.get)
-coil_system.addToNode(outdoorAirSystem.outboardOANode.get)
-plant = coil.plantLoop.get
-# But we have to connect the water_coil itself...
-plant.addDemandBranchForComponent(water_coil)
-coil.remove
+coil_sys = OpenStudio::Model::CoilSystemCoolingWater.new(m, primary_coil)
+coil_sys.setName('CoilSystemCoolingWater WrapAround')
+coil_sys.setCompanionCoilUsedForHeatRecovery(companion_coil)
+coil_sys.setMinimumWaterLoopTemperatureForHeatRecovery(3)
 
-companion_coil = OpenStudio::Model::CoilCoolingWater.new(m)
-companion_coil.setName('CoilSystemCoolingWater WrapAround CompanionCoil')
-coil_system.setCompanionCoilUsedForHeatRecovery(companion_coil)
-companion_coil.addToNode(outdoorAirSystem.reliefAirModelObject.get.to_Node.get)
+coil_sys.addToNode(oa_sys.outboardOANode.get)
+companion_coil.addToNode(oa_sys.reliefAirModelObject.get.to_Node.get)
 
+# connect to plant loop
+hr_loop.addDemandBranchForComponent(primary_coil)
 pipe = OpenStudio::Model::PipeAdiabatic.new(m)
-pipe.addToNode(coil_system.coolingCoil.waterOutletModelObject.get.to_Node.get)
+pipe.addToNode(primary_coil.waterOutletModelObject.get.to_Node.get)
 companion_coil.addToNode(pipe.outletModelObject.get.to_Node.get)
+
+coil_spm_sch = OpenStudio::Model::ScheduleConstant.new(m)
+coil_spm_sch.setName('OA HR Supply Air Temp Sch')
+coil_spm_sch.setValue(4.5)
+
+primary_coil_spm = OpenStudio::Model::SetpointManagerScheduled.new(m, coil_spm_sch)
+primary_coil_spm.setName('OA Air Temp Manager HR1')
+# primary_coil_spm.addToNode(coil_sys.airOutletModelObject.get.to_Node.get)
+# primary_coil_spm.addToNode(coil_sys.outletModelObject.get.to_Node.get)
+
+companion_coil_spm = OpenStudio::Model::SetpointManagerScheduled.new(m, coil_spm_sch)
+companion_coil_spm.setName('OA Air Temp Manager HR2')
+# companion_coil_spm.addToNode(companion_coil.airOutletModelObject.get.to_Node.get)
+
+hr_loop_spm = OpenStudio::Model::SetpointManagerScheduled.new(m, coil_spm_sch)
+hr_loop_spm.setName('OA Air Temp Manager HR3')
+hr_loop_spm.addToNode(hr_loop.loopTemperatureSetpointNode)
 
 # Rename some nodes and such, for ease of debugging
 airloop.supplyInletNode.setName("#{airloop.name} Supply Inlet Node")
@@ -126,9 +153,9 @@ airloop.supplyOutletNode.setName("#{airloop.name} Supply Outlet Node")
 airloop.mixedAirNode.get.setName("#{airloop.name} Mixed Air Node")
 coil_system.outletModelObject.get.to_Node.get.setName("#{airloop.name} Outlet to Heating Coil Inlet Node")
 
-water_coil.waterInletModelObject.get.setName("#{water_coil.name} Water Inlet Node")
-water_coil.waterOutletModelObject.get.setName("#{water_coil.name} Water Outlet Node")
-# water_coil.controllerWaterCoil.get.setName("#{water_coil.name} Controller")
+primary_coil.waterInletModelObject.get.setName("#{primary_coil.name} Water Inlet Node")
+primary_coil.waterOutletModelObject.get.setName("#{primary_coil.name} Water Outlet Node")
+# primary_coil.controllerWaterCoil.get.setName("#{primary_coil.name} Controller")
 
 heating_coil = airloop.supplyComponents(OpenStudio::Model::CoilHeatingWater.iddObjectType).first.to_CoilHeatingWater.get
 heating_coil.waterInletModelObject.get.setName("#{airloop.name} Heating Coil Water Inlet Node")
