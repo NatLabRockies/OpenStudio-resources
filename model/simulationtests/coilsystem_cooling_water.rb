@@ -61,7 +61,7 @@ coil_system.addToNode(coil.airOutletModelObject.get.to_Node.get)
 plant = coil.plantLoop.get
 # But we have to connect the water_coil itself...
 plant.addDemandBranchForComponent(water_coil)
-# coil.remove # not yet
+coil.remove
 
 # Rename some nodes and such, for ease of debugging
 airloop.supplyInletNode.setName("#{airloop.name} Supply Inlet Node")
