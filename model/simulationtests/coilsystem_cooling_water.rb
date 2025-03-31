@@ -5,10 +5,10 @@ require_relative 'lib/baseline_model'
 
 m = BaselineModel.new
 
-# make a 1 story, 100m X 50m, 2 zone core/perimeter building
+# make a 1 story, 100m X 50m, 1 zone core/perimeter building
 m.add_geometry({ 'length' => 100,
                  'width' => 50,
-                 'num_floors' => 2,
+                 'num_floors' => 1,
                  'floor_to_floor_height' => 4,
                  'plenum_height' => 1,
                  'perimeter_zone_depth' => 0 })
@@ -88,7 +88,7 @@ hr_loop = OpenStudio::Model::PlantLoop.new(m)
 hr_loop.setName('Run Around Coil HR Loop')
 
 plant_siz = hr_loop.sizingPlant
-plant_siz.setLoopType('cooling')
+plant_siz.setLoopType('Cooling')
 plant_siz.setDesignLoopExitTemperature(7)
 plant_siz.setLoopDesignTemperatureDifference(4)
 
@@ -102,9 +102,9 @@ pump.setCoefficient4ofthePartLoadPerformanceCurve(0)
 
 hr_loop.addSupplyBranchForComponent(pump)
 
-zone = zones[1]
-airloop = zone.airLoopHVAC.get
-airloop.setName('AirLoopHVAC CoilSystemCoolingWater')
+# zone = zones[1]
+# airloop = zone.airLoopHVAC.get
+# airloop.setName('AirLoopHVAC CoilSystemCoolingWater WrapAround')
 
 oa_sys = airloop.airLoopHVACOutdoorAirSystem.get
 
