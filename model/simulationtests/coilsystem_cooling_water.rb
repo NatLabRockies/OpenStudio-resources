@@ -51,6 +51,13 @@ coil_system.setName('CoilSystemCoolingWater WaterSide')
 water_coil = coil_system.coolingCoil.to_CoilCoolingWater.get
 water_coil.setName('CoilSystemCoolingWater WaterSide CoolingCoil')
 
+# Set coil conditions to mimic "Free Cooling Coil" from WaterSideEconomizer_PreCoolCoil.idf
+water_coil.setDesignInletWaterTemperature(11.0)
+water_coil.setDesignInletAirTemperature 34.0
+water_coil.setDesignOutletAirTemperature(16.0)
+water_coil.setDesignInletAirHumidityRatio(0.009)
+water_coil.setDesignOutletAirHumidityRatio(0.009)
+
 # As a water-side economizer the CoilSystem:Cooling:Water object is placed upstream of packaged DX systems or chilled water main cooling coil
 # We have a Chilled water coil already, so let's keep it
 central_cooling_coil = airloop.supplyComponents(OpenStudio::Model::CoilCoolingWater.iddObjectType).first.to_CoilCoolingWater.get
@@ -78,7 +85,7 @@ water_coil.waterOutletModelObject.get.setName("#{water_coil.nameString} Water Ou
 # water_coil.controllerWaterCoil.get.setName("#{water_coil.name} Controller")
 
 fan = airloop.supplyFan.get
-fan.setName("Supply Fan")
+fan.setName('Supply Fan')
 
 central_heating_coil.waterOutletModelObject.get.setName("#{airloop.nameString} Heating Coil Water Outlet Node")
 central_heating_coil.controllerWaterCoil.get.setName("#{airloop.nameString} Heating Coil Controller")
@@ -88,6 +95,8 @@ central_heating_coil.airOutletModelObject.get.setName("#{central_heating_coil.na
 
 ### Wrap Around Water Coil Heat Recovery Mode ###
 
+# 5ZoneAirCooled_RunaroundHeatRecovery.idf
+#
 # create heat recovery plant loop
 hr_loop = OpenStudio::Model::PlantLoop.new(m)
 hr_loop.setName('Run Around Coil HR Loop')
@@ -125,7 +134,8 @@ companion_coil.setName("#{airloop.name.get} Companion HR Coil")
 coil_sys = OpenStudio::Model::CoilSystemCoolingWater.new(m, primary_coil)
 coil_sys.setName('CoilSystemCoolingWater WrapAround')
 coil_sys.setCompanionCoilUsedForHeatRecovery(companion_coil)
-coil_sys.setMinimumWaterLoopTemperatureForHeatRecovery(3)
+coil_sys.setMinimumAirToWaterTemperatureOffset(3.0)
+coil_sys.setMinimumWaterLoopTemperatureForHeatRecovery(5.0)
 
 coil_sys.addToNode(oa_sys.outboardOANode.get)
 companion_coil.addToNode(oa_sys.outboardReliefNode.get)
@@ -153,16 +163,25 @@ hr_loop_spm = OpenStudio::Model::SetpointManagerScheduled.new(m, coil_spm_sch)
 hr_loop_spm.setName('OA Air Temp Manager HR3')
 hr_loop_spm.addToNode(hr_loop.loopTemperatureSetpointNode)
 
+sz = airloop.sizingSystem
+sz.setPreheatDesignTemperature(4.5)
+sz.setPrecoolDesignTemperature(11.0)
+sz.setCentralCoolingDesignSupplyAirTemperature(12.8)
+sz.setCentralHeatingDesignSupplyAirTemperature(16.7)
+sz.setAllOutdoorAirinCooling(false)
+sz.setAllOutdoorAirinHeating(false)
+sz.setCentralCoolingDesignSupplyAirHumidityRatio(0.008)
+sz.setCentralCoolingCapacityControlMethod('VAV')
+
 # Rename some nodes and such, for ease of debugging
-oa_sys.outboardOANode.get.setName("OA Inlet Node");
-oa_sys.outboardReliefNode.get.setName("OA Relief Node");
-oa_sys.reliefAirModelObject.get.setName("Return to OA System Node");
-oa_sys.outdoorAirModelObject.get.setName("OA System Outlet to Mixed Node");
+oa_sys.outboardOANode.get.setName('OA Inlet Node')
+oa_sys.outboardReliefNode.get.setName('OA Relief Node')
+oa_sys.reliefAirModelObject.get.setName('Return to OA System Node')
+oa_sys.outdoorAirModelObject.get.setName('OA System Outlet to Mixed Node')
 
 primary_coil.waterInletModelObject.get.setName("#{primary_coil.name} Water Inlet Node")
 primary_coil.waterOutletModelObject.get.setName("#{primary_coil.name} Water Outlet Node")
 # primary_coil.controllerWaterCoil.get.setName("#{primary_coil.name} Controller")
-
 
 ######
 
