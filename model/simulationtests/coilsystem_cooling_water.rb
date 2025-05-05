@@ -53,12 +53,11 @@ water_coil.setName('CoilSystemCoolingWater WaterSide CoolingCoil')
 
 # As a water-side economizer the CoilSystem:Cooling:Water object is placed upstream of packaged DX systems or chilled water main cooling coil
 # We have a Chilled water coil already, so let's keep it
-coil = airloop.supplyComponents(OpenStudio::Model::CoilCoolingWater.iddObjectType).first.to_CoilCoolingWater.get
-coil.setName('Central ChW Coil')
+central_cooling_coil = airloop.supplyComponents(OpenStudio::Model::CoilCoolingWater.iddObjectType).first.to_CoilCoolingWater.get
+central_cooling_coil.setName('Central ChW Coil')
 
 # Note that we connect the CoilSystem, NOT the underlying CoilCoolingWater
-coil_system.addToNode(coil.airInletModelObject.get.to_Node.get)
-plant = coil.plantLoop.get
+coil_system.addToNode(central_cooling_coil.airInletModelObject.get.to_Node.get)
 # But we have to connect the water_coil itself. Ideally this would be on a Condenser Loop, so let's get it
 cts = m.getCoolingTowerSingleSpeeds.sort_by { |c| c.name.to_s }
 condenser_loop = cts.first.plantLoop.get
@@ -68,17 +67,22 @@ condenser_loop.addDemandBranchForComponent(water_coil)
 airloop.supplyInletNode.setName("#{airloop.nameString} Supply Inlet Node")
 airloop.supplyOutletNode.setName("#{airloop.nameString} Supply Outlet Node")
 airloop.mixedAirNode.get.setName("#{airloop.nameString} Mixed Air Node")
-coil_system.outletModelObject.get.to_Node.get.setName("#{coil_system.nameString} Outlet to #{coil.nameString} Inlet Node")
+
+central_heating_coil = airloop.supplyComponents(OpenStudio::Model::CoilHeatingWater.iddObjectType).first.to_CoilHeatingWater.get
+central_heating_coil.setName('Central HW Coil')
+coil_system.outletModelObject.get.to_Node.get.setName("#{coil_system.nameString} Air Outlet to #{central_cooling_coil.nameString} Inlet Node")
+central_cooling_coil.airOutletModelObject.get.to_Node.get.setName("#{central_cooling_coil.nameString} Air Outlet to #{central_heating_coil.nameString} Inlet Node")
 
 water_coil.waterInletModelObject.get.setName("#{water_coil.nameString} Water Inlet Node")
 water_coil.waterOutletModelObject.get.setName("#{water_coil.nameString} Water Outlet Node")
 # water_coil.controllerWaterCoil.get.setName("#{water_coil.name} Controller")
 
-heating_coil = airloop.supplyComponents(OpenStudio::Model::CoilHeatingWater.iddObjectType).first.to_CoilHeatingWater.get
-heating_coil.waterInletModelObject.get.setName("#{airloop.nameString} Heating Coil Water Inlet Node")
-heating_coil.waterOutletModelObject.get.setName("#{airloop.nameString} Heating Coil Water Outlet Node")
-heating_coil.controllerWaterCoil.get.setName("#{airloop.nameString} Heating Coil Controller")
-heating_coil.airOutletModelObject.get.setName("#{airloop.nameString} Heating Coil Air Outlet to Fan Inlet Node")
+fan = airloop.supplyFan.get
+fan.setName("Supply Fan")
+
+central_heating_coil.waterOutletModelObject.get.setName("#{airloop.nameString} Heating Coil Water Outlet Node")
+central_heating_coil.controllerWaterCoil.get.setName("#{airloop.nameString} Heating Coil Controller")
+central_heating_coil.airOutletModelObject.get.setName("#{central_heating_coil.nameString} Air Outlet to #{fan.nameString} Inlet Node")
 
 ######
 
@@ -124,7 +128,7 @@ coil_sys.setCompanionCoilUsedForHeatRecovery(companion_coil)
 coil_sys.setMinimumWaterLoopTemperatureForHeatRecovery(3)
 
 coil_sys.addToNode(oa_sys.outboardOANode.get)
-companion_coil.addToNode(oa_sys.reliefAirModelObject.get.to_Node.get)
+companion_coil.addToNode(oa_sys.outboardReliefNode.get)
 
 # connect to plant loop
 hr_loop.addDemandBranchForComponent(primary_coil)
@@ -150,20 +154,15 @@ hr_loop_spm.setName('OA Air Temp Manager HR3')
 hr_loop_spm.addToNode(hr_loop.loopTemperatureSetpointNode)
 
 # Rename some nodes and such, for ease of debugging
-airloop.supplyInletNode.setName("#{airloop.name} Supply Inlet Node")
-airloop.supplyOutletNode.setName("#{airloop.name} Supply Outlet Node")
-airloop.mixedAirNode.get.setName("#{airloop.name} Mixed Air Node")
-coil_system.outletModelObject.get.to_Node.get.setName("#{airloop.name} Outlet to Heating Coil Inlet Node")
+oa_sys.outboardOANode.get.setName("OA Inlet Node");
+oa_sys.outboardReliefNode.get.setName("OA Relief Node");
+oa_sys.reliefAirModelObject.get.setName("Return to OA System Node");
+oa_sys.outdoorAirModelObject.get.setName("OA System Outlet to Mixed Node");
 
 primary_coil.waterInletModelObject.get.setName("#{primary_coil.name} Water Inlet Node")
 primary_coil.waterOutletModelObject.get.setName("#{primary_coil.name} Water Outlet Node")
 # primary_coil.controllerWaterCoil.get.setName("#{primary_coil.name} Controller")
 
-heating_coil = airloop.supplyComponents(OpenStudio::Model::CoilHeatingWater.iddObjectType).first.to_CoilHeatingWater.get
-heating_coil.waterInletModelObject.get.setName("#{airloop.name} Heating Coil Water Inlet Node")
-heating_coil.waterOutletModelObject.get.setName("#{airloop.name} Heating Coil Water Outlet Node")
-heating_coil.controllerWaterCoil.get.setName("#{airloop.name} Heating Coil Controller")
-heating_coil.airOutletModelObject.get.setName("#{airloop.name} Heating Coil Air Outlet to Fan Inlet Node")
 
 ######
 
