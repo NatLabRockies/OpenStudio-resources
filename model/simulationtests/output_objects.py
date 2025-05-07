@@ -88,5 +88,13 @@ output_table.addSummaryReports(["OutdoorAirSummary", "ObjectCountSummary"])
 # output_table.getSummaryReport(1).get == "AdaptiveComfortSummary"
 # output_table.summaryReportIndex("AdaptiveComfortSummary").get == 1
 
+###############################################################################
+#                       OUTPUTCONTROL:RESILIENCESUMMARIES                     #
+###############################################################################
+if openstudio.VersionString(openstudio.openStudioVersion()) > openstudio.VersionString("3.9.0"):
+    output_table.addSummaryReport("ThermalResilienceSummary")
+    output_rs = model.getOutputControlResilienceSummaries()
+    output_rs.setHeatIndexAlgorithm("Extended")  # Default is 'Simplified'
+
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm(osm_save_directory=None, osm_name="in.osm")

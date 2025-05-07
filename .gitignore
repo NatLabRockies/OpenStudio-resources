@@ -27,10 +27,10 @@ test/*out_*.sqltest
 test/*out_*.xml
 # TODO: keep updating as new versions are incoming
 # We do not commit the current develop version until it's final
-test/*_3.9.0*_out.osw
-test/*_3.9.0*_out*.status
-test/*_3.9.0*_out.sqltest
-test/*_3.9.0*_out*.xml
+test/*_3.10.0*_out.osw
+test/*_3.10.0*_out*.status
+test/*_3.10.0*_out.sqltest
+test/*_3.10.0*_out*.xml
 # Ignore alphas and rcs. CI will force add anything under test/ so it's unaffected
 test/*_[0-9].[0-9].[0-9]-*_out*
 

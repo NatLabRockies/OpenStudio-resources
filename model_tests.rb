@@ -425,14 +425,27 @@ class ModelTests < Minitest::Test
     result = sim_test('coilsystem_integrated_heatpump.osm')
   end
 
-  # TODO: To be added in the next official release after: 3.8.0
-  # def test_controller_outdoorair_osm
-  # result = sim_test('controller_outdoorair.osm')
+  def test_coilsystem_cooling_water_rb
+    result = sim_test('coilsystem_cooling_water.rb')
+  end
+
+  def test_coilsystem_cooling_water_py
+    result = sim_test('coilsystem_cooling_water.py')
+  end
+
+  # TODO: To be added in the next official release after: 3.9.0
+  # def test_coilsystem_cooling_water_osm
+  # result = sim_test('coilsystem_cooling_water.osm')
   # end
 
   def test_controller_outdoorair_rb
     result = sim_test('controller_outdoorair.rb')
   end
+
+  # TODO: To be added in the next official release after: 3.8.0
+  # def test_controller_outdoorair_osm
+  # result = sim_test('controller_outdoorair.osm')
+  # end
 
   def test_coolingtowers_osm
     result = sim_test('coolingtowers.osm')
@@ -962,10 +975,9 @@ class ModelTests < Minitest::Test
     result = sim_test('heatpump_plantloop_eir_heatrecovery.py')
   end
 
-  # TODO: To be added in the next official release after: 3.8.0
-  # def test_heatpump_plantloop_eir_heatrecovery_osm
-  #   result = sim_test('heatpump_plantloop_eir_heatrecovery.osm')
-  # end
+  def test_heatpump_plantloop_eir_heatrecovery_osm
+    result = sim_test('heatpump_plantloop_eir_heatrecovery.osm')
+  end
 
   def test_heatpump_varspeed_rb
     result = sim_test('heatpump_varspeed.rb')
@@ -1360,6 +1372,19 @@ class ModelTests < Minitest::Test
   def test_output_objects_2_osm
     result = sim_test('output_objects_2.osm')
   end
+
+  def test_output_tables_rb
+    result = sim_test('output_tables.rb')
+  end
+
+  def test_output_tables_py
+    result = sim_test('output_tables.py')
+  end
+
+  # TODO: To be added in the next official release after: 3.9.0
+  # def test_output_tables_osm
+  #   result = sim_test('output_tables.osm')
+  # end
 
   def test_performanceprecisiontradeoffs_rb
     result = sim_test('performanceprecisiontradeoffs.rb')
@@ -2156,6 +2181,19 @@ class ModelTests < Minitest::Test
   def test_zone_hvac_cooling_panel_osm
     result = sim_test('zone_hvac_cooling_panel.osm')
   end
+
+  def test_zone_hvac_evaporative_cooler_rb
+    result = sim_test('zone_hvac_evaporative_cooler.rb')
+  end
+
+  def test_zone_hvac_evaporative_cooler_py
+    result = sim_test('zone_hvac_evaporative_cooler.py')
+  end
+
+  # TODO: To be added in the next official release after: 3.9.0
+  # def test_zone_hvac_evaporative_cooler_osm
+  #   result = sim_test('zone_hvac_evaporative_cooler.osm')
+  # end
 
   def test_zone_hvac_equipment_list_rb
     result = sim_test('zone_hvac_equipment_list.rb')
