@@ -1804,7 +1804,12 @@ class ModelTests < Minitest::Test
     assert_equal('Zone with 5 Spaces DSOA Space List', atu.getString(dsoa_field_idx).get)
 
     cp_out_osw = File.join($OutOSWDir, "#{filename}_#{$SdkVersion}_out#{$Custom_tag}.osw")
-    compare_osw_eui_with_previous_version(cp_out_osw)
+    # We know it was broken between 3.5.0 and 3.10.0
+    eui_pct_threshold = 0.5
+    if Gem::Version.new($SdkVersion) >= Gem::Version.new('3.5.0') && Gem::Version.new($SdkVersion) <= Gem::Version.new('3.10.0')
+      eui_pct_threshold = 200.0
+    end
+    compare_osw_eui_with_previous_version(cp_out_osw, eui_pct_threshold: eui_pct_threshold)
   end
 
   def test_space_level_dsoa_rb

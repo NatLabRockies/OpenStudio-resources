@@ -470,7 +470,7 @@ end
 # Will look for the previous one in there based on $SdkPreviousVersion
 # Will remove custom tags to find previous version, so that it uses the
 # previous **official** run
-def compare_osw_eui_with_previous_version(cp_out_osw)
+def compare_osw_eui_with_previous_version(cp_out_osw, eui_pct_threshold: $EuiPctThreshold)
   # We can't just replace the versions, in case there's a custom tag
   # which is almost guaranteed to not exist in the previous version
   # So instead, we try to compare to the last **official** run
@@ -493,7 +493,7 @@ def compare_osw_eui_with_previous_version(cp_out_osw)
 
   pct_diff = 100 * (new_eui - old_eui) / old_eui.to_f
 
-  assert (pct_diff < $EuiPctThreshold), "#{pct_diff.round(3)}% difference in EUI is too large for #{cp_out_osw}" \
+  assert (pct_diff < eui_pct_threshold), "#{pct_diff.round(3)}% difference in EUI is too large for #{cp_out_osw}" \
                                         " between #{$SdkPreviousVersion} and #{$SdkVersion}"
 end
 
