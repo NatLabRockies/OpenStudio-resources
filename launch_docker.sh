@@ -13,6 +13,18 @@ source colors.sh
 # Switch this to true to debug.
 verbose=false
 
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*)     machine=Linux;;
+  Darwin*)    machine=Darwin;;
+  CYGWIN*|MINGW*|MSYS*)    machine=Windows;;
+  *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ "$(arch)" == "arm64" ]]; then
+  platform="--platform linux/amd64"
+fi
+
 ########################################################################################
 
 # Verbosity
@@ -31,9 +43,9 @@ if [[ "$(uname)" = MINGW* ]]; then
   fi
   docker()
   {
-	export MSYS_NO_PATHCONV=1
-	("docker.exe" "$@")
-	export MSYS_NO_PATHCONV=0
+    export MSYS_NO_PATHCONV=1
+    ("docker.exe" "$@")
+    export MSYS_NO_PATHCONV=0
   }
 fi
 
@@ -231,11 +243,11 @@ function cleanup() {
   stop_running_container "$mongo_container_name" "$mongo_container_str" N
 
 
-  if [[ "$(uname)" != MINGW* ]]; then
-	echo
-	echo -e "${On_Blue}Fixing ownership: setting it to user=$USER and chmod=664 (requires sudo)${Color_Off}"
-	sudo chown -R $USER *
-	sudo find ./test/ -type f -exec chmod 664 {} \;
+  if [[ $machine == Linux ]]; then
+    echo
+    echo -e "${On_Blue}Fixing ownership: setting it to user=$USER and chmod=664 (requires sudo)${Color_Off}"
+    sudo chown -R $USER:$USER ./test/
+    sudo find ./test/ -type f -exec chmod 664 {} \;
   fi
 
   exit $1
@@ -326,7 +338,7 @@ if [ -z $(docker images -q $os_image_name) ]; then
   fi
 
   echo -e "* Building the $os_image_str from Dockerfile"
-  docker build -t $os_image_name .
+  docker build $platform -t $os_image_name .
 
 else
   echo -e "The docker $os_image_str already exists"
@@ -337,7 +349,7 @@ else
   then
     echo -e "* Rebuilding the image $os_image_str from Dockerfile"
     docker rmi $os_image_name > $OUT
-    docker build -t $os_image_name .
+    docker build $platform -t $os_image_name .
   fi
   echo
 fi
@@ -355,9 +367,10 @@ fi
 echo -e "* Launching the $os_container_str"
 if [ "$use_mongo" = true ]; then
   # Launch, with link to the mongo one
-  docker run --name $os_container_name --link $mongo_container_name:mongo -v `pwd`/test:/root/test -d -it --rm $os_image_name /bin/bash > $OUT
+  docker run $platform --name $os_container_name --link $mongo_container_name:mongo -v `pwd`/test:/var/simdata/openstudio/OpenStudio-resources -d -it --rm $os_image_name /bin/bash > $OUT
 else
-  docker run --name $os_container_name -v `pwd`/test:/root/test -d -it --rm $os_image_name /bin/bash > $OUT
+  # docker run $platform --name $os_container_name -v `pwd`/test:/root/test -d -it --rm $os_image_name /bin/bash > $OUT
+  docker run $platform --name $os_container_name -v `pwd`/test:/var/simdata/openstudio/OpenStudio-resources/test -d -it --rm $os_image_name /bin/bash > $OUT
 fi
 
 # Chmod execute the script
@@ -400,9 +413,9 @@ echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Nn]$ ]]
 then
   if [[ "$(uname)" = MINGW* ]]; then
-	winpty docker attach $os_container_name
+    winpty docker attach $os_container_name
   else
-	docker attach $os_container_name
+    docker attach $os_container_name
   fi
 fi
 
@@ -410,6 +423,3 @@ fi
 
 # Run cleanup when normal execution
 cleanup 0
-
-
-
