@@ -1770,6 +1770,8 @@ class ModelTests < Minitest::Test
   # end
 
   def test_space_level_dsoa_py
+    # result = sim_test('space_level_dsoa.py')
+    # We're going to do it manually here, above line is just for CI to detect changed tests
     filename = 'space_level_dsoa.py'
     result_osw = sim_test(filename, { compare_eui: false })
     if $UseEplusSpaces == false
