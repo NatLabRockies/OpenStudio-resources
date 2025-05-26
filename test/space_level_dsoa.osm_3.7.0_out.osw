@@ -64,7 +64,7 @@
     "   ************* EnergyPlus Completed Successfully-- 20 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/var/simdata/openstudio/OpenStudio-resources/testruns/space_level_dsoa.py/generated_files",
+    "/var/simdata/openstudio/OpenStudio-resources/testruns/space_level_dsoa.osm/generated_files",
     "./files",
     "./weather",
     "../../files",

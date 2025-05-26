@@ -4,9 +4,8 @@ from lib.baseline_model import BaselineModel
 
 model = BaselineModel()
 
-# make a 1 story, 100m X 50m, 5 zone building
-model.add_geometry(length=100, width=50, num_floors=1, floor_to_floor_height=4, plenum_height=0, perimeter_zone_depth=3)
-
+# make a 1 story, 100m X 50m, 5 zone building, all zones are equally sized
+model.add_geometry(length=100, width=50, num_floors=5, floor_to_floor_height=3, plenum_height=0, perimeter_zone_depth=0)
 # NOTE: Make all spaces under a single zone
 [z.remove() for z in model.getThermalZones()]
 z = openstudio.model.ThermalZone(model)
@@ -54,7 +53,7 @@ for i, space in enumerate(spaces[:-1]):
     dsoa.setOutdoorAirFlowRate(0.01 * space.floorArea())
     dsoa.setName(f"{space.nameString()} DSOA")
     space.setDesignSpecificationOutdoorAir(dsoa)
-    print(f"For'{space.nameString()}' created '{dsoa.nameString()}'")
+    # print(f"For'{space.nameString()}' created '{dsoa.nameString()}'")
 
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm(osm_save_directory=None, osm_name="in.osm")

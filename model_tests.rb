@@ -1765,16 +1765,11 @@ class ModelTests < Minitest::Test
     result = sim_test('solar_collector_integralcollectorstorage.osm')
   end
 
-  # def test_space_level_dsoa_rb
-  #   result = sim_test('space_level_dsoa.rb')
-  # end
-
-  def test_space_level_dsoa_py
-    # result = sim_test('space_level_dsoa.py')
-    # We're going to do it manually here, above line is just for CI to detect changed tests
-    filename = 'space_level_dsoa.py'
+  def _helper_space_level_dsoa(filename:)
     result_osw = sim_test(filename, { compare_eui: false })
     if $UseEplusSpaces == false
+      cp_out_osw = File.join($OutOSWDir, "#{filename}_#{$SdkVersion}_out#{$Custom_tag}.osw")
+      compare_osw_eui_with_previous_version(cp_out_osw)
       return
     end
 
@@ -1812,9 +1807,22 @@ class ModelTests < Minitest::Test
     compare_osw_eui_with_previous_version(cp_out_osw)
   end
 
-  # def test_space_level_dsoa_osm
-  #   result = sim_test('space_level_dsoa.osm')
-  # end
+  def test_space_level_dsoa_rb
+    # result = sim_test('space_level_dsoa.rb')
+    # We're going to do it manually here, above line is just for CI to detect changed tests
+    _helper_space_level_dsoa(filename: 'space_level_dsoa.rb')
+  end
+
+  def test_space_level_dsoa_py
+    # result = sim_test('space_level_dsoa.py')
+    # We're going to do it manually here, above line is just for CI to detect changed tests
+    _helper_space_level_dsoa(filename: 'space_level_dsoa.py')
+  end
+
+  def test_space_level_dsoa_osm
+    # result = sim_test('space_level_dsoa.osm')
+    _helper_space_level_dsoa(filename: 'space_level_dsoa.osm')
+  end
 
   def test_space_load_instances_rb
     result = sim_test('space_load_instances.rb')
