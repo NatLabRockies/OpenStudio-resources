@@ -13,6 +13,8 @@
     "   ** Warning ** GetHTSurfaceData: Surfaces with interface to Ground found but no \"Ground Temperatures\" were input.",
     "   **   ~~~   ** Found first in surface=STORY 1 CORE SPACE EXTERIOR GROUND FLOOR",
     "   **   ~~~   ** Defaults, constant throughout the year of (18.0) will be used.",
+    "   ** Warning ** GetSurfaceData: Entered Zone Floor Area(s) differ more than 5% from the sum of the Space Floor Area(s).",
+    "   **   ~~~   ** ...use Output:Diagnostics,DisplayExtraWarnings; to show more details on individual zones.",
     "   ** Warning ** CheckUsedConstructions: There are 8 nominally unused constructions in input.",
     "   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;",
     "   ************* Beginning System Sizing Calculations",
@@ -59,11 +61,11 @@
     "   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).",
     "   *************",
     "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
-    "   ************* EnergyPlus Sizing Error Summary. During Sizing: 9 Warning; 0 Severe Errors.",
-    "   ************* EnergyPlus Completed Successfully-- 19 Warning; 0 Severe Errors; "
+    "   ************* EnergyPlus Sizing Error Summary. During Sizing: 10 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Completed Successfully-- 20 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/space_level_dsoa.py/generated_files",
+    "/Users/julien/Software/Others/OpenStudio-resources/testruns/space_level_dsoa.py/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -199,32 +201,32 @@
           {
             "name": "total_site_energy",
             "units": "kBtu",
-            "value": 36080506.93
+            "value": 120702605.16
           },
           {
             "name": "net_site_energy",
             "units": "kBtu",
-            "value": 36080506.93
+            "value": 120702605.16
           },
           {
             "name": "total_building_area",
             "units": "ft^2",
-            "value": 53819.55
+            "value": 269097.76
           },
           {
             "name": "total_site_eui",
             "units": "kBtu/ft^2",
-            "value": 670.4
+            "value": 448.55
           },
           {
             "name": "eui",
             "units": "kBtu/ft^2",
-            "value": 670.4
+            "value": 448.55
           },
           {
             "name": "unmet_hours_during_heating",
             "units": "hr",
-            "value": 6091.75
+            "value": 7325.5
           },
           {
             "name": "unmet_hours_during_cooling",
@@ -234,7 +236,7 @@
           {
             "name": "unmet_hours_during_occupied_heating",
             "units": "hr",
-            "value": 2725.5
+            "value": 3837.75
           },
           {
             "name": "unmet_hours_during_occupied_cooling",
@@ -254,17 +256,17 @@
           {
             "name": "end_use_heating",
             "units": "kBtu",
-            "value": 30663627.83
+            "value": 97600880.32
           },
           {
             "name": "end_use_cooling",
             "units": "kBtu",
-            "value": 2143848.59
+            "value": 8823220.09
           },
           {
             "name": "end_use_interior_lighting",
             "units": "kBtu",
-            "value": 522304.1
+            "value": 2611539.47
           },
           {
             "name": "end_use_exterior_lighting",
@@ -274,7 +276,7 @@
           {
             "name": "end_use_interior_equipment",
             "units": "kBtu",
-            "value": 522304.1
+            "value": 2611539.47
           },
           {
             "name": "end_use_exterior_equipment",
@@ -284,17 +286,17 @@
           {
             "name": "end_use_fans",
             "units": "kBtu",
-            "value": 1200846.38
+            "value": 4942752.54
           },
           {
             "name": "end_use_pumps",
             "units": "kBtu",
-            "value": 673386.15
+            "value": 2654740.97
           },
           {
             "name": "end_use_heat_rejection",
             "units": "kBtu",
-            "value": 354180.3
+            "value": 1457913.34
           },
           {
             "name": "end_use_humidification",
@@ -324,12 +326,12 @@
           {
             "name": "fuel_electricity",
             "units": "kBtu",
-            "value": 5416869.62
+            "value": 23101715.36
           },
           {
             "name": "fuel_natural_gas",
             "units": "kBtu",
-            "value": 30663627.83
+            "value": 97600880.32
           },
           {
             "name": "fuel_gasoline",
@@ -394,12 +396,12 @@
           {
             "name": "end_use_electricity_cooling",
             "units": "kWh",
-            "value": 628300.0
+            "value": 2585830.56
           },
           {
             "name": "end_use_electricity_interior_lighting",
             "units": "kWh",
-            "value": 153072.22
+            "value": 765366.67
           },
           {
             "name": "end_use_electricity_exterior_lighting",
@@ -409,7 +411,7 @@
           {
             "name": "end_use_electricity_interior_equipment",
             "units": "kWh",
-            "value": 153072.22
+            "value": 765366.67
           },
           {
             "name": "end_use_electricity_exterior_equipment",
@@ -419,17 +421,17 @@
           {
             "name": "end_use_electricity_fans",
             "units": "kWh",
-            "value": 351933.33
+            "value": 1448577.78
           },
           {
             "name": "end_use_electricity_pumps",
             "units": "kWh",
-            "value": 197350.0
+            "value": 778027.78
           },
           {
             "name": "end_use_electricity_heat_rejection",
             "units": "kWh",
-            "value": 103800.0
+            "value": 427272.22
           },
           {
             "name": "end_use_electricity_humidification",
@@ -459,7 +461,7 @@
           {
             "name": "end_use_natural_gas_heating",
             "units": "therms",
-            "value": 306695.44
+            "value": 976197.12
           },
           {
             "name": "end_use_natural_gas_cooling",
@@ -534,12 +536,12 @@
           {
             "name": "electricity_cooling_ip",
             "units": "kWh",
-            "value": 628299.02
+            "value": 2585831.0
           },
           {
             "name": "electricity_interior_lighting_ip",
             "units": "kWh",
-            "value": 153073.56
+            "value": 765367.5
           },
           {
             "name": "electricity_exterior_lighting_ip",
@@ -549,7 +551,7 @@
           {
             "name": "electricity_interior_equipment_ip",
             "units": "kWh",
-            "value": 153073.56
+            "value": 765367.5
           },
           {
             "name": "electricity_exterior_equipment_ip",
@@ -559,17 +561,17 @@
           {
             "name": "electricity_fans_ip",
             "units": "kWh",
-            "value": 351930.86
+            "value": 1448579.44
           },
           {
             "name": "electricity_pumps_ip",
             "units": "kWh",
-            "value": 197349.75
+            "value": 778029.19
           },
           {
             "name": "electricity_heat_rejection_ip",
             "units": "kWh",
-            "value": 103800.73
+            "value": 427271.94
           },
           {
             "name": "electricity_humidification_ip",
@@ -599,12 +601,12 @@
           {
             "name": "electricity_ip",
             "units": "kWh",
-            "value": 1587527.47
+            "value": 6770446.57
           },
           {
             "name": "natural_gas_heating_ip",
             "units": "MBtu",
-            "value": 30663.63
+            "value": 97600.86
           },
           {
             "name": "natural_gas_cooling_ip",
@@ -674,7 +676,7 @@
           {
             "name": "natural_gas_ip",
             "units": "MBtu",
-            "value": 30663.63
+            "value": 97600.86
           },
           {
             "name": "gasoline_heating_ip",
@@ -1584,12 +1586,12 @@
           {
             "name": "ashrae_189_1_2009_ext_wall_steel_frame_climate_zone_4_8",
             "units": "ft^2",
-            "value": 7750.02
+            "value": 29062.56
           },
           {
             "name": "ashrae_189_1_2009_ext_window_climate_zone_4_5",
             "units": "ft^2",
-            "value": 5166.68
+            "value": 19375.04
           },
           {
             "name": "gross_window_wall_ratio",
@@ -1609,7 +1611,7 @@
           {
             "name": "space_type_baseline_model_space_type",
             "units": "ft^2",
-            "value": 53819.55
+            "value": 269097.76
           },
           {
             "name": "exterior_lighting_total_power",
@@ -1619,7 +1621,7 @@
           {
             "name": "exterior_lighting_total_consumption",
             "units": "kWh",
-            "value": 10574152.78
+            "value": 35374441.67
           },
           {
             "name": "inflation_approach",
@@ -1633,7 +1635,7 @@
           {
             "name": "annual_peak_electric_demand",
             "units": "kW",
-            "value": 605.02
+            "value": 2576.78
           },
           {
             "name": "first_year_capital_cost",

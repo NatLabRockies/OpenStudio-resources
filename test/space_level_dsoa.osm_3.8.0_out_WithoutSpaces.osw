@@ -63,7 +63,7 @@
     "   ************* EnergyPlus Completed Successfully-- 18 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/Users/julien/Software/Others/OpenStudio-resources/testruns/space_level_dsoa.py/generated_files",
+    "/Users/julien/Software/Others/OpenStudio-resources/testruns/space_level_dsoa.osm/generated_files",
     "./files",
     "./weather",
     "../../files",
