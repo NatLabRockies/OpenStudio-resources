@@ -48,10 +48,11 @@ spaces = sorted(model.getSpaces(), key=lambda s: s.nameString())
 
 # Create a Design Specification Outdoor Air for each space, but the last one
 for i, space in enumerate(spaces[:-1]):
+    # Create a Design Specification Outdoor Air object for each space
+    # We set it as an absolute outdoor air flow rate but as 0.01 m3/s per m2 of floor area
     dsoa = openstudio.model.DesignSpecificationOutdoorAir(model)
-    dsoa_ach = 0.1 * (i+1)
-    dsoa.setOutdoorAirFlowAirChangesperHour(dsoa_ach)
-    dsoa.setName(f"{space.nameString()} DSOA {dsoa_ach:.1f} ACH")
+    dsoa.setOutdoorAirFlowRate(0.01 * space.floorArea())
+    dsoa.setName(f"{space.nameString()} DSOA")
     space.setDesignSpecificationOutdoorAir(dsoa)
     print(f"For'{space.nameString()}' created '{dsoa.nameString()}'")
 
