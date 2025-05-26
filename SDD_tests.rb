@@ -725,6 +725,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('solar_collector_integralcollectorstorage.osm')
   end
 
+  def test_FT_space_level_dsoa
+    sdd_ft_test('space_level_dsoa.osm')
+  end
+
   def test_FT_space_load_instances
     sdd_ft_test('space_load_instances.osm')
   end
