@@ -26,7 +26,10 @@ class HighLevelTests < Minitest::Test
     missing_osms = all_model_filenames - osms_in_sim_test
 
     # These are the OSMS we expect NOT to find in a sim_test
-    expected_sim_missing = []
+    expected_sim_missing = [
+      # Unusual structure
+      'space_level_dsoa.osm'
+    ]
     missing_osms -= expected_sim_missing
 
     assert missing_osms.empty?, "Error in model_tests.rb: The following OSMs are not in any sim_tests:\n  * #{missing_osms.join("\n  * ")}"
@@ -48,7 +51,8 @@ class HighLevelTests < Minitest::Test
       'autosize_hvac.rb',
       # This one has an unusual structure, and I don't feel like playing with the
       # regex above any more
-      'outputcontrol_files.rb'
+      'outputcontrol_files.rb',
+      'space_level_dsoa.rb'
     ]
 
     missing_rbs -= expected_sim_missing
@@ -68,7 +72,8 @@ class HighLevelTests < Minitest::Test
     missing_pys = all_python_filenames - pys_in_sim_test
 
     expected_sim_missing = [
-      'outputcontrol_files.py'
+      'outputcontrol_files.py',
+      'space_level_dsoa.py'
     ]
     missing_pys -= expected_sim_missing
 
