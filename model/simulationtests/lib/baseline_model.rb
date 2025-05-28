@@ -30,6 +30,7 @@ class BaselineModel < OpenStudio::Model::Model
       return false
     end
 
+    # TODO: plenum_height does not create a Plenum!
     if plenum_height < 0
       return false
     end
@@ -361,7 +362,7 @@ class BaselineModel < OpenStudio::Model::Model
           hvac = hvac.to_AirLoopHVAC.get
           hvac.addBranchForZone(zone)
           outlet_node = hvac.supplyOutletNode
-          setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+          setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
           # Set appropriate min/max temperatures (matches Zone Heat/Cool
           # sizing parameters)
           setpoint_manager.setMinimumSupplyAirTemperature(14)
@@ -375,7 +376,7 @@ class BaselineModel < OpenStudio::Model::Model
           hvac = hvac.to_AirLoopHVAC.get
           hvac.addBranchForZone(zone)
           outlet_node = hvac.supplyOutletNode
-          setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+          setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
           setpoint_manager.setControlZone(zone)
         end
       # 5: Packaged VAV w/ Reheat
@@ -413,7 +414,7 @@ class BaselineModel < OpenStudio::Model::Model
           hvac = hvac.to_AirLoopHVAC.get
           hvac.addBranchForZone(zone)
           outlet_node = hvac.supplyOutletNode
-          setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+          setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
           setpoint_manager.setControlZone(zone)
         end
       # 10: Warm air furnace, electric
@@ -423,7 +424,7 @@ class BaselineModel < OpenStudio::Model::Model
           hvac = hvac.to_AirLoopHVAC.get
           hvac.addBranchForZone(zone)
           outlet_node = hvac.supplyOutletNode
-          setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+          setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
           setpoint_manager.setControlZone(zone)
         end
       # if system number is not recognized
@@ -453,10 +454,14 @@ class BaselineModel < OpenStudio::Model::Model
     building.setDefaultConstructionSet(default_construction_set)
 
     # get the air wall
-    construction_library.getConstructions.each do |c|
-      if c.name.to_s.strip == 'Air_Wall'
-        c.clone(self)
-        break
+    if Gem::Version.new(OpenStudio.openStudioVersion) > Gem::Version.new('3.4.0')
+      construction_library.getConstructionAirBoundarys.first.clone(self)
+    else
+      construction_library.getConstructions.each do |c|
+        if c.name.to_s.strip == 'Air_Wall'
+          c.clone(self)
+          break
+        end
       end
     end
   end
@@ -1242,18 +1247,18 @@ class BaselineModel < OpenStudio::Model::Model
   end
 
   # NOTE: Not in the least complete, but I don't need it right now
-  def renames_air_nodes
+  def rename_air_nodes
     # Rename some nodes and such, for ease of debugging
     getAirLoopHVACs.each do |a|
       a.supplyInletNode.setName("#{a.name} Supply Inlet Node")
       a.supplyOutletNode.setName("#{a.name} Supply Outlet Node")
       a.mixedAirNode.get.setName("#{a.name} Mixed Air Node")
-
-      # Rename Zone Air Nodes
-      getThermalZones.each { |z| z.zoneAirNode.setName("#{z.name} Zone Air Node") }
-
-      # Rename thermostats
-      getThermostatSetpointDualSetpoints.each { |t| t.setName("#{t.thermalZone.get.name} ThermostatSetpointDualSetpoint") }
     end
+
+    # Rename Zone Air Nodes
+    getThermalZones.each { |z| z.zoneAirNode.setName("#{z.name} Zone Air Node") }
+
+    # Rename thermostats
+    getThermostatSetpointDualSetpoints.each { |t| t.setName("#{t.thermalZone.get.name} ThermostatSetpointDualSetpoint") }
   end
 end

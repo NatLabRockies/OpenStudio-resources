@@ -40,6 +40,9 @@ air_systems.each do |s|
   oa_node = s.airLoopHVACOutdoorAirSystem.get.outboardOANode.get
 
   hx = OpenStudio::Model::HeatExchangerAirToAirSensibleAndLatent.new(model)
+  if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('3.8.0')
+    hx.assignHistoricalEffectivenessCurves
+  end
 
   hx.addToNode(oa_node)
 

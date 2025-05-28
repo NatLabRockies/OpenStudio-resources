@@ -139,6 +139,19 @@ module OsLib_Reporting
     return html_out_path
   end
 
+  # hard code fuel types (for E+ 9.4 shouldn't have it twice, should eventually come form OS)
+  def self.fuel_type_names(extended = false)
+    # get short or extended list (not using now)
+    fuel_types = []
+    OpenStudio::EndUseFuelType.getValues.each do |fuel_type|
+      # convert integer to string
+      fuel_name = OpenStudio::EndUseFuelType.new(fuel_type).valueDescription
+      next if fuel_name == 'Water'
+      fuel_types << fuel_name
+    end
+    return fuel_types
+  end
+
   # clean up unkown strings used for runner.registerValue names
   def self.reg_val_string_prep(string)
     # replace non alpha-numberic characters with an underscore
@@ -491,17 +504,16 @@ module OsLib_Reporting
     OpenStudio::EndUseCategoryType.getValues.each do |end_use|
       # get end uses
       end_use = OpenStudio::EndUseCategoryType.new(end_use).valueDescription
-      query_elec = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' and TableName='End Uses' and RowName= '#{end_use}' and ColumnName= 'Electricity'"
-      query_gas = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' and TableName='End Uses' and RowName= '#{end_use}' and ColumnName= 'Natural Gas'"
-      query_add = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' and TableName='End Uses' and RowName= '#{end_use}' and ColumnName= 'Additional Fuel'"
-      query_dc = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' and TableName='End Uses' and RowName= '#{end_use}' and ColumnName= 'District Cooling'"
-      query_dh = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' and TableName='End Uses' and RowName= '#{end_use}' and ColumnName= 'District Heating'"
-      results_elec = sqlFile.execAndReturnFirstDouble(query_elec).get
-      results_gas = sqlFile.execAndReturnFirstDouble(query_gas).get
-      results_add = sqlFile.execAndReturnFirstDouble(query_add).get
-      results_dc = sqlFile.execAndReturnFirstDouble(query_dc).get
-      results_dh = sqlFile.execAndReturnFirstDouble(query_dh).get
-      total_end_use = results_elec + results_gas + results_add + results_dc + results_dh
+
+      # loop through fuels
+      total_end_use = 0.0
+      fuel_type_names.each do |fuel_type|
+        query_fuel = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' and TableName='End Uses' and RowName= '#{end_use}' and ColumnName= '#{fuel_type}'"
+        results_fuel = sqlFile.execAndReturnFirstDouble(query_fuel).get
+        total_end_use += results_fuel
+      end
+
+      # convert value and populate table
       value = OpenStudio.convert(total_end_use, 'GJ', target_units).get
       value_neat = OpenStudio.toNeatString(value, 0, true)
       output_data_end_use[:data] << [end_use, value_neat]
@@ -1469,7 +1481,12 @@ module OsLib_Reporting
           if use_old_gem_code
             shgc = construction_root.calculated_solar_heat_gain_coefficient
           else
-            shgc = std.construction_calculated_solar_heat_gain_coefficient(construction_root)
+            if std.respond_to?('construction_calculated_solar_heat_gain_coefficient')
+              shgc = std.construction_calculated_solar_heat_gain_coefficient(construction_root)
+            else
+              # 0.6.0+
+              shgc = OpenstudioStandards::Constructions.construction_get_solar_transmittance(surface_construction)
+            end
           end
           shgc_neat = OpenStudio.toNeatString(shgc, 2, false)
           if use_old_gem_code

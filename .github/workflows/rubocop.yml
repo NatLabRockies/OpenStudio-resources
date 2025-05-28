@@ -16,26 +16,26 @@ on:
 
 jobs:
   rubocop:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     steps:
     - name: Checkout for PR
       if: ${{ github.event_name == 'pull_request' }}
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         ref: ${{ github.event.pull_request.head.sha }}  # Checkout the PR branch instead of the merge commit
 
     - name: Checkout for push
       if: ${{ github.event_name != 'pull_request' }}
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    - uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         ruby-version: '2.7'
 
-    - uses: actions/setup-python@v2
+    - uses: actions/setup-python@v5
       with:
-        python-version: '3.8'
+        python-version: '3.12.2'
 
     - name: Run rubocop
       id: rubocop

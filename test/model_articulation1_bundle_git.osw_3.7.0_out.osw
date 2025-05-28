@@ -1,0 +1,116 @@
+{
+  "completed_status": "Fail",
+  "current_step": 0,
+  "file_paths": [
+    "/home/julien/Software/Others/OpenStudio-resources/testruns/model_articulation1_bundle_git.osw/generated_files",
+    "../../weatherdata",
+    "./files",
+    "./weather",
+    "../../files",
+    "../../weather",
+    "./"
+  ],
+  "measure_paths": [
+    "../../measures"
+  ],
+  "root": null,
+  "run_directory": null,
+  "run_options": {
+    "debug": true,
+    "preserve_run_dir": true
+  },
+  "seed_file": null,
+  "steps": [
+    {
+      "arguments": {
+      },
+      "measure_dir_name": "gem_env_report",
+      "name": "gem_env_report"
+    },
+    {
+      "arguments": {
+        "__SKIP__": false,
+        "climate_zone": "5B",
+        "weather_file_name": "USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+      },
+      "measure_dir_name": "ChangeBuildingLocation"
+    },
+    {
+      "arguments": {
+        "__SKIP__": false,
+        "bar_division_method": "Single Space Type - Core and Perimeter",
+        "bldg_type_a": "SmallOffice",
+        "bldg_type_a_num_units": 1,
+        "bldg_type_b": "SmallOffice",
+        "bldg_type_b_fract_bldg_area": 0,
+        "bldg_type_b_num_units": 0,
+        "bldg_type_c": "SmallOffice",
+        "bldg_type_c_fract_bldg_area": 0,
+        "bldg_type_c_num_units": 0,
+        "bldg_type_d": "SmallOffice",
+        "bldg_type_d_fract_bldg_area": 0,
+        "bldg_type_d_num_units": 0,
+        "building_rotation": 0,
+        "floor_height": 0,
+        "ns_to_ew_ratio": 1.1478834930486188,
+        "num_stories_above_grade": 1,
+        "num_stories_below_grade": 0,
+        "party_wall_fraction": 0,
+        "story_multiplier": "Basements Ground Mid Top",
+        "template": "90.1-2007",
+        "total_bldg_floor_area": 1235,
+        "wwr": 0
+      },
+      "measure_dir_name": "create_bar_from_building_type_ratios"
+    },
+    {
+      "arguments": {
+        "add_constructions": true,
+        "add_elevators": false,
+        "add_exhaust": true,
+        "add_exterior_lights": false,
+        "add_hvac": true,
+        "add_space_type_loads": true,
+        "add_swh": true,
+        "clg_src": "Electricity",
+        "exterior_lighting_zone": "3 - All Other Areas",
+        "htg_src": "NaturalGas",
+        "hvac_delivery_type": "Forced Air",
+        "kitchen_makeup": "Adjacent",
+        "onsite_parking_fraction": 1,
+        "remove_objects": false,
+        "system_type": "PSZ-AC with gas coil heat",
+        "template": "90.1-2007"
+      },
+      "measure_dir_name": "create_typical_building_from_model"
+    },
+    {
+      "arguments": {
+        "__SKIP__": false,
+        "air_loops_detail_section": true,
+        "annual_overview_section": true,
+        "building_summary_section": true,
+        "cost_summary_section": true,
+        "envelope_section_section": true,
+        "exterior_light_section": true,
+        "hvac_load_profile": true,
+        "interior_lighting_section": true,
+        "monthly_overview_section": true,
+        "outdoor_air_section": true,
+        "plant_loops_detail_section": true,
+        "plug_loads_section": true,
+        "schedules_overview_section": true,
+        "source_energy_section": true,
+        "space_type_breakdown_section": true,
+        "space_type_details_section": true,
+        "utility_bills_rates_section": true,
+        "water_use_section": true,
+        "zone_condition_section": true,
+        "zone_equipment_detail_section": true,
+        "zone_summary_section": true
+      },
+      "measure_dir_name": "openstudio_results"
+    }
+  ],
+  "weather_file": null
+}

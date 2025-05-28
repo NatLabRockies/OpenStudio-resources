@@ -252,6 +252,9 @@ zones.each_with_index do |z, i|
     exhaustFan = OpenStudio::Model::FanSystemModel.new(model)
 
     heatExchanger = OpenStudio::Model::HeatExchangerAirToAirSensibleAndLatent.new(model)
+    if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('3.8.0')
+      heatExchanger.assignHistoricalEffectivenessCurves
+    end
     heatExchanger.setSupplyAirOutletTemperatureControl(false)
 
     zoneHVACEnergyRecoveryVentilator = OpenStudio::Model::ZoneHVACEnergyRecoveryVentilator.new(model, heatExchanger, supplyFan, exhaustFan)

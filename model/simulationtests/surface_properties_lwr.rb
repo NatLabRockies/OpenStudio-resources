@@ -40,8 +40,8 @@ zones = model.getThermalZones.sort_by { |z| z.name.to_s }
 z = zones[0]
 z.setUseIdealAirLoads(true)
 
-# Get the first Outdoors Wall surface, sorting by name to ensure consistency just in case
-surfaces = model.getSurfaces.select { |s| (s.outsideBoundaryCondition == 'Outdoors') && (s.surfaceType == 'Wall') }.sort_by { |s| s.name.to_s }
+# Get the first Outdoors Wall surface, sorting by azimuth to ensure consistency just in case
+surfaces = model.getSurfaces.select { |s| (s.outsideBoundaryCondition == 'Outdoors') && (s.surfaceType == 'Wall') }.sort_by(&:azimuth)
 surface = surfaces[0]
 
 # Get its window

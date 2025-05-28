@@ -61,6 +61,9 @@ heating_plant.setPlantEquipmentOperationHeatingLoad(heating_op_scheme)
 tower = model.getCoolingTowerSingleSpeeds.first
 cond = tower.plantLoop.get
 
+# NOTE: Prior to E+ 23.1.0 (OS 3.6.0), the PlantEq based on outdoor temperature
+# were not working correctly in E+ and the equipment would not turn on
+# see https://github.com/NREL/EnergyPlus/pull/9727
 tower_scheme = OpenStudio::Model::PlantEquipmentOperationOutdoorWetBulb.new(model)
 cond.setPrimaryPlantEquipmentOperationScheme(tower_scheme)
 # tower_scheme.addEquipment(tower)

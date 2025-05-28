@@ -1,0 +1,2889 @@
+
+OS:Version,
+  {fda631df-8edc-48e3-983b-7859bede3a43}, !- Handle
+  3.8.0;                                  !- Version Identifier
+
+OS:BuildingStory,
+  {adc18371-d0be-4180-a10b-5c9fcbcdad1e}, !- Handle
+  Story 1,                                !- Name
+  0,                                      !- Nominal Z Coordinate {m}
+  4,                                      !- Nominal Floor to Floor Height {m}
+  ,                                       !- Default Construction Set Name
+  ,                                       !- Default Schedule Set Name
+  ;                                       !- Group Rendering Name
+
+OS:Space,
+  {813c731d-30a0-4958-ac17-90eabc6dd439}, !- Handle
+  Story 1 Core Space,                     !- Name
+  ,                                       !- Space Type Name
+  ,                                       !- Default Construction Set Name
+  ,                                       !- Default Schedule Set Name
+  -0,                                     !- Direction of Relative North {deg}
+  0,                                      !- X Origin {m}
+  0,                                      !- Y Origin {m}
+  0,                                      !- Z Origin {m}
+  {adc18371-d0be-4180-a10b-5c9fcbcdad1e}, !- Building Story Name
+  {42361651-cf49-4f14-bdbf-31044305261f}; !- Thermal Zone Name
+
+OS:Surface,
+  {77b110f8-2741-46a7-af2d-592365d9da29}, !- Handle
+  Story 1 Core Space Exterior Ground Floor, !- Name
+  Floor,                                  !- Surface Type
+  ,                                       !- Construction Name
+  {813c731d-30a0-4958-ac17-90eabc6dd439}, !- Space Name
+  Ground,                                 !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 0,                                !- X,Y,Z Vertex 1 {m}
+  0, 50, 0,                               !- X,Y,Z Vertex 2 {m}
+  100, 50, 0,                             !- X,Y,Z Vertex 3 {m}
+  100, 0, 0;                              !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {9f967057-b1fc-4972-a5e1-8d265cc25a0e}, !- Handle
+  Story 1 Core Space Exterior Wall 2,     !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {813c731d-30a0-4958-ac17-90eabc6dd439}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 4,                                !- X,Y,Z Vertex 1 {m}
+  0, 50, 4,                               !- X,Y,Z Vertex 2 {m}
+  0, 50, 0,                               !- X,Y,Z Vertex 3 {m}
+  0, 0, 0;                                !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {01be7379-9c1f-4baa-a37b-800a16599d17}, !- Handle
+  Story 1 Core Space Exterior Wall 3,     !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {813c731d-30a0-4958-ac17-90eabc6dd439}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 50, 4,                               !- X,Y,Z Vertex 1 {m}
+  100, 50, 4,                             !- X,Y,Z Vertex 2 {m}
+  100, 50, 0,                             !- X,Y,Z Vertex 3 {m}
+  0, 50, 0;                               !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {89aab076-5731-4686-8371-0cfb3657196a}, !- Handle
+  Story 1 Core Space Exterior Wall 1,     !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {813c731d-30a0-4958-ac17-90eabc6dd439}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  100, 50, 4,                             !- X,Y,Z Vertex 1 {m}
+  100, 0, 4,                              !- X,Y,Z Vertex 2 {m}
+  100, 0, 0,                              !- X,Y,Z Vertex 3 {m}
+  100, 50, 0;                             !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {9cb8113b-828b-4bee-8aab-bf047f414804}, !- Handle
+  Story 1 Core Space Exterior Wall,       !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {813c731d-30a0-4958-ac17-90eabc6dd439}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  100, 0, 4,                              !- X,Y,Z Vertex 1 {m}
+  0, 0, 4,                                !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  100, 0, 0;                              !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {9b0a98a3-ec69-41c7-b804-0ef4536d80c0}, !- Handle
+  Story 1 Core Space Exterior Roof,       !- Name
+  RoofCeiling,                            !- Surface Type
+  ,                                       !- Construction Name
+  {813c731d-30a0-4958-ac17-90eabc6dd439}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  100, 0, 4,                              !- X,Y,Z Vertex 1 {m}
+  100, 50, 4,                             !- X,Y,Z Vertex 2 {m}
+  0, 50, 4,                               !- X,Y,Z Vertex 3 {m}
+  0, 0, 4;                                !- X,Y,Z Vertex 4 {m}
+
+OS:ThermalZone,
+  {42361651-cf49-4f14-bdbf-31044305261f}, !- Handle
+  Story 1 Core Thermal Zone,              !- Name
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ,                                       !- Zone Outside Convection Algorithm
+  ,                                       !- Zone Conditioning Equipment List Name
+  {81672c11-a204-4425-a8d1-b76cdcd70666}, !- Zone Air Inlet Port List
+  {1bc68753-c518-4b2a-838f-8bd5689adc42}, !- Zone Air Exhaust Port List
+  {c70714b5-9521-4939-8961-6d96bbd24478}, !- Zone Air Node Name
+  {6394fda2-c967-4677-8be6-42ec50b76530}, !- Zone Return Air Port List
+  ,                                       !- Primary Daylighting Control Name
+  ,                                       !- Fraction of Zone Controlled by Primary Daylighting Control
+  ,                                       !- Secondary Daylighting Control Name
+  ,                                       !- Fraction of Zone Controlled by Secondary Daylighting Control
+  ,                                       !- Illuminance Map Name
+  ,                                       !- Group Rendering Name
+  {134ce27a-4c5e-4359-8bb7-4cff60118832}, !- Thermostat Name
+  No;                                     !- Use Ideal Air Loads
+
+OS:Node,
+  {be6862c9-f603-405e-bcff-dade810b66ab}, !- Handle
+  Node 1,                                 !- Name
+  {c70714b5-9521-4939-8961-6d96bbd24478}, !- Inlet Port
+  ;                                       !- Outlet Port
+
+OS:Connection,
+  {c70714b5-9521-4939-8961-6d96bbd24478}, !- Handle
+  {42361651-cf49-4f14-bdbf-31044305261f}, !- Source Object
+  11,                                     !- Outlet Port
+  {be6862c9-f603-405e-bcff-dade810b66ab}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:PortList,
+  {81672c11-a204-4425-a8d1-b76cdcd70666}, !- Handle
+  {42361651-cf49-4f14-bdbf-31044305261f}, !- HVAC Component
+  {40d264b4-b364-46a5-9098-d4ca1dcb0dbc}; !- Port 1
+
+OS:PortList,
+  {1bc68753-c518-4b2a-838f-8bd5689adc42}, !- Handle
+  {42361651-cf49-4f14-bdbf-31044305261f}; !- HVAC Component
+
+OS:PortList,
+  {6394fda2-c967-4677-8be6-42ec50b76530}, !- Handle
+  {42361651-cf49-4f14-bdbf-31044305261f}, !- HVAC Component
+  {0fd74ace-9cbc-40ae-beed-fcc5049c9bde}; !- Port 1
+
+OS:Sizing:Zone,
+  {180f86f2-339d-49d9-8d0e-0ef7feca37ce}, !- Handle
+  {42361651-cf49-4f14-bdbf-31044305261f}, !- Zone or ZoneList Name
+  SupplyAirTemperature,                   !- Zone Cooling Design Supply Air Temperature Input Method
+  14,                                     !- Zone Cooling Design Supply Air Temperature {C}
+  11.11,                                  !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+  SupplyAirTemperature,                   !- Zone Heating Design Supply Air Temperature Input Method
+  40,                                     !- Zone Heating Design Supply Air Temperature {C}
+  11.11,                                  !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+  0.0085,                                 !- Zone Cooling Design Supply Air Humidity Ratio {kg-H2O/kg-air}
+  0.008,                                  !- Zone Heating Design Supply Air Humidity Ratio {kg-H2O/kg-air}
+  ,                                       !- Zone Heating Sizing Factor
+  ,                                       !- Zone Cooling Sizing Factor
+  DesignDay,                              !- Cooling Design Air Flow Method
+  ,                                       !- Cooling Design Air Flow Rate {m3/s}
+  ,                                       !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+  ,                                       !- Cooling Minimum Air Flow {m3/s}
+  ,                                       !- Cooling Minimum Air Flow Fraction
+  DesignDay,                              !- Heating Design Air Flow Method
+  ,                                       !- Heating Design Air Flow Rate {m3/s}
+  ,                                       !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+  ,                                       !- Heating Maximum Air Flow {m3/s}
+  ,                                       !- Heating Maximum Air Flow Fraction
+  No,                                     !- Account for Dedicated Outdoor Air System
+  NeutralSupplyAir,                       !- Dedicated Outdoor Air System Control Strategy
+  autosize,                               !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
+  autosize,                               !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+  Sensible Load Only No Latent Load,      !- Zone Load Sizing Method
+  HumidityRatioDifference,                !- Zone Latent Cooling Design Supply Air Humidity Ratio Input Method
+  ,                                       !- Zone Dehumidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+  0.005,                                  !- Zone Cooling Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
+  HumidityRatioDifference,                !- Zone Latent Heating Design Supply Air Humidity Ratio Input Method
+  ,                                       !- Zone Humidification Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+  0.005;                                  !- Zone Humidification Design Supply Air Humidity Ratio Difference {kgWater/kgDryAir}
+
+OS:ZoneHVAC:EquipmentList,
+  {a84f01ee-9394-44aa-ad30-88106f6e6037}, !- Handle
+  Zone HVAC Equipment List 1,             !- Name
+  {42361651-cf49-4f14-bdbf-31044305261f}, !- Thermal Zone
+  ,                                       !- Load Distribution Scheme
+  {0667c432-37d4-46b8-ae4b-e50f475617ba}, !- Zone Equipment 1
+  1,                                      !- Zone Equipment Cooling Sequence 1
+  1,                                      !- Zone Equipment Heating or No-Load Sequence 1
+  ,                                       !- Zone Equipment Sequential Cooling Fraction Schedule Name 1
+  ;                                       !- Zone Equipment Sequential Heating Fraction Schedule Name 1
+
+OS:SubSurface,
+  {411f129f-e6db-4236-9468-862d2bc5d436}, !- Handle
+  Story 1 Core Space Exterior Wall Window, !- Name
+  FixedWindow,                            !- Sub Surface Type
+  ,                                       !- Construction Name
+  {9cb8113b-828b-4bee-8aab-bf047f414804}, !- Surface Name
+  ,                                       !- Outside Boundary Condition Object
+  ,                                       !- View Factor to Ground
+  ,                                       !- Frame and Divider Name
+  ,                                       !- Multiplier
+  ,                                       !- Number of Vertices
+  0.0254, 0, 2.60081321311226,            !- X,Y,Z Vertex 1 {m}
+  0.0254, 0, 1,                           !- X,Y,Z Vertex 2 {m}
+  99.9746, 0, 1,                          !- X,Y,Z Vertex 3 {m}
+  99.9746, 0, 2.60081321311226;           !- X,Y,Z Vertex 4 {m}
+
+OS:SubSurface,
+  {c10277a3-93e4-4707-91b0-777dfc3a4027}, !- Handle
+  Story 1 Core Space Exterior Wall 1 Window, !- Name
+  FixedWindow,                            !- Sub Surface Type
+  ,                                       !- Construction Name
+  {89aab076-5731-4686-8371-0cfb3657196a}, !- Surface Name
+  ,                                       !- Outside Boundary Condition Object
+  ,                                       !- View Factor to Ground
+  ,                                       !- Frame and Divider Name
+  ,                                       !- Multiplier
+  ,                                       !- Number of Vertices
+  100, 0.0254, 2.60162725328934,          !- X,Y,Z Vertex 1 {m}
+  100, 0.0254, 1,                         !- X,Y,Z Vertex 2 {m}
+  100, 49.9746, 1,                        !- X,Y,Z Vertex 3 {m}
+  100, 49.9746, 2.60162725328934;         !- X,Y,Z Vertex 4 {m}
+
+OS:SubSurface,
+  {0cf87331-1a8b-4733-87e9-5baafe2913b2}, !- Handle
+  Story 1 Core Space Exterior Wall 3 Window, !- Name
+  FixedWindow,                            !- Sub Surface Type
+  ,                                       !- Construction Name
+  {01be7379-9c1f-4baa-a37b-800a16599d17}, !- Surface Name
+  ,                                       !- Outside Boundary Condition Object
+  ,                                       !- View Factor to Ground
+  ,                                       !- Frame and Divider Name
+  ,                                       !- Multiplier
+  ,                                       !- Number of Vertices
+  99.9746, 50, 2.60081321311226,          !- X,Y,Z Vertex 1 {m}
+  99.9746, 50, 1,                         !- X,Y,Z Vertex 2 {m}
+  0.0253999999999905, 50, 1,              !- X,Y,Z Vertex 3 {m}
+  0.0253999999999905, 50, 2.60081321311226; !- X,Y,Z Vertex 4 {m}
+
+OS:SubSurface,
+  {10e04ccd-2521-4f20-8e6c-72cb65da490c}, !- Handle
+  Story 1 Core Space Exterior Wall 2 Window, !- Name
+  FixedWindow,                            !- Sub Surface Type
+  ,                                       !- Construction Name
+  {9f967057-b1fc-4972-a5e1-8d265cc25a0e}, !- Surface Name
+  ,                                       !- Outside Boundary Condition Object
+  ,                                       !- View Factor to Ground
+  ,                                       !- Frame and Divider Name
+  ,                                       !- Multiplier
+  ,                                       !- Number of Vertices
+  0, 49.9746, 2.60162725328934,           !- X,Y,Z Vertex 1 {m}
+  0, 49.9746, 1,                          !- X,Y,Z Vertex 2 {m}
+  0, 0.0254000000000048, 1,               !- X,Y,Z Vertex 3 {m}
+  0, 0.0254000000000048, 2.60162725328934; !- X,Y,Z Vertex 4 {m}
+
+OS:Schedule:Ruleset,
+  {caf9ef6a-170c-4340-a855-c5be6736e9e1}, !- Handle
+  Cooling Sch,                            !- Name
+  {c445fca8-24e2-4416-8c2c-76d875f893fc}, !- Schedule Type Limits Name
+  {71fef869-08d8-48d8-8f7e-212b2e1b3cfd}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {71fef869-08d8-48d8-8f7e-212b2e1b3cfd}, !- Handle
+  Cooling Sch Default,                    !- Name
+  {c445fca8-24e2-4416-8c2c-76d875f893fc}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  26;                                     !- Value Until Time 1
+
+OS:Schedule:Ruleset,
+  {9d83c61b-3097-447d-b533-66f4bec84384}, !- Handle
+  Heating Sch,                            !- Name
+  {c445fca8-24e2-4416-8c2c-76d875f893fc}, !- Schedule Type Limits Name
+  {5798a81e-ffaa-4166-91a1-b52633eca41a}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {5798a81e-ffaa-4166-91a1-b52633eca41a}, !- Handle
+  Heating Sch Default,                    !- Name
+  {c445fca8-24e2-4416-8c2c-76d875f893fc}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  19;                                     !- Value Until Time 1
+
+OS:ThermostatSetpoint:DualSetpoint,
+  {134ce27a-4c5e-4359-8bb7-4cff60118832}, !- Handle
+  Thermostat Setpoint Dual Setpoint 1,    !- Name
+  {9d83c61b-3097-447d-b533-66f4bec84384}, !- Heating Setpoint Temperature Schedule Name
+  {caf9ef6a-170c-4340-a855-c5be6736e9e1}; !- Cooling Setpoint Temperature Schedule Name
+
+OS:ScheduleTypeLimits,
+  {c445fca8-24e2-4416-8c2c-76d875f893fc}, !- Handle
+  Temperature,                            !- Name
+  ,                                       !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  Continuous,                             !- Numeric Type
+  Temperature;                            !- Unit Type
+
+OS:DefaultConstructionSet,
+  {c8da4460-025a-4e1e-a6b9-72ed975f0882}, !- Handle
+  ASHRAE_189.1-2009_ClimateZone 4-5 (mdoff)_ConstSet, !- Name
+  {da5fb32d-2a31-447c-9007-fb072b3b9bac}, !- Default Exterior Surface Constructions Name
+  {40e0f617-0d89-4301-9977-f85075d7ec76}, !- Default Interior Surface Constructions Name
+  {7c68336a-9d5a-4860-b1c0-3bc3c3cc6e1a}, !- Default Ground Contact Surface Constructions Name
+  {1369f64d-866c-4e6e-92eb-5c8acb94cc09}, !- Default Exterior SubSurface Constructions Name
+  {39730ee5-6445-4738-b58f-315b574eff6d}, !- Default Interior SubSurface Constructions Name
+  {c2b7b2cf-75ac-4814-a026-8b6e63095fd8}, !- Interior Partition Construction Name
+  ,                                       !- Space Shading Construction Name
+  ,                                       !- Building Shading Construction Name
+  ,                                       !- Site Shading Construction Name
+  ;                                       !- Adiabatic Surface Construction Name
+
+OS:DefaultSurfaceConstructions,
+  {da5fb32d-2a31-447c-9007-fb072b3b9bac}, !- Handle
+  ASHRAE_189.1-2009_ClimateZone 4-5 (mdoff)_Exterior_DefSurfCons, !- Name
+  {8377abca-83b7-40ba-838d-bf41cc016210}, !- Floor Construction Name
+  {ad31e863-81c5-49c7-bd0e-4dee541e2dbe}, !- Wall Construction Name
+  {552f0a71-29a2-48c8-92a6-58f079a0c775}; !- Roof Ceiling Construction Name
+
+OS:DefaultSurfaceConstructions,
+  {40e0f617-0d89-4301-9977-f85075d7ec76}, !- Handle
+  000_Interior_DefSurfCons,               !- Name
+  {6c3c85e3-14c8-48d3-b100-bd9212e727d4}, !- Floor Construction Name
+  {4ba35796-5255-4bd6-9955-e7e1811324e7}, !- Wall Construction Name
+  {19b835c4-d78b-435d-9c25-eaf78bb30550}; !- Roof Ceiling Construction Name
+
+OS:DefaultSurfaceConstructions,
+  {7c68336a-9d5a-4860-b1c0-3bc3c3cc6e1a}, !- Handle
+  000_Ground_DefSurfCons,                 !- Name
+  {8377abca-83b7-40ba-838d-bf41cc016210}, !- Floor Construction Name
+  {8377abca-83b7-40ba-838d-bf41cc016210}, !- Wall Construction Name
+  {8377abca-83b7-40ba-838d-bf41cc016210}; !- Roof Ceiling Construction Name
+
+OS:DefaultSubSurfaceConstructions,
+  {1369f64d-866c-4e6e-92eb-5c8acb94cc09}, !- Handle
+  ASHRAE_189.1-2009_ClimateZone 4-5 (mdoff)_Exterior_DefSubCons, !- Name
+  {52816a89-90e7-40bd-a7aa-91c2969a5ce7}, !- Fixed Window Construction Name
+  {52816a89-90e7-40bd-a7aa-91c2969a5ce7}, !- Operable Window Construction Name
+  {0d82e70a-5558-4d96-bba5-58ff5d3b0c5b}, !- Door Construction Name
+  {c0d907fb-3f8e-496e-a91c-0e71ced5258a}, !- Glass Door Construction Name
+  ,                                       !- Overhead Door Construction Name
+  {c0d907fb-3f8e-496e-a91c-0e71ced5258a}, !- Skylight Construction Name
+  {6b78ad7a-0bbd-4ddd-9072-1660a21f861b}, !- Tubular Daylight Dome Construction Name
+  {6b78ad7a-0bbd-4ddd-9072-1660a21f861b}; !- Tubular Daylight Diffuser Construction Name
+
+OS:DefaultSubSurfaceConstructions,
+  {39730ee5-6445-4738-b58f-315b574eff6d}, !- Handle
+  000_Interior_DefSubCons,                !- Name
+  {6b78ad7a-0bbd-4ddd-9072-1660a21f861b}, !- Fixed Window Construction Name
+  {6b78ad7a-0bbd-4ddd-9072-1660a21f861b}, !- Operable Window Construction Name
+  {a0e7bb30-e277-4ab0-916a-9a8321e9af18}, !- Door Construction Name
+  {c0d907fb-3f8e-496e-a91c-0e71ced5258a}, !- Glass Door Construction Name
+  ,                                       !- Overhead Door Construction Name
+  {c0d907fb-3f8e-496e-a91c-0e71ced5258a}, !- Skylight Construction Name
+  {6b78ad7a-0bbd-4ddd-9072-1660a21f861b}, !- Tubular Daylight Dome Construction Name
+  {6b78ad7a-0bbd-4ddd-9072-1660a21f861b}; !- Tubular Daylight Diffuser Construction Name
+
+OS:Construction,
+  {c2b7b2cf-75ac-4814-a026-8b6e63095fd8}, !- Handle
+  000_Interior Partition,                 !- Name
+  ,                                       !- Surface Rendering Name
+  {eaa6ad05-c46a-4af0-8008-86b7598cb275}; !- Layer 1
+
+OS:Construction,
+  {8377abca-83b7-40ba-838d-bf41cc016210}, !- Handle
+  000_ExtSlabCarpet_4in_ClimateZone 1-8,  !- Name
+  ,                                       !- Surface Rendering Name
+  {886bd5b5-c609-4d8c-9922-0765470204fd}, !- Layer 1
+  {3397a74d-027d-47f6-90c6-7d485920c6f8}; !- Layer 2
+
+OS:Construction,
+  {ad31e863-81c5-49c7-bd0e-4dee541e2dbe}, !- Handle
+  ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8, !- Name
+  ,                                       !- Surface Rendering Name
+  {5acc37f5-101b-4abf-8441-6bfcfe487380}, !- Layer 1
+  {b8f26d81-c9c0-4b79-978d-5f70c21151c1}, !- Layer 2
+  {6b86c6a1-f45d-498b-87cb-58da7d9b10bf}; !- Layer 3
+
+OS:Construction,
+  {552f0a71-29a2-48c8-92a6-58f079a0c775}, !- Handle
+  ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5, !- Name
+  ,                                       !- Surface Rendering Name
+  {b6bac5da-53d0-4fd2-9b2a-252c32481119}, !- Layer 1
+  {e35d8b7e-2878-4ed1-8e81-0fd30d1347c5}, !- Layer 2
+  {39fc28e5-9e35-4443-8c06-8f0ec1dd6a0d}; !- Layer 3
+
+OS:Construction,
+  {6c3c85e3-14c8-48d3-b100-bd9212e727d4}, !- Handle
+  000_Interior Floor,                     !- Name
+  ,                                       !- Surface Rendering Name
+  {85fd2159-ed02-4a5d-b3d6-53599b285710}, !- Layer 1
+  {103a597f-ddc9-4b0e-8c93-eb1d2c4b68a6}, !- Layer 2
+  {a75ddd9c-e60c-4c15-a00f-ccb11ecab0dd}; !- Layer 3
+
+OS:Construction,
+  {4ba35796-5255-4bd6-9955-e7e1811324e7}, !- Handle
+  000_Interior Wall,                      !- Name
+  ,                                       !- Surface Rendering Name
+  {2e071eaa-be00-4121-a6f8-0663f3c5cb2a}, !- Layer 1
+  {c4d05020-48e1-4480-a6c2-a5e8d62d1140}, !- Layer 2
+  {2e071eaa-be00-4121-a6f8-0663f3c5cb2a}; !- Layer 3
+
+OS:Construction,
+  {19b835c4-d78b-435d-9c25-eaf78bb30550}, !- Handle
+  000_Interior Ceiling,                   !- Name
+  ,                                       !- Surface Rendering Name
+  {a75ddd9c-e60c-4c15-a00f-ccb11ecab0dd}, !- Layer 1
+  {103a597f-ddc9-4b0e-8c93-eb1d2c4b68a6}, !- Layer 2
+  {85fd2159-ed02-4a5d-b3d6-53599b285710}; !- Layer 3
+
+OS:Construction,
+  {52816a89-90e7-40bd-a7aa-91c2969a5ce7}, !- Handle
+  ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5, !- Name
+  ,                                       !- Surface Rendering Name
+  {c69785c0-3fa2-47e8-9428-ffcb80d81ee4}; !- Layer 1
+
+OS:Construction,
+  {0d82e70a-5558-4d96-bba5-58ff5d3b0c5b}, !- Handle
+  000_Exterior Door,                      !- Name
+  ,                                       !- Surface Rendering Name
+  {59126a96-5abe-4fab-9e35-e042b46e2df5}, !- Layer 1
+  {67974c72-e62f-4235-9643-1cedc4ad236a}; !- Layer 2
+
+OS:Construction,
+  {c0d907fb-3f8e-496e-a91c-0e71ced5258a}, !- Handle
+  000_Exterior Window,                    !- Name
+  ,                                       !- Surface Rendering Name
+  {587c7193-9fe0-440a-baf7-f81cfe597471}, !- Layer 1
+  {0eed312c-b6b9-4272-aaec-937be29e8865}, !- Layer 2
+  {587c7193-9fe0-440a-baf7-f81cfe597471}; !- Layer 3
+
+OS:Construction,
+  {6b78ad7a-0bbd-4ddd-9072-1660a21f861b}, !- Handle
+  000_Interior Window,                    !- Name
+  ,                                       !- Surface Rendering Name
+  {587c7193-9fe0-440a-baf7-f81cfe597471}; !- Layer 1
+
+OS:Construction,
+  {a0e7bb30-e277-4ab0-916a-9a8321e9af18}, !- Handle
+  000_Interior Door,                      !- Name
+  ,                                       !- Surface Rendering Name
+  {eaa6ad05-c46a-4af0-8008-86b7598cb275}; !- Layer 1
+
+OS:Material,
+  {eaa6ad05-c46a-4af0-8008-86b7598cb275}, !- Handle
+  000_G05 25mm wood,                      !- Name
+  MediumSmooth,                           !- Roughness
+  0.025399999999999999,                   !- Thickness {m}
+  0.14999999999999999,                    !- Conductivity {W/m-K}
+  608,                                    !- Density {kg/m3}
+  1630;                                   !- Specific Heat {J/kg-K}
+
+OS:Material,
+  {886bd5b5-c609-4d8c-9922-0765470204fd}, !- Handle
+  MAT-CC05 4 HW CONCRETE,                 !- Name
+  Rough,                                  !- Roughness
+  0.1016,                                 !- Thickness {m}
+  1.3109999999999999,                     !- Conductivity {W/m-K}
+  2240,                                   !- Density {kg/m3}
+  836.8,                                  !- Specific Heat {J/kg-K}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.69999999999999996,                    !- Solar Absorptance
+  0.69999999999999996;                    !- Visible Absorptance
+
+OS:Material:NoMass,
+  {3397a74d-027d-47f6-90c6-7d485920c6f8}, !- Handle
+  CP02 CARPET PAD,                        !- Name
+  VeryRough,                              !- Roughness
+  0.2165,                                 !- Thermal Resistance {m2-K/W}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.69999999999999996,                    !- Solar Absorptance
+  0.80000000000000004;                    !- Visible Absorptance
+
+OS:Material:NoMass,
+  {5acc37f5-101b-4abf-8441-6bfcfe487380}, !- Handle
+  MAT-SHEATH,                             !- Name
+  Rough,                                  !- Roughness
+  0.36259999999999998,                    !- Thermal Resistance {m2-K/W}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.69999999999999996,                    !- Solar Absorptance
+  0.69999999999999996;                    !- Visible Absorptance
+
+OS:Material,
+  {b8f26d81-c9c0-4b79-978d-5f70c21151c1}, !- Handle
+  Wall Insulation [39],                   !- Name
+  MediumRough,                            !- Roughness
+  0.11840000000000001,                    !- Thickness {m}
+  0.044999999999999998,                   !- Conductivity {W/m-K}
+  265,                                    !- Density {kg/m3}
+  836.8,                                  !- Specific Heat {J/kg-K}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.69999999999999996,                    !- Solar Absorptance
+  0.69999999999999996;                    !- Visible Absorptance
+
+OS:Material,
+  {6b86c6a1-f45d-498b-87cb-58da7d9b10bf}, !- Handle
+  1/2IN Gypsum,                           !- Name
+  Smooth,                                 !- Roughness
+  0.012699999999999999,                   !- Thickness {m}
+  0.16,                                   !- Conductivity {W/m-K}
+  784.89999999999998,                     !- Density {kg/m3}
+  830,                                    !- Specific Heat {J/kg-K}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.92000000000000004,                    !- Solar Absorptance
+  0.92000000000000004;                    !- Visible Absorptance
+
+OS:Material,
+  {b6bac5da-53d0-4fd2-9b2a-252c32481119}, !- Handle
+  Roof Membrane,                          !- Name
+  VeryRough,                              !- Roughness
+  0.0094999999999999998,                  !- Thickness {m}
+  0.16,                                   !- Conductivity {W/m-K}
+  1121.29,                                !- Density {kg/m3}
+  1460,                                   !- Specific Heat {J/kg-K}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.69999999999999996,                    !- Solar Absorptance
+  0.69999999999999996;                    !- Visible Absorptance
+
+OS:Material,
+  {e35d8b7e-2878-4ed1-8e81-0fd30d1347c5}, !- Handle
+  Roof Insulation [21],                   !- Name
+  MediumRough,                            !- Roughness
+  0.21049999999999999,                    !- Thickness {m}
+  0.049000000000000002,                   !- Conductivity {W/m-K}
+  265,                                    !- Density {kg/m3}
+  836.8,                                  !- Specific Heat {J/kg-K}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.69999999999999996,                    !- Solar Absorptance
+  0.69999999999999996;                    !- Visible Absorptance
+
+OS:Material,
+  {39fc28e5-9e35-4443-8c06-8f0ec1dd6a0d}, !- Handle
+  Metal Decking,                          !- Name
+  MediumSmooth,                           !- Roughness
+  0.0015,                                 !- Thickness {m}
+  45.006,                                 !- Conductivity {W/m-K}
+  7680,                                   !- Density {kg/m3}
+  418.4,                                  !- Specific Heat {J/kg-K}
+  0.90000000000000002,                    !- Thermal Absorptance
+  0.69999999999999996,                    !- Solar Absorptance
+  0.29999999999999999;                    !- Visible Absorptance
+
+OS:Material,
+  {85fd2159-ed02-4a5d-b3d6-53599b285710}, !- Handle
+  000_F16 Acoustic tile,                  !- Name
+  MediumSmooth,                           !- Roughness
+  0.019099999999999999,                   !- Thickness {m}
+  0.059999999999999998,                   !- Conductivity {W/m-K}
+  368,                                    !- Density {kg/m3}
+  590;                                    !- Specific Heat {J/kg-K}
+
+OS:Material:AirGap,
+  {103a597f-ddc9-4b0e-8c93-eb1d2c4b68a6}, !- Handle
+  000_F05 Ceiling air space resistance,   !- Name
+  0.17999999999999999;                    !- Thermal Resistance {m2-K/W}
+
+OS:Material,
+  {a75ddd9c-e60c-4c15-a00f-ccb11ecab0dd}, !- Handle
+  000_M11 100mm lightweight concrete,     !- Name
+  MediumRough,                            !- Roughness
+  0.1016,                                 !- Thickness {m}
+  0.53000000000000003,                    !- Conductivity {W/m-K}
+  1280,                                   !- Density {kg/m3}
+  840;                                    !- Specific Heat {J/kg-K}
+
+OS:Material,
+  {2e071eaa-be00-4121-a6f8-0663f3c5cb2a}, !- Handle
+  000_G01a 19mm gypsum board,             !- Name
+  MediumSmooth,                           !- Roughness
+  0.019,                                  !- Thickness {m}
+  0.16,                                   !- Conductivity {W/m-K}
+  800,                                    !- Density {kg/m3}
+  1090;                                   !- Specific Heat {J/kg-K}
+
+OS:Material:AirGap,
+  {c4d05020-48e1-4480-a6c2-a5e8d62d1140}, !- Handle
+  000_F04 Wall air space resistance,      !- Name
+  0.14999999999999999;                    !- Thermal Resistance {m2-K/W}
+
+OS:WindowMaterial:Glazing,
+  {c69785c0-3fa2-47e8-9428-ffcb80d81ee4}, !- Handle
+  Theoretical Glass [207],                !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.0030000000000000001,                  !- Thickness {m}
+  0.33110000000000001,                    !- Solar Transmittance at Normal Incidence
+  0.61890000000000001,                    !- Front Side Solar Reflectance at Normal Incidence
+  0.61890000000000001,                    !- Back Side Solar Reflectance at Normal Incidence
+  0.44,                                   !- Visible Transmittance at Normal Incidence
+  0.51000000000000001,                    !- Front Side Visible Reflectance at Normal Incidence
+  0.51000000000000001,                    !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.90000000000000002,                    !- Front Side Infrared Hemispherical Emissivity
+  0.90000000000000002,                    !- Back Side Infrared Hemispherical Emissivity
+  0.013299999999999999,                   !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:Material,
+  {59126a96-5abe-4fab-9e35-e042b46e2df5}, !- Handle
+  000_F08 Metal surface,                  !- Name
+  Smooth,                                 !- Roughness
+  0.00080000000000000004,                 !- Thickness {m}
+  45.280000000000001,                     !- Conductivity {W/m-K}
+  7824,                                   !- Density {kg/m3}
+  500;                                    !- Specific Heat {J/kg-K}
+
+OS:Material,
+  {67974c72-e62f-4235-9643-1cedc4ad236a}, !- Handle
+  000_I01 25mm insulation board,          !- Name
+  MediumRough,                            !- Roughness
+  0.025399999999999999,                   !- Thickness {m}
+  0.029999999999999999,                   !- Conductivity {W/m-K}
+  43,                                     !- Density {kg/m3}
+  1210;                                   !- Specific Heat {J/kg-K}
+
+OS:WindowMaterial:Glazing,
+  {587c7193-9fe0-440a-baf7-f81cfe597471}, !- Handle
+  000_Clear 3mm,                          !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.0030000000000000001,                  !- Thickness {m}
+  0.83699999999999997,                    !- Solar Transmittance at Normal Incidence
+  0.074999999999999997,                   !- Front Side Solar Reflectance at Normal Incidence
+  0.074999999999999997,                   !- Back Side Solar Reflectance at Normal Incidence
+  0.89800000000000002,                    !- Visible Transmittance at Normal Incidence
+  0.081000000000000003,                   !- Front Side Visible Reflectance at Normal Incidence
+  0.081000000000000003,                   !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.83999999999999997,                    !- Front Side Infrared Hemispherical Emissivity
+  0.83999999999999997,                    !- Back Side Infrared Hemispherical Emissivity
+  0.90000000000000002,                    !- Conductivity {W/m-K}
+  ,                                       !- Dirt Correction Factor for Solar and Visible Transmittance
+  ;                                       !- Solar Diffusing
+
+OS:WindowMaterial:Gas,
+  {0eed312c-b6b9-4272-aaec-937be29e8865}, !- Handle
+  000_Air 13mm,                           !- Name
+  Air,                                    !- Gas Type
+  0.012699999999999999;                   !- Thickness {m}
+
+OS:Building,
+  {6769cc2d-1699-4266-9148-8b67c8f718fc}, !- Handle
+  Building 1,                             !- Name
+  ,                                       !- Building Sector Type
+  ,                                       !- North Axis {deg}
+  ,                                       !- Nominal Floor to Floor Height {m}
+  {4d07e242-e7c2-4ea2-9242-ab6edbda8afb}, !- Space Type Name
+  {c8da4460-025a-4e1e-a6b9-72ed975f0882}, !- Default Construction Set Name
+  ;                                       !- Default Schedule Set Name
+
+OS:Construction:AirBoundary,
+  {20d0bccf-8a1f-4d19-9078-64bb6d531b2b}, !- Handle
+  Air_Wall,                               !- Name
+  ,                                       !- Air Exchange Method
+  0,                                      !- Simple Mixing Air Changes per Hour {1/hr}
+  ,                                       !- Simple Mixing Schedule Name
+  ;                                       !- Surface Rendering Name
+
+OS:SpaceType,
+  {4d07e242-e7c2-4ea2-9242-ab6edbda8afb}, !- Handle
+  Baseline Model Space Type,              !- Name
+  ,                                       !- Default Construction Set Name
+  {7ee6f76b-5e56-4531-b6b3-7aba2b5e922c}, !- Default Schedule Set Name
+  ,                                       !- Group Rendering Name
+  {d5b75520-6f41-4e21-bb85-85238b36587d}; !- Design Specification Outdoor Air Object Name
+
+OS:DefaultScheduleSet,
+  {7ee6f76b-5e56-4531-b6b3-7aba2b5e922c}, !- Handle
+  Baseline Model Schedule Set,            !- Name
+  ,                                       !- Hours of Operation Schedule Name
+  {f1c178d8-7344-4f1d-a63a-ca7c0cc46075}, !- Number of People Schedule Name
+  {bde09494-94b5-4b97-85fa-b9579858cc3c}, !- People Activity Level Schedule Name
+  {f1c178d8-7344-4f1d-a63a-ca7c0cc46075}, !- Lighting Schedule Name
+  {f1c178d8-7344-4f1d-a63a-ca7c0cc46075}, !- Electric Equipment Schedule Name
+  ,                                       !- Gas Equipment Schedule Name
+  ,                                       !- Hot Water Equipment Schedule Name
+  {c3d1d1f4-4636-4803-b898-27ab70f432f3}, !- Infiltration Schedule Name
+  ,                                       !- Steam Equipment Schedule Name
+  ;                                       !- Other Equipment Schedule Name
+
+OS:Schedule:Ruleset,
+  {c3d1d1f4-4636-4803-b898-27ab70f432f3}, !- Handle
+  Baseline Model Infiltration Schedule,   !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  {c62f3a3c-a6c1-4083-be71-3e69f24a86ce}, !- Default Day Schedule Name
+  {80185f59-ceb8-404b-9ca0-846b18f1aaa3}, !- Summer Design Day Schedule Name
+  {e853892f-52ef-49ae-beed-9086f51f52e8}; !- Winter Design Day Schedule Name
+
+OS:Schedule:Day,
+  {c62f3a3c-a6c1-4083-be71-3e69f24a86ce}, !- Handle
+  Baseline Model Infiltration Schedule Schedule All Days, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
+
+OS:Schedule:Day,
+  {e6334c7c-a40a-4aad-8721-79253f23a2a6}, !- Handle
+  Schedule Day 2,                         !- Name
+  ,                                       !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {e853892f-52ef-49ae-beed-9086f51f52e8}, !- Handle
+  Baseline Model Infiltration Schedule Winter Design Day, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {c4af66bd-a174-4808-add2-918b795a1f2f}, !- Handle
+  Schedule Day 3,                         !- Name
+  ,                                       !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {80185f59-ceb8-404b-9ca0-846b18f1aaa3}, !- Handle
+  Baseline Model Infiltration Schedule Summer Design Day, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
+
+OS:ScheduleTypeLimits,
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Handle
+  Fractional,                             !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Continuous;                             !- Numeric Type
+
+OS:Schedule:Ruleset,
+  {f1c178d8-7344-4f1d-a63a-ca7c0cc46075}, !- Handle
+  Baseline Model People Lights and Equipment Schedule, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  {51868faf-4358-47fe-8e68-94949fc8a3de}, !- Default Day Schedule Name
+  {079c9353-280e-4bae-b741-e7154e5f35e3}, !- Summer Design Day Schedule Name
+  {14d97b8b-7bc0-4615-9c08-cacf3c15c0f8}; !- Winter Design Day Schedule Name
+
+OS:Schedule:Day,
+  {51868faf-4358-47fe-8e68-94949fc8a3de}, !- Handle
+  Baseline Model People Lights and Equipment Schedule Schedule Week Day, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  7,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.1,                                    !- Value Until Time 2
+  8,                                      !- Hour 3
+  0,                                      !- Minute 3
+  0.2,                                    !- Value Until Time 3
+  12,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.95,                                   !- Value Until Time 4
+  13,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0.5,                                    !- Value Until Time 5
+  17,                                     !- Hour 6
+  0,                                      !- Minute 6
+  0.95,                                   !- Value Until Time 6
+  18,                                     !- Hour 7
+  0,                                      !- Minute 7
+  0.7,                                    !- Value Until Time 7
+  20,                                     !- Hour 8
+  0,                                      !- Minute 8
+  0.4,                                    !- Value Until Time 8
+  22,                                     !- Hour 9
+  0,                                      !- Minute 9
+  0.1,                                    !- Value Until Time 9
+  24,                                     !- Hour 10
+  0,                                      !- Minute 10
+  0.05;                                   !- Value Until Time 10
+
+OS:Schedule:Day,
+  {24f3a73b-9357-41ef-ba36-327dd5927789}, !- Handle
+  Schedule Day 4,                         !- Name
+  ,                                       !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {14d97b8b-7bc0-4615-9c08-cacf3c15c0f8}, !- Handle
+  Baseline Model People Lights and Equipment Schedule Winter Design Day, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {e58e9de5-bd5f-4bef-9046-30596e38379e}, !- Handle
+  Schedule Day 5,                         !- Name
+  ,                                       !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {079c9353-280e-4bae-b741-e7154e5f35e3}, !- Handle
+  Baseline Model People Lights and Equipment Schedule Summer Design Day, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
+
+OS:Schedule:Rule,
+  {ac8a294a-1b0b-4e76-a81a-6e54a48d8d5d}, !- Handle
+  Baseline Model People Lights and Equipment Schedule Saturday Rule, !- Name
+  {f1c178d8-7344-4f1d-a63a-ca7c0cc46075}, !- Schedule Ruleset Name
+  1,                                      !- Rule Order
+  {c9f24a50-c7a8-474a-9b96-d27af20906cd}, !- Day Schedule Name
+  ,                                       !- Apply Sunday
+  ,                                       !- Apply Monday
+  ,                                       !- Apply Tuesday
+  ,                                       !- Apply Wednesday
+  ,                                       !- Apply Thursday
+  ,                                       !- Apply Friday
+  Yes;                                    !- Apply Saturday
+
+OS:Schedule:Day,
+  {c9f24a50-c7a8-474a-9b96-d27af20906cd}, !- Handle
+  Baseline Model People Lights and Equipment Schedule Saturday, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.1,                                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.1,                                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0;                                      !- Value Until Time 5
+
+OS:Schedule:Rule,
+  {4621d9a2-2eae-4826-adb4-6cf1da69a069}, !- Handle
+  Baseline Model People Lights and Equipment Schedule Sunday Rule, !- Name
+  {f1c178d8-7344-4f1d-a63a-ca7c0cc46075}, !- Schedule Ruleset Name
+  0,                                      !- Rule Order
+  {3e6e4dec-58d0-4e04-8a17-15adc501ed2e}, !- Day Schedule Name
+  Yes;                                    !- Apply Sunday
+
+OS:Schedule:Day,
+  {3e6e4dec-58d0-4e04-8a17-15adc501ed2e}, !- Handle
+  Baseline Model People Lights and Equipment Schedule Schedule Sunday, !- Name
+  {d3d3b459-5273-4274-b247-603bb4a5339f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Ruleset,
+  {bde09494-94b5-4b97-85fa-b9579858cc3c}, !- Handle
+  Baseline Model People Activity Schedule, !- Name
+  {1ae553e3-d6c9-4274-8c7a-1a3977606bf9}, !- Schedule Type Limits Name
+  {0062aa15-a624-4185-a488-8ab099da8682}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {0062aa15-a624-4185-a488-8ab099da8682}, !- Handle
+  Baseline Model People Activity Schedule Default, !- Name
+  {1ae553e3-d6c9-4274-8c7a-1a3977606bf9}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  120;                                    !- Value Until Time 1
+
+OS:ScheduleTypeLimits,
+  {1ae553e3-d6c9-4274-8c7a-1a3977606bf9}, !- Handle
+  ActivityLevel,                          !- Name
+  0,                                      !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  Continuous,                             !- Numeric Type
+  ActivityLevel;                          !- Unit Type
+
+OS:DesignSpecification:OutdoorAir,
+  {d5b75520-6f41-4e21-bb85-85238b36587d}, !- Handle
+  Baseline Model OA,                      !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:SpaceInfiltration:DesignFlowRate,
+  {0f39f582-dce4-4bc3-a839-348fd366f748}, !- Handle
+  Baseline Model Infiltration,            !- Name
+  {4d07e242-e7c2-4ea2-9242-ab6edbda8afb}, !- Space or SpaceType Name
+  ,                                       !- Schedule Name
+  Flow/ExteriorArea,                      !- Design Flow Rate Calculation Method
+  ,                                       !- Design Flow Rate {m3/s}
+  ,                                       !- Flow per Space Floor Area {m3/s-m2}
+  0.0003048,                              !- Flow per Exterior Surface Area {m3/s-m2}
+  ,                                       !- Air Changes per Hour {1/hr}
+  ,                                       !- Constant Term Coefficient
+  ,                                       !- Temperature Term Coefficient
+  ,                                       !- Velocity Term Coefficient
+  ;                                       !- Velocity Squared Term Coefficient
+
+OS:People:Definition,
+  {7107ded3-d06c-4e9b-b858-e7a0d3ed93d3}, !- Handle
+  Baseline Model People Definition,       !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:People,
+  {bfc2abc0-aeb2-48b6-9351-3aed4768a56d}, !- Handle
+  Baseline Model People,                  !- Name
+  {7107ded3-d06c-4e9b-b858-e7a0d3ed93d3}, !- People Definition Name
+  {4d07e242-e7c2-4ea2-9242-ab6edbda8afb}, !- Space or SpaceType Name
+  ,                                       !- Number of People Schedule Name
+  ,                                       !- Activity Level Schedule Name
+  ,                                       !- Surface Name/Angle Factor List Name
+  ,                                       !- Work Efficiency Schedule Name
+  ,                                       !- Clothing Insulation Schedule Name
+  ,                                       !- Air Velocity Schedule Name
+  1;                                      !- Multiplier
+
+OS:Lights:Definition,
+  {195753fe-5a21-4e7d-ae72-f22ff93bd2cd}, !- Handle
+  Baseline Model Lights Definition,       !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.7639104167097,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Lights,
+  {eaba0819-dc70-4813-b12b-28a44fa32a84}, !- Handle
+  Baseline Model Lights,                  !- Name
+  {195753fe-5a21-4e7d-ae72-f22ff93bd2cd}, !- Lights Definition Name
+  {4d07e242-e7c2-4ea2-9242-ab6edbda8afb}, !- Space or SpaceType Name
+  ,                                       !- Schedule Name
+  1,                                      !- Fraction Replaceable
+  ,                                       !- Multiplier
+  General;                                !- End-Use Subcategory
+
+OS:ElectricEquipment:Definition,
+  {763392b8-191c-4b8e-ad69-7ce5ce7ea086}, !- Handle
+  Baseline Model Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  10.7639104167097,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:ElectricEquipment,
+  {a5ccfc27-6049-4601-a90f-763ff271ef90}, !- Handle
+  Baseline Model Electric Equipment,      !- Name
+  {763392b8-191c-4b8e-ad69-7ce5ce7ea086}, !- Electric Equipment Definition Name
+  {4d07e242-e7c2-4ea2-9242-ab6edbda8afb}, !- Space or SpaceType Name
+  ,                                       !- Schedule Name
+  ,                                       !- Multiplier
+  General;                                !- End-Use Subcategory
+
+OS:SizingPeriod:DesignDay,
+  {2ec2e12d-1ca5-4730-b5bc-4d260657e0f0}, !- Handle
+  Chicago Ohare Intl Ap Ann Htg 99.6% Condns DB, !- Name
+  -20,                                    !- Maximum Dry-Bulb Temperature {C}
+  0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+  98934,                                  !- Barometric Pressure {Pa}
+  4.9,                                    !- Wind Speed {m/s}
+  270,                                    !- Wind Direction {deg}
+  0,                                      !- Sky Clearness
+  No,                                     !- Rain Indicator
+  No,                                     !- Snow Indicator
+  21,                                     !- Day of Month
+  1,                                      !- Month
+  WinterDesignDay,                        !- Day Type
+  No,                                     !- Daylight Saving Time Indicator
+  Wetbulb,                                !- Humidity Condition Type
+  ,                                       !- Humidity Condition Day Schedule Name
+  -20,                                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+  ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+  DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+  ,                                       !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  ASHRAEClearSky;                         !- Solar Model Indicator
+
+OS:SizingPeriod:DesignDay,
+  {a1d1ea1d-1dac-49b7-965a-12c20b824e2d}, !- Handle
+  Chicago Ohare Intl Ap Ann Clg .4% Condns DB=>MWB, !- Name
+  33.3,                                   !- Maximum Dry-Bulb Temperature {C}
+  10.5,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+  98934,                                  !- Barometric Pressure {Pa}
+  5.2,                                    !- Wind Speed {m/s}
+  230,                                    !- Wind Direction {deg}
+  ,                                       !- Sky Clearness
+  No,                                     !- Rain Indicator
+  No,                                     !- Snow Indicator
+  21,                                     !- Day of Month
+  7,                                      !- Month
+  SummerDesignDay,                        !- Day Type
+  No,                                     !- Daylight Saving Time Indicator
+  Wetbulb,                                !- Humidity Condition Type
+  ,                                       !- Humidity Condition Day Schedule Name
+  23.7,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+  ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+  DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+  ,                                       !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  ASHRAETau,                              !- Solar Model Indicator
+  ,                                       !- Beam Solar Day Schedule Name
+  ,                                       !- Diffuse Solar Day Schedule Name
+  0.455,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance {dimensionless}
+  2.05;                                   !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance {dimensionless}
+
+OS:SimulationControl,
+  {4cabc637-40df-40d5-b578-4181515f7cae}, !- Handle
+  ,                                       !- Do Zone Sizing Calculation
+  ,                                       !- Do System Sizing Calculation
+  ,                                       !- Do Plant Sizing Calculation
+  No,                                     !- Run Simulation for Sizing Periods
+  Yes;                                    !- Run Simulation for Weather File Run Periods
+
+OS:Timestep,
+  {18174648-dcce-4e04-a7f8-0d40f2f9e546}, !- Handle
+  4;                                      !- Number of Timesteps per Hour
+
+OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage,
+  {1918bd5a-d873-4764-a8fd-bf3ee697fdf6}, !- Handle
+  Coil Cooling DX Single Speed Thermal Storage 1, !- Name
+  {33bffcc1-7f2d-4f9c-887d-53e7b1d4d9e5}, !- Availability Schedule
+  EMSControlled,                          !- Operating Mode Control Method
+  ,                                       !- Operation Mode Control Schedule
+  Ice,                                    !- Storage Type
+  0,                                      !- Glycol Concentration
+  autosize,                               !- Fluid Storage Volume {m3}
+  autosize,                               !- Ice Storage Capacity {GJ}
+  6,                                      !- Storage Capacity Sizing Factor {hr}
+  ,                                       !- Storage Tank Ambient Temperature Node
+  7.913,                                  !- Storage Tank to Ambient U-value Times Area Heat Transfer Coefficient {W/K}
+  26.7,                                   !- Fluid Storage Tank Rating Temperature {C}
+  autosize,                               !- Rated Evaporator Air Flow Rate {m3/s}
+  ,                                       !- Evaporator Air Inlet Node
+  ,                                       !- Evaporator Air Outlet Node
+  Yes,                                    !- Cooling Only Mode Available
+  autosize,                               !- Cooling Only Mode Rated Total Evaporator Cooling Capacity {W}
+  0.7,                                    !- Cooling Only Mode Rated Sensible Heat Ratio
+  3.50015986358308,                       !- Cooling Only Mode Rated COP {W/W}
+  {a65af905-0f8b-4c95-bd96-637742fc28e9}, !- Cooling Only Mode Total Evaporator Cooling Capacity Function of Temperature Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Cooling Only Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve
+  {11a89dd2-c7a2-4523-9f5f-2da074ed137a}, !- Cooling Only Mode Energy Input Ratio Function of Temperature Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Cooling Only Mode Energy Input Ratio Function of Flow Fraction Curve
+  {5e57ec47-510a-4068-903c-de1a30ad7f30}, !- Cooling Only Mode Part Load Fraction Correlation Curve
+  {022e44ec-74d7-4d80-8fd6-4a10838b2aa4}, !- Cooling Only Mode Sensible Heat Ratio Function of Temperature Curve
+  {036a5a4b-b3ea-4147-acde-1ff675dde009}, !- Cooling Only Mode Sensible Heat Ratio Function of Flow Fraction Curve
+  Yes,                                    !- Cooling And Charge Mode Available
+  autosize,                               !- Cooling And Charge Mode Rated Total Evaporator Cooling Capacity {W}
+  1,                                      !- Cooling And Charge Mode Capacity Sizing Factor
+  autosize,                               !- Cooling And Charge Mode Rated Storage Charging Capacity {W}
+  0.86,                                   !- Cooling And Charge Mode Storage Capacity Sizing Factor
+  0.7,                                    !- Cooling And Charge Mode Rated Sensible Heat Ratio
+  3.66668442928701,                       !- Cooling And Charge Mode Cooling Rated COP {W/W}
+  2.17,                                   !- Cooling And Charge Mode Charging Rated COP {W/W}
+  {109d26d8-b76d-4b06-8ac1-5d8dbcbf04a3}, !- Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Temperature Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve
+  {c905915c-0785-4be8-90b1-3542662740bb}, !- Cooling And Charge Mode Evaporator Energy Input Ratio Function of Temperature Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Cooling And Charge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve
+  {5e57ec47-510a-4068-903c-de1a30ad7f30}, !- Cooling And Charge Mode Evaporator Part Load Fraction Correlation Curve
+  {8978f2e2-e13c-4f6b-9050-b3933cf063e5}, !- Cooling And Charge Mode Storage Charge Capacity Function of Temperature Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Cooling And Charge Mode Storage Charge Capacity Function of Total Evaporator PLR Curve
+  {23464d14-91cf-48bb-86d4-1e4cc7bcf712}, !- Cooling And Charge Mode Storage Energy Input Ratio Function of Temperature Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Cooling And Charge Mode Storage Energy Input Ratio Function of Flow Fraction Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Cooling And Charge Mode Storage Energy Part Load Fraction Correlation Curve
+  {022e44ec-74d7-4d80-8fd6-4a10838b2aa4}, !- Cooling And Charge Mode Sensible Heat Ratio Function of Temperature Curve
+  {036a5a4b-b3ea-4147-acde-1ff675dde009}, !- Cooling And Charge Mode Sensible Heat Ratio Function of Flow Fraction Curve
+  No,                                     !- Cooling And Discharge Mode Available
+  autosize,                               !- Cooling And Discharge Mode Rated Total Evaporator Cooling Capacity {W}
+  1,                                      !- Cooling And Discharge Mode Evaporator Capacity Sizing Factor
+  autosize,                               !- Cooling And Discharge Mode Rated Storage Discharging Capacity {W}
+  1,                                      !- Cooling And Discharge Mode Storage Discharge Capacity Sizing Factor
+  0.7,                                    !- Cooling And Discharge Mode Rated Sensible Heat Ratio
+  3,                                      !- Cooling And Discharge Mode Cooling Rated COP {W/W}
+  3,                                      !- Cooling And Discharge Mode Discharging Rated COP {W/W}
+  ,                                       !- Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Temperature Curve
+  ,                                       !- Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve
+  ,                                       !- Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Temperature Curve
+  ,                                       !- Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve
+  ,                                       !- Cooling And Discharge Mode Evaporator Part Load Fraction Correlation Curve
+  ,                                       !- Cooling And Discharge Mode Storage Discharge Capacity Function of Temperature Curve
+  ,                                       !- Cooling And Discharge Mode Storage Discharge Capacity Function of Flow Fraction Curve
+  ,                                       !- Cooling And Discharge Mode Storage Discharge Capacity Function of Total Evaporator PLR Curve
+  ,                                       !- Cooling And Discharge Mode Storage Energy Input Ratio Function of Temperature Curve
+  ,                                       !- Cooling And Discharge Mode Storage Energy Input Ratio Function of Flow Fraction Curve
+  ,                                       !- Cooling And Discharge Mode Storage Energy Part Load Fraction Correlation Curve
+  ,                                       !- Cooling And Discharge Mode Sensible Heat Ratio Function of Temperature Curve
+  ,                                       !- Cooling And Discharge Mode Sensible Heat Ratio Function of Flow Fraction Curve
+  No,                                     !- Charge Only Mode Available
+  autosize,                               !- Charge Only Mode Rated Storage Charging Capacity {W}
+  1,                                      !- Charge Only Mode Capacity Sizing Factor
+  3,                                      !- Charge Only Mode Charging Rated COP {W/W}
+  ,                                       !- Charge Only Mode Storage Charge Capacity Function of Temperature Curve
+  ,                                       !- Charge Only Mode Storage Energy Input Ratio Function of Temperature Curve
+  Yes,                                    !- Discharge Only Mode Available
+  autosize,                               !- Discharge Only Mode Rated Storage Discharging Capacity {W}
+  1.7,                                    !- Discharge Only Mode Capacity Sizing Factor
+  0.64,                                   !- Discharge Only Mode Rated Sensible Heat Ratio
+  63.6,                                   !- Discharge Only Mode Rated COP {W/W}
+  {336209e9-e87f-433a-8ba6-ced1e237379b}, !- Discharge Only Mode Storage Discharge Capacity Function of Temperature Curve
+  {fa982e3e-ddfa-4071-8e70-580780d58490}, !- Discharge Only Mode Storage Discharge Capacity Function of Flow Fraction Curve
+  {b3ec2757-9d2a-49ec-8e2f-c582d4582bd4}, !- Discharge Only Mode Energy Input Ratio Function of Temperature Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Discharge Only Mode Energy Input Ratio Function of Flow Fraction Curve
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Discharge Only Mode Part Load Fraction Correlation Curve
+  {0cebf01f-d0e8-4dc1-a109-5426ae1d64af}, !- Discharge Only Mode Sensible Heat Ratio Function of Temperature Curve
+  {05b85b0d-0dc4-4c5b-8718-e16a07370c99}, !- Discharge Only Mode Sensible Heat Ratio Function of Flow Fraction Curve
+  0,                                      !- Ancillary Electric Power {W}
+  2,                                      !- Cold Weather Operation Minimum Outdoor Air Temperature {C}
+  0,                                      !- Cold Weather Operation Ancillary Power {W}
+  ,                                       !- Condenser Air Inlet Node
+  ,                                       !- Condenser Air Outlet Node
+  autosize,                               !- Condenser Design Air Flow Rate {m3/s}
+  1.25,                                   !- Condenser Air Flow Sizing Factor
+  AirCooled,                              !- Condenser Type
+  0.7,                                    !- Evaporative Condenser Effectiveness {dimensionless}
+  0,                                      !- Evaporative Condenser Pump Rated Power Consumption {W}
+  0,                                      !- Basin Heater Capacity {W/K}
+  2,                                      !- Basin Heater Setpoint Temperature {C}
+  ;                                       !- Basin Heater Availability Schedule
+
+OS:Schedule:Constant,
+  {33bffcc1-7f2d-4f9c-887d-53e7b1d4d9e5}, !- Handle
+  Always On Discrete,                     !- Name
+  {27e6f237-5145-4548-8e20-102b992cbe88}, !- Schedule Type Limits Name
+  1;                                      !- Value
+
+OS:ScheduleTypeLimits,
+  {27e6f237-5145-4548-8e20-102b992cbe88}, !- Handle
+  OnOff,                                  !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Discrete,                               !- Numeric Type
+  Availability;                           !- Unit Type
+
+OS:Curve:Biquadratic,
+  {a65af905-0f8b-4c95-bd96-637742fc28e9}, !- Handle
+  Curve Biquadratic 1,                    !- Name
+  0.9712123,                              !- Coefficient1 Constant
+  -0.015275502,                           !- Coefficient2 x
+  0.0014434524,                           !- Coefficient3 x**2
+  -0.00039321,                            !- Coefficient4 y
+  -6.8364e-06,                            !- Coefficient5 y**2
+  -0.0002905956,                          !- Coefficient6 x*y
+  -100,                                   !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  -100,                                   !- Minimum Value of y
+  100;                                    !- Maximum Value of y
+
+OS:Curve:Cubic,
+  {e6312f51-b3b5-47bb-a283-320acceef1bc}, !- Handle
+  Curve Cubic 1,                          !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0,                                      !- Coefficient4 x**3
+  -100,                                   !- Minimum Value of x
+  100;                                    !- Maximum Value of x
+
+OS:Curve:Biquadratic,
+  {11a89dd2-c7a2-4523-9f5f-2da074ed137a}, !- Handle
+  Curve Biquadratic 2,                    !- Name
+  0.28687133,                             !- Coefficient1 Constant
+  0.023902164,                            !- Coefficient2 x
+  -0.000810648,                           !- Coefficient3 x**2
+  0.013458546,                            !- Coefficient4 y
+  0.0003389364,                           !- Coefficient5 y**2
+  -0.0004870044,                          !- Coefficient6 x*y
+  -100,                                   !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  -100,                                   !- Minimum Value of y
+  100;                                    !- Maximum Value of y
+
+OS:Curve:Quadratic,
+  {5e57ec47-510a-4068-903c-de1a30ad7f30}, !- Handle
+  Curve Quadratic 1,                      !- Name
+  0.90949556,                             !- Coefficient1 Constant
+  0.09864773,                             !- Coefficient2 x
+  -0.00819488,                            !- Coefficient3 x**2
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.7,                                    !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:Biquadratic,
+  {022e44ec-74d7-4d80-8fd6-4a10838b2aa4}, !- Handle
+  Curve Biquadratic 3,                    !- Name
+  1.3294540786,                           !- Coefficient1 Constant
+  -0.0990649255,                          !- Coefficient2 x
+  0.0008310043,                           !- Coefficient3 x**2
+  0.0652277735,                           !- Coefficient4 y
+  -7.93358e-05,                           !- Coefficient5 y**2
+  -0.0005874422,                          !- Coefficient6 x*y
+  24.44,                                  !- Minimum Value of x
+  26.67,                                  !- Maximum Value of x
+  29.44,                                  !- Minimum Value of y
+  46.1;                                   !- Maximum Value of y
+
+OS:Curve:Quadratic,
+  {036a5a4b-b3ea-4147-acde-1ff675dde009}, !- Handle
+  Curve Quadratic 2,                      !- Name
+  0.9317,                                 !- Coefficient1 Constant
+  -0.0077,                                !- Coefficient2 x
+  0.076,                                  !- Coefficient3 x**2
+  0.69,                                   !- Minimum Value of x
+  1.3;                                    !- Maximum Value of x
+
+OS:Curve:Triquadratic,
+  {109d26d8-b76d-4b06-8ac1-5d8dbcbf04a3}, !- Handle
+  Curve Triquadratic 1,                   !- Name
+  0.9712123,                              !- Coefficient1 Constant
+  0.0014434524,                           !- Coefficient2 x**2
+  -0.015275502,                           !- Coefficient3 x
+  -6.8364e-06,                            !- Coefficient4 y**2
+  -0.00039321,                            !- Coefficient5 y
+  0,                                      !- Coefficient6 z**2
+  0,                                      !- Coefficient7 z
+  0,                                      !- Coefficient8 x**2*y**2
+  -0.0002905956,                          !- Coefficient9 x*y
+  0,                                      !- Coefficient10 x*y**2
+  0,                                      !- Coefficient11 x**2*y
+  0,                                      !- Coefficient12 x**2*z**2
+  0,                                      !- Coefficient13 x*z
+  0,                                      !- Coefficient14 x*z**2
+  0,                                      !- Coefficient15 x**2*z
+  0,                                      !- Coefficient16 y**2*z**2
+  0,                                      !- Coefficient17 y*z
+  0,                                      !- Coefficient18 y*z**2
+  0,                                      !- Coefficient19 y**2*z
+  0,                                      !- Coefficient20 x**2*y**2*z**2
+  0,                                      !- Coefficient21 x**2*y**2*z
+  0,                                      !- Coefficient22 x**2*y*z**2
+  0,                                      !- Coefficient23 x*y**2*z**2
+  0,                                      !- Coefficient24 x**2*y*z
+  0,                                      !- Coefficient25 x*y**2*z
+  0,                                      !- Coefficient26 x*y*z**2
+  0,                                      !- Coefficient27 x*y*z
+  -100,                                   !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  -100,                                   !- Minimum Value of y
+  100,                                    !- Maximum Value of y
+  -100,                                   !- Minimum Value of z
+  100;                                    !- Maximum Value of z
+
+OS:Curve:Triquadratic,
+  {c905915c-0785-4be8-90b1-3542662740bb}, !- Handle
+  Curve Triquadratic 2,                   !- Name
+  0.28687133,                             !- Coefficient1 Constant
+  -0.000810648,                           !- Coefficient2 x**2
+  0.023902164,                            !- Coefficient3 x
+  0.0003389364,                           !- Coefficient4 y**2
+  0.013458546,                            !- Coefficient5 y
+  0,                                      !- Coefficient6 z**2
+  0,                                      !- Coefficient7 z
+  0,                                      !- Coefficient8 x**2*y**2
+  -0.0004870044,                          !- Coefficient9 x*y
+  0,                                      !- Coefficient10 x*y**2
+  0,                                      !- Coefficient11 x**2*y
+  0,                                      !- Coefficient12 x**2*z**2
+  0,                                      !- Coefficient13 x*z
+  0,                                      !- Coefficient14 x*z**2
+  0,                                      !- Coefficient15 x**2*z
+  0,                                      !- Coefficient16 y**2*z**2
+  0,                                      !- Coefficient17 y*z
+  0,                                      !- Coefficient18 y*z**2
+  0,                                      !- Coefficient19 y**2*z
+  0,                                      !- Coefficient20 x**2*y**2*z**2
+  0,                                      !- Coefficient21 x**2*y**2*z
+  0,                                      !- Coefficient22 x**2*y*z**2
+  0,                                      !- Coefficient23 x*y**2*z**2
+  0,                                      !- Coefficient24 x**2*y*z
+  0,                                      !- Coefficient25 x*y**2*z
+  0,                                      !- Coefficient26 x*y*z**2
+  0,                                      !- Coefficient27 x*y*z
+  -100,                                   !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  -100,                                   !- Minimum Value of y
+  100,                                    !- Maximum Value of y
+  -100,                                   !- Minimum Value of z
+  100;                                    !- Maximum Value of z
+
+OS:Table:Lookup,
+  {8978f2e2-e13c-4f6b-9050-b3933cf063e5}, !- Handle
+  Table Lookup 1,                         !- Name
+  {654128de-12ba-466d-82c5-d6dd9ab977c5}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  1,                                      !- Normalization Divisor
+  0.5,                                    !- Minimum Output {BasedOnField A5}
+  1.5,                                    !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  1.693105221,                            !- Output Value 1 {BasedOnField A5}
+  1.65848016210929,                       !- Output Value 2 {BasedOnField A5}
+  1.62689311200718,                       !- Output Value 3 {BasedOnField A5}
+  1.59834407069365,                       !- Output Value 4 {BasedOnField A5}
+  1.57283303816872,                       !- Output Value 5 {BasedOnField A5}
+  1.55036001443237,                       !- Output Value 6 {BasedOnField A5}
+  1.53092499948461,                       !- Output Value 7 {BasedOnField A5}
+  1.51452799332544,                       !- Output Value 8 {BasedOnField A5}
+  1.50116899595486,                       !- Output Value 9 {BasedOnField A5}
+  1.49084800737287,                       !- Output Value 10 {BasedOnField A5}
+  1.61101464972482,                       !- Output Value 11 {BasedOnField A5}
+  1.59576309127151,                       !- Output Value 12 {BasedOnField A5}
+  1.58080905736949,                       !- Output Value 13 {BasedOnField A5}
+  1.56615254801876,                       !- Output Value 14 {BasedOnField A5}
+  1.55179356321934,                       !- Output Value 15 {BasedOnField A5}
+  1.53773210297121,                       !- Output Value 16 {BasedOnField A5}
+  1.52396816727437,                       !- Output Value 17 {BasedOnField A5}
+  1.51050175612883,                       !- Output Value 18 {BasedOnField A5}
+  1.49733286953459,                       !- Output Value 19 {BasedOnField A5}
+  1.48446150749165,                       !- Output Value 20 {BasedOnField A5}
+  1.47188767,                             !- Output Value 21 {BasedOnField A5}
+  1.702120005,                            !- Output Value 22 {BasedOnField A5}
+  1.66819694468129,                       !- Output Value 23 {BasedOnField A5}
+  1.63731189315118,                       !- Output Value 24 {BasedOnField A5}
+  1.60946485040965,                       !- Output Value 25 {BasedOnField A5}
+  1.58465581645672,                       !- Output Value 26 {BasedOnField A5}
+  1.56288479129237,                       !- Output Value 27 {BasedOnField A5}
+  1.54415177491661,                       !- Output Value 28 {BasedOnField A5}
+  1.52845676732944,                       !- Output Value 29 {BasedOnField A5}
+  1.51579976853086,                       !- Output Value 30 {BasedOnField A5}
+  1.50618077852087,                       !- Output Value 31 {BasedOnField A5}
+  1.59047099356482,                       !- Output Value 32 {BasedOnField A5}
+  1.57623934552751,                       !- Output Value 33 {BasedOnField A5}
+  1.56230522204149,                       !- Output Value 34 {BasedOnField A5}
+  1.54866862310676,                       !- Output Value 35 {BasedOnField A5}
+  1.53532954872334,                       !- Output Value 36 {BasedOnField A5}
+  1.52228799889121,                       !- Output Value 37 {BasedOnField A5}
+  1.50954397361037,                       !- Output Value 38 {BasedOnField A5}
+  1.49709747288083,                       !- Output Value 39 {BasedOnField A5}
+  1.48494849670259,                       !- Output Value 40 {BasedOnField A5}
+  1.47309704507565,                       !- Output Value 41 {BasedOnField A5}
+  1.461543118,                            !- Output Value 42 {BasedOnField A5}
+  1.690907589,                            !- Output Value 43 {BasedOnField A5}
+  1.65768652725329,                       !- Output Value 44 {BasedOnField A5}
+  1.62750347429518,                       !- Output Value 45 {BasedOnField A5}
+  1.60035843012565,                       !- Output Value 46 {BasedOnField A5}
+  1.57625139474472,                       !- Output Value 47 {BasedOnField A5}
+  1.55518236815237,                       !- Output Value 48 {BasedOnField A5}
+  1.53715135034861,                       !- Output Value 49 {BasedOnField A5}
+  1.52215834133344,                       !- Output Value 50 {BasedOnField A5}
+  1.51020334110686,                       !- Output Value 51 {BasedOnField A5}
+  1.50128634966887,                       !- Output Value 52 {BasedOnField A5}
+  1.55554116140482,                       !- Output Value 53 {BasedOnField A5}
+  1.54232942378351,                       !- Output Value 54 {BasedOnField A5}
+  1.52941521071349,                       !- Output Value 55 {BasedOnField A5}
+  1.51679852219476,                       !- Output Value 56 {BasedOnField A5}
+  1.50447935822734,                       !- Output Value 57 {BasedOnField A5}
+  1.49245771881121,                       !- Output Value 58 {BasedOnField A5}
+  1.48073360394637,                       !- Output Value 59 {BasedOnField A5}
+  1.46930701363283,                       !- Output Value 60 {BasedOnField A5}
+  1.45817794787059,                       !- Output Value 61 {BasedOnField A5}
+  1.44734640665965,                       !- Output Value 62 {BasedOnField A5}
+  1.43681239,                             !- Output Value 63 {BasedOnField A5}
+  1.659467973,                            !- Output Value 64 {BasedOnField A5}
+  1.62694890982529,                       !- Output Value 65 {BasedOnField A5}
+  1.59746785543918,                       !- Output Value 66 {BasedOnField A5}
+  1.57102480984165,                       !- Output Value 67 {BasedOnField A5}
+  1.54761977303272,                       !- Output Value 68 {BasedOnField A5}
+  1.52725274501237,                       !- Output Value 69 {BasedOnField A5}
+  1.50992372578061,                       !- Output Value 70 {BasedOnField A5}
+  1.49563271533744,                       !- Output Value 71 {BasedOnField A5}
+  1.48437971368286,                       !- Output Value 72 {BasedOnField A5}
+  1.47616472081687,                       !- Output Value 73 {BasedOnField A5}
+  1.50622515324482,                       !- Output Value 74 {BasedOnField A5}
+  1.49403332603951,                       !- Output Value 75 {BasedOnField A5}
+  1.48213902338549,                       !- Output Value 76 {BasedOnField A5}
+  1.47054224528276,                       !- Output Value 77 {BasedOnField A5}
+  1.45924299173134,                       !- Output Value 78 {BasedOnField A5}
+  1.44824126273121,                       !- Output Value 79 {BasedOnField A5}
+  1.43753705828237,                       !- Output Value 80 {BasedOnField A5}
+  1.42713037838483,                       !- Output Value 81 {BasedOnField A5}
+  1.41702122303859,                       !- Output Value 82 {BasedOnField A5}
+  1.40720959224365,                       !- Output Value 83 {BasedOnField A5}
+  1.397695486,                            !- Output Value 84 {BasedOnField A5}
+  1.607801157,                            !- Output Value 85 {BasedOnField A5}
+  1.57598409239729,                       !- Output Value 86 {BasedOnField A5}
+  1.54720503658318,                       !- Output Value 87 {BasedOnField A5}
+  1.52146398955765,                       !- Output Value 88 {BasedOnField A5}
+  1.49876095132072,                       !- Output Value 89 {BasedOnField A5}
+  1.47909592187237,                       !- Output Value 90 {BasedOnField A5}
+  1.46246890121261,                       !- Output Value 91 {BasedOnField A5}
+  1.44887988934144,                       !- Output Value 92 {BasedOnField A5}
+  1.43832888625886,                       !- Output Value 93 {BasedOnField A5}
+  1.43081589196487,                       !- Output Value 94 {BasedOnField A5}
+  1.44252296908482,                       !- Output Value 95 {BasedOnField A5}
+  1.43135105229551,                       !- Output Value 96 {BasedOnField A5}
+  1.42047666005749,                       !- Output Value 97 {BasedOnField A5}
+  1.40989979237076,                       !- Output Value 98 {BasedOnField A5}
+  1.39962044923534,                       !- Output Value 99 {BasedOnField A5}
+  1.38963863065121,                       !- Output Value 100 {BasedOnField A5}
+  1.37995433661837,                       !- Output Value 101 {BasedOnField A5}
+  1.37056756713683,                       !- Output Value 102 {BasedOnField A5}
+  1.36147832220659,                       !- Output Value 103 {BasedOnField A5}
+  1.35268660182765,                       !- Output Value 104 {BasedOnField A5}
+  1.344192406,                            !- Output Value 105 {BasedOnField A5}
+  1.535907141,                            !- Output Value 106 {BasedOnField A5}
+  1.50479207496929,                       !- Output Value 107 {BasedOnField A5}
+  1.47671501772718,                       !- Output Value 108 {BasedOnField A5}
+  1.45167596927365,                       !- Output Value 109 {BasedOnField A5}
+  1.42967492960872,                       !- Output Value 110 {BasedOnField A5}
+  1.41071189873237,                       !- Output Value 111 {BasedOnField A5}
+  1.39478687664461,                       !- Output Value 112 {BasedOnField A5}
+  1.38189986334544,                       !- Output Value 113 {BasedOnField A5}
+  1.37205085883486,                       !- Output Value 114 {BasedOnField A5}
+  1.36523986311287,                       !- Output Value 115 {BasedOnField A5}
+  1.36443460892483,                       !- Output Value 116 {BasedOnField A5}
+  1.35428260255151,                       !- Output Value 117 {BasedOnField A5}
+  1.34442812072949,                       !- Output Value 118 {BasedOnField A5}
+  1.33487116345876,                       !- Output Value 119 {BasedOnField A5}
+  1.32561173073934,                       !- Output Value 120 {BasedOnField A5}
+  1.31664982257121,                       !- Output Value 121 {BasedOnField A5}
+  1.30798543895437,                       !- Output Value 122 {BasedOnField A5}
+  1.29961857988883,                       !- Output Value 123 {BasedOnField A5}
+  1.29154924537459,                       !- Output Value 124 {BasedOnField A5}
+  1.28377743541165,                       !- Output Value 125 {BasedOnField A5}
+  1.27630315,                             !- Output Value 126 {BasedOnField A5}
+  1.443785925,                            !- Output Value 127 {BasedOnField A5}
+  1.41337285754129,                       !- Output Value 128 {BasedOnField A5}
+  1.38599779887118,                       !- Output Value 129 {BasedOnField A5}
+  1.36166074898965,                       !- Output Value 130 {BasedOnField A5}
+  1.34036170789672,                       !- Output Value 131 {BasedOnField A5}
+  1.32210067559237,                       !- Output Value 132 {BasedOnField A5}
+  1.30687765207661,                       !- Output Value 133 {BasedOnField A5}
+  1.29469263734944,                       !- Output Value 134 {BasedOnField A5}
+  1.28554563141086,                       !- Output Value 135 {BasedOnField A5}
+  1.27943663426087,                       !- Output Value 136 {BasedOnField A5}
+  1.27196007276482,                       !- Output Value 137 {BasedOnField A5}
+  1.26282797680751,                       !- Output Value 138 {BasedOnField A5}
+  1.25399340540149,                       !- Output Value 139 {BasedOnField A5}
+  1.24545635854676,                       !- Output Value 140 {BasedOnField A5}
+  1.23721683624334,                       !- Output Value 141 {BasedOnField A5}
+  1.22927483849121,                       !- Output Value 142 {BasedOnField A5}
+  1.22163036529037,                       !- Output Value 143 {BasedOnField A5}
+  1.21428341664083,                       !- Output Value 144 {BasedOnField A5}
+  1.20723399254259,                       !- Output Value 145 {BasedOnField A5}
+  1.20048209299565,                       !- Output Value 146 {BasedOnField A5}
+  1.194027718,                            !- Output Value 147 {BasedOnField A5}
+  1.331437509,                            !- Output Value 148 {BasedOnField A5}
+  1.30172644011329,                       !- Output Value 149 {BasedOnField A5}
+  1.27505338001518,                       !- Output Value 150 {BasedOnField A5}
+  1.25141832870565,                       !- Output Value 151 {BasedOnField A5}
+  1.23082128618472,                       !- Output Value 152 {BasedOnField A5}
+  1.21326225245237,                       !- Output Value 153 {BasedOnField A5}
+  1.19874122750861,                       !- Output Value 154 {BasedOnField A5}
+  1.18725821135344,                       !- Output Value 155 {BasedOnField A5}
+  1.17881320398686,                       !- Output Value 156 {BasedOnField A5}
+  1.17340620540887,                       !- Output Value 157 {BasedOnField A5}
+  1.16509936060482,                       !- Output Value 158 {BasedOnField A5}
+  1.15698717506351,                       !- Output Value 159 {BasedOnField A5}
+  1.14917251407349,                       !- Output Value 160 {BasedOnField A5}
+  1.14165537763476,                       !- Output Value 161 {BasedOnField A5}
+  1.13443576574734,                       !- Output Value 162 {BasedOnField A5}
+  1.12751367841121,                       !- Output Value 163 {BasedOnField A5}
+  1.12088911562637,                       !- Output Value 164 {BasedOnField A5}
+  1.11456207739283,                       !- Output Value 165 {BasedOnField A5}
+  1.10853256371059,                       !- Output Value 166 {BasedOnField A5}
+  1.10280057457965,                       !- Output Value 167 {BasedOnField A5}
+  1.09736611,                             !- Output Value 168 {BasedOnField A5}
+  1.198861893,                            !- Output Value 169 {BasedOnField A5}
+  1.16985282268529,                       !- Output Value 170 {BasedOnField A5}
+  1.14388176115918,                       !- Output Value 171 {BasedOnField A5}
+  1.12094870842165,                       !- Output Value 172 {BasedOnField A5}
+  1.10105366447272,                       !- Output Value 173 {BasedOnField A5}
+  1.08419662931237,                       !- Output Value 174 {BasedOnField A5}
+  1.07037760294061,                       !- Output Value 175 {BasedOnField A5}
+  1.05959658535744,                       !- Output Value 176 {BasedOnField A5}
+  1.05185357656286,                       !- Output Value 177 {BasedOnField A5}
+  1.04714857655687,                       !- Output Value 178 {BasedOnField A5}
+  1.04385247244483,                       !- Output Value 179 {BasedOnField A5}
+  1.03676019731951,                       !- Output Value 180 {BasedOnField A5}
+  1.02996544674549,                       !- Output Value 181 {BasedOnField A5}
+  1.02346822072276,                       !- Output Value 182 {BasedOnField A5}
+  1.01726851925134,                       !- Output Value 183 {BasedOnField A5}
+  1.01136634233121,                       !- Output Value 184 {BasedOnField A5}
+  1.00576168996237,                       !- Output Value 185 {BasedOnField A5}
+  1.00045456214483,                       !- Output Value 186 {BasedOnField A5}
+  0.995444958878593,                      !- Output Value 187 {BasedOnField A5}
+  0.990732880163648,                      !- Output Value 188 {BasedOnField A5}
+  0.986318326,                            !- Output Value 189 {BasedOnField A5}
+  1.046059077,                            !- Output Value 190 {BasedOnField A5}
+  1.01775200525729,                       !- Output Value 191 {BasedOnField A5}
+  0.992482942303179,                      !- Output Value 192 {BasedOnField A5}
+  0.970251888137653,                      !- Output Value 193 {BasedOnField A5}
+  0.951058842760716,                      !- Output Value 194 {BasedOnField A5}
+  0.934903806172369,                      !- Output Value 195 {BasedOnField A5}
+  0.921786778372611,                      !- Output Value 196 {BasedOnField A5}
+  0.911707759361443,                      !- Output Value 197 {BasedOnField A5}
+  0.904666749138864,                      !- Output Value 198 {BasedOnField A5}
+  0.900663747704875,                      !- Output Value 199 {BasedOnField A5}
+  0.908219408284825,                      !- Output Value 200 {BasedOnField A5}
+  0.902147043575508,                      !- Output Value 201 {BasedOnField A5}
+  0.896372203417488,                      !- Output Value 202 {BasedOnField A5}
+  0.890894887810764,                      !- Output Value 203 {BasedOnField A5}
+  0.885715096755337,                      !- Output Value 204 {BasedOnField A5}
+  0.880832830251206,                      !- Output Value 205 {BasedOnField A5}
+  0.876248088298372,                      !- Output Value 206 {BasedOnField A5}
+  0.871960870896834,                      !- Output Value 207 {BasedOnField A5}
+  0.867971178046593,                      !- Output Value 208 {BasedOnField A5}
+  0.864279009747648,                      !- Output Value 209 {BasedOnField A5}
+  0.860884366,                            !- Output Value 210 {BasedOnField A5}
+  0.873029061,                            !- Output Value 211 {BasedOnField A5}
+  0.845423987829295,                      !- Output Value 212 {BasedOnField A5}
+  0.820856923447179,                      !- Output Value 213 {BasedOnField A5}
+  0.799327867853653,                      !- Output Value 214 {BasedOnField A5}
+  0.780836821048716,                      !- Output Value 215 {BasedOnField A5}
+  0.765383783032369,                      !- Output Value 216 {BasedOnField A5}
+  0.752968753804611,                      !- Output Value 217 {BasedOnField A5}
+  0.743591733365443,                      !- Output Value 218 {BasedOnField A5}
+  0.737252721714864,                      !- Output Value 219 {BasedOnField A5}
+  0.733951718852875,                      !- Output Value 220 {BasedOnField A5}
+  0.758200168124825,                      !- Output Value 221 {BasedOnField A5}
+  0.753147713831508,                      !- Output Value 222 {BasedOnField A5}
+  0.748392784089488,                      !- Output Value 223 {BasedOnField A5}
+  0.743935378898764,                      !- Output Value 224 {BasedOnField A5}
+  0.739775498259337,                      !- Output Value 225 {BasedOnField A5}
+  0.735913142171206,                      !- Output Value 226 {BasedOnField A5}
+  0.732348310634372,                      !- Output Value 227 {BasedOnField A5}
+  0.729081003648834,                      !- Output Value 228 {BasedOnField A5}
+  0.726111221214593,                      !- Output Value 229 {BasedOnField A5}
+  0.723438963331648,                      !- Output Value 230 {BasedOnField A5}
+  0.72106423,                             !- Output Value 231 {BasedOnField A5}
+  1.693105221,                            !- Output Value 232 {BasedOnField A5}
+  1.65848016210929,                       !- Output Value 233 {BasedOnField A5}
+  1.62689311200718,                       !- Output Value 234 {BasedOnField A5}
+  1.59834407069365,                       !- Output Value 235 {BasedOnField A5}
+  1.57283303816872,                       !- Output Value 236 {BasedOnField A5}
+  1.55036001443237,                       !- Output Value 237 {BasedOnField A5}
+  1.53092499948461,                       !- Output Value 238 {BasedOnField A5}
+  1.51452799332544,                       !- Output Value 239 {BasedOnField A5}
+  1.50116899595486,                       !- Output Value 240 {BasedOnField A5}
+  1.49084800737287,                       !- Output Value 241 {BasedOnField A5}
+  1.61101464972482,                       !- Output Value 242 {BasedOnField A5}
+  1.59576309127151,                       !- Output Value 243 {BasedOnField A5}
+  1.58080905736949,                       !- Output Value 244 {BasedOnField A5}
+  1.56615254801876,                       !- Output Value 245 {BasedOnField A5}
+  1.55179356321934,                       !- Output Value 246 {BasedOnField A5}
+  1.53773210297121,                       !- Output Value 247 {BasedOnField A5}
+  1.52396816727437,                       !- Output Value 248 {BasedOnField A5}
+  1.51050175612883,                       !- Output Value 249 {BasedOnField A5}
+  1.49733286953459,                       !- Output Value 250 {BasedOnField A5}
+  1.48446150749165,                       !- Output Value 251 {BasedOnField A5}
+  1.47188767,                             !- Output Value 252 {BasedOnField A5}
+  1.702120005,                            !- Output Value 253 {BasedOnField A5}
+  1.66819694468129,                       !- Output Value 254 {BasedOnField A5}
+  1.63731189315118,                       !- Output Value 255 {BasedOnField A5}
+  1.60946485040965,                       !- Output Value 256 {BasedOnField A5}
+  1.58465581645672,                       !- Output Value 257 {BasedOnField A5}
+  1.56288479129237,                       !- Output Value 258 {BasedOnField A5}
+  1.54415177491661,                       !- Output Value 259 {BasedOnField A5}
+  1.52845676732944,                       !- Output Value 260 {BasedOnField A5}
+  1.51579976853086,                       !- Output Value 261 {BasedOnField A5}
+  1.50618077852087,                       !- Output Value 262 {BasedOnField A5}
+  1.59047099356482,                       !- Output Value 263 {BasedOnField A5}
+  1.57623934552751,                       !- Output Value 264 {BasedOnField A5}
+  1.56230522204149,                       !- Output Value 265 {BasedOnField A5}
+  1.54866862310676,                       !- Output Value 266 {BasedOnField A5}
+  1.53532954872334,                       !- Output Value 267 {BasedOnField A5}
+  1.52228799889121,                       !- Output Value 268 {BasedOnField A5}
+  1.50954397361037,                       !- Output Value 269 {BasedOnField A5}
+  1.49709747288083,                       !- Output Value 270 {BasedOnField A5}
+  1.48494849670259,                       !- Output Value 271 {BasedOnField A5}
+  1.47309704507565,                       !- Output Value 272 {BasedOnField A5}
+  1.461543118,                            !- Output Value 273 {BasedOnField A5}
+  1.690907589,                            !- Output Value 274 {BasedOnField A5}
+  1.65768652725329,                       !- Output Value 275 {BasedOnField A5}
+  1.62750347429518,                       !- Output Value 276 {BasedOnField A5}
+  1.60035843012565,                       !- Output Value 277 {BasedOnField A5}
+  1.57625139474472,                       !- Output Value 278 {BasedOnField A5}
+  1.55518236815237,                       !- Output Value 279 {BasedOnField A5}
+  1.53715135034861,                       !- Output Value 280 {BasedOnField A5}
+  1.52215834133344,                       !- Output Value 281 {BasedOnField A5}
+  1.51020334110686,                       !- Output Value 282 {BasedOnField A5}
+  1.50128634966887,                       !- Output Value 283 {BasedOnField A5}
+  1.55554116140482,                       !- Output Value 284 {BasedOnField A5}
+  1.54232942378351,                       !- Output Value 285 {BasedOnField A5}
+  1.52941521071349,                       !- Output Value 286 {BasedOnField A5}
+  1.51679852219476,                       !- Output Value 287 {BasedOnField A5}
+  1.50447935822734,                       !- Output Value 288 {BasedOnField A5}
+  1.49245771881121,                       !- Output Value 289 {BasedOnField A5}
+  1.48073360394637,                       !- Output Value 290 {BasedOnField A5}
+  1.46930701363283,                       !- Output Value 291 {BasedOnField A5}
+  1.45817794787059,                       !- Output Value 292 {BasedOnField A5}
+  1.44734640665965,                       !- Output Value 293 {BasedOnField A5}
+  1.43681239,                             !- Output Value 294 {BasedOnField A5}
+  1.659467973,                            !- Output Value 295 {BasedOnField A5}
+  1.62694890982529,                       !- Output Value 296 {BasedOnField A5}
+  1.59746785543918,                       !- Output Value 297 {BasedOnField A5}
+  1.57102480984165,                       !- Output Value 298 {BasedOnField A5}
+  1.54761977303272,                       !- Output Value 299 {BasedOnField A5}
+  1.52725274501237,                       !- Output Value 300 {BasedOnField A5}
+  1.50992372578061,                       !- Output Value 301 {BasedOnField A5}
+  1.49563271533744,                       !- Output Value 302 {BasedOnField A5}
+  1.48437971368286,                       !- Output Value 303 {BasedOnField A5}
+  1.47616472081687,                       !- Output Value 304 {BasedOnField A5}
+  1.50622515324482,                       !- Output Value 305 {BasedOnField A5}
+  1.49403332603951,                       !- Output Value 306 {BasedOnField A5}
+  1.48213902338549,                       !- Output Value 307 {BasedOnField A5}
+  1.47054224528276,                       !- Output Value 308 {BasedOnField A5}
+  1.45924299173134,                       !- Output Value 309 {BasedOnField A5}
+  1.44824126273121,                       !- Output Value 310 {BasedOnField A5}
+  1.43753705828237,                       !- Output Value 311 {BasedOnField A5}
+  1.42713037838483,                       !- Output Value 312 {BasedOnField A5}
+  1.41702122303859,                       !- Output Value 313 {BasedOnField A5}
+  1.40720959224365,                       !- Output Value 314 {BasedOnField A5}
+  1.397695486,                            !- Output Value 315 {BasedOnField A5}
+  1.607801157,                            !- Output Value 316 {BasedOnField A5}
+  1.57598409239729,                       !- Output Value 317 {BasedOnField A5}
+  1.54720503658318,                       !- Output Value 318 {BasedOnField A5}
+  1.52146398955765,                       !- Output Value 319 {BasedOnField A5}
+  1.49876095132072,                       !- Output Value 320 {BasedOnField A5}
+  1.47909592187237,                       !- Output Value 321 {BasedOnField A5}
+  1.46246890121261,                       !- Output Value 322 {BasedOnField A5}
+  1.44887988934144,                       !- Output Value 323 {BasedOnField A5}
+  1.43832888625886,                       !- Output Value 324 {BasedOnField A5}
+  1.43081589196487,                       !- Output Value 325 {BasedOnField A5}
+  1.44252296908482,                       !- Output Value 326 {BasedOnField A5}
+  1.43135105229551,                       !- Output Value 327 {BasedOnField A5}
+  1.42047666005749,                       !- Output Value 328 {BasedOnField A5}
+  1.40989979237076,                       !- Output Value 329 {BasedOnField A5}
+  1.39962044923534,                       !- Output Value 330 {BasedOnField A5}
+  1.38963863065121,                       !- Output Value 331 {BasedOnField A5}
+  1.37995433661837,                       !- Output Value 332 {BasedOnField A5}
+  1.37056756713683,                       !- Output Value 333 {BasedOnField A5}
+  1.36147832220659,                       !- Output Value 334 {BasedOnField A5}
+  1.35268660182765,                       !- Output Value 335 {BasedOnField A5}
+  1.344192406,                            !- Output Value 336 {BasedOnField A5}
+  1.535907141,                            !- Output Value 337 {BasedOnField A5}
+  1.50479207496929,                       !- Output Value 338 {BasedOnField A5}
+  1.47671501772718,                       !- Output Value 339 {BasedOnField A5}
+  1.45167596927365,                       !- Output Value 340 {BasedOnField A5}
+  1.42967492960872,                       !- Output Value 341 {BasedOnField A5}
+  1.41071189873237,                       !- Output Value 342 {BasedOnField A5}
+  1.39478687664461,                       !- Output Value 343 {BasedOnField A5}
+  1.38189986334544,                       !- Output Value 344 {BasedOnField A5}
+  1.37205085883486,                       !- Output Value 345 {BasedOnField A5}
+  1.36523986311287,                       !- Output Value 346 {BasedOnField A5}
+  1.36443460892483,                       !- Output Value 347 {BasedOnField A5}
+  1.35428260255151,                       !- Output Value 348 {BasedOnField A5}
+  1.34442812072949,                       !- Output Value 349 {BasedOnField A5}
+  1.33487116345876,                       !- Output Value 350 {BasedOnField A5}
+  1.32561173073934,                       !- Output Value 351 {BasedOnField A5}
+  1.31664982257121,                       !- Output Value 352 {BasedOnField A5}
+  1.30798543895437,                       !- Output Value 353 {BasedOnField A5}
+  1.29961857988883,                       !- Output Value 354 {BasedOnField A5}
+  1.29154924537459,                       !- Output Value 355 {BasedOnField A5}
+  1.28377743541165,                       !- Output Value 356 {BasedOnField A5}
+  1.27630315,                             !- Output Value 357 {BasedOnField A5}
+  1.443785925,                            !- Output Value 358 {BasedOnField A5}
+  1.41337285754129,                       !- Output Value 359 {BasedOnField A5}
+  1.38599779887118,                       !- Output Value 360 {BasedOnField A5}
+  1.36166074898965,                       !- Output Value 361 {BasedOnField A5}
+  1.34036170789672,                       !- Output Value 362 {BasedOnField A5}
+  1.32210067559237,                       !- Output Value 363 {BasedOnField A5}
+  1.30687765207661,                       !- Output Value 364 {BasedOnField A5}
+  1.29469263734944,                       !- Output Value 365 {BasedOnField A5}
+  1.28554563141086,                       !- Output Value 366 {BasedOnField A5}
+  1.27943663426087,                       !- Output Value 367 {BasedOnField A5}
+  1.27196007276482,                       !- Output Value 368 {BasedOnField A5}
+  1.26282797680751,                       !- Output Value 369 {BasedOnField A5}
+  1.25399340540149,                       !- Output Value 370 {BasedOnField A5}
+  1.24545635854676,                       !- Output Value 371 {BasedOnField A5}
+  1.23721683624334,                       !- Output Value 372 {BasedOnField A5}
+  1.22927483849121,                       !- Output Value 373 {BasedOnField A5}
+  1.22163036529037,                       !- Output Value 374 {BasedOnField A5}
+  1.21428341664083,                       !- Output Value 375 {BasedOnField A5}
+  1.20723399254259,                       !- Output Value 376 {BasedOnField A5}
+  1.20048209299565,                       !- Output Value 377 {BasedOnField A5}
+  1.194027718,                            !- Output Value 378 {BasedOnField A5}
+  1.331437509,                            !- Output Value 379 {BasedOnField A5}
+  1.30172644011329,                       !- Output Value 380 {BasedOnField A5}
+  1.27505338001518,                       !- Output Value 381 {BasedOnField A5}
+  1.25141832870565,                       !- Output Value 382 {BasedOnField A5}
+  1.23082128618472,                       !- Output Value 383 {BasedOnField A5}
+  1.21326225245237,                       !- Output Value 384 {BasedOnField A5}
+  1.19874122750861,                       !- Output Value 385 {BasedOnField A5}
+  1.18725821135344,                       !- Output Value 386 {BasedOnField A5}
+  1.17881320398686,                       !- Output Value 387 {BasedOnField A5}
+  1.17340620540887,                       !- Output Value 388 {BasedOnField A5}
+  1.16509936060482,                       !- Output Value 389 {BasedOnField A5}
+  1.15698717506351,                       !- Output Value 390 {BasedOnField A5}
+  1.14917251407349,                       !- Output Value 391 {BasedOnField A5}
+  1.14165537763476,                       !- Output Value 392 {BasedOnField A5}
+  1.13443576574734,                       !- Output Value 393 {BasedOnField A5}
+  1.12751367841121,                       !- Output Value 394 {BasedOnField A5}
+  1.12088911562637,                       !- Output Value 395 {BasedOnField A5}
+  1.11456207739283,                       !- Output Value 396 {BasedOnField A5}
+  1.10853256371059,                       !- Output Value 397 {BasedOnField A5}
+  1.10280057457965,                       !- Output Value 398 {BasedOnField A5}
+  1.09736611,                             !- Output Value 399 {BasedOnField A5}
+  1.198861893,                            !- Output Value 400 {BasedOnField A5}
+  1.16985282268529,                       !- Output Value 401 {BasedOnField A5}
+  1.14388176115918,                       !- Output Value 402 {BasedOnField A5}
+  1.12094870842165,                       !- Output Value 403 {BasedOnField A5}
+  1.10105366447272,                       !- Output Value 404 {BasedOnField A5}
+  1.08419662931237,                       !- Output Value 405 {BasedOnField A5}
+  1.07037760294061,                       !- Output Value 406 {BasedOnField A5}
+  1.05959658535744,                       !- Output Value 407 {BasedOnField A5}
+  1.05185357656286,                       !- Output Value 408 {BasedOnField A5}
+  1.04714857655687,                       !- Output Value 409 {BasedOnField A5}
+  1.04385247244483,                       !- Output Value 410 {BasedOnField A5}
+  1.03676019731951,                       !- Output Value 411 {BasedOnField A5}
+  1.02996544674549,                       !- Output Value 412 {BasedOnField A5}
+  1.02346822072276,                       !- Output Value 413 {BasedOnField A5}
+  1.01726851925134,                       !- Output Value 414 {BasedOnField A5}
+  1.01136634233121,                       !- Output Value 415 {BasedOnField A5}
+  1.00576168996237,                       !- Output Value 416 {BasedOnField A5}
+  1.00045456214483,                       !- Output Value 417 {BasedOnField A5}
+  0.995444958878593,                      !- Output Value 418 {BasedOnField A5}
+  0.990732880163648,                      !- Output Value 419 {BasedOnField A5}
+  0.986318326,                            !- Output Value 420 {BasedOnField A5}
+  1.046059077,                            !- Output Value 421 {BasedOnField A5}
+  1.01775200525729,                       !- Output Value 422 {BasedOnField A5}
+  0.992482942303179,                      !- Output Value 423 {BasedOnField A5}
+  0.970251888137653,                      !- Output Value 424 {BasedOnField A5}
+  0.951058842760716,                      !- Output Value 425 {BasedOnField A5}
+  0.934903806172369,                      !- Output Value 426 {BasedOnField A5}
+  0.921786778372611,                      !- Output Value 427 {BasedOnField A5}
+  0.911707759361443,                      !- Output Value 428 {BasedOnField A5}
+  0.904666749138864,                      !- Output Value 429 {BasedOnField A5}
+  0.900663747704875,                      !- Output Value 430 {BasedOnField A5}
+  0.908219408284825,                      !- Output Value 431 {BasedOnField A5}
+  0.902147043575508,                      !- Output Value 432 {BasedOnField A5}
+  0.896372203417488,                      !- Output Value 433 {BasedOnField A5}
+  0.890894887810764,                      !- Output Value 434 {BasedOnField A5}
+  0.885715096755337,                      !- Output Value 435 {BasedOnField A5}
+  0.880832830251206,                      !- Output Value 436 {BasedOnField A5}
+  0.876248088298372,                      !- Output Value 437 {BasedOnField A5}
+  0.871960870896834,                      !- Output Value 438 {BasedOnField A5}
+  0.867971178046593,                      !- Output Value 439 {BasedOnField A5}
+  0.864279009747648,                      !- Output Value 440 {BasedOnField A5}
+  0.860884366,                            !- Output Value 441 {BasedOnField A5}
+  0.873029061,                            !- Output Value 442 {BasedOnField A5}
+  0.845423987829295,                      !- Output Value 443 {BasedOnField A5}
+  0.820856923447179,                      !- Output Value 444 {BasedOnField A5}
+  0.799327867853653,                      !- Output Value 445 {BasedOnField A5}
+  0.780836821048716,                      !- Output Value 446 {BasedOnField A5}
+  0.765383783032369,                      !- Output Value 447 {BasedOnField A5}
+  0.752968753804611,                      !- Output Value 448 {BasedOnField A5}
+  0.743591733365443,                      !- Output Value 449 {BasedOnField A5}
+  0.737252721714864,                      !- Output Value 450 {BasedOnField A5}
+  0.733951718852875,                      !- Output Value 451 {BasedOnField A5}
+  0.758200168124825,                      !- Output Value 452 {BasedOnField A5}
+  0.753147713831508,                      !- Output Value 453 {BasedOnField A5}
+  0.748392784089488,                      !- Output Value 454 {BasedOnField A5}
+  0.743935378898764,                      !- Output Value 455 {BasedOnField A5}
+  0.739775498259337,                      !- Output Value 456 {BasedOnField A5}
+  0.735913142171206,                      !- Output Value 457 {BasedOnField A5}
+  0.732348310634372,                      !- Output Value 458 {BasedOnField A5}
+  0.729081003648834,                      !- Output Value 459 {BasedOnField A5}
+  0.726111221214593,                      !- Output Value 460 {BasedOnField A5}
+  0.723438963331648,                      !- Output Value 461 {BasedOnField A5}
+  0.72106423;                             !- Output Value 462 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {654128de-12ba-466d-82c5-d6dd9ab977c5}, !- Handle
+  Table Lookup 1 Independent Variable List, !- Name
+  {5ef04b6f-10e7-4310-98b2-731bec18b4bf}, !- Model Object 1
+  {9960e8f0-7f54-4c95-9289-600f3df67f34}, !- Model Object 2
+  {e7a93c7d-3e07-4ef7-92d2-c9f58549790f}; !- Model Object 3
+
+OS:Table:IndependentVariable,
+  {5ef04b6f-10e7-4310-98b2-731bec18b4bf}, !- Handle
+  Table Independent Variable 1,           !- Name
+  Cubic,                                  !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  -100,                                   !- Minimum Value {BasedOnField A5}
+  100,                                    !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Temperature,                            !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  -100,                                   !- Value 1
+  100;                                    !- Value 2
+
+OS:Table:IndependentVariable,
+  {9960e8f0-7f54-4c95-9289-600f3df67f34}, !- Handle
+  Table Independent Variable 2,           !- Name
+  Cubic,                                  !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  -30,                                    !- Minimum Value {BasedOnField A5}
+  50,                                     !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Temperature,                            !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  -30,                                    !- Value 1
+  -22,                                    !- Value 2
+  -14,                                    !- Value 3
+  -6,                                     !- Value 4
+  2,                                      !- Value 5
+  10,                                     !- Value 6
+  18,                                     !- Value 7
+  26,                                     !- Value 8
+  34,                                     !- Value 9
+  42,                                     !- Value 10
+  50;                                     !- Value 11
+
+OS:Table:IndependentVariable,
+  {e7a93c7d-3e07-4ef7-92d2-c9f58549790f}, !- Handle
+  Table Independent Variable 3,           !- Name
+  Cubic,                                  !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  0,                                      !- Minimum Value {BasedOnField A5}
+  1,                                      !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Dimensionless,                          !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0,                                      !- Value 1
+  0.0165,                                 !- Value 2
+  0.033,                                  !- Value 3
+  0.0495,                                 !- Value 4
+  0.066,                                  !- Value 5
+  0.0825,                                 !- Value 6
+  0.099,                                  !- Value 7
+  0.1155,                                 !- Value 8
+  0.132,                                  !- Value 9
+  0.1485,                                 !- Value 10
+  0.165,                                  !- Value 11
+  0.2485,                                 !- Value 12
+  0.332,                                  !- Value 13
+  0.4155,                                 !- Value 14
+  0.499,                                  !- Value 15
+  0.5825,                                 !- Value 16
+  0.666,                                  !- Value 17
+  0.7495,                                 !- Value 18
+  0.833,                                  !- Value 19
+  0.9165,                                 !- Value 20
+  1;                                      !- Value 21
+
+OS:Table:Lookup,
+  {23464d14-91cf-48bb-86d4-1e4cc7bcf712}, !- Handle
+  Table Lookup 2,                         !- Name
+  {b316370b-6be5-4665-b14a-a437529f5ad8}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  1,                                      !- Normalization Divisor
+  0.5,                                    !- Minimum Output {BasedOnField A5}
+  2.5,                                    !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.992306693,                            !- Output Value 1 {BasedOnField A5}
+  0.993205787535399,                      !- Output Value 2 {BasedOnField A5}
+  0.993576451780598,                      !- Output Value 3 {BasedOnField A5}
+  0.993418685735596,                      !- Output Value 4 {BasedOnField A5}
+  0.992732489400392,                      !- Output Value 5 {BasedOnField A5}
+  0.991517862774987,                      !- Output Value 6 {BasedOnField A5}
+  0.989774805859382,                      !- Output Value 7 {BasedOnField A5}
+  0.987503318653576,                      !- Output Value 8 {BasedOnField A5}
+  0.984703401157568,                      !- Output Value 9 {BasedOnField A5}
+  0.981375053371359,                      !- Output Value 10 {BasedOnField A5}
+  0.87213395701435,                       !- Output Value 11 {BasedOnField A5}
+  0.870598684342923,                      !- Output Value 12 {BasedOnField A5}
+  0.869046873020384,                      !- Output Value 13 {BasedOnField A5}
+  0.867478523046732,                      !- Output Value 14 {BasedOnField A5}
+  0.865893634421966,                      !- Output Value 15 {BasedOnField A5}
+  0.864292207146087,                      !- Output Value 16 {BasedOnField A5}
+  0.862674241219096,                      !- Output Value 17 {BasedOnField A5}
+  0.861039736640991,                      !- Output Value 18 {BasedOnField A5}
+  0.859388693411774,                      !- Output Value 19 {BasedOnField A5}
+  0.857721111531443,                      !- Output Value 20 {BasedOnField A5}
+  0.856036991,                            !- Output Value 21 {BasedOnField A5}
+  0.752399557,                            !- Output Value 22 {BasedOnField A5}
+  0.754439488331399,                      !- Output Value 23 {BasedOnField A5}
+  0.755950989372598,                      !- Output Value 24 {BasedOnField A5}
+  0.756934060123595,                      !- Output Value 25 {BasedOnField A5}
+  0.757388700584392,                      !- Output Value 26 {BasedOnField A5}
+  0.757314910754987,                      !- Output Value 27 {BasedOnField A5}
+  0.756712690635382,                      !- Output Value 28 {BasedOnField A5}
+  0.755582040225575,                      !- Output Value 29 {BasedOnField A5}
+  0.753922959525568,                      !- Output Value 30 {BasedOnField A5}
+  0.75173544853536,                       !- Output Value 31 {BasedOnField A5}
+  0.67278144081435,                       !- Output Value 32 {BasedOnField A5}
+  0.672013042162923,                      !- Output Value 33 {BasedOnField A5}
+  0.671228104860384,                      !- Output Value 34 {BasedOnField A5}
+  0.670426628906732,                      !- Output Value 35 {BasedOnField A5}
+  0.669608614301966,                      !- Output Value 36 {BasedOnField A5}
+  0.668774061046087,                      !- Output Value 37 {BasedOnField A5}
+  0.667922969139096,                      !- Output Value 38 {BasedOnField A5}
+  0.667055338580991,                      !- Output Value 39 {BasedOnField A5}
+  0.666171169371774,                      !- Output Value 40 {BasedOnField A5}
+  0.665270461511444,                      !- Output Value 41 {BasedOnField A5}
+  0.664353215,                            !- Output Value 42 {BasedOnField A5}
+  0.576753285,                            !- Output Value 43 {BasedOnField A5}
+  0.579934053127399,                      !- Output Value 44 {BasedOnField A5}
+  0.582586390964598,                      !- Output Value 45 {BasedOnField A5}
+  0.584710298511595,                      !- Output Value 46 {BasedOnField A5}
+  0.586305775768392,                      !- Output Value 47 {BasedOnField A5}
+  0.587372822734987,                      !- Output Value 48 {BasedOnField A5}
+  0.587911439411382,                      !- Output Value 49 {BasedOnField A5}
+  0.587921625797575,                      !- Output Value 50 {BasedOnField A5}
+  0.587403381893568,                      !- Output Value 51 {BasedOnField A5}
+  0.586356707699359,                      !- Output Value 52 {BasedOnField A5}
+  0.53303814061435,                       !- Output Value 53 {BasedOnField A5}
+  0.533036615982924,                      !- Output Value 54 {BasedOnField A5}
+  0.533018552700384,                      !- Output Value 55 {BasedOnField A5}
+  0.532983950766732,                      !- Output Value 56 {BasedOnField A5}
+  0.532932810181966,                      !- Output Value 57 {BasedOnField A5}
+  0.532865130946087,                      !- Output Value 58 {BasedOnField A5}
+  0.532780913059096,                      !- Output Value 59 {BasedOnField A5}
+  0.532680156520991,                      !- Output Value 60 {BasedOnField A5}
+  0.532562861331774,                      !- Output Value 61 {BasedOnField A5}
+  0.532429027491444,                      !- Output Value 62 {BasedOnField A5}
+  0.532278655,                            !- Output Value 63 {BasedOnField A5}
+  0.465367877,                            !- Output Value 64 {BasedOnField A5}
+  0.469689481923399,                      !- Output Value 65 {BasedOnField A5}
+  0.473482656556598,                      !- Output Value 66 {BasedOnField A5}
+  0.476747400899595,                      !- Output Value 67 {BasedOnField A5}
+  0.479483714952392,                      !- Output Value 68 {BasedOnField A5}
+  0.481691598714988,                      !- Output Value 69 {BasedOnField A5}
+  0.483371052187382,                      !- Output Value 70 {BasedOnField A5}
+  0.484522075369576,                      !- Output Value 71 {BasedOnField A5}
+  0.485144668261568,                      !- Output Value 72 {BasedOnField A5}
+  0.48523883086336,                       !- Output Value 73 {BasedOnField A5}
+  0.45290405641435,                       !- Output Value 74 {BasedOnField A5}
+  0.453669405802923,                      !- Output Value 75 {BasedOnField A5}
+  0.454418216540384,                      !- Output Value 76 {BasedOnField A5}
+  0.455150488626731,                      !- Output Value 77 {BasedOnField A5}
+  0.455866222061966,                      !- Output Value 78 {BasedOnField A5}
+  0.456565416846087,                      !- Output Value 79 {BasedOnField A5}
+  0.457248072979096,                      !- Output Value 80 {BasedOnField A5}
+  0.457914190460991,                      !- Output Value 81 {BasedOnField A5}
+  0.458563769291774,                      !- Output Value 82 {BasedOnField A5}
+  0.459196809471443,                      !- Output Value 83 {BasedOnField A5}
+  0.459813311,                            !- Output Value 84 {BasedOnField A5}
+  0.418243333,                            !- Output Value 85 {BasedOnField A5}
+  0.423705774719399,                      !- Output Value 86 {BasedOnField A5}
+  0.428639786148598,                      !- Output Value 87 {BasedOnField A5}
+  0.433045367287595,                      !- Output Value 88 {BasedOnField A5}
+  0.436922518136392,                      !- Output Value 89 {BasedOnField A5}
+  0.440271238694988,                      !- Output Value 90 {BasedOnField A5}
+  0.443091528963382,                      !- Output Value 91 {BasedOnField A5}
+  0.445383388941575,                      !- Output Value 92 {BasedOnField A5}
+  0.447146818629568,                      !- Output Value 93 {BasedOnField A5}
+  0.448381818027359,                      !- Output Value 94 {BasedOnField A5}
+  0.43237918821435,                       !- Output Value 95 {BasedOnField A5}
+  0.433911411622924,                      !- Output Value 96 {BasedOnField A5}
+  0.435427096380384,                      !- Output Value 97 {BasedOnField A5}
+  0.436926242486732,                      !- Output Value 98 {BasedOnField A5}
+  0.438408849941966,                      !- Output Value 99 {BasedOnField A5}
+  0.439874918746087,                      !- Output Value 100 {BasedOnField A5}
+  0.441324448899096,                      !- Output Value 101 {BasedOnField A5}
+  0.442757440400992,                      !- Output Value 102 {BasedOnField A5}
+  0.444173893251774,                      !- Output Value 103 {BasedOnField A5}
+  0.445573807451443,                      !- Output Value 104 {BasedOnField A5}
+  0.446957183,                            !- Output Value 105 {BasedOnField A5}
+  0.435379653,                            !- Output Value 106 {BasedOnField A5}
+  0.4419829315154,                        !- Output Value 107 {BasedOnField A5}
+  0.448057779740598,                      !- Output Value 108 {BasedOnField A5}
+  0.453604197675596,                      !- Output Value 109 {BasedOnField A5}
+  0.458622185320392,                      !- Output Value 110 {BasedOnField A5}
+  0.463111742674988,                      !- Output Value 111 {BasedOnField A5}
+  0.467072869739382,                      !- Output Value 112 {BasedOnField A5}
+  0.470505566513576,                      !- Output Value 113 {BasedOnField A5}
+  0.473409832997568,                      !- Output Value 114 {BasedOnField A5}
+  0.47578566919136,                       !- Output Value 115 {BasedOnField A5}
+  0.47146353601435,                       !- Output Value 116 {BasedOnField A5}
+  0.473762633442923,                      !- Output Value 117 {BasedOnField A5}
+  0.476045192220384,                      !- Output Value 118 {BasedOnField A5}
+  0.478311212346732,                      !- Output Value 119 {BasedOnField A5}
+  0.480560693821966,                      !- Output Value 120 {BasedOnField A5}
+  0.482793636646087,                      !- Output Value 121 {BasedOnField A5}
+  0.485010040819096,                      !- Output Value 122 {BasedOnField A5}
+  0.487209906340991,                      !- Output Value 123 {BasedOnField A5}
+  0.489393233211774,                      !- Output Value 124 {BasedOnField A5}
+  0.491560021431443,                      !- Output Value 125 {BasedOnField A5}
+  0.493710271,                            !- Output Value 126 {BasedOnField A5}
+  0.516776837,                            !- Output Value 127 {BasedOnField A5}
+  0.5245209523114,                        !- Output Value 128 {BasedOnField A5}
+  0.531736637332598,                      !- Output Value 129 {BasedOnField A5}
+  0.538423892063595,                      !- Output Value 130 {BasedOnField A5}
+  0.544582716504392,                      !- Output Value 131 {BasedOnField A5}
+  0.550213110654987,                      !- Output Value 132 {BasedOnField A5}
+  0.555315074515382,                      !- Output Value 133 {BasedOnField A5}
+  0.559888608085576,                      !- Output Value 134 {BasedOnField A5}
+  0.563933711365568,                      !- Output Value 135 {BasedOnField A5}
+  0.567450384355359,                      !- Output Value 136 {BasedOnField A5}
+  0.57015709981435,                       !- Output Value 137 {BasedOnField A5}
+  0.573223071262923,                      !- Output Value 138 {BasedOnField A5}
+  0.576272504060384,                      !- Output Value 139 {BasedOnField A5}
+  0.579305398206732,                      !- Output Value 140 {BasedOnField A5}
+  0.582321753701966,                      !- Output Value 141 {BasedOnField A5}
+  0.585321570546087,                      !- Output Value 142 {BasedOnField A5}
+  0.588304848739096,                      !- Output Value 143 {BasedOnField A5}
+  0.591271588280991,                      !- Output Value 144 {BasedOnField A5}
+  0.594221789171774,                      !- Output Value 145 {BasedOnField A5}
+  0.597155451411444,                      !- Output Value 146 {BasedOnField A5}
+  0.600072575,                            !- Output Value 147 {BasedOnField A5}
+  0.662434885,                            !- Output Value 148 {BasedOnField A5}
+  0.6713198371074,                        !- Output Value 149 {BasedOnField A5}
+  0.679676358924598,                      !- Output Value 150 {BasedOnField A5}
+  0.687504450451595,                      !- Output Value 151 {BasedOnField A5}
+  0.694804111688392,                      !- Output Value 152 {BasedOnField A5}
+  0.701575342634988,                      !- Output Value 153 {BasedOnField A5}
+  0.707818143291382,                      !- Output Value 154 {BasedOnField A5}
+  0.713532513657576,                      !- Output Value 155 {BasedOnField A5}
+  0.718718453733568,                      !- Output Value 156 {BasedOnField A5}
+  0.72337596351936,                       !- Output Value 157 {BasedOnField A5}
+  0.72845987961435,                       !- Output Value 158 {BasedOnField A5}
+  0.732292725082924,                      !- Output Value 159 {BasedOnField A5}
+  0.736109031900384,                      !- Output Value 160 {BasedOnField A5}
+  0.739908800066732,                      !- Output Value 161 {BasedOnField A5}
+  0.743692029581966,                      !- Output Value 162 {BasedOnField A5}
+  0.747458720446088,                      !- Output Value 163 {BasedOnField A5}
+  0.751208872659096,                      !- Output Value 164 {BasedOnField A5}
+  0.754942486220991,                      !- Output Value 165 {BasedOnField A5}
+  0.758659561131774,                      !- Output Value 166 {BasedOnField A5}
+  0.762360097391444,                      !- Output Value 167 {BasedOnField A5}
+  0.766044095,                            !- Output Value 168 {BasedOnField A5}
+  0.872353797,                            !- Output Value 169 {BasedOnField A5}
+  0.882379585903399,                      !- Output Value 170 {BasedOnField A5}
+  0.891876944516598,                      !- Output Value 171 {BasedOnField A5}
+  0.900845872839595,                      !- Output Value 172 {BasedOnField A5}
+  0.909286370872392,                      !- Output Value 173 {BasedOnField A5}
+  0.917198438614988,                      !- Output Value 174 {BasedOnField A5}
+  0.924582076067382,                      !- Output Value 175 {BasedOnField A5}
+  0.931437283229576,                      !- Output Value 176 {BasedOnField A5}
+  0.937764060101568,                      !- Output Value 177 {BasedOnField A5}
+  0.94356240668336,                       !- Output Value 178 {BasedOnField A5}
+  0.94637187541435,                       !- Output Value 179 {BasedOnField A5}
+  0.950971594902923,                      !- Output Value 180 {BasedOnField A5}
+  0.955554775740384,                      !- Output Value 181 {BasedOnField A5}
+  0.960121417926732,                      !- Output Value 182 {BasedOnField A5}
+  0.964671521461966,                      !- Output Value 183 {BasedOnField A5}
+  0.969205086346087,                      !- Output Value 184 {BasedOnField A5}
+  0.973722112579096,                      !- Output Value 185 {BasedOnField A5}
+  0.978222600160991,                      !- Output Value 186 {BasedOnField A5}
+  0.982706549091774,                      !- Output Value 187 {BasedOnField A5}
+  0.987173959371443,                      !- Output Value 188 {BasedOnField A5}
+  0.991624831,                            !- Output Value 189 {BasedOnField A5}
+  1.146533573,                            !- Output Value 190 {BasedOnField A5}
+  1.1577001986994,                        !- Output Value 191 {BasedOnField A5}
+  1.1683383941086,                        !- Output Value 192 {BasedOnField A5}
+  1.1784481592276,                        !- Output Value 193 {BasedOnField A5}
+  1.18802949405639,                       !- Output Value 194 {BasedOnField A5}
+  1.19708239859499,                       !- Output Value 195 {BasedOnField A5}
+  1.20560687284338,                       !- Output Value 196 {BasedOnField A5}
+  1.21360291680158,                       !- Output Value 197 {BasedOnField A5}
+  1.22107053046957,                       !- Output Value 198 {BasedOnField A5}
+  1.22800971384736,                       !- Output Value 199 {BasedOnField A5}
+  1.22389308721435,                       !- Output Value 200 {BasedOnField A5}
+  1.22925968072292,                       !- Output Value 201 {BasedOnField A5}
+  1.23460973558038,                       !- Output Value 202 {BasedOnField A5}
+  1.23994325178673,                       !- Output Value 203 {BasedOnField A5}
+  1.24526022934197,                       !- Output Value 204 {BasedOnField A5}
+  1.25056066824609,                       !- Output Value 205 {BasedOnField A5}
+  1.2558445684991,                        !- Output Value 206 {BasedOnField A5}
+  1.26111193010099,                       !- Output Value 207 {BasedOnField A5}
+  1.26636275305177,                       !- Output Value 208 {BasedOnField A5}
+  1.27159703735144,                       !- Output Value 209 {BasedOnField A5}
+  1.276814783,                            !- Output Value 210 {BasedOnField A5}
+  1.484974213,                            !- Output Value 211 {BasedOnField A5}
+  1.4972816754954,                        !- Output Value 212 {BasedOnField A5}
+  1.5090607077006,                        !- Output Value 213 {BasedOnField A5}
+  1.5203113096156,                        !- Output Value 214 {BasedOnField A5}
+  1.53103348124039,                       !- Output Value 215 {BasedOnField A5}
+  1.54122722257499,                       !- Output Value 216 {BasedOnField A5}
+  1.55089253361938,                       !- Output Value 217 {BasedOnField A5}
+  1.56002941437358,                       !- Output Value 218 {BasedOnField A5}
+  1.56863786483757,                       !- Output Value 219 {BasedOnField A5}
+  1.57671788501136,                       !- Output Value 220 {BasedOnField A5}
+  1.56102351501435,                       !- Output Value 221 {BasedOnField A5}
+  1.56715698254292,                       !- Output Value 222 {BasedOnField A5}
+  1.57327391142038,                       !- Output Value 223 {BasedOnField A5}
+  1.57937430164673,                       !- Output Value 224 {BasedOnField A5}
+  1.58545815322197,                       !- Output Value 225 {BasedOnField A5}
+  1.59152546614609,                       !- Output Value 226 {BasedOnField A5}
+  1.5975762404191,                        !- Output Value 227 {BasedOnField A5}
+  1.60361047604099,                       !- Output Value 228 {BasedOnField A5}
+  1.60962817301177,                       !- Output Value 229 {BasedOnField A5}
+  1.61562933133144,                       !- Output Value 230 {BasedOnField A5}
+  1.621613951,                            !- Output Value 231 {BasedOnField A5}
+  0.992306693,                            !- Output Value 232 {BasedOnField A5}
+  0.993205787535399,                      !- Output Value 233 {BasedOnField A5}
+  0.993576451780598,                      !- Output Value 234 {BasedOnField A5}
+  0.993418685735596,                      !- Output Value 235 {BasedOnField A5}
+  0.992732489400392,                      !- Output Value 236 {BasedOnField A5}
+  0.991517862774987,                      !- Output Value 237 {BasedOnField A5}
+  0.989774805859382,                      !- Output Value 238 {BasedOnField A5}
+  0.987503318653576,                      !- Output Value 239 {BasedOnField A5}
+  0.984703401157568,                      !- Output Value 240 {BasedOnField A5}
+  0.981375053371359,                      !- Output Value 241 {BasedOnField A5}
+  0.87213395701435,                       !- Output Value 242 {BasedOnField A5}
+  0.870598684342923,                      !- Output Value 243 {BasedOnField A5}
+  0.869046873020384,                      !- Output Value 244 {BasedOnField A5}
+  0.867478523046732,                      !- Output Value 245 {BasedOnField A5}
+  0.865893634421966,                      !- Output Value 246 {BasedOnField A5}
+  0.864292207146087,                      !- Output Value 247 {BasedOnField A5}
+  0.862674241219096,                      !- Output Value 248 {BasedOnField A5}
+  0.861039736640991,                      !- Output Value 249 {BasedOnField A5}
+  0.859388693411774,                      !- Output Value 250 {BasedOnField A5}
+  0.857721111531443,                      !- Output Value 251 {BasedOnField A5}
+  0.856036991,                            !- Output Value 252 {BasedOnField A5}
+  0.752399557,                            !- Output Value 253 {BasedOnField A5}
+  0.754439488331399,                      !- Output Value 254 {BasedOnField A5}
+  0.755950989372598,                      !- Output Value 255 {BasedOnField A5}
+  0.756934060123595,                      !- Output Value 256 {BasedOnField A5}
+  0.757388700584392,                      !- Output Value 257 {BasedOnField A5}
+  0.757314910754987,                      !- Output Value 258 {BasedOnField A5}
+  0.756712690635382,                      !- Output Value 259 {BasedOnField A5}
+  0.755582040225575,                      !- Output Value 260 {BasedOnField A5}
+  0.753922959525568,                      !- Output Value 261 {BasedOnField A5}
+  0.75173544853536,                       !- Output Value 262 {BasedOnField A5}
+  0.67278144081435,                       !- Output Value 263 {BasedOnField A5}
+  0.672013042162923,                      !- Output Value 264 {BasedOnField A5}
+  0.671228104860384,                      !- Output Value 265 {BasedOnField A5}
+  0.670426628906732,                      !- Output Value 266 {BasedOnField A5}
+  0.669608614301966,                      !- Output Value 267 {BasedOnField A5}
+  0.668774061046087,                      !- Output Value 268 {BasedOnField A5}
+  0.667922969139096,                      !- Output Value 269 {BasedOnField A5}
+  0.667055338580991,                      !- Output Value 270 {BasedOnField A5}
+  0.666171169371774,                      !- Output Value 271 {BasedOnField A5}
+  0.665270461511444,                      !- Output Value 272 {BasedOnField A5}
+  0.664353215,                            !- Output Value 273 {BasedOnField A5}
+  0.576753285,                            !- Output Value 274 {BasedOnField A5}
+  0.579934053127399,                      !- Output Value 275 {BasedOnField A5}
+  0.582586390964598,                      !- Output Value 276 {BasedOnField A5}
+  0.584710298511595,                      !- Output Value 277 {BasedOnField A5}
+  0.586305775768392,                      !- Output Value 278 {BasedOnField A5}
+  0.587372822734987,                      !- Output Value 279 {BasedOnField A5}
+  0.587911439411382,                      !- Output Value 280 {BasedOnField A5}
+  0.587921625797575,                      !- Output Value 281 {BasedOnField A5}
+  0.587403381893568,                      !- Output Value 282 {BasedOnField A5}
+  0.586356707699359,                      !- Output Value 283 {BasedOnField A5}
+  0.53303814061435,                       !- Output Value 284 {BasedOnField A5}
+  0.533036615982924,                      !- Output Value 285 {BasedOnField A5}
+  0.533018552700384,                      !- Output Value 286 {BasedOnField A5}
+  0.532983950766732,                      !- Output Value 287 {BasedOnField A5}
+  0.532932810181966,                      !- Output Value 288 {BasedOnField A5}
+  0.532865130946087,                      !- Output Value 289 {BasedOnField A5}
+  0.532780913059096,                      !- Output Value 290 {BasedOnField A5}
+  0.532680156520991,                      !- Output Value 291 {BasedOnField A5}
+  0.532562861331774,                      !- Output Value 292 {BasedOnField A5}
+  0.532429027491444,                      !- Output Value 293 {BasedOnField A5}
+  0.532278655,                            !- Output Value 294 {BasedOnField A5}
+  0.465367877,                            !- Output Value 295 {BasedOnField A5}
+  0.469689481923399,                      !- Output Value 296 {BasedOnField A5}
+  0.473482656556598,                      !- Output Value 297 {BasedOnField A5}
+  0.476747400899595,                      !- Output Value 298 {BasedOnField A5}
+  0.479483714952392,                      !- Output Value 299 {BasedOnField A5}
+  0.481691598714988,                      !- Output Value 300 {BasedOnField A5}
+  0.483371052187382,                      !- Output Value 301 {BasedOnField A5}
+  0.484522075369576,                      !- Output Value 302 {BasedOnField A5}
+  0.485144668261568,                      !- Output Value 303 {BasedOnField A5}
+  0.48523883086336,                       !- Output Value 304 {BasedOnField A5}
+  0.45290405641435,                       !- Output Value 305 {BasedOnField A5}
+  0.453669405802923,                      !- Output Value 306 {BasedOnField A5}
+  0.454418216540384,                      !- Output Value 307 {BasedOnField A5}
+  0.455150488626731,                      !- Output Value 308 {BasedOnField A5}
+  0.455866222061966,                      !- Output Value 309 {BasedOnField A5}
+  0.456565416846087,                      !- Output Value 310 {BasedOnField A5}
+  0.457248072979096,                      !- Output Value 311 {BasedOnField A5}
+  0.457914190460991,                      !- Output Value 312 {BasedOnField A5}
+  0.458563769291774,                      !- Output Value 313 {BasedOnField A5}
+  0.459196809471443,                      !- Output Value 314 {BasedOnField A5}
+  0.459813311,                            !- Output Value 315 {BasedOnField A5}
+  0.418243333,                            !- Output Value 316 {BasedOnField A5}
+  0.423705774719399,                      !- Output Value 317 {BasedOnField A5}
+  0.428639786148598,                      !- Output Value 318 {BasedOnField A5}
+  0.433045367287595,                      !- Output Value 319 {BasedOnField A5}
+  0.436922518136392,                      !- Output Value 320 {BasedOnField A5}
+  0.440271238694988,                      !- Output Value 321 {BasedOnField A5}
+  0.443091528963382,                      !- Output Value 322 {BasedOnField A5}
+  0.445383388941575,                      !- Output Value 323 {BasedOnField A5}
+  0.447146818629568,                      !- Output Value 324 {BasedOnField A5}
+  0.448381818027359,                      !- Output Value 325 {BasedOnField A5}
+  0.43237918821435,                       !- Output Value 326 {BasedOnField A5}
+  0.433911411622924,                      !- Output Value 327 {BasedOnField A5}
+  0.435427096380384,                      !- Output Value 328 {BasedOnField A5}
+  0.436926242486732,                      !- Output Value 329 {BasedOnField A5}
+  0.438408849941966,                      !- Output Value 330 {BasedOnField A5}
+  0.439874918746087,                      !- Output Value 331 {BasedOnField A5}
+  0.441324448899096,                      !- Output Value 332 {BasedOnField A5}
+  0.442757440400992,                      !- Output Value 333 {BasedOnField A5}
+  0.444173893251774,                      !- Output Value 334 {BasedOnField A5}
+  0.445573807451443,                      !- Output Value 335 {BasedOnField A5}
+  0.446957183,                            !- Output Value 336 {BasedOnField A5}
+  0.435379653,                            !- Output Value 337 {BasedOnField A5}
+  0.4419829315154,                        !- Output Value 338 {BasedOnField A5}
+  0.448057779740598,                      !- Output Value 339 {BasedOnField A5}
+  0.453604197675596,                      !- Output Value 340 {BasedOnField A5}
+  0.458622185320392,                      !- Output Value 341 {BasedOnField A5}
+  0.463111742674988,                      !- Output Value 342 {BasedOnField A5}
+  0.467072869739382,                      !- Output Value 343 {BasedOnField A5}
+  0.470505566513576,                      !- Output Value 344 {BasedOnField A5}
+  0.473409832997568,                      !- Output Value 345 {BasedOnField A5}
+  0.47578566919136,                       !- Output Value 346 {BasedOnField A5}
+  0.47146353601435,                       !- Output Value 347 {BasedOnField A5}
+  0.473762633442923,                      !- Output Value 348 {BasedOnField A5}
+  0.476045192220384,                      !- Output Value 349 {BasedOnField A5}
+  0.478311212346732,                      !- Output Value 350 {BasedOnField A5}
+  0.480560693821966,                      !- Output Value 351 {BasedOnField A5}
+  0.482793636646087,                      !- Output Value 352 {BasedOnField A5}
+  0.485010040819096,                      !- Output Value 353 {BasedOnField A5}
+  0.487209906340991,                      !- Output Value 354 {BasedOnField A5}
+  0.489393233211774,                      !- Output Value 355 {BasedOnField A5}
+  0.491560021431443,                      !- Output Value 356 {BasedOnField A5}
+  0.493710271,                            !- Output Value 357 {BasedOnField A5}
+  0.516776837,                            !- Output Value 358 {BasedOnField A5}
+  0.5245209523114,                        !- Output Value 359 {BasedOnField A5}
+  0.531736637332598,                      !- Output Value 360 {BasedOnField A5}
+  0.538423892063595,                      !- Output Value 361 {BasedOnField A5}
+  0.544582716504392,                      !- Output Value 362 {BasedOnField A5}
+  0.550213110654987,                      !- Output Value 363 {BasedOnField A5}
+  0.555315074515382,                      !- Output Value 364 {BasedOnField A5}
+  0.559888608085576,                      !- Output Value 365 {BasedOnField A5}
+  0.563933711365568,                      !- Output Value 366 {BasedOnField A5}
+  0.567450384355359,                      !- Output Value 367 {BasedOnField A5}
+  0.57015709981435,                       !- Output Value 368 {BasedOnField A5}
+  0.573223071262923,                      !- Output Value 369 {BasedOnField A5}
+  0.576272504060384,                      !- Output Value 370 {BasedOnField A5}
+  0.579305398206732,                      !- Output Value 371 {BasedOnField A5}
+  0.582321753701966,                      !- Output Value 372 {BasedOnField A5}
+  0.585321570546087,                      !- Output Value 373 {BasedOnField A5}
+  0.588304848739096,                      !- Output Value 374 {BasedOnField A5}
+  0.591271588280991,                      !- Output Value 375 {BasedOnField A5}
+  0.594221789171774,                      !- Output Value 376 {BasedOnField A5}
+  0.597155451411444,                      !- Output Value 377 {BasedOnField A5}
+  0.600072575,                            !- Output Value 378 {BasedOnField A5}
+  0.662434885,                            !- Output Value 379 {BasedOnField A5}
+  0.6713198371074,                        !- Output Value 380 {BasedOnField A5}
+  0.679676358924598,                      !- Output Value 381 {BasedOnField A5}
+  0.687504450451595,                      !- Output Value 382 {BasedOnField A5}
+  0.694804111688392,                      !- Output Value 383 {BasedOnField A5}
+  0.701575342634988,                      !- Output Value 384 {BasedOnField A5}
+  0.707818143291382,                      !- Output Value 385 {BasedOnField A5}
+  0.713532513657576,                      !- Output Value 386 {BasedOnField A5}
+  0.718718453733568,                      !- Output Value 387 {BasedOnField A5}
+  0.72337596351936,                       !- Output Value 388 {BasedOnField A5}
+  0.72845987961435,                       !- Output Value 389 {BasedOnField A5}
+  0.732292725082924,                      !- Output Value 390 {BasedOnField A5}
+  0.736109031900384,                      !- Output Value 391 {BasedOnField A5}
+  0.739908800066732,                      !- Output Value 392 {BasedOnField A5}
+  0.743692029581966,                      !- Output Value 393 {BasedOnField A5}
+  0.747458720446088,                      !- Output Value 394 {BasedOnField A5}
+  0.751208872659096,                      !- Output Value 395 {BasedOnField A5}
+  0.754942486220991,                      !- Output Value 396 {BasedOnField A5}
+  0.758659561131774,                      !- Output Value 397 {BasedOnField A5}
+  0.762360097391444,                      !- Output Value 398 {BasedOnField A5}
+  0.766044095,                            !- Output Value 399 {BasedOnField A5}
+  0.872353797,                            !- Output Value 400 {BasedOnField A5}
+  0.882379585903399,                      !- Output Value 401 {BasedOnField A5}
+  0.891876944516598,                      !- Output Value 402 {BasedOnField A5}
+  0.900845872839595,                      !- Output Value 403 {BasedOnField A5}
+  0.909286370872392,                      !- Output Value 404 {BasedOnField A5}
+  0.917198438614988,                      !- Output Value 405 {BasedOnField A5}
+  0.924582076067382,                      !- Output Value 406 {BasedOnField A5}
+  0.931437283229576,                      !- Output Value 407 {BasedOnField A5}
+  0.937764060101568,                      !- Output Value 408 {BasedOnField A5}
+  0.94356240668336,                       !- Output Value 409 {BasedOnField A5}
+  0.94637187541435,                       !- Output Value 410 {BasedOnField A5}
+  0.950971594902923,                      !- Output Value 411 {BasedOnField A5}
+  0.955554775740384,                      !- Output Value 412 {BasedOnField A5}
+  0.960121417926732,                      !- Output Value 413 {BasedOnField A5}
+  0.964671521461966,                      !- Output Value 414 {BasedOnField A5}
+  0.969205086346087,                      !- Output Value 415 {BasedOnField A5}
+  0.973722112579096,                      !- Output Value 416 {BasedOnField A5}
+  0.978222600160991,                      !- Output Value 417 {BasedOnField A5}
+  0.982706549091774,                      !- Output Value 418 {BasedOnField A5}
+  0.987173959371443,                      !- Output Value 419 {BasedOnField A5}
+  0.991624831,                            !- Output Value 420 {BasedOnField A5}
+  1.146533573,                            !- Output Value 421 {BasedOnField A5}
+  1.1577001986994,                        !- Output Value 422 {BasedOnField A5}
+  1.1683383941086,                        !- Output Value 423 {BasedOnField A5}
+  1.1784481592276,                        !- Output Value 424 {BasedOnField A5}
+  1.18802949405639,                       !- Output Value 425 {BasedOnField A5}
+  1.19708239859499,                       !- Output Value 426 {BasedOnField A5}
+  1.20560687284338,                       !- Output Value 427 {BasedOnField A5}
+  1.21360291680158,                       !- Output Value 428 {BasedOnField A5}
+  1.22107053046957,                       !- Output Value 429 {BasedOnField A5}
+  1.22800971384736,                       !- Output Value 430 {BasedOnField A5}
+  1.22389308721435,                       !- Output Value 431 {BasedOnField A5}
+  1.22925968072292,                       !- Output Value 432 {BasedOnField A5}
+  1.23460973558038,                       !- Output Value 433 {BasedOnField A5}
+  1.23994325178673,                       !- Output Value 434 {BasedOnField A5}
+  1.24526022934197,                       !- Output Value 435 {BasedOnField A5}
+  1.25056066824609,                       !- Output Value 436 {BasedOnField A5}
+  1.2558445684991,                        !- Output Value 437 {BasedOnField A5}
+  1.26111193010099,                       !- Output Value 438 {BasedOnField A5}
+  1.26636275305177,                       !- Output Value 439 {BasedOnField A5}
+  1.27159703735144,                       !- Output Value 440 {BasedOnField A5}
+  1.276814783,                            !- Output Value 441 {BasedOnField A5}
+  1.484974213,                            !- Output Value 442 {BasedOnField A5}
+  1.4972816754954,                        !- Output Value 443 {BasedOnField A5}
+  1.5090607077006,                        !- Output Value 444 {BasedOnField A5}
+  1.5203113096156,                        !- Output Value 445 {BasedOnField A5}
+  1.53103348124039,                       !- Output Value 446 {BasedOnField A5}
+  1.54122722257499,                       !- Output Value 447 {BasedOnField A5}
+  1.55089253361938,                       !- Output Value 448 {BasedOnField A5}
+  1.56002941437358,                       !- Output Value 449 {BasedOnField A5}
+  1.56863786483757,                       !- Output Value 450 {BasedOnField A5}
+  1.57671788501136,                       !- Output Value 451 {BasedOnField A5}
+  1.56102351501435,                       !- Output Value 452 {BasedOnField A5}
+  1.56715698254292,                       !- Output Value 453 {BasedOnField A5}
+  1.57327391142038,                       !- Output Value 454 {BasedOnField A5}
+  1.57937430164673,                       !- Output Value 455 {BasedOnField A5}
+  1.58545815322197,                       !- Output Value 456 {BasedOnField A5}
+  1.59152546614609,                       !- Output Value 457 {BasedOnField A5}
+  1.5975762404191,                        !- Output Value 458 {BasedOnField A5}
+  1.60361047604099,                       !- Output Value 459 {BasedOnField A5}
+  1.60962817301177,                       !- Output Value 460 {BasedOnField A5}
+  1.61562933133144,                       !- Output Value 461 {BasedOnField A5}
+  1.621613951;                            !- Output Value 462 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {b316370b-6be5-4665-b14a-a437529f5ad8}, !- Handle
+  Table Lookup 2 Independent Variable List, !- Name
+  {93b5674a-f3dc-4c56-98ab-1776f3ade877}, !- Model Object 1
+  {0d01214b-3690-4296-bfe5-2900fa3f0765}, !- Model Object 2
+  {eeac6ce6-486f-4e9e-a05f-321af2522d10}; !- Model Object 3
+
+OS:Table:IndependentVariable,
+  {93b5674a-f3dc-4c56-98ab-1776f3ade877}, !- Handle
+  Table Independent Variable 4,           !- Name
+  Cubic,                                  !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  -100,                                   !- Minimum Value {BasedOnField A5}
+  100,                                    !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Temperature,                            !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  -100,                                   !- Value 1
+  100;                                    !- Value 2
+
+OS:Table:IndependentVariable,
+  {0d01214b-3690-4296-bfe5-2900fa3f0765}, !- Handle
+  Table Independent Variable 5,           !- Name
+  Cubic,                                  !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  -30,                                    !- Minimum Value {BasedOnField A5}
+  50,                                     !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Temperature,                            !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  -30,                                    !- Value 1
+  -22,                                    !- Value 2
+  -14,                                    !- Value 3
+  -6,                                     !- Value 4
+  2,                                      !- Value 5
+  10,                                     !- Value 6
+  18,                                     !- Value 7
+  26,                                     !- Value 8
+  34,                                     !- Value 9
+  42,                                     !- Value 10
+  50;                                     !- Value 11
+
+OS:Table:IndependentVariable,
+  {eeac6ce6-486f-4e9e-a05f-321af2522d10}, !- Handle
+  Table Independent Variable 6,           !- Name
+  Cubic,                                  !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  0,                                      !- Minimum Value {BasedOnField A5}
+  1,                                      !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Dimensionless,                          !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0,                                      !- Value 1
+  0.0165,                                 !- Value 2
+  0.033,                                  !- Value 3
+  0.0495,                                 !- Value 4
+  0.066,                                  !- Value 5
+  0.0825,                                 !- Value 6
+  0.099,                                  !- Value 7
+  0.1155,                                 !- Value 8
+  0.132,                                  !- Value 9
+  0.1485,                                 !- Value 10
+  0.165,                                  !- Value 11
+  0.2485,                                 !- Value 12
+  0.332,                                  !- Value 13
+  0.4155,                                 !- Value 14
+  0.499,                                  !- Value 15
+  0.5825,                                 !- Value 16
+  0.666,                                  !- Value 17
+  0.7495,                                 !- Value 18
+  0.833,                                  !- Value 19
+  0.9165,                                 !- Value 20
+  1;                                      !- Value 21
+
+OS:Curve:Biquadratic,
+  {336209e9-e87f-433a-8ba6-ced1e237379b}, !- Handle
+  Curve Biquadratic 4,                    !- Name
+  -0.561476105575098,                     !- Coefficient1 Constant
+  0.133948946696947,                      !- Coefficient2 x
+  -0.0027652398813276,                    !- Coefficient3 x**2
+  0,                                      !- Coefficient4 y
+  0,                                      !- Coefficient5 y**2
+  0,                                      !- Coefficient6 x*y
+  -100,                                   !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  -100,                                   !- Minimum Value of y
+  100;                                    !- Maximum Value of y
+
+OS:Curve:Cubic,
+  {fa982e3e-ddfa-4071-8e70-580780d58490}, !- Handle
+  Curve Cubic 2,                          !- Name
+  0.743258739392434,                      !- Coefficient1 Constant
+  0.167765026703717,                      !- Coefficient2 x
+  0.0852727911986869,                     !- Coefficient3 x**2
+  0,                                      !- Coefficient4 x**3
+  -100,                                   !- Minimum Value of x
+  100;                                    !- Maximum Value of x
+
+OS:Curve:Biquadratic,
+  {b3ec2757-9d2a-49ec-8e2f-c582d4582bd4}, !- Handle
+  Curve Biquadratic 5,                    !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0,                                      !- Coefficient4 y
+  0,                                      !- Coefficient5 y**2
+  0,                                      !- Coefficient6 x*y
+  -100,                                   !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  -100,                                   !- Minimum Value of y
+  100;                                    !- Maximum Value of y
+
+OS:Curve:Biquadratic,
+  {0cebf01f-d0e8-4dc1-a109-5426ae1d64af}, !- Handle
+  Curve Biquadratic 6,                    !- Name
+  -76.3312028672366,                      !- Coefficient1 Constant
+  3.69083877577677,                       !- Coefficient2 x
+  0.00402614182268047,                    !- Coefficient3 x**2
+  3.120670734078,                         !- Coefficient4 y
+  -0.00297662635327143,                   !- Coefficient5 y**2
+  -0.148603418986272,                     !- Coefficient6 x*y
+  24.44,                                  !- Minimum Value of x
+  26.67,                                  !- Maximum Value of x
+  29.44,                                  !- Minimum Value of y
+  46.1;                                   !- Maximum Value of y
+
+OS:Curve:Quadratic,
+  {05b85b0d-0dc4-4c5b-8718-e16a07370c99}, !- Handle
+  Curve Quadratic 3,                      !- Name
+  0.60557628,                             !- Coefficient1 Constant
+  0.506516665,                            !- Coefficient2 x
+  -0.12647141,                            !- Coefficient3 x**2
+  0.2,                                    !- Minimum Value of x
+  1;                                      !- Maximum Value of x
+
+OS:EnergyManagementSystem:Sensor,
+  {141b09c3-8c31-4f1c-bea4-ffc683d55fee}, !- Handle
+  Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_s, !- Name
+  Coil Cooling DX Single Speed Thermal Storage 1, !- Output Variable or Output Meter Index Key Name
+  Cooling Coil Ice Thermal Storage End Fraction; !- Output Variable or Output Meter Name
+
+OS:Schedule:Constant,
+  {60169e8e-75f7-4e25-928d-f773bca337e8}, !- Handle
+  Schedule Constant 1,                    !- Name
+  ,                                       !- Schedule Type Limits Name
+  5;                                      !- Value
+
+OS:EnergyManagementSystem:Sensor,
+  {2a5b23ca-a424-417c-adb4-e86b59f5538e}, !- Handle
+  Schedule_Constant_1_s,                  !- Name
+  Schedule Constant 1,                    !- Output Variable or Output Meter Index Key Name
+  Schedule Value;                         !- Output Variable or Output Meter Name
+
+OS:EnergyManagementSystem:Actuator,
+  {50679f72-4272-48e2-9aaa-a07e299709fd}, !- Handle
+  Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_opmode, !- Name
+  {1918bd5a-d873-4764-a8fd-bf3ee697fdf6}, !- Actuated Component Name
+  Coil:Cooling:DX:SingleSpeed:ThermalStorage, !- Actuated Component Type
+  Operating Mode,                         !- Actuated Component Control Type
+  ;                                       !- Zone or Space Name
+
+OS:EnergyManagementSystem:Program,
+  {8a349847-49b2-45fc-95bf-4fb97341612f}, !- Handle
+  Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_control, !- Name
+  Set Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_opmode = Schedule_Constant_1_s, !- Program Line 1
+  If (Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_opmode == 2), !- Program Line 2
+  If (Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_s > 0.99), !- Program Line 3
+  Set Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_opmode = 1, !- Program Line 4
+  EndIf,                                  !- Program Line 5
+  EndIf,                                  !- Program Line 6
+  If (Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_opmode == 5), !- Program Line 7
+  If (Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_s < 0.01), !- Program Line 8
+  Set Coil_Cooling_DX_Single_Speed_Thermal_Storage_1_opmode = 1, !- Program Line 9
+  EndIf,                                  !- Program Line 10
+  EndIf;                                  !- Program Line 11
+
+OS:EnergyManagementSystem:ProgramCallingManager,
+  {86a3e6b0-cbf9-4b0b-b43e-9f221e651830}, !- Handle
+  Coil Cooling DX Single Speed Thermal Storage 1 pcm, !- Name
+  AfterPredictorAfterHVACManagers,        !- EnergyPlus Model Calling Point
+  {8a349847-49b2-45fc-95bf-4fb97341612f}; !- Program Name 1
+
+OS:Fan:OnOff,
+  {a636abc7-09c9-4e4c-b621-d9c720d1c74b}, !- Handle
+  Fan On Off 1,                           !- Name
+  {33bffcc1-7f2d-4f9c-887d-53e7b1d4d9e5}, !- Availability Schedule Name
+  0.75,                                   !- Fan Total Efficiency
+  476.748000740096,                       !- Pressure Rise {Pa}
+  autosize,                               !- Maximum Flow Rate {m3/s}
+  1,                                      !- Motor Efficiency
+  1,                                      !- Motor In Airstream Fraction
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  {5c4f067b-1847-42dc-b785-6060a621c59e}, !- Fan Power Ratio Function of Speed Ratio Curve Name
+  {ad2563d4-3b6b-4a99-8fd5-1f1b1eeab6e3}, !- Fan Efficiency Ratio Function of Speed Ratio Curve Name
+  ;                                       !- End-Use Subcategory
+
+OS:Curve:Exponent,
+  {5c4f067b-1847-42dc-b785-6060a621c59e}, !- Handle
+  Fan On Off Power Curve,                 !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 Constant
+  0,                                      !- Coefficient3 Constant
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  ,                                       !- Minimum Curve Output
+  ,                                       !- Maximum Curve Output
+  ,                                       !- Input Unit Type for X
+  ;                                       !- Output Unit Type
+
+OS:Curve:Cubic,
+  {ad2563d4-3b6b-4a99-8fd5-1f1b1eeab6e3}, !- Handle
+  Fan On Off Efficiency Curve,            !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0,                                      !- Coefficient4 x**3
+  0,                                      !- Minimum Value of x
+  1;                                      !- Maximum Value of x
+
+OS:AirLoopHVAC:UnitarySystem,
+  {3b996f7b-c68c-42ed-aa43-1bde3b0b06f5}, !- Handle
+  Air Loop HVAC Unitary System 1,         !- Name
+  Load,                                   !- Control Type
+  {42361651-cf49-4f14-bdbf-31044305261f}, !- Controlling Zone or Thermostat Location
+  None,                                   !- Dehumidification Control Type
+  {33bffcc1-7f2d-4f9c-887d-53e7b1d4d9e5}, !- Availability Schedule Name
+  {e30ccf34-984b-4d78-9416-ded3c68836d8}, !- Air Inlet Node Name
+  {8b1eff59-f637-47ef-9784-41e92e5a9d5b}, !- Air Outlet Node Name
+  {a636abc7-09c9-4e4c-b621-d9c720d1c74b}, !- Supply Fan Name
+  BlowThrough,                            !- Fan Placement
+  {4ae5a759-037d-441d-b08b-c7fa5ec7f8a0}, !- Supply Air Fan Operating Mode Schedule Name
+  ,                                       !- Heating Coil Name
+  1,                                      !- DX Heating Coil Sizing Ratio
+  {1918bd5a-d873-4764-a8fd-bf3ee697fdf6}, !- Cooling Coil Name
+  No,                                     !- Use DOAS DX Cooling Coil
+  2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
+  SensibleOnlyLoadControl,                !- Latent Load Control
+  ,                                       !- Supplemental Heating Coil Name
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
+  Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
+  ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
+  ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
+  ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
+  0,                                      !- Supply Air Flow Rate During Heating Operation {m3/s}
+  ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
+  ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
+  ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  0,                                      !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
+  ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
+  ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
+  ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
+  ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
+  48.888889,                              !- Maximum Supply Air Temperature {C}
+  21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
+  ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
+  0,                                      !- Ancilliary On-Cycle Electric Power {W}
+  0;                                      !- Ancilliary Off-Cycle Electric Power {W}
+
+OS:Schedule:Constant,
+  {4ae5a759-037d-441d-b08b-c7fa5ec7f8a0}, !- Handle
+  Always Off Discrete,                    !- Name
+  {8ed83c55-9728-42a9-bab3-cead0c66fee2}, !- Schedule Type Limits Name
+  0;                                      !- Value
+
+OS:ScheduleTypeLimits,
+  {8ed83c55-9728-42a9-bab3-cead0c66fee2}, !- Handle
+  OnOff 1,                                !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Discrete,                               !- Numeric Type
+  Availability;                           !- Unit Type
+
+OS:AirLoopHVAC,
+  {66873a98-ec1e-4fe4-bc8a-c9c878b8fa72}, !- Handle
+  Air Loop HVAC 1,                        !- Name
+  ,                                       !- Controller List Name
+  {33bffcc1-7f2d-4f9c-887d-53e7b1d4d9e5}, !- Availability Schedule
+  {00f4ced6-62b3-40af-94dd-6e22eb0f314d}, !- Availability Manager List Name
+  autosize,                               !- Design Supply Air Flow Rate {m3/s}
+  1,                                      !- Design Return Air Flow Fraction of Supply Air Flow
+  ,                                       !- Branch List Name
+  ,                                       !- Connector List Name
+  {6aaf4e0a-1f09-4e64-9d6b-35c9fc872010}, !- Supply Side Inlet Node Name
+  {3929dfc2-2208-41ed-88b2-2774a5dd8f5a}, !- Demand Side Outlet Node Name
+  {85cd404f-9204-4001-9df3-384dfe41e8f6}, !- Demand Side Inlet Node A
+  {10c8da02-71ae-4dff-bccd-ee170086577b}, !- Supply Side Outlet Node A
+  ,                                       !- Demand Side Inlet Node B
+  ,                                       !- Supply Side Outlet Node B
+  ,                                       !- Return Air Bypass Flow Temperature Setpoint Schedule Name
+  {7d181a4b-bbf7-4e61-9b74-95ae07383fd2}, !- Demand Mixer Name
+  {3ee69217-e09c-47d9-ae1e-d6f62df2c19c}, !- Demand Splitter A Name
+  ,                                       !- Demand Splitter B Name
+  ;                                       !- Supply Splitter Name
+
+OS:Node,
+  {f5cf914f-bbd3-4b01-a6ac-9ad3e0daf31e}, !- Handle
+  Node 2,                                 !- Name
+  {6aaf4e0a-1f09-4e64-9d6b-35c9fc872010}, !- Inlet Port
+  {e30ccf34-984b-4d78-9416-ded3c68836d8}; !- Outlet Port
+
+OS:Node,
+  {01c3d807-fcdc-4657-b298-66ad22b71ef9}, !- Handle
+  Node 3,                                 !- Name
+  {8b1eff59-f637-47ef-9784-41e92e5a9d5b}, !- Inlet Port
+  {10c8da02-71ae-4dff-bccd-ee170086577b}; !- Outlet Port
+
+OS:Connection,
+  {6aaf4e0a-1f09-4e64-9d6b-35c9fc872010}, !- Handle
+  {66873a98-ec1e-4fe4-bc8a-c9c878b8fa72}, !- Source Object
+  9,                                      !- Outlet Port
+  {f5cf914f-bbd3-4b01-a6ac-9ad3e0daf31e}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {10c8da02-71ae-4dff-bccd-ee170086577b}, !- Handle
+  {01c3d807-fcdc-4657-b298-66ad22b71ef9}, !- Source Object
+  3,                                      !- Outlet Port
+  {66873a98-ec1e-4fe4-bc8a-c9c878b8fa72}, !- Target Object
+  12;                                     !- Inlet Port
+
+OS:Node,
+  {078eb036-f401-491c-a6c7-becbc4cf51d2}, !- Handle
+  Node 4,                                 !- Name
+  {85cd404f-9204-4001-9df3-384dfe41e8f6}, !- Inlet Port
+  {c9f47326-2dc8-4231-9d0e-db9dd98cca88}; !- Outlet Port
+
+OS:Node,
+  {9f7ed11a-eccc-4adb-a0ef-2ef4a984c0c3}, !- Handle
+  Node 5,                                 !- Name
+  {a963dcf3-c801-4e35-978f-e085699b3af1}, !- Inlet Port
+  {3929dfc2-2208-41ed-88b2-2774a5dd8f5a}; !- Outlet Port
+
+OS:Node,
+  {36253874-c38f-478c-9f9a-17a7c10a9ecf}, !- Handle
+  Node 6,                                 !- Name
+  {e88e6db9-8daa-4525-aa16-3f8829c49fcb}, !- Inlet Port
+  {40d264b4-b364-46a5-9098-d4ca1dcb0dbc}; !- Outlet Port
+
+OS:Connection,
+  {85cd404f-9204-4001-9df3-384dfe41e8f6}, !- Handle
+  {66873a98-ec1e-4fe4-bc8a-c9c878b8fa72}, !- Source Object
+  11,                                     !- Outlet Port
+  {078eb036-f401-491c-a6c7-becbc4cf51d2}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {3929dfc2-2208-41ed-88b2-2774a5dd8f5a}, !- Handle
+  {9f7ed11a-eccc-4adb-a0ef-2ef4a984c0c3}, !- Source Object
+  3,                                      !- Outlet Port
+  {66873a98-ec1e-4fe4-bc8a-c9c878b8fa72}, !- Target Object
+  10;                                     !- Inlet Port
+
+OS:AirLoopHVAC:ZoneSplitter,
+  {3ee69217-e09c-47d9-ae1e-d6f62df2c19c}, !- Handle
+  Air Loop HVAC Zone Splitter 1,          !- Name
+  {c9f47326-2dc8-4231-9d0e-db9dd98cca88}, !- Inlet Node Name
+  {d99496e7-e609-48dd-aaba-e044afdb8a6b}; !- Outlet Node Name 1
+
+OS:AirLoopHVAC:ZoneMixer,
+  {7d181a4b-bbf7-4e61-9b74-95ae07383fd2}, !- Handle
+  Air Loop HVAC Zone Mixer 1,             !- Name
+  {a963dcf3-c801-4e35-978f-e085699b3af1}, !- Outlet Node Name
+  {9cc46441-b405-45e7-8b74-a0f3610f4209}; !- Inlet Node Name 1
+
+OS:Connection,
+  {c9f47326-2dc8-4231-9d0e-db9dd98cca88}, !- Handle
+  {078eb036-f401-491c-a6c7-becbc4cf51d2}, !- Source Object
+  3,                                      !- Outlet Port
+  {3ee69217-e09c-47d9-ae1e-d6f62df2c19c}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {a963dcf3-c801-4e35-978f-e085699b3af1}, !- Handle
+  {7d181a4b-bbf7-4e61-9b74-95ae07383fd2}, !- Source Object
+  2,                                      !- Outlet Port
+  {9f7ed11a-eccc-4adb-a0ef-2ef4a984c0c3}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Sizing:System,
+  {276d66d0-7b71-4417-bf10-bfcfd83f95de}, !- Handle
+  {66873a98-ec1e-4fe4-bc8a-c9c878b8fa72}, !- AirLoop Name
+  ,                                       !- Type of Load to Size On
+  ,                                       !- Design Outdoor Air Flow Rate {m3/s}
+  0.3,                                    !- Central Heating Maximum System Air Flow Ratio
+  7,                                      !- Preheat Design Temperature {C}
+  0.008,                                  !- Preheat Design Humidity Ratio {kg-H2O/kg-Air}
+  12.8,                                   !- Precool Design Temperature {C}
+  0.008,                                  !- Precool Design Humidity Ratio {kg-H2O/kg-Air}
+  12.8,                                   !- Central Cooling Design Supply Air Temperature {C}
+  16.7,                                   !- Central Heating Design Supply Air Temperature {C}
+  ,                                       !- Sizing Option
+  Yes,                                    !- 100% Outdoor Air in Cooling
+  Yes,                                    !- 100% Outdoor Air in Heating
+  0.0085,                                 !- Central Cooling Design Supply Air Humidity Ratio {kg-H2O/kg-Air}
+  ,                                       !- Central Heating Design Supply Air Humidity Ratio {kg-H2O/kg-Air}
+  ,                                       !- Cooling Design Air Flow Method
+  ,                                       !- Cooling Design Air Flow Rate {m3/s}
+  ,                                       !- Heating Design Air Flow Method
+  ,                                       !- Heating Design Air Flow Rate {m3/s}
+  ,                                       !- System Outdoor Air Method
+  1,                                      !- Zone Maximum Outdoor Air Fraction {dimensionless}
+  0.0099676501,                           !- Cooling Supply Air Flow Rate Per Floor Area {m3/s-m2}
+  1,                                      !- Cooling Fraction of Autosized Cooling Supply Air Flow Rate
+  3.9475456e-05,                          !- Cooling Supply Air Flow Rate Per Unit Cooling Capacity {m3/s-W}
+  0.0099676501,                           !- Heating Supply Air Flow Rate Per Floor Area {m3/s-m2}
+  1,                                      !- Heating Fraction of Autosized Heating Supply Air Flow Rate
+  1,                                      !- Heating Fraction of Autosized Cooling Supply Air Flow Rate
+  3.1588213e-05,                          !- Heating Supply Air Flow Rate Per Unit Heating Capacity {m3/s-W}
+  CoolingDesignCapacity,                  !- Cooling Design Capacity Method
+  autosize,                               !- Cooling Design Capacity {W}
+  234.7,                                  !- Cooling Design Capacity Per Floor Area {W/m2}
+  1,                                      !- Fraction of Autosized Cooling Design Capacity
+  HeatingDesignCapacity,                  !- Heating Design Capacity Method
+  autosize,                               !- Heating Design Capacity {W}
+  157,                                    !- Heating Design Capacity Per Floor Area {W/m2}
+  1,                                      !- Fraction of Autosized Heating Design Capacity
+  OnOff,                                  !- Central Cooling Capacity Control Method
+  autosize;                               !- Occupant Diversity
+
+OS:AvailabilityManagerAssignmentList,
+  {00f4ced6-62b3-40af-94dd-6e22eb0f314d}, !- Handle
+  Air Loop HVAC 1 AvailabilityManagerAssignmentList; !- Name
+
+OS:Connection,
+  {e30ccf34-984b-4d78-9416-ded3c68836d8}, !- Handle
+  {f5cf914f-bbd3-4b01-a6ac-9ad3e0daf31e}, !- Source Object
+  3,                                      !- Outlet Port
+  {3b996f7b-c68c-42ed-aa43-1bde3b0b06f5}, !- Target Object
+  6;                                      !- Inlet Port
+
+OS:Connection,
+  {8b1eff59-f637-47ef-9784-41e92e5a9d5b}, !- Handle
+  {3b996f7b-c68c-42ed-aa43-1bde3b0b06f5}, !- Source Object
+  7,                                      !- Outlet Port
+  {01c3d807-fcdc-4657-b298-66ad22b71ef9}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat,
+  {0667c432-37d4-46b8-ae4b-e50f475617ba}, !- Handle
+  Air Terminal Single Duct Constant Volume No Reheat 1, !- Name
+  {33bffcc1-7f2d-4f9c-887d-53e7b1d4d9e5}, !- Availability Schedule Name
+  {63a87d7c-d695-4647-a1e6-8e99105a29a6}, !- Air Inlet Node Name
+  {e88e6db9-8daa-4525-aa16-3f8829c49fcb}, !- Air Outlet Node Name
+  AutoSize;                               !- Maximum Air Flow Rate {m3/s}
+
+OS:Node,
+  {a6bcf031-e26d-467f-99fb-c61bdba9cb2b}, !- Handle
+  Node 7,                                 !- Name
+  {0fd74ace-9cbc-40ae-beed-fcc5049c9bde}, !- Inlet Port
+  {9cc46441-b405-45e7-8b74-a0f3610f4209}; !- Outlet Port
+
+OS:Connection,
+  {40d264b4-b364-46a5-9098-d4ca1dcb0dbc}, !- Handle
+  {36253874-c38f-478c-9f9a-17a7c10a9ecf}, !- Source Object
+  3,                                      !- Outlet Port
+  {81672c11-a204-4425-a8d1-b76cdcd70666}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {0fd74ace-9cbc-40ae-beed-fcc5049c9bde}, !- Handle
+  {6394fda2-c967-4677-8be6-42ec50b76530}, !- Source Object
+  2,                                      !- Outlet Port
+  {a6bcf031-e26d-467f-99fb-c61bdba9cb2b}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {9cc46441-b405-45e7-8b74-a0f3610f4209}, !- Handle
+  {a6bcf031-e26d-467f-99fb-c61bdba9cb2b}, !- Source Object
+  3,                                      !- Outlet Port
+  {7d181a4b-bbf7-4e61-9b74-95ae07383fd2}, !- Target Object
+  3;                                      !- Inlet Port
+
+OS:Node,
+  {e248d29b-c9d0-4490-8c08-0c2fb16b89f1}, !- Handle
+  Node 8,                                 !- Name
+  {d99496e7-e609-48dd-aaba-e044afdb8a6b}, !- Inlet Port
+  {63a87d7c-d695-4647-a1e6-8e99105a29a6}; !- Outlet Port
+
+OS:Connection,
+  {d99496e7-e609-48dd-aaba-e044afdb8a6b}, !- Handle
+  {3ee69217-e09c-47d9-ae1e-d6f62df2c19c}, !- Source Object
+  3,                                      !- Outlet Port
+  {e248d29b-c9d0-4490-8c08-0c2fb16b89f1}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {63a87d7c-d695-4647-a1e6-8e99105a29a6}, !- Handle
+  {e248d29b-c9d0-4490-8c08-0c2fb16b89f1}, !- Source Object
+  3,                                      !- Outlet Port
+  {0667c432-37d4-46b8-ae4b-e50f475617ba}, !- Target Object
+  3;                                      !- Inlet Port
+
+OS:Connection,
+  {e88e6db9-8daa-4525-aa16-3f8829c49fcb}, !- Handle
+  {0667c432-37d4-46b8-ae4b-e50f475617ba}, !- Source Object
+  4,                                      !- Outlet Port
+  {36253874-c38f-478c-9f9a-17a7c10a9ecf}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:YearDescription,
+  {c78782d0-3bc4-4feb-984d-77dff12edbe1}, !- Handle
+  ,                                       !- Calendar Year
+  Thursday;                               !- Day of Week for Start Day
+

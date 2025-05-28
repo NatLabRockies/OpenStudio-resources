@@ -137,7 +137,7 @@ class AddHVACSystem < OpenStudio::Ruleset::ModelUserScript
         hvac = hvac.to_AirLoopHVAC.get
         hvac.addBranchForZone(zone)
         outlet_node = hvac.supplyOutletNode
-        setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+        setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
         setpoint_manager.setControlZone(zone)
       end
 
@@ -200,7 +200,7 @@ class AddHVACSystem < OpenStudio::Ruleset::ModelUserScript
         hvac = hvac.to_AirLoopHVAC.get
         hvac.addBranchForZone(zone)
         outlet_node = hvac.supplyOutletNode
-        setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+        setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
         setpoint_manager.setControlZone(zone)
       end
 
@@ -212,7 +212,7 @@ class AddHVACSystem < OpenStudio::Ruleset::ModelUserScript
         hvac = hvac.to_AirLoopHVAC.get
         hvac.addBranchForZone(zone)
         outlet_node = hvac.supplyOutletNode
-        setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+        setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
         setpoint_manager.setControlZone(zone)
       end
     #if system number is not recognized

@@ -86,9 +86,13 @@ we skip the test.
 
 * `USE_EPLUS_SPACES`: if set to True (case-insensitive) or False, forces the `--[no-]space-translation` argument to the openstudio `run` method
 
+* `CLI_SUBCOMMAND`: one of `["classic", "labs"]`, to switch between the Ruby CLI and the C++ CLI (otherwise uses default)
+    * If < 3.5.0, this is ignored (no C++ CLI)
+    * If >= 3.7.0-rc2, labs (C++) is default so passing `labs` is ignored. Conversely, if older, passing `classic` is ignored
+
 Example usage:
 
-    SAVE_IDF=True N=8 CUSTOM_TAG=Ubuntu_run1 DONOTRERUNIFSUCCESS=TRUE openstudio model_tests.rb
+    CLI_SUBCOMMAND=classic SAVE_IDF=True N=8 CUSTOM_TAG=Ubuntu_run1 DONOTRERUNIFSUCCESS=TRUE openstudio model_tests.rb
 
 
 ### Filtering tests to run

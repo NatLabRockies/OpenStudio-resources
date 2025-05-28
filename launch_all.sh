@@ -8,14 +8,35 @@
 # Source the file that has the colors
 source colors.sh
 
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*)     machine=Linux;;
+  Darwin*)    machine=Darwin;;
+  CYGWIN*|MINGW*|MSYS*)    machine=Windows;;
+  *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ "$(arch)" == "arm64" ]]; then
+  platform="--platform linux/amd64"
+fi
+
 #######################################################################################
 #                           H A R D C O D E D    A R G U M E N T S
 ########################################################################################
 
 # All versions you want to run
 # 2.0.4 is supported, but it's very broken, transition to 2.0.5 is likely going to just fail, so remove it
-declare -a all_versions=("2.0.5" "2.1.0" "2.1.1" "2.1.2" "2.2.0" "2.2.1" "2.2.2" "2.3.0" "2.3.1" "2.4.0" "2.4.1" "2.5.0" "2.5.1" "2.5.2" "2.6.0" "2.6.1" "2.7.0" "2.7.1" "2.8.0" "2.8.1" "2.9.0" "2.9.1" "3.0.0" "3.0.1" "3.1.0" "3.2.0" "3.2.1" "3.3.0")
+declare -a all_versions=(
+  "2.0.5" "2.1.0" "2.1.1" "2.1.2" "2.2.0" "2.2.1" "2.2.2" "2.3.0" "2.3.1" "2.4.0" "2.4.1" "2.5.0"
+  "2.5.1" "2.5.2" "2.6.0" "2.6.1" "2.7.0" "2.7.1" "2.8.0" "2.8.1" "2.9.0" "2.9.1"
+  "3.0.0" "3.0.1" "3.1.0" "3.2.0" "3.2.1" "3.3.0" "3.4.0" "3.5.0" "3.5.1" "3.6.0" "3.6.1" "3.7.0" "3.8.0" "3.9.0"
+)
+
 # declare -a all_versions=("3.0.0" "3.0.1" "3.1.0")
+
+#for os_version in "${all_versions[@]}"; do
+#  /Applications/OpenStudio-${os_version}/bin/openstudio model_tests.rb -n /space_level_dsoa/
+#done
 
 # Do you want to ask the user to set these arguments?
 # If false, will just use the hardcoded ones
@@ -28,7 +49,7 @@ force_rebuild=false
 test_file="model_tests.rb"
 
 # Test filter: passed as model_tests -n /$filter/
-filter=""
+filter="space_level_dsoa"
 # Run only osms tests: filter="_osm"
 
 # Delete custom/openstudio:$os_version image after having used it?
@@ -238,13 +259,13 @@ for os_version in "${all_versions[@]}"; do
   # If the docker image doesn't already exists
   if [ -z $(docker images -q $os_image_name) ]; then
     echo -e "* Building the $os_image_str from Dockerfile"
-    docker build -t $os_image_name .
+    docker build $platform -t $os_image_name .
   else
     if [ "$force_rebuild" = true ];
     then
       echo -e "* Rebuilding the image $os_image_str from Dockerfile"
       docker rmi $os_image_name > $OUT
-      docker build -t $os_image_name .
+      docker build $platform -t $os_image_name .
     fi
     echo
   fi
@@ -260,9 +281,9 @@ for os_version in "${all_versions[@]}"; do
   echo -e "* Launching the $os_container_str"
   if [ "$use_mongo" = true ]; then
     # Launch, with link to the mongo one
-    docker run --name $os_container_name --cpus="$n_cores" --link $mongo_container_name:mongo -v `pwd`/test:/root/test -d -it --rm $os_image_name /bin/bash > $OUT
+    docker run $platform --name $os_container_name --cpus="$n_cores" --link $mongo_container_name:mongo -v `pwd`/test:/var/simdata/openstudio/OpenStudio-resources/test -d -it --rm $os_image_name /bin/bash > $OUT
   else
-    docker run --name $os_container_name --cpus="$n_cores" -v `pwd`/test:/root/test -d -it --rm $os_image_name /bin/bash > $OUT
+    docker run $platform --name $os_container_name --cpus="$n_cores" -v `pwd`/test:/var/simdata/openstudio/OpenStudio-resources/test -d -it --rm $os_image_name /bin/bash > $OUT
   fi
 
   # Chmod execute the script
@@ -312,8 +333,8 @@ for os_version in "${all_versions[@]}"; do
 
 done
 
-# On other systems than windows, fix permissions
-if [[ "$(uname)" != MINGW* ]]; then
+# On other Linux only, fix permissions
+if [[ $machine == Linux ]]; then
   echo
   echo -e "${On_Blue}Fixing ownership: setting it to user=$USER and chmod=664 (requires sudo)${Color_Off}"
   sudo chown -R $USER *

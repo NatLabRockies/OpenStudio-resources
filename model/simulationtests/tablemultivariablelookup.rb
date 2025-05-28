@@ -48,37 +48,63 @@ p_hw = b.plantLoop.get
 ch = m.getChillerElectricEIRs.first
 p_chw = ch.plantLoop.get
 
-# Recreate the same TableMultiVariableLookup that is created in the Ctor for
-# CoilCoolingFourPipeBeam
-capModFuncOfWaterFlow = OpenStudio::Model::TableMultiVariableLookup.new(m, 1)
-capModFuncOfWaterFlow.setName('CapModFuncOfWaterFlow')
-
-capModFuncOfWaterFlow.setCurveType('Quadratic')
-capModFuncOfWaterFlow.setInterpolationMethod('EvaluateCurveToLimits')
-capModFuncOfWaterFlow.setMinimumValueofX1(0)
-capModFuncOfWaterFlow.setMaximumValueofX1(1.33)
-capModFuncOfWaterFlow.setInputUnitTypeforX1('Dimensionless')
-capModFuncOfWaterFlow.setOutputUnitType('Dimensionless')
-
+# Recreate the same TableMultiVariableLookup/TableLookup that is created in
+# the Ctor for CoilCoolingFourPipeBeam, except with a normalization reference
 # The goal being to test the NormalizationReference feature since the E+ 9.2.0
 # change to TableLookup, we pick one.
 norm_ref = 2.4
-capModFuncOfWaterFlow.setNormalizationReference(norm_ref)
 
-# Quoting I/O ref for 9.1:
-# > Both the output values and minimum/maximum curve limits
-# > are normalized as applicable.
-capModFuncOfWaterFlow.setMinimumTableOutput(0.0 * norm_ref)
-capModFuncOfWaterFlow.setMaximumTableOutput(1.04 * norm_ref)
+if Gem::Version.new(OpenStudio.openStudioVersion) > Gem::Version.new('3.4.0')
+  coolCapModFuncOfWaterFlow = OpenStudio::Model::TableLookup.new(m)
 
-capModFuncOfWaterFlow.addPoint(0.0, 0.0 * norm_ref)
-capModFuncOfWaterFlow.addPoint(0.05, 0.001 * norm_ref)
-capModFuncOfWaterFlow.addPoint(0.33333, 0.71 * norm_ref)
-capModFuncOfWaterFlow.addPoint(0.5, 0.85 * norm_ref)
-capModFuncOfWaterFlow.addPoint(0.666667, 0.92 * norm_ref)
-capModFuncOfWaterFlow.addPoint(0.833333, 0.97 * norm_ref)
-capModFuncOfWaterFlow.addPoint(1.0, 1.0 * norm_ref) # <= RATING POINT
-capModFuncOfWaterFlow.addPoint(1.333333, 1.04 * norm_ref)
+  coolCapModFuncOfWaterFlow.setName('CoolCapModFuncOfWaterFlow')
+  coolCapModFuncOfWaterFlow.setOutputUnitType('Dimensionless')
+
+  coolCapModFuncOfWaterFlow.setMinimumOutput(0.0 * norm_ref)
+  coolCapModFuncOfWaterFlow.setMaximumOutput(1.04 * norm_ref)
+
+  coolCapModFuncOfWaterFlow.setNormalizationMethod('DivisorOnly')
+  coolCapModFuncOfWaterFlow.setNormalizationDivisor(norm_ref)
+  values = [0.0, 0.001, 0.71, 0.85, 0.92, 0.97, 1.0, 1.04].map { |v| v * norm_ref }
+  coolCapModFuncOfWaterFlow.setOutputValues(values)
+
+  coolCapModFuncOfWaterFlowVar1 = OpenStudio::Model::TableIndependentVariable.new(m)
+  coolCapModFuncOfWaterFlow.addIndependentVariable(coolCapModFuncOfWaterFlowVar1)
+  coolCapModFuncOfWaterFlowVar1.setName('CoolCapModFuncOfWaterFlow_IndependentVariable1')
+  coolCapModFuncOfWaterFlowVar1.setInterpolationMethod('Cubic')
+  coolCapModFuncOfWaterFlowVar1.setExtrapolationMethod('Constant')
+  coolCapModFuncOfWaterFlowVar1.setMinimumValue(0.0)
+  coolCapModFuncOfWaterFlowVar1.setMaximumValue(1.33)
+  coolCapModFuncOfWaterFlowVar1.setUnitType('Dimensionless')
+  coolCapModFuncOfWaterFlowVar1.setValues([0.0, 0.05, 0.33333, 0.5, 0.666667, 0.833333, 1.0, 1.333333])
+else
+  coolCapModFuncOfWaterFlow = OpenStudio::Model::TableMultiVariableLookup.new(m, 1)
+  coolCapModFuncOfWaterFlow.setName('CoolCapModFuncOfWaterFlow')
+
+  coolCapModFuncOfWaterFlow.setCurveType('Quadratic')
+  coolCapModFuncOfWaterFlow.setInterpolationMethod('EvaluateCurveToLimits')
+  coolCapModFuncOfWaterFlow.setMinimumValueofX1(0)
+  coolCapModFuncOfWaterFlow.setMaximumValueofX1(1.33)
+  coolCapModFuncOfWaterFlow.setInputUnitTypeforX1('Dimensionless')
+  coolCapModFuncOfWaterFlow.setOutputUnitType('Dimensionless')
+
+  coolCapModFuncOfWaterFlow.setNormalizationReference(norm_ref)
+
+  # Quoting I/O ref for 9.1:
+  # > Both the output values and minimum/maximum curve limits
+  # > are normalized as applicable.
+  coolCapModFuncOfWaterFlow.setMinimumTableOutput(0.0 * norm_ref)
+  coolCapModFuncOfWaterFlow.setMaximumTableOutput(1.04 * norm_ref)
+
+  coolCapModFuncOfWaterFlow.addPoint(0.0, 0.0 * norm_ref)
+  coolCapModFuncOfWaterFlow.addPoint(0.05, 0.001 * norm_ref)
+  coolCapModFuncOfWaterFlow.addPoint(0.33333, 0.71 * norm_ref)
+  coolCapModFuncOfWaterFlow.addPoint(0.5, 0.85 * norm_ref)
+  coolCapModFuncOfWaterFlow.addPoint(0.666667, 0.92 * norm_ref)
+  coolCapModFuncOfWaterFlow.addPoint(0.833333, 0.97 * norm_ref)
+  coolCapModFuncOfWaterFlow.addPoint(1.0, 1.0 * norm_ref) # <= RATING POINT
+  coolCapModFuncOfWaterFlow.addPoint(1.333333, 1.04 * norm_ref)
+end
 
 # Replace all terminals with ATUFourPipeBeams
 # There is only one airLoopHVAC, so I get it here
@@ -95,7 +121,7 @@ zones.each do |z|
   cc = OpenStudio::Model::CoilCoolingFourPipeBeam.new(m)
   cc.setName("#{z.name} ATU FourPipeBeam Cooling Coil")
   # Set the curve with the above table
-  cc.setBeamCoolingCapacityChilledWaterFlowModificationFactorCurve(capModFuncOfWaterFlow)
+  cc.setBeamCoolingCapacityChilledWaterFlowModificationFactorCurve(coolCapModFuncOfWaterFlow)
   p_chw.addDemandBranchForComponent(cc)
 
   # Create a heating coil, and add it to the HW Loop

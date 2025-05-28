@@ -1,0 +1,646 @@
+
+OS:Version,
+  {6524a987-6771-4a4e-bf11-d18f345331e9}, !- Handle
+  3.7.0;                                  !- Version Identifier
+
+OS:SizingPeriod:DesignDay,
+  {6e2c8b41-4b16-4c6f-904a-4eb32fe6afc1}, !- Handle
+  Chicago Ohare Intl Ap Ann Htg 99.6% Condns DB, !- Name
+  -20,                                    !- Maximum Dry-Bulb Temperature {C}
+  0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+  98934,                                  !- Barometric Pressure {Pa}
+  4.9,                                    !- Wind Speed {m/s}
+  270,                                    !- Wind Direction {deg}
+  0,                                      !- Sky Clearness
+  No,                                     !- Rain Indicator
+  No,                                     !- Snow Indicator
+  21,                                     !- Day of Month
+  1,                                      !- Month
+  WinterDesignDay,                        !- Day Type
+  No,                                     !- Daylight Saving Time Indicator
+  Wetbulb,                                !- Humidity Condition Type
+  ,                                       !- Humidity Condition Day Schedule Name
+  -20,                                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+  ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+  DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+  ,                                       !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  ASHRAEClearSky;                         !- Solar Model Indicator
+
+OS:SizingPeriod:DesignDay,
+  {3c04883a-6d75-44cc-accd-ad313fa434e7}, !- Handle
+  Chicago Ohare Intl Ap Ann Clg .4% Condns DB=>MWB, !- Name
+  33.3,                                   !- Maximum Dry-Bulb Temperature {C}
+  10.5,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+  98934,                                  !- Barometric Pressure {Pa}
+  5.2,                                    !- Wind Speed {m/s}
+  230,                                    !- Wind Direction {deg}
+  ,                                       !- Sky Clearness
+  No,                                     !- Rain Indicator
+  No,                                     !- Snow Indicator
+  21,                                     !- Day of Month
+  7,                                      !- Month
+  SummerDesignDay,                        !- Day Type
+  No,                                     !- Daylight Saving Time Indicator
+  Wetbulb,                                !- Humidity Condition Type
+  ,                                       !- Humidity Condition Day Schedule Name
+  23.7,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+  ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+  DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+  ,                                       !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  ASHRAETau,                              !- Solar Model Indicator
+  ,                                       !- Beam Solar Day Schedule Name
+  ,                                       !- Diffuse Solar Day Schedule Name
+  0.455,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance {dimensionless}
+  2.05;                                   !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance {dimensionless}
+
+OS:SimulationControl,
+  {4337023e-f068-4853-ac8e-78ec7a7f1a7f}, !- Handle
+  ,                                       !- Do Zone Sizing Calculation
+  ,                                       !- Do System Sizing Calculation
+  ,                                       !- Do Plant Sizing Calculation
+  No,                                     !- Run Simulation for Sizing Periods
+  Yes;                                    !- Run Simulation for Weather File Run Periods
+
+OS:Timestep,
+  {f0a6f8c4-3179-41a4-afa0-295f8b7522e8}, !- Handle
+  4;                                      !- Number of Timesteps per Hour
+
+OS:PlantLoop,
+  {eb5a7b84-64f9-4632-8b50-9a33022b2864}, !- Handle
+  Condenser Water Plant,                  !- Name
+  PropyleneGlycol,                        !- Fluid Type
+  70,                                     !- Glycol Concentration
+  ,                                       !- User Defined Fluid Type
+  ,                                       !- Plant Equipment Operation Heating Load
+  ,                                       !- Plant Equipment Operation Cooling Load
+  ,                                       !- Primary Plant Equipment Operation Scheme
+  {c1e5e8ed-2f88-4ed5-bf39-c37919666a39}, !- Loop Temperature Setpoint Node Name
+  80,                                     !- Maximum Loop Temperature {C}
+  ,                                       !- Minimum Loop Temperature {C}
+  0.004,                                  !- Maximum Loop Flow Rate {m3/s}
+  ,                                       !- Minimum Loop Flow Rate {m3/s}
+  Autocalculate,                          !- Plant Loop Volume {m3}
+  {4563411f-4fec-46c2-b4eb-103c29cfd01c}, !- Plant Side Inlet Node Name
+  {f99aa5e7-c29b-4a7e-a189-2a45a315423a}, !- Plant Side Outlet Node Name
+  ,                                       !- Plant Side Branch List Name
+  {4db51c45-7306-43af-8db9-4e4ac62ea107}, !- Demand Side Inlet Node Name
+  {55099e95-95bf-473f-9fce-1f41d99858e0}, !- Demand Side Outlet Node Name
+  ,                                       !- Demand Side Branch List Name
+  ,                                       !- Demand Side Connector List Name
+  Optimal,                                !- Load Distribution Scheme
+  {09d897f0-6b3f-46bc-a0ab-c80e02504e98}, !- Availability Manager List Name
+  ,                                       !- Plant Loop Demand Calculation Scheme
+  ,                                       !- Common Pipe Simulation
+  ,                                       !- Pressure Simulation Type
+  ,                                       !- Plant Equipment Operation Heating Load Schedule
+  ,                                       !- Plant Equipment Operation Cooling Load Schedule
+  ,                                       !- Primary Plant Equipment Operation Scheme Schedule
+  ,                                       !- Component Setpoint Operation Scheme Schedule
+  {66834767-3c44-4ffb-9fc3-85d191e702a5}, !- Demand Mixer Name
+  {7c751e0a-fad0-40db-ae9b-12cd22887fff}, !- Demand Splitter Name
+  {b96cf3f1-86c8-40c3-a5e9-5ed22c799c7f}, !- Supply Mixer Name
+  {d7c16770-b6e3-4095-bbed-d9035f8595a4}; !- Supply Splitter Name
+
+OS:Node,
+  {1b92c605-d1fe-4f58-854d-1c963c65a857}, !- Handle
+  Node 1,                                 !- Name
+  {4563411f-4fec-46c2-b4eb-103c29cfd01c}, !- Inlet Port
+  {b598cf19-5328-4063-9224-0e4f4569df11}; !- Outlet Port
+
+OS:Node,
+  {c1e5e8ed-2f88-4ed5-bf39-c37919666a39}, !- Handle
+  Node 2,                                 !- Name
+  {b91105cd-b0b2-4fd1-86dd-f2ec0e524c54}, !- Inlet Port
+  {f99aa5e7-c29b-4a7e-a189-2a45a315423a}; !- Outlet Port
+
+OS:Node,
+  {a5076be6-327c-4cbb-82ca-e150c318aede}, !- Handle
+  Node 3,                                 !- Name
+  {36d3248c-1112-48fa-a3ee-34f5597dd858}, !- Inlet Port
+  {cffc0b59-4caa-45e5-a649-1ce1423ac488}; !- Outlet Port
+
+OS:Connector:Mixer,
+  {b96cf3f1-86c8-40c3-a5e9-5ed22c799c7f}, !- Handle
+  Connector Mixer 1,                      !- Name
+  {b91105cd-b0b2-4fd1-86dd-f2ec0e524c54}, !- Outlet Branch Name
+  {da180ba8-76ba-4120-8d96-da9c88da7de4}; !- Inlet Branch Name 1
+
+OS:Connector:Splitter,
+  {d7c16770-b6e3-4095-bbed-d9035f8595a4}, !- Handle
+  Connector Splitter 1,                   !- Name
+  {3f8f20bf-6807-4a41-8d39-7d5862054a9d}, !- Inlet Branch Name
+  {36d3248c-1112-48fa-a3ee-34f5597dd858}; !- Outlet Branch Name 1
+
+OS:Connection,
+  {4563411f-4fec-46c2-b4eb-103c29cfd01c}, !- Handle
+  {eb5a7b84-64f9-4632-8b50-9a33022b2864}, !- Source Object
+  14,                                     !- Outlet Port
+  {1b92c605-d1fe-4f58-854d-1c963c65a857}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {36d3248c-1112-48fa-a3ee-34f5597dd858}, !- Handle
+  {d7c16770-b6e3-4095-bbed-d9035f8595a4}, !- Source Object
+  3,                                      !- Outlet Port
+  {a5076be6-327c-4cbb-82ca-e150c318aede}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {b91105cd-b0b2-4fd1-86dd-f2ec0e524c54}, !- Handle
+  {b96cf3f1-86c8-40c3-a5e9-5ed22c799c7f}, !- Source Object
+  2,                                      !- Outlet Port
+  {c1e5e8ed-2f88-4ed5-bf39-c37919666a39}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {f99aa5e7-c29b-4a7e-a189-2a45a315423a}, !- Handle
+  {c1e5e8ed-2f88-4ed5-bf39-c37919666a39}, !- Source Object
+  3,                                      !- Outlet Port
+  {eb5a7b84-64f9-4632-8b50-9a33022b2864}, !- Target Object
+  15;                                     !- Inlet Port
+
+OS:Node,
+  {ced5f9f5-b08a-46fe-9aa2-6fae4d6c358f}, !- Handle
+  Node 4,                                 !- Name
+  {4db51c45-7306-43af-8db9-4e4ac62ea107}, !- Inlet Port
+  {ce6021fc-f2f6-4a02-85c6-59018467c86c}; !- Outlet Port
+
+OS:Node,
+  {dcce25ab-b77f-4204-b28d-0a07c77084b0}, !- Handle
+  Node 5,                                 !- Name
+  {68ea4578-b3f4-4da5-a738-9b3923a3f639}, !- Inlet Port
+  {55099e95-95bf-473f-9fce-1f41d99858e0}; !- Outlet Port
+
+OS:Node,
+  {441099ba-2775-4cb7-9222-8329b072b81f}, !- Handle
+  Node 6,                                 !- Name
+  {7c8dc582-3ea8-4216-9161-f927f1ebdb85}, !- Inlet Port
+  {9a1aba92-a964-480e-9449-b5621d60e39f}; !- Outlet Port
+
+OS:Connector:Mixer,
+  {66834767-3c44-4ffb-9fc3-85d191e702a5}, !- Handle
+  Connector Mixer 2,                      !- Name
+  {68ea4578-b3f4-4da5-a738-9b3923a3f639}, !- Outlet Branch Name
+  {f51a5192-2f36-4245-86d1-6cb012d2539d}; !- Inlet Branch Name 1
+
+OS:Connector:Splitter,
+  {7c751e0a-fad0-40db-ae9b-12cd22887fff}, !- Handle
+  Connector Splitter 2,                   !- Name
+  {ce6021fc-f2f6-4a02-85c6-59018467c86c}, !- Inlet Branch Name
+  {7c8dc582-3ea8-4216-9161-f927f1ebdb85}; !- Outlet Branch Name 1
+
+OS:Connection,
+  {4db51c45-7306-43af-8db9-4e4ac62ea107}, !- Handle
+  {eb5a7b84-64f9-4632-8b50-9a33022b2864}, !- Source Object
+  17,                                     !- Outlet Port
+  {ced5f9f5-b08a-46fe-9aa2-6fae4d6c358f}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {ce6021fc-f2f6-4a02-85c6-59018467c86c}, !- Handle
+  {ced5f9f5-b08a-46fe-9aa2-6fae4d6c358f}, !- Source Object
+  3,                                      !- Outlet Port
+  {7c751e0a-fad0-40db-ae9b-12cd22887fff}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {7c8dc582-3ea8-4216-9161-f927f1ebdb85}, !- Handle
+  {7c751e0a-fad0-40db-ae9b-12cd22887fff}, !- Source Object
+  3,                                      !- Outlet Port
+  {441099ba-2775-4cb7-9222-8329b072b81f}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {68ea4578-b3f4-4da5-a738-9b3923a3f639}, !- Handle
+  {66834767-3c44-4ffb-9fc3-85d191e702a5}, !- Source Object
+  2,                                      !- Outlet Port
+  {dcce25ab-b77f-4204-b28d-0a07c77084b0}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {55099e95-95bf-473f-9fce-1f41d99858e0}, !- Handle
+  {dcce25ab-b77f-4204-b28d-0a07c77084b0}, !- Source Object
+  3,                                      !- Outlet Port
+  {eb5a7b84-64f9-4632-8b50-9a33022b2864}, !- Target Object
+  18;                                     !- Inlet Port
+
+OS:Sizing:Plant,
+  {8a767aee-a423-4ca2-84b5-f321bde479b4}, !- Handle
+  {eb5a7b84-64f9-4632-8b50-9a33022b2864}, !- Plant or Condenser Loop Name
+  Heating,                                !- Loop Type
+  30,                                     !- Design Loop Exit Temperature {C}
+  11,                                     !- Loop Design Temperature Difference {deltaC}
+  NonCoincident,                          !- Sizing Option
+  1,                                      !- Zone Timesteps in Averaging Window
+  None;                                   !- Coincident Sizing Factor Mode
+
+OS:AvailabilityManagerAssignmentList,
+  {09d897f0-6b3f-46bc-a0ab-c80e02504e98}, !- Handle
+  Plant Loop 1 AvailabilityManagerAssignmentList; !- Name
+
+OS:Pump:VariableSpeed,
+  {9e5250c6-e6b3-493b-9347-148614d1ff69}, !- Handle
+  Pump Variable Speed 1,                  !- Name
+  {b598cf19-5328-4063-9224-0e4f4569df11}, !- Inlet Node Name
+  {c0a8825b-e965-4a01-a227-8f34ab356371}, !- Outlet Node Name
+  0.004,                                  !- Rated Flow Rate {m3/s}
+  5000,                                   !- Rated Pump Head {Pa}
+  25,                                     !- Rated Power Consumption {W}
+  ,                                       !- Motor Efficiency
+  0,                                      !- Fraction of Motor Inefficiencies to Fluid Stream
+  ,                                       !- Coefficient 1 of the Part Load Performance Curve
+  ,                                       !- Coefficient 2 of the Part Load Performance Curve
+  ,                                       !- Coefficient 3 of the Part Load Performance Curve
+  ,                                       !- Coefficient 4 of the Part Load Performance Curve
+  ,                                       !- Minimum Flow Rate {m3/s}
+  Intermittent,                           !- Pump Control Type
+  ,                                       !- Pump Flow Rate Schedule Name
+  ,                                       !- Pump Curve Name
+  ,                                       !- Impeller Diameter {m}
+  ,                                       !- VFD Control Type
+  ,                                       !- Pump RPM Schedule Name
+  ,                                       !- Minimum Pressure Schedule {Pa}
+  ,                                       !- Maximum Pressure Schedule {Pa}
+  ,                                       !- Minimum RPM Schedule {rev/min}
+  ,                                       !- Maximum RPM Schedule {rev/min}
+  ,                                       !- Zone Name
+  0.5,                                    !- Skin Loss Radiative Fraction
+  PowerPerFlowPerPressure,                !- Design Power Sizing Method
+  348701.1,                               !- Design Electric Power per Unit Flow Rate {W/(m3/s)}
+  1.282051282,                            !- Design Shaft Power per Unit Flow Rate per Unit Head {W-s/m3-Pa}
+  0,                                      !- Design Minimum Flow Rate Fraction
+  General;                                !- End-Use Subcategory
+
+OS:Node,
+  {70f32cee-a2e2-4419-ad6d-c5d254f663ea}, !- Handle
+  Node 7,                                 !- Name
+  {c0a8825b-e965-4a01-a227-8f34ab356371}, !- Inlet Port
+  {3f8f20bf-6807-4a41-8d39-7d5862054a9d}; !- Outlet Port
+
+OS:Connection,
+  {b598cf19-5328-4063-9224-0e4f4569df11}, !- Handle
+  {1b92c605-d1fe-4f58-854d-1c963c65a857}, !- Source Object
+  3,                                      !- Outlet Port
+  {9e5250c6-e6b3-493b-9347-148614d1ff69}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {c0a8825b-e965-4a01-a227-8f34ab356371}, !- Handle
+  {9e5250c6-e6b3-493b-9347-148614d1ff69}, !- Source Object
+  3,                                      !- Outlet Port
+  {70f32cee-a2e2-4419-ad6d-c5d254f663ea}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {3f8f20bf-6807-4a41-8d39-7d5862054a9d}, !- Handle
+  {70f32cee-a2e2-4419-ad6d-c5d254f663ea}, !- Source Object
+  3,                                      !- Outlet Port
+  {d7c16770-b6e3-4095-bbed-d9035f8595a4}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach,
+  {3eceaa5e-ae38-4665-925d-2852d19bbf9a}, !- Handle
+  Site Ground Temperature Undisturbed Kusuda Achenbach 1, !- Name
+  0.692626,                               !- Soil Thermal Conductivity {W/m-K}
+  920,                                    !- Soil Density {kg/m3}
+  2551.08695652174,                       !- Soil Specific Heat {J/kg-K}
+  13.375,                                 !- Average Soil Surface Temperature {C}
+  3.2,                                    !- Average Amplitude of Surface Temperature {deltaC}
+  8;                                      !- Phase Shift of Minimum Surface Temperature {days}
+
+OS:GroundHeatExchanger:Vertical,
+  {86210af6-9dd7-447e-9eba-17ace5020101}, !- Handle
+  Ground Heat Exchanger Vertical 1,       !- Name
+  {cffc0b59-4caa-45e5-a649-1ce1423ac488}, !- Inlet Node Name
+  {eae2b10f-4278-4425-b57f-ccceb7ddac3a}, !- Outlet Node Name
+  0.0033,                                 !- Design Flow Rate {m3/s}
+  120,                                    !- Number of Bore Holes
+  76.2,                                   !- Bore Hole Length {m}
+  0.063508,                               !- Bore Hole Radius {m}
+  0.692626,                               !- Ground Thermal Conductivity {W/m-K}
+  2347000,                                !- Ground Thermal Heat Capacity {J/m3-K}
+  13.375,                                 !- Ground Temperature {C}
+  0.692626,                               !- Grout Thermal Conductivity {W/m-K}
+  0.391312,                               !- Pipe Thermal Conductivity {W/m-K}
+  0.0266667,                              !- Pipe Out Diameter {m}
+  0.0253977,                              !- U-Tube Distance {m}
+  0.00241285,                             !- Pipe Thickness {m}
+  2,                                      !- Maximum Length of Simulation
+  {3eceaa5e-ae38-4665-925d-2852d19bbf9a}, !- Undisturbed Ground Temperature Model
+  0.0005,                                 !- G-Function Reference Ratio {dimensionless}
+  -15.2996,                               !- G-Function Ln(T/Ts) Value 1
+  -0.348322,                              !- G-Function G Value 1
+  -14.201,                                !- G-Function Ln(T/Ts) Value 2
+  0.022208,                               !- G-Function G Value 2
+  -13.2202,                               !- G-Function Ln(T/Ts) Value 3
+  0.412345,                               !- G-Function G Value 3
+  -12.2086,                               !- G-Function Ln(T/Ts) Value 4
+  0.867498,                               !- G-Function G Value 4
+  -11.1888,                               !- G-Function Ln(T/Ts) Value 5
+  1.357839,                               !- G-Function G Value 5
+  -10.1816,                               !- G-Function Ln(T/Ts) Value 6
+  1.852024,                               !- G-Function G Value 6
+  -9.1815,                                !- G-Function Ln(T/Ts) Value 7
+  2.345656,                               !- G-Function G Value 7
+  -8.6809,                                !- G-Function Ln(T/Ts) Value 8
+  2.593958,                               !- G-Function G Value 8
+  -8.5,                                   !- G-Function Ln(T/Ts) Value 9
+  2.679,                                  !- G-Function G Value 9
+  -7.8,                                   !- G-Function Ln(T/Ts) Value 10
+  3.023,                                  !- G-Function G Value 10
+  -7.2,                                   !- G-Function Ln(T/Ts) Value 11
+  3.32,                                   !- G-Function G Value 11
+  -6.5,                                   !- G-Function Ln(T/Ts) Value 12
+  3.681,                                  !- G-Function G Value 12
+  -5.9,                                   !- G-Function Ln(T/Ts) Value 13
+  4.071,                                  !- G-Function G Value 13
+  -5.2,                                   !- G-Function Ln(T/Ts) Value 14
+  4.828,                                  !- G-Function G Value 14
+  -4.5,                                   !- G-Function Ln(T/Ts) Value 15
+  6.253,                                  !- G-Function G Value 15
+  -3.963,                                 !- G-Function Ln(T/Ts) Value 16
+  7.894,                                  !- G-Function G Value 16
+  -3.27,                                  !- G-Function Ln(T/Ts) Value 17
+  11.82,                                  !- G-Function G Value 17
+  -2.864,                                 !- G-Function Ln(T/Ts) Value 18
+  15.117,                                 !- G-Function G Value 18
+  -2.577,                                 !- G-Function Ln(T/Ts) Value 19
+  18.006,                                 !- G-Function G Value 19
+  -2.171,                                 !- G-Function Ln(T/Ts) Value 20
+  22.887,                                 !- G-Function G Value 20
+  -1.884,                                 !- G-Function Ln(T/Ts) Value 21
+  26.924,                                 !- G-Function G Value 21
+  -1.191,                                 !- G-Function Ln(T/Ts) Value 22
+  38.004,                                 !- G-Function G Value 22
+  -0.497,                                 !- G-Function Ln(T/Ts) Value 23
+  49.919,                                 !- G-Function G Value 23
+  -0.274,                                 !- G-Function Ln(T/Ts) Value 24
+  53.407,                                 !- G-Function G Value 24
+  -0.051,                                 !- G-Function Ln(T/Ts) Value 25
+  56.632,                                 !- G-Function G Value 25
+  0.196,                                  !- G-Function Ln(T/Ts) Value 26
+  59.825,                                 !- G-Function G Value 26
+  0.419,                                  !- G-Function Ln(T/Ts) Value 27
+  62.349,                                 !- G-Function G Value 27
+  0.642,                                  !- G-Function Ln(T/Ts) Value 28
+  64.524,                                 !- G-Function G Value 28
+  0.873,                                  !- G-Function Ln(T/Ts) Value 29
+  66.412,                                 !- G-Function G Value 29
+  1.112,                                  !- G-Function Ln(T/Ts) Value 30
+  67.993,                                 !- G-Function G Value 30
+  1.335,                                  !- G-Function Ln(T/Ts) Value 31
+  69.162,                                 !- G-Function G Value 31
+  1.679,                                  !- G-Function Ln(T/Ts) Value 32
+  70.476,                                 !- G-Function G Value 32
+  2.028,                                  !- G-Function Ln(T/Ts) Value 33
+  71.361,                                 !- G-Function G Value 33
+  2.275,                                  !- G-Function Ln(T/Ts) Value 34
+  71.79,                                  !- G-Function G Value 34
+  3.003,                                  !- G-Function Ln(T/Ts) Value 35
+  72.511;                                 !- G-Function G Value 35
+
+OS:Node,
+  {78a28ed3-931d-4bb0-bfe5-054d1bb35b08}, !- Handle
+  Node 8,                                 !- Name
+  {eae2b10f-4278-4425-b57f-ccceb7ddac3a}, !- Inlet Port
+  {da180ba8-76ba-4120-8d96-da9c88da7de4}; !- Outlet Port
+
+OS:Connection,
+  {cffc0b59-4caa-45e5-a649-1ce1423ac488}, !- Handle
+  {a5076be6-327c-4cbb-82ca-e150c318aede}, !- Source Object
+  3,                                      !- Outlet Port
+  {86210af6-9dd7-447e-9eba-17ace5020101}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {eae2b10f-4278-4425-b57f-ccceb7ddac3a}, !- Handle
+  {86210af6-9dd7-447e-9eba-17ace5020101}, !- Source Object
+  3,                                      !- Outlet Port
+  {78a28ed3-931d-4bb0-bfe5-054d1bb35b08}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {da180ba8-76ba-4120-8d96-da9c88da7de4}, !- Handle
+  {78a28ed3-931d-4bb0-bfe5-054d1bb35b08}, !- Source Object
+  3,                                      !- Outlet Port
+  {b96cf3f1-86c8-40c3-a5e9-5ed22c799c7f}, !- Target Object
+  3;                                      !- Inlet Port
+
+OS:Schedule:Ruleset,
+  {581ba79b-c511-4926-a26f-6ce6dca9c760}, !- Handle
+  Condenser Water Temperature,            !- Name
+  {136b4fea-3422-4104-b688-5e0135389b0f}, !- Schedule Type Limits Name
+  {c1f75de0-f4b0-427e-9c63-63e38c1f8121}, !- Default Day Schedule Name
+  {2b36a164-3335-4bdb-b6f6-e1dac009ccb5}, !- Summer Design Day Schedule Name
+  {8316e310-c1a0-48dd-91ce-ada27376d62d}; !- Winter Design Day Schedule Name
+
+OS:Schedule:Day,
+  {c1f75de0-f4b0-427e-9c63-63e38c1f8121}, !- Handle
+  Condenser Water Temperature Default,    !- Name
+  {136b4fea-3422-4104-b688-5e0135389b0f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  24;                                     !- Value Until Time 1
+
+OS:Schedule:Day,
+  {a997a855-8436-4e8b-99e6-7d18414acaf8}, !- Handle
+  Schedule Day 2,                         !- Name
+  ,                                       !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {8316e310-c1a0-48dd-91ce-ada27376d62d}, !- Handle
+  Condenser Water Temperature Winter Design Day, !- Name
+  {136b4fea-3422-4104-b688-5e0135389b0f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  24;                                     !- Value Until Time 1
+
+OS:Schedule:Day,
+  {68e0da72-a43c-4aeb-90b1-7a7ac85e4cd1}, !- Handle
+  Schedule Day 3,                         !- Name
+  ,                                       !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
+
+OS:Schedule:Day,
+  {2b36a164-3335-4bdb-b6f6-e1dac009ccb5}, !- Handle
+  Condenser Water Temperature Summer Design Day, !- Name
+  {136b4fea-3422-4104-b688-5e0135389b0f}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  24;                                     !- Value Until Time 1
+
+OS:SetpointManager:Scheduled,
+  {324e2329-6f85-4214-ac45-8a2d90154dd8}, !- Handle
+  Setpoint Manager Scheduled 1,           !- Name
+  Temperature,                            !- Control Variable
+  {581ba79b-c511-4926-a26f-6ce6dca9c760}, !- Schedule Name
+  {c1e5e8ed-2f88-4ed5-bf39-c37919666a39}; !- Setpoint Node or NodeList Name
+
+OS:ScheduleTypeLimits,
+  {136b4fea-3422-4104-b688-5e0135389b0f}, !- Handle
+  Temperature,                            !- Name
+  ,                                       !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  Continuous,                             !- Numeric Type
+  Temperature;                            !- Unit Type
+
+OS:LoadProfile:Plant,
+  {66a191d6-2845-49a7-bc3b-67fe159729ca}, !- Handle
+  Load Profile Plant 1,                   !- Name
+  {9a1aba92-a964-480e-9449-b5621d60e39f}, !- Inlet Node Name
+  {17813355-02dd-456a-b689-b48897ad742f}, !- Outlet Node Name
+  {c3a10420-2ac3-4f6c-ac86-e026d6372a13}, !- Load Schedule Name
+  0.004,                                  !- Peak Flow Rate {m3/s}
+  {5fe46b92-a48f-4548-8ebd-f1bfe62af9df}, !- Flow Rate Fraction Schedule Name
+  Water,                                  !- Plant Loop Fluid Type
+  5,                                      !- Degree of SubCooling {C}
+  20;                                     !- Degree of Loop SubCooling {C}
+
+OS:Schedule:Constant,
+  {adfff11b-bfae-4eb9-b656-d6bd767d50be}, !- Handle
+  Always On Discrete,                     !- Name
+  {7be4e374-215a-48e5-b254-e7941c45a344}, !- Schedule Type Limits Name
+  1;                                      !- Value
+
+OS:ScheduleTypeLimits,
+  {7be4e374-215a-48e5-b254-e7941c45a344}, !- Handle
+  OnOff,                                  !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Discrete,                               !- Numeric Type
+  Availability;                           !- Unit Type
+
+OS:Schedule:Ruleset,
+  {62a3c2d3-6e6c-42f5-ba2a-87f7a66bf1d5}, !- Handle
+  Schedule Ruleset 1,                     !- Name
+  {94d6bf7a-650f-4fe0-81fa-4206fabe838a}, !- Schedule Type Limits Name
+  {07b25179-ad61-4e35-ab92-045710cfcefb}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {07b25179-ad61-4e35-ab92-045710cfcefb}, !- Handle
+  Schedule Day 1,                         !- Name
+  {94d6bf7a-650f-4fe0-81fa-4206fabe838a}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  4,                                      !- Hour 1
+  0,                                      !- Minute 1
+  8000,                                   !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  6000,                                   !- Value Until Time 2
+  9,                                      !- Hour 3
+  0,                                      !- Minute 3
+  0,                                      !- Value Until Time 3
+  12,                                     !- Hour 4
+  0,                                      !- Minute 4
+  6000,                                   !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  10000;                                  !- Value Until Time 5
+
+OS:ScheduleTypeLimits,
+  {94d6bf7a-650f-4fe0-81fa-4206fabe838a}, !- Handle
+  Dimensionless,                          !- Name
+  ,                                       !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  Continuous;                             !- Numeric Type
+
+OS:Schedule:Constant,
+  {5fe46b92-a48f-4548-8ebd-f1bfe62af9df}, !- Handle
+  FlowFracSchedule,                       !- Name
+  {f59da992-352d-497d-a16e-ebb45230eb8f}, !- Schedule Type Limits Name
+  1;                                      !- Value
+
+OS:ScheduleTypeLimits,
+  {f59da992-352d-497d-a16e-ebb45230eb8f}, !- Handle
+  Fractional,                             !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Continuous;                             !- Numeric Type
+
+OS:Schedule:Ruleset,
+  {c3a10420-2ac3-4f6c-ac86-e026d6372a13}, !- Handle
+  LoadSchedule,                           !- Name
+  {94d6bf7a-650f-4fe0-81fa-4206fabe838a}, !- Schedule Type Limits Name
+  {b829f665-bfb0-43bc-bd00-0a9a91b072fd}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {b829f665-bfb0-43bc-bd00-0a9a91b072fd}, !- Handle
+  Schedule Day 4,                         !- Name
+  {94d6bf7a-650f-4fe0-81fa-4206fabe838a}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  2000;                                   !- Value Until Time 1
+
+OS:Schedule:Rule,
+  {ec999c19-cb66-4a63-b0d2-f07c63182f68}, !- Handle
+  Schedule Rule 1,                        !- Name
+  {c3a10420-2ac3-4f6c-ac86-e026d6372a13}, !- Schedule Ruleset Name
+  0,                                      !- Rule Order
+  {c843844c-4833-454c-b8f7-f129e9c928b4}, !- Day Schedule Name
+  ,                                       !- Apply Sunday
+  ,                                       !- Apply Monday
+  ,                                       !- Apply Tuesday
+  ,                                       !- Apply Wednesday
+  ,                                       !- Apply Thursday
+  ,                                       !- Apply Friday
+  ,                                       !- Apply Saturday
+  DateRange,                              !- Date Specification Type
+  5,                                      !- Start Month
+  1,                                      !- Start Day
+  9,                                      !- End Month
+  30;                                     !- End Day
+
+OS:Schedule:Day,
+  {c843844c-4833-454c-b8f7-f129e9c928b4}, !- Handle
+  Schedule Day 5,                         !- Name
+  {94d6bf7a-650f-4fe0-81fa-4206fabe838a}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  -3000;                                  !- Value Until Time 1
+
+OS:Node,
+  {52c95d67-fd34-4bad-b7e1-d15e3bd16e0a}, !- Handle
+  Node 9,                                 !- Name
+  {17813355-02dd-456a-b689-b48897ad742f}, !- Inlet Port
+  {f51a5192-2f36-4245-86d1-6cb012d2539d}; !- Outlet Port
+
+OS:Connection,
+  {9a1aba92-a964-480e-9449-b5621d60e39f}, !- Handle
+  {441099ba-2775-4cb7-9222-8329b072b81f}, !- Source Object
+  3,                                      !- Outlet Port
+  {66a191d6-2845-49a7-bc3b-67fe159729ca}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {17813355-02dd-456a-b689-b48897ad742f}, !- Handle
+  {66a191d6-2845-49a7-bc3b-67fe159729ca}, !- Source Object
+  3,                                      !- Outlet Port
+  {52c95d67-fd34-4bad-b7e1-d15e3bd16e0a}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:Connection,
+  {f51a5192-2f36-4245-86d1-6cb012d2539d}, !- Handle
+  {52c95d67-fd34-4bad-b7e1-d15e3bd16e0a}, !- Source Object
+  3,                                      !- Outlet Port
+  {66834767-3c44-4ffb-9fc3-85d191e702a5}, !- Target Object
+  3;                                      !- Inlet Port
+
+OS:YearDescription,
+  {d7facb2c-8c14-40dc-91eb-003719d5daac}, !- Handle
+  ,                                       !- Calendar Year
+  Thursday;                               !- Day of Week for Start Day
+

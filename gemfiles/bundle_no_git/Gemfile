@@ -4,4 +4,4 @@ source 'http://rubygems.org'
 
 # openstudio-standards is HUGE because of many very very large test files etc
 # gem 'openstudio-standards', '= 0.2.11'
-gem 'openstudio-workflow', '= 2.2.0'
+gem 'openstudio-workflow', '= 2.4.0'

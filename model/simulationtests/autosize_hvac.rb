@@ -81,17 +81,96 @@ def curve_biquadratic(model, c_1constant, c_2x, c_3xPOW2, c_4y, c_5yPOW2, c_6xTI
   return curve
 end
 
-def curve_quadratic(model, c_1constant, c_2x, c_3xPOW2, minx, maxx, miny, maxy)
+def curve_quadratic(model, c_1constant, c_2x, c_3xPOW2, minx, maxx, miny = nil, maxy = nil)
   curve = OpenStudio::Model::CurveQuadratic.new(model)
   curve.setCoefficient1Constant(c_1constant)
   curve.setCoefficient2x(c_2x)
   curve.setCoefficient3xPOW2(c_3xPOW2)
   curve.setMinimumValueofx(minx)
   curve.setMaximumValueofx(maxx)
-  curve.setMinimumCurveOutput(miny)
-  curve.setMaximumCurveOutput(maxy)
+  curve.setMinimumCurveOutput(miny) if !miny.nil?
+  curve.setMaximumCurveOutput(maxy) if !maxy.nil?
   return curve
 end
+
+def make_tes_coil(model)
+  tes_coil = OpenStudio::Model::CoilCoolingDXSingleSpeedThermalStorage.new(model)
+  tes_op_schedule = OpenStudio::Model::ScheduleConstant.new(model)
+  tes_op_schedule.setValue(2) # 2 = Cooling Only Mode
+  tes_coil.setOperationModeControlSchedule(tes_op_schedule)
+  tes_coil.setStorageType('Ice')
+  tes_coil.autosizeFluidStorageVolume # Only autosized if Storage Type is Water
+  tes_coil.autosizeIceStorageCapacity
+  tes_coil.autosizeRatedEvaporatorAirFlowRate
+
+  # Obviously, don't use this in production code. We just assign all curves to
+  # a constant value to avoid E+ crashing on us, while not having to actually
+  # create 41 curves with potentially lots of values...
+  constant_univariate = OpenStudio::Model::CurveCubic.new(model)
+  constant_univariate.setName('Constant Univariate Curve')
+  constant_univariate.setCoefficient1Constant(1.0)
+  constant_univariate.setCoefficient4xPOW3(0.0)
+  constant_univariate.setMinimumValueofx(-100.0)
+  constant_univariate.setMaximumValueofx(100.0)
+
+  constant_bivariate = OpenStudio::Model::CurveBiquadratic.new(model)
+  constant_bivariate.setName('Constant Bivariate Curve')
+  constant_bivariate.setCoefficient1Constant(1.0)
+  constant_bivariate.setMinimumValueofx(-100.0)
+  constant_bivariate.setMaximumValueofx(100.0)
+  constant_bivariate.setMinimumValueofy(-100.0)
+  constant_bivariate.setMaximumValueofy(100.0)
+
+  constant_trivariate = OpenStudio::Model::CurveTriquadratic.new(model)
+  constant_trivariate.setCoefficient1Constant(1.0)
+  constant_trivariate.setMinimumValueofx(-100.0)
+  constant_trivariate.setMaximumValueofx(100.0)
+  constant_trivariate.setMinimumValueofy(-100.0)
+  constant_trivariate.setMaximumValueofy(100.0)
+  constant_trivariate.setMinimumValueofz(-100.0)
+  constant_trivariate.setMaximumValueofz(100.0)
+
+  object_list_to_curve = {
+    'UnivariateFunctions' => constant_univariate,
+    'BivariateFunctions' => constant_bivariate,
+    'TrivariateFunctions' => constant_trivariate
+  }
+
+  # Scan the curve fields, assign a constant curve with the right number of
+  # independent variables
+  iddObject = tes_coil.iddObject
+  iddObject.numFields.times do |i|
+    field = iddObject.getField(i).get
+    field_name = field.name
+    next unless field_name.include?('Curve')
+
+    props = field.properties
+    olist = props.objectLists.first
+    setter = 'set' + field_name.gsub(' ', '')
+    raise "Undefined method #{setter} for field_name=#{field_name} at index #{i}" unless tes_coil.respond_to?(setter)
+
+    tes_coil.send(setter, object_list_to_curve[olist])
+  end
+
+  tes_coil.setCondenserType('EvaporativelyCooled')
+
+  tes_coil.setCoolingOnlyModeAvailable(true)
+  tes_coil.autosizeCoolingOnlyModeRatedTotalEvaporatorCoolingCapacity
+  tes_coil.setCoolingAndChargeModeAvailable(true)
+  tes_coil.autosizeCoolingAndChargeModeRatedTotalEvaporatorCoolingCapacity
+  tes_coil.autosizeCoolingAndChargeModeRatedStorageChargingCapacity
+  tes_coil.setCoolingAndDischargeModeAvailable(true)
+  tes_coil.autosizeCoolingAndDischargeModeRatedTotalEvaporatorCoolingCapacity
+  tes_coil.autosizeCoolingAndDischargeModeRatedStorageDischargingCapacity
+  tes_coil.setChargeOnlyModeAvailable(true)
+  tes_coil.autosizeChargeOnlyModeRatedStorageChargingCapacity
+  tes_coil.setDischargeOnlyModeAvailable(true)
+  tes_coil.autosizeDischargeOnlyModeRatedStorageDischargingCapacity
+  tes_coil.autosizeCondenserDesignAirFlowRate
+  tes_coil.autosizeEvaporativeCondenserPumpRatedPowerConsumption
+  return tes_coil
+end
+
 ### High level constructs
 
 ### Declare loops
@@ -300,6 +379,14 @@ chw_loop.addSupplyBranchForComponent(chiller)
 cw_loop.addDemandBranchForComponent(chiller)
 swh_loop.addDemandBranchForComponent(chiller) # Heat Recovery
 
+file_name = File.join(File.dirname(__FILE__), 'CoolSys1-Chiller-Detailed.RS0001.a205.cbor')
+file_name = File.realpath(file_name)
+representation_file = OpenStudio::Model::ExternalFile.getExternalFile(model, file_name)
+chiller = OpenStudio::Model::ChillerElectricASHRAE205.new(representation_file.get)
+chw_loop.addSupplyBranchForComponent(chiller)
+cw_loop.addDemandBranchForComponent(chiller)
+swh_loop.addDemandBranchForComponent(chiller) # Heat Recovery (not enabled in 22.2.0)
+
 chw_loop.addSupplyBranchForComponent(OpenStudio::Model::DistrictCooling.new(model))
 wwhp = OpenStudio::Model::HeatPumpWaterToWaterEquationFitCooling.new(model)
 chw_loop.addSupplyBranchForComponent(wwhp)
@@ -309,6 +396,7 @@ chw_storage.setSetpointTemperatureSchedule(chw_temp_sch)
 chw_loop.addSupplyBranchForComponent(chw_storage)
 storage_loop.addDemandBranchForComponent(chw_storage)
 
+# WaterSource
 # TODO: I CANNOT GET autosizeReferenceCapacity to work in E+: see https://github.com/NREL/EnergyPlus/issues/8948
 # Yet it is still reported... so whatever
 plhp_clg = OpenStudio::Model::HeatPumpPlantLoopEIRCooling.new(model)
@@ -316,10 +404,27 @@ plhp_clg.setReferenceCapacity(400000)
 # plhp_clg.autosizeReferenceCapacity
 plhp_clg.autosizeSourceSideReferenceFlowRate
 plhp_clg.autosizeLoadSideReferenceFlowRate
+# plhp_clg.autosizeHeatRecoveryReferenceFlowRate
 plhp_clg.setSizingFactor(1)
 chw_loop.addSupplyBranchForComponent(plhp_clg)
 # The Source Side Volume Flow Rate is reported only for WaterSource apparently
 cw_loop.addDemandBranchForComponent(plhp_clg)
+
+# AirSource w/ Heat Recovery
+plhp_airsource_clg_hr = OpenStudio::Model::HeatPumpPlantLoopEIRCooling.new(model)
+plhp_airsource_clg_hr.setReferenceCapacity(400000)
+plhp_airsource_clg_hr.autosizeSourceSideReferenceFlowRate
+plhp_airsource_clg_hr.autosizeLoadSideReferenceFlowRate
+plhp_airsource_clg_hr.autosizeHeatRecoveryReferenceFlowRate
+plhp_airsource_clg_hr.setSizingFactor(1)
+chw_loop.addSupplyBranchForComponent(plhp_airsource_clg_hr)
+
+ffhp_airsource_clg = OpenStudio::Model::HeatPumpAirToWaterFuelFiredCooling.new(model)
+ffhp_airsource_clg.autosizeNominalCoolingCapacity
+ffhp_airsource_clg.autosizeDesignFlowRate
+ffhp_airsource_clg.autosizeDesignTemperatureLift
+ffhp_airsource_clg.setNominalAuxiliaryElectricPower(500)
+chw_loop.addSupplyBranchForComponent(ffhp_airsource_clg)
 
 # chw_loop.addSupplyBranchForComponent(OpenStudio::Model::ChillerHeaterPerformanceElectricEIR.new(model))
 
@@ -362,19 +467,50 @@ hx = OpenStudio::Model::HeatExchangerFluidToFluid.new(model)
 hw_loop.addSupplyBranchForComponent(hx)
 cw_loop.addDemandBranchForComponent(hx)
 
+# WaterSource
 # TODO: I CANNOT GET autosizeReferenceCapacity to work in E+: see https://github.com/NREL/EnergyPlus/issues/8948
 plhp_htg = OpenStudio::Model::HeatPumpPlantLoopEIRHeating.new(model)
 plhp_htg.setReferenceCapacity(80000)
 # plhp_htg.autosizeReferenceCapacity()
 plhp_htg.autosizeSourceSideReferenceFlowRate
 plhp_htg.autosizeLoadSideReferenceFlowRate
+# plhp_htg.autosizeHeatRecoveryReferenceFlowRate
 plhp_htg.setSizingFactor(1.0)
 hw_loop.addSupplyBranchForComponent(plhp_htg)
 # The Source Side Volume Flow Rate is reported only for WaterSource apparently
 cw_loop.addDemandBranchForComponent(plhp_htg)
 
+# AirSource w/ Heat Recovery
+plhp_airsource_htg_hr = OpenStudio::Model::HeatPumpPlantLoopEIRHeating.new(model)
+plhp_airsource_htg_hr.setReferenceCapacity(80000)
+plhp_airsource_htg_hr.autosizeSourceSideReferenceFlowRate
+plhp_airsource_htg_hr.autosizeLoadSideReferenceFlowRate
+plhp_airsource_htg_hr.autosizeHeatRecoveryReferenceFlowRate
+plhp_airsource_htg_hr.setSizingFactor(1.0)
+hw_loop.addSupplyBranchForComponent(plhp_airsource_htg_hr)
+
+# WaterSource
 plhp_clg.setCompanionHeatingHeatPump(plhp_htg)
 plhp_htg.setCompanionCoolingHeatPump(plhp_clg)
+
+# AirSource w/ Heat Recovery
+plhp_airsource_clg_hr.setCompanionHeatingHeatPump(plhp_airsource_htg_hr)
+plhp_airsource_htg_hr.setCompanionCoolingHeatPump(plhp_airsource_clg_hr)
+# If not passing tertiary=true here, this would connect the Source Water Side
+# and swich the HP to a WaterSource one
+tertiary = true
+chw_loop.addDemandBranchForComponent(plhp_airsource_htg_hr, tertiary)
+hw_loop.addDemandBranchForComponent(plhp_airsource_clg_hr, tertiary)
+
+ffhp_airsource_htg = OpenStudio::Model::HeatPumpAirToWaterFuelFiredHeating.new(model)
+ffhp_airsource_htg.autosizeNominalHeatingCapacity
+ffhp_airsource_htg.autosizeDesignFlowRate
+ffhp_airsource_htg.autosizeDesignTemperatureLift
+ffhp_airsource_htg.setNominalAuxiliaryElectricPower(500)
+hw_loop.addSupplyBranchForComponent(ffhp_airsource_htg)
+
+ffhp_airsource_clg.setCompanionHeatingHeatPump(ffhp_airsource_htg)
+ffhp_airsource_htg.setCompanionCoolingHeatPump(ffhp_airsource_clg)
 
 # This is an Uncontrolled component, should be last
 hw_loop.addSupplyBranchForComponent(OpenStudio::Model::PlantComponentTemperatureSource.new(model))
@@ -405,6 +541,9 @@ oa_system.addToNode(in_1)
 
 # OA equipment
 erv = OpenStudio::Model::HeatExchangerAirToAirSensibleAndLatent.new(model)
+if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('3.8.0')
+  erv.assignHistoricalEffectivenessCurves
+end
 erv.addToNode(oa_system.outboardOANode.get)
 spm_oa_pretreat = OpenStudio::Model::SetpointManagerOutdoorAirPretreat.new(model)
 spm_oa_pretreat.setMinimumSetpointTemperature(-99.0)
@@ -575,12 +714,18 @@ heat_stage_1 = OpenStudio::Model::CoilHeatingGasMultiStageStageData.new(model)
 heat_stage_2 = OpenStudio::Model::CoilHeatingGasMultiStageStageData.new(model)
 htg_coil.addStage(heat_stage_1)
 htg_coil.addStage(heat_stage_2)
+supp_htg_coil = OpenStudio::Model::CoilHeatingElectricMultiStage.new(model)
+supp_heat_stage_1 = OpenStudio::Model::CoilHeatingElectricMultiStageStageData.new(model)
+supp_heat_stage_2 = OpenStudio::Model::CoilHeatingElectricMultiStageStageData.new(model)
+supp_htg_coil.addStage(supp_heat_stage_1)
+supp_htg_coil.addStage(supp_heat_stage_2)
 unitary = OpenStudio::Model::AirLoopHVACUnitarySystem.new(model)
 unitary.setFanPlacement('BlowThrough')
 unitary.setSupplyAirFanOperatingModeSchedule(s1)
 unitary.setSupplyFan(fan)
 unitary.setCoolingCoil(clg_coil)
 unitary.setHeatingCoil(htg_coil)
+unitary.setSupplementalHeatingCoil(supp_htg_coil)
 unitary.addToNode(unitary_loop.supplyOutletNode)
 unitary.setControllingZoneorThermostatLocation(zones[30])
 # Necessary for autosizedDOASDXCoolingCoilLeavingMinimumAirTemperature
@@ -797,10 +942,24 @@ humidistat = OpenStudio::Model::ZoneControlHumidistat.new(model)
 humidistat.setHumidifyingRelativeHumiditySetpointSchedule(dehumidify_sch)
 zones[40].setZoneControlHumidistat(humidistat)
 
+# TES Coil CoilCoolingDXSingleSpeedThermalStorage
+tes_air_loop_unitary = OpenStudio::Model::AirLoopHVACUnitarySystem.new(model)
+tes_coil = make_tes_coil(model)
+fan = OpenStudio::Model::FanOnOff.new(model)
+tes_air_loop_unitary.setAvailabilitySchedule(model.alwaysOnDiscreteSchedule)
+tes_air_loop_unitary.setCoolingCoil(tes_coil)
+tes_air_loop_unitary.setSupplyFan(fan)
+tes_air_loop = OpenStudio::Model::AirLoopHVAC.new(model)
+tes_air_loop_unitary.addToNode(tes_air_loop.supplyInletNode)
+tes_air_loop_unitary.setControllingZoneorThermostatLocation(zones[43])
+tes_atu = OpenStudio::Model::AirTerminalSingleDuctConstantVolumeNoReheat.new(model, s1)
+tes_air_loop.addBranchForZone(zones[43], tes_atu)
+tes_air_loop.setName('AirLoop with TES Coil')
+
 ### Zone HVAC and Terminals ###
 # Add one of every single kind of Zone HVAC equipment supported by OS
 zones.each_with_index do |zn, zone_index|
-  puts "Adding stuff to #{zn.name}, index #{zone_index}"
+  # puts "Adding stuff to #{zn.name}, index #{zone_index}"
   case zone_index
   when 1
     OpenStudio::Model::ZoneHVACBaseboardConvectiveElectric.new(model).addToThermalZone(zn)
@@ -814,9 +973,13 @@ zones.each_with_index do |zn, zone_index|
     ideal.setCoolingLimit('NoLimit')
     ideal.addToThermalZone(zn)
   when 3
-    # unused
+
   when 4
-    OpenStudio::Model::ZoneHVACHighTemperatureRadiant.new(model).addToThermalZone(zn)
+    hightempradiant = OpenStudio::Model::ZoneHVACHighTemperatureRadiant.new(model)
+    radiant_heating_schedule = OpenStudio::Model::ScheduleConstant.new(model)
+    radiant_heating_schedule.setValue(24.0)
+    hightempradiant.setHeatingSetpointTemperatureSchedule(radiant_heating_schedule)
+    hightempradiant.addToThermalZone(zn)
   when 5
     fan = OpenStudio::Model::FanOnOff.new(model, s1)
     fan.setName('ZoneHVACPackagedTerminalHeatPump Fan On Off')
@@ -828,9 +991,12 @@ zones.each_with_index do |zn, zone_index|
     fan = OpenStudio::Model::FanConstantVolume.new(model, s1)
     htg_coil = OpenStudio::Model::CoilHeatingGas.new(model, s1)
     clg_coil = new_evap_cooling_coil_dx_singlespeed(model)
-    OpenStudio::Model::ZoneHVACPackagedTerminalAirConditioner.new(model, s1, fan, htg_coil, clg_coil).addToThermalZone(zn)
+    ptac = OpenStudio::Model::ZoneHVACPackagedTerminalAirConditioner.new(model, s1, fan, htg_coil, clg_coil)
+    ptac.setSupplyAirFanOperatingModeSchedule(s1)
+    ptac.addToThermalZone(zn)
   when 7
     vrf = OpenStudio::Model::AirConditionerVariableRefrigerantFlow.new(model)
+    vrf.autosizeResistiveDefrostHeaterCapacity
     # E+ now throws when the CoolingEIRLowPLR has a curve minimum value of x which
     # is higher than the Minimum Heat Pump Part-Load Ratio.
     # The curve has a min of 0.5 here, so set the MinimumHeatPumpPartLoadRatio to
@@ -1031,10 +1197,40 @@ zones.each_with_index do |zn, zone_index|
     chw_loop.addDemandBranchForComponent(panel_coil)
     zoneHVACCoolingPanelRadiantConvectiveWater.addToThermalZone(zn)
 
-  when 26, 27, 28, 29, 30, 31, 32, 33, 38, 40
+  when 41
+    vrf = OpenStudio::Model::AirConditionerVariableRefrigerantFlowFluidTemperatureControl.new(model)
+    vrf.autosizeRatedEvaporativeCapacity
+    vrf.autosizeResistiveDefrostHeaterCapacity
+    coolingCoil = OpenStudio::Model::CoilCoolingDXVariableRefrigerantFlowFluidTemperatureControl.new(model)
+    heatingCoil = OpenStudio::Model::CoilHeatingDXVariableRefrigerantFlowFluidTemperatureControl.new(model)
+    fan = OpenStudio::Model::FanVariableVolume.new(model)
+    term = OpenStudio::Model::ZoneHVACTerminalUnitVariableRefrigerantFlow.new(model, coolingCoil, heatingCoil, fan)
+    term.addToThermalZone(zn)
+    vrf.addTerminal(term)
+
+  when 42
+    vrf = OpenStudio::Model::AirConditionerVariableRefrigerantFlowFluidTemperatureControlHR.new(model)
+    vrf.autosizeRatedEvaporativeCapacity
+    vrf.autosizeResistiveDefrostHeaterCapacity
+    coolingCoil = OpenStudio::Model::CoilCoolingDXVariableRefrigerantFlowFluidTemperatureControl.new(model)
+    heatingCoil = OpenStudio::Model::CoilHeatingDXVariableRefrigerantFlowFluidTemperatureControl.new(model)
+    fan = OpenStudio::Model::FanVariableVolume.new(model)
+    term = OpenStudio::Model::ZoneHVACTerminalUnitVariableRefrigerantFlow.new(model, coolingCoil, heatingCoil, fan)
+    term.addToThermalZone(zn)
+    vrf.addTerminal(term)
+
+  when 44
+    zoneHVACEvaporativeCoolerUnit = OpenStudio::Model::ZoneHVACEvaporativeCoolerUnit.new(model)
+    zoneHVACEvaporativeCoolerUnit.autosizeDesignSupplyAirFlowRate
+    zoneHVACEvaporativeCoolerUnit.addToThermalZone(zn)
+
+  when 26, 27, 28, 29, 30, 31, 32, 33, 38, 40, 43
     # Previously used for the unitary systems, dehum, etc
-  else
+  when 0
+    # This wasn't assigned yet and is for grabs
     puts "Nothing added to #{zn.name}, index #{zone_index}"
+  else
+    raise "Nothing added to #{zn.name}, index #{zone_index}"
     # Do nothing
   end
 end

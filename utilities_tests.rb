@@ -25,7 +25,7 @@ def output_json_status(test_result_file, result_h)
 end
 
 # the tests
-class UtilitiesTest < MiniTest::Unit::TestCase
+class UtilitiesTest < Minitest::Test
   parallelize_me!
 
   # simulation tests

@@ -33,12 +33,18 @@ model.set_constructions
 
 # make interior walls air walls
 air_wall = nil
-model.getConstructions.each do |c|
-  if c.name.to_s == 'Air_Wall'
-    air_wall = c
-    break
+if Gem::Version.new(OpenStudio.openStudioVersion) > Gem::Version.new('3.4.0')
+  air_wall = model.getConstructionAirBoundarys.first
+else
+  model.getConstructions.each do |c|
+    if c.name.to_s == 'Air_Wall'
+      air_wall = c
+      break
+    end
   end
 end
+raise 'Could not find an AirWall / ConstructionAirBoundary construction' if air_wall.nil?
+
 model.getBuilding.defaultConstructionSet.get.defaultInteriorSurfaceConstructions.get.setWallConstruction(air_wall)
 
 # set whole building space type; simplified 90.1-2004 Large Office Whole Building
@@ -68,7 +74,10 @@ end
 # conserve some mass
 zamfc = model.getZoneAirMassFlowConservation
 zamfc.setAdjustZoneMixingForZoneAirMassFlowBalance(true)
-zamfc.setSourceZoneInfiltrationTreatment('AdjustInfiltrationFlow')
+if Gem::Version.new(OpenStudio.openStudioVersion) <= Gem::Version.new('3.4.0')
+  # Does nothing as of 1.9.3, removed after 3.4.0
+  zamfc.setSourceZoneInfiltrationTreatment('AdjustInfiltrationFlow')
+end
 
 # add design days to the model (Chicago)
 model.add_design_days

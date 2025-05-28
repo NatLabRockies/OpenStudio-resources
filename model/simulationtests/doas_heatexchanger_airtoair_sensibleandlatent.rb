@@ -73,6 +73,9 @@ doas.addAirLoop(airloop2)
 
 # Equipment
 heatexchanger_airtoair_sensibleandlatent = OpenStudio::Model::HeatExchangerAirToAirSensibleAndLatent.new(model)
+if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('3.8.0')
+  heatexchanger_airtoair_sensibleandlatent.assignHistoricalEffectivenessCurves
+end
 fan = OpenStudio::Model::FanSystemModel.new(model)
 heatexchanger_airtoair_sensibleandlatent.addToNode(oas.outboardOANode.get)
 fan.addToNode(oas.outboardOANode.get)

@@ -11,3 +11,5 @@ requests
 seaborn
 tqdm
 xmldiff
+dataframe_image
+pygments>=2.4.1

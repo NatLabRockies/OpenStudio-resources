@@ -33,37 +33,37 @@ m.add_design_days
 
 # In order to produce more consistent results between different runs,
 # we sort the zones by names (only one here anyways...)
-zones = m.getThermalZones.sort_by { |z| z.name.to_s }
+zones = m.getThermalZones.sort_by(&:nameString)
 zone1 = zones[0]
 zone2 = zones[1]
 zone3 = zones[2]
 
 # spaces
-spaces1 = zone1.spaces.sort_by { |s| s.name.to_s }
-spaces2 = zone2.spaces.sort_by { |s| s.name.to_s }
-spaces3 = zone3.spaces.sort_by { |s| s.name.to_s }
+spaces1 = zone1.spaces.sort_by(&:nameString)
+spaces2 = zone2.spaces.sort_by(&:nameString)
+spaces3 = zone3.spaces.sort_by(&:nameString)
 
 # surfaces
 sub_surfaces1 = []
-surfaces1 = spaces1[0].surfaces.sort_by { |s| s.name.to_s }
+surfaces1 = spaces1[0].surfaces.sort_by(&:azimuth)
 surfaces1.each do |surface|
   next if surface.surfaceType != 'Wall'
 
-  sub_surfaces1 += surface.subSurfaces.sort_by { |ss| ss.name.to_s }
+  sub_surfaces1 += surface.subSurfaces.sort_by(&:nameString)
 end
 sub_surfaces2 = []
-surfaces2 = spaces2[0].surfaces.sort_by { |s| s.name.to_s }
+surfaces2 = spaces2[0].surfaces.sort_by(&:azimuth)
 surfaces2.each do |surface|
   next if surface.surfaceType != 'Wall'
 
-  sub_surfaces2 += surface.subSurfaces.sort_by { |ss| ss.name.to_s }
+  sub_surfaces2 += surface.subSurfaces.sort_by(&:nameString)
 end
 sub_surfaces3 = []
-surfaces3 = spaces3[0].surfaces.sort_by { |s| s.name.to_s }
+surfaces3 = spaces3[0].surfaces.sort_by(&:azimuth)
 surfaces3.each do |surface|
   next if surface.surfaceType != 'Wall'
 
-  sub_surfaces3 += surface.subSurfaces.sort_by { |ss| ss.name.to_s }
+  sub_surfaces3 += surface.subSurfaces.sort_by(&:nameString)
 end
 
 # sub surfaces

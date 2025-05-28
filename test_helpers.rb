@@ -116,13 +116,57 @@ if ENV['SAVE_IDF'].to_s.downcase == 'true'
 end
 
 $UseEplusSpaces = nil
-if ENV['USE_EPLUS_SPACES'].to_s.downcase == 'true'
+case ENV['USE_EPLUS_SPACES'].to_s.downcase
+when 'true'
   puts 'USE_EPLUS_SPACES=true: Will use the E+ Space Feature'
   $UseEplusSpaces = true
-elsif ENV['USE_EPLUS_SPACES'].to_s.downcase == 'false'
+when 'false'
   puts 'USE_EPLUS_SPACES=false: Will force not using the E+ Space Feature'
   $UseEplusSpaces = false
 end
+
+def get_cli_subcommand_from_env(sdk_version_str, debug: false)
+  cur_sdk_version = Gem::Version.new(sdk_version_str)
+  if debug
+    puts "sdk_version_str=#{sdk_version_str}, cur_sdk_version=#{cur_sdk_version}"
+  end
+  labs_default = cur_sdk_version >= Gem::Version.new('3.7.0-rc2')
+
+  cli_sub = ENV.fetch('CLI_SUBCOMMAND', 'default').to_s.downcase
+  if cli_sub == 'default'
+    default_cli_impl = labs_default ? 'labs (C++)' : 'classic (Ruby)'
+    puts "Using the default CLI Implementation: #{default_cli_impl}"
+    return ''
+  end
+
+  cpp_cli_exists = cur_sdk_version >= Gem::Version.new('3.5.0')
+  if !cpp_cli_exists
+    puts "Version #{cur_sdk_version} does not have the C++ CLI, ignoring CLI_SUBCOMMAND"
+    return ''
+  end
+
+  if !['classic', 'labs'].include?(cli_sub.downcase)
+    raise 'ERROR: CLI_SUBCOMMAND must be one of [labs, classic]'
+  end
+
+  is_labs = (cli_sub == 'labs')
+
+  if is_labs && labs_default
+    puts 'The C++ CLI is already the default, resetting the subcommand to empty'
+    return ''
+  end
+
+  if !is_labs && !labs_default
+    puts 'The Ruby CLI is already the default, resetting the subcommand to empty'
+    return ''
+  end
+
+  puts "Setting CLI Subcommand to '#{cli_sub}'"
+
+  return cli_sub
+end
+
+$Cli_Subcommand = get_cli_subcommand_from_env($SdkVersion, debug: false)
 
 # config stuff
 $OpenstudioCli = OpenStudio.getOpenStudioCLI
@@ -342,13 +386,11 @@ def run_command(command, dir, timeout)
       # puts out
       # puts "\n\n"
       result = w.value.exitstatus
-      if result != 0
-        # If you can find an out.osw, don't throw. It means E+ fataled out
-        # https://github.com/NREL/OpenStudio/pull/4370 changed return code to 1
-        # puts "result=#{result}"
-        if !File.exist?(File.join(dir, 'out.osw'))
-          raise "Exit code #{result}:\n#{out}"
-        end
+      # If you can find an out.osw, don't throw. It means E+ fataled out
+      # https://github.com/NREL/OpenStudio/pull/4370 changed return code to 1
+      # puts "result=#{result}"
+      if result != 0 && !File.exist?(File.join(dir, 'out.osw'))
+        raise "Exit code #{result}:\n#{out}"
       end
     rescue Timeout::Error
       # Process.kill does not work on Windows
@@ -428,7 +470,7 @@ end
 # Will look for the previous one in there based on $SdkPreviousVersion
 # Will remove custom tags to find previous version, so that it uses the
 # previous **official** run
-def compare_osw_eui_with_previous_version(cp_out_osw)
+def compare_osw_eui_with_previous_version(cp_out_osw, eui_pct_threshold: $EuiPctThreshold)
   # We can't just replace the versions, in case there's a custom tag
   # which is almost guaranteed to not exist in the previous version
   # So instead, we try to compare to the last **official** run
@@ -451,7 +493,7 @@ def compare_osw_eui_with_previous_version(cp_out_osw)
 
   pct_diff = 100 * (new_eui - old_eui) / old_eui.to_f
 
-  assert (pct_diff < $EuiPctThreshold), "#{pct_diff.round(3)}% difference in EUI is too large for #{cp_out_osw}" \
+  assert (pct_diff < eui_pct_threshold), "#{pct_diff.round(3)}% difference in EUI is too large for #{cp_out_osw}" \
                                         " between #{$SdkPreviousVersion} and #{$SdkVersion}"
 end
 
@@ -633,7 +675,8 @@ def sim_test(filename, options = {})
     FileUtils.cp(ori_file_path, in_osm)
 
     # Specific case for schedule_file_osm
-    if filename == 'schedule_file.osm'
+    case filename
+    when 'schedule_file.osm'
       # We need to manually copy the supporting schedule into
       # the testruns folder for the simulation to be able to find it
       sch_ori_path = File.join(File.dirname(__FILE__),
@@ -652,16 +695,51 @@ def sim_test(filename, options = {})
       end
 
       FileUtils.cp(sch_ori_path, sch_target_path)
+    when 'chiller_electric_ashrae205.osm'
+      # We need to manually copy the supporting schedule into
+      # the testruns folder for the simulation to be able to find it
+      cbor_ori_path = File.join(File.dirname(__FILE__),
+                                'model/simulationtests/CoolSys1-Chiller-Detailed.RS0001.a205.cbor')
+      cbor_ori_path = File.realpath(cbor_ori_path)
+
+      # Have to make the directory first
+      files_dir = File.join(dir, 'files/')
+      FileUtils.mkdir_p(files_dir)
+      cbor_target_path = File.join(files_dir, File.basename(cbor_ori_path))
+
+      FileUtils.cp(cbor_ori_path, cbor_target_path)
+    when 'python_plugin.osm'
+      # We need to manually copy the supporting schedule into
+      # the testruns folder for the simulation to be able to find it
+      plugin_ori_path = File.join(File.dirname(__FILE__),
+                                  'model/simulationtests/python_plugin_program.py')
+      plugin_ori_path = File.realpath(plugin_ori_path)
+
+      # Have to make the directory first
+      files_dir = File.join(dir, 'files/')
+      FileUtils.mkdir_p(files_dir)
+      python_target_path = File.join(files_dir, File.basename(plugin_ori_path))
+
+      FileUtils.cp(plugin_ori_path, python_target_path)
     end
 
-  when '.rb'
+  when '.rb', '.py'
 
     # Copy the generic OSW file, needed to add design days in particular when
     # running the measure to generate the OSM, and then of course for the sim
     FileUtils.cp($OswFile, in_osw)
 
+    # Needed for python to be able to load lib/baseline_model.py
+    python_opts = ''
+    if ext == '.py'
+      if $Cli_Subcommand == 'classic'
+        skip('Python tests not available with classic')
+      end
+      python_opts = "--python_path \"#{base_dir}\""
+    end
+
     # command to generate the initial osm
-    command = "\"#{$OpenstudioCli}\" \"#{File.join(base_dir, filename)}\""
+    command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} #{python_opts} \"#{File.join(base_dir, filename)}\""
     run_command(command, dir, 3600)
 
     # tests used to write out.osm
@@ -704,7 +782,7 @@ def sim_test(filename, options = {})
   end
 
   # command to run the in_osw
-  command = "\"#{$OpenstudioCli}\" #{extra_options} run #{extra_run_options} -w \"#{in_osw}\""
+  command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} #{extra_options} run #{extra_run_options} -w \"#{in_osw}\""
   if options[:debug]
     puts 'COMMAND:'
     puts command
@@ -749,7 +827,7 @@ def intersect_test(filename)
     file.puts erb_out
   end
 
-  command = "\"#{$OpenstudioCli}\" intersect.rb"
+  command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} intersect.rb"
   run_command(command, dir, 360)
 end
 
@@ -780,7 +858,7 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     when '.osm'
       FileUtils.cp(File.join($ModelDir, filename), in_osm)
     when '.rb'
-      command = "\"#{$OpenstudioCli}\" \"#{File.join($ModelDir, filename)}\""
+      command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} \"#{File.join($ModelDir, filename)}\""
       run_command(command, dir, 3600)
 
       # tests used to write out.osm
@@ -793,8 +871,8 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
       raise "Cannot find file #{in_osm}" if !File.exist?(in_osm)
     end
 
-    command = "\"#{$OpenstudioCli}\" run -w \"#{in_osw}\""
-    # command = "\"#{$OpenstudioCli}\" run --debug -w \"#{in_osw}\""
+    command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} run -w \"#{in_osw}\""
+    # command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} run --debug -w \"#{in_osw}\""
 
     run_command(command, dir, 3600)
   end
@@ -844,9 +922,17 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     'OS:WaterHeater:Stratified' => 'all', # WH sizing object not wrapped
     'OS:WaterHeater:HeatPump' => 'all', # WH sizing object not wrapped
     'OS:WaterHeater:HeatPump:PumpedCondenser' => 'all', # WH sizing object not wrapped
-    'OS:Boiler:Steam' => 'all', # CoilHeatingSteam is not wrapped, cannot use steam boiler in OS
+    # CoilHeatingSteam, Pump:VariableSpeed:Condensate, Pipe:Adiabatic:Steam is not wrapped, cannot use steam in OS
+    'OS:Boiler:Steam' => 'all',
+    'OS:DistrictHeating:Steam' => 'all',
+
+    'OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage' => [
+      'autosizedFluidStorageVolume' # Only autosized if storage type is Water, but we use 'Ice' which has autosizedIceStorageCapacity
+    ],
+
     'OS:ChillerHeaterPerformance:Electric:EIR' => 'all', # TODO: Not in test model (central HP system)
     'OS:SolarCollector:FlatPlate:PhotovoltaicThermal' => 'all', # TODO: Not in test model
+
     'OS:Chiller:Absorption' => [
       'autosizedDesignGeneratorFluidFlowRate' # Generator loop not supported by OS
     ],
@@ -854,7 +940,8 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
       'autosizedDesignGeneratorFluidFlowRate' # Generator loop not supported by OS
     ],
     'OS:AirConditioner:VariableRefrigerantFlow' => [
-      'autosizedWaterCondenserVolumeFlowRate' # Water-cooled VRF not supported by OS
+      'autosizedResistiveDefrostHeaterCapacity', # OS is missing newly added E+ units in 3.6.0: TODO remove in 3.6.1 https://github.com/NREL/EnergyPlus/pull/9898
+      'autosizedWaterCondenserVolumeFlowRate' # Water-cooled VRF not supported by OS (It is nowadays, but can't do both evaporatively cooled and water cooled)
     ],
     'OS:CoolingTower:TwoSpeed' => [
       'autosizedLowSpeedNominalCapacity', # Method only works on cooling towers sized a certain way, which test model isn't using
@@ -863,6 +950,20 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     'OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow' => [
       'autosizedHeatingDesignCapacity', # No OS methods for this field
       'autosizedCoolingDesignCapacity' # No OS methods for this field
+    ],
+    'OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl' => [
+      'autosizedResistiveDefrostHeaterCapacity', # Missing units in 23.1.0-IOFreeze. TODO: hopefully remove in 23.1.0 official
+      'autosizedRatedEvaporativeCapacity' # As of 23.1.0, this is never autosized nor reported
+    ],
+    'OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR' => [
+      'autosizedResistiveDefrostHeaterCapacity', # Missing units in 23.1.0-IOFreeze. TODO: hopefully remove in 23.1.0 official
+      'autosizedRatedEvaporativeCapacity' # As of 23.1.0, this is never autosized nor reported
+    ],
+    'OS:HeatPump:AirToWater:FuelFired:Cooling' => [
+      'autosizedDesignTemperatureLift' # E+ is missing it
+    ],
+    'OS:HeatPump:AirToWater:FuelFired:Heating' => [
+      'autosizedDesignTemperatureLift' # E+ is missing it
     ]
   }
 
@@ -880,7 +981,6 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
   # not exist in the E+ output, even under a different name.
   # These are things the E+ team should fix.
   missing_getters = {
-
     'OS:Coil:Heating:Water:Baseboard:Radiant' => [
       'autosizedHeatingDesignCapacity'
     ],
@@ -922,7 +1022,6 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     'OS:Fan:ComponentModel' => [
       'autosizedMinimumFlowRate' # Not in E+ SQL
     ]
-
   }
 
   # List of objects and methods where the getter name does not
@@ -940,6 +1039,25 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
       'autosizedReferenceCoolingCapacity' => 'autosizedRatedCoolingCapacity',
       'autosizedReferenceCoolingPowerConsumption' => 'autosizedRatedCoolingPowerConsumption'
     }
+  }
+
+  extra_methods = {
+    'OS:AirLoopHVAC' => [
+      'autosizedSumMinimumHeatingAirFlowRates',
+      'autosizedSumAirTerminalMaxAirFlowRate'
+    ],
+    'OS:Coil:Cooling:Water' => [
+      'autosizedDesignCoilLoad'
+    ],
+    'OS:ThermalZone' => [
+      # 'autosizedMaximumOutdoorAirFlowRate',
+      'autosizedMinimumOutdoorAirFlowRate',
+      'autosizedCoolingDesignAirFlowRate',
+      'autosizedHeatingDesignAirFlowRate',
+      'autosizedCoolingDesignLoad',
+      'autosizedDesignAirFlowRate',
+      'autosizedHeatingDesignLoad'
+    ]
   }
 
   # Search the IDD associated with this model
@@ -964,11 +1082,13 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     # Check if this object type has a different name in OS
     os_type = os_type_aliases[os_type] if os_type_aliases[os_type]
 
+    has_extra_methods = extra_methods.include?(os_type)
+
     # Convert to IDD type
     type = os_type.gsub('OS:', '').gsub(':', '')
 
     # Skip objects with no autosizable fields
-    next if autosizable_field_names.empty?
+    next if autosizable_field_names.empty? && !has_extra_methods
 
     # Skip certain object types entirely
     methods_to_skip = obj_types_to_skip[os_type]
@@ -1004,9 +1124,17 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
       objs.sort.each do |o|
         obj = o if o.thermalZone.name.get == 'Story 5 North Perimeter Thermal Zone'
       end
+    when 'ThermalZone' # Get one that has an entry in the ZoneSizes
+      objs.sort.each do |o|
+        obj = o if o.nameString == 'Story 5 North Perimeter Thermal Zone'
+      end
     when 'AirLoopHVACUnitarySystem' # Need to check a unitary where no load flow is autosized
       objs.sort.each do |o|
         obj = o if o.name.get == 'Air Loop HVAC Unitary System 3'
+      end
+    when 'CoilCoolingWater' # Need to check a coil that is on an AirLoopHVAC directly or `autosizedDesignCoilLoad` won't work
+      objs.sort.each do |o|
+        obj = o if o.airLoopHVAC.is_initialized
       end
     end
 
@@ -1014,6 +1142,14 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     autosizable_field_names.each do |auto_field|
       # Make the getter name from the IDD field
       getter_name = "autosized#{auto_field.gsub(/\W/, '').strip}"
+
+      if ['HeatPumpPlantLoopEIRHeating', 'HeatPumpPlantLoopEIRCooling'].include?(type)
+        if getter_name == 'autosizedHeatRecoveryReferenceFlowRate'
+          obj = objs.sort.select { |o| o.heatRecoveryLoop.is_initialized }.first
+        else
+          obj = objs.sort.reject { |o| o.heatRecoveryLoop.is_initialized }.first
+        end
+      end
 
       # Replace the getter name with known alias, if one exists
       obj_aliases = getter_aliases[os_type]
@@ -1030,20 +1166,39 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
 
       # Check if the autosizedFoo method has been implemented for this object
       unless obj.respond_to? getter_name
-        missing_autosizedFoo << "#{getter_name} not a valid method for object of type #{type}"
+        missing_autosizedFoo << "'#{getter_name}' not a valid method for object of type #{type}"
         next
       end
 
       # Try the method on the object to ensure that the SQL query in C++ is correct
       val = obj.public_send(getter_name)
       if val.is_initialized
-        succeeded_autosizedFoo << "#{getter_name} succeeded for #{obj.name} of type #{type}"
+        succeeded_autosizedFoo << "'#{getter_name}' succeeded for '#{obj.name}' of type '#{type}'"
       else
-        failed_autosizedFoo << "#{getter_name} failed for #{obj.name} of type #{type}"
+        # require 'pry-byebug'; binding.pry
+        failed_autosizedFoo << "'#{getter_name}' failed for '#{obj.name}' of type '#{type}'"
+      end
+    end
+
+    if has_extra_methods
+      extra_methods[os_type].each do |getter_name|
+        # Check if the autosizedFoo method has been implemented for this object
+        unless obj.respond_to? getter_name
+          missing_autosizedFoo << "Extra getter '#{getter_name}' not a valid method for object of type '#{type}'"
+          next
+        end
+
+        # Try the method on the object to ensure that the SQL query in C++ is correct
+        val = obj.public_send(getter_name)
+        if val.is_initialized
+          succeeded_autosizedFoo << "Extra getter '#{getter_name}' succeeded for '#{obj.name}' of type '#{type}'"
+        else
+          # require 'pry-byebug'; binding.pry
+          failed_autosizedFoo << "Extra getter '#{getter_name}' failed for '#{obj.name}' of type '#{type}'"
+        end
       end
     end
   end
-
   puts "\n*** Autosizable Objects not Wrapped by OpenStudio ***"
   not_wrapped.each { |f| puts f }
 
@@ -1090,7 +1245,7 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
 
     # Ensure that all fields are set to "Autosize" or "Autocalculate"
     fields_autosized = []
-    autosize_aliases = ['AutoSize', 'Autocalculate', 'Autosize', 'autocalculate']
+    autosize_aliases = ['autosize', 'autocalculate']
     idf.objects.sort.each do |obj|
       os_type = "OS:#{obj.iddObject.type.valueDescription}"
 
@@ -1113,7 +1268,7 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
         next if fields_to_skip.include?(getter_name)
 
         # Check the value of the field
-        val = obj.getString(field_num).to_s
+        val = obj.getString(field_num).to_s.downcase
         if autosize_aliases.include?(val)
           fields_still_autosized << "field #{field_name} in #{obj.iddObject.type.valueDescription}"
         end
@@ -1287,8 +1442,8 @@ def sql_test(options = {})
     m.save(in_osm, true)
 
     # Run it
-    command = "\"#{$OpenstudioCli}\" run -w \"#{osw}\""
-    # command = "\"#{$OpenstudioCli}\" run --debug -w \"#{osw}\""
+    command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} run -w \"#{osw}\""
+    # command = "\"#{$OpenstudioCli}\" #{$Cli_Subcommand} run --debug -w \"#{osw}\""
 
     run_command(command, dir, 3600)
   end

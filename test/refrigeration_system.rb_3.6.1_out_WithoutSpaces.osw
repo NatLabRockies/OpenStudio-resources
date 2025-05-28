@@ -1,0 +1,1613 @@
+{
+  "completed_status": "Success",
+  "current_step": 1,
+  "eplusout_err": [
+    "Program Version,EnergyPlus, Version 23.1.0-87ed9199d4, ",
+    "   ************* Beginning Zone Sizing Calculations",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"SCHEDULE DAY 2\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"SCHEDULE DAY 3\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"SCHEDULE DAY 4\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"SCHEDULE DAY 5\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Compact=\"REFRIGERATION CASE 3 DEFROST SCHEDULE\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 01:40",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:16",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:41",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:17",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:42",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:18",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:43",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:19",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:44",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 17:20",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:21",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:46",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:22",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:47",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Compact=\"REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:16",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:46",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:17",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:47",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:18",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:48",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:19",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:49",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 17:20",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 17:50",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:21",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:51",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:22",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:52",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION CASE 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Compact=\"REFRIGERATION WALK IN 3 DEFROST SCHEDULE\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 01:40",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:16",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:41",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:17",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:42",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:18",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:43",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:19",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:44",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 17:20",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:21",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:46",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:22",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:47",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Compact=\"REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:16",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 04:46",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:17",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 07:47",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:18",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 10:48",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:19",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 14:49",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 17:20",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 17:50",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:21",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 20:51",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:22",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: DecodeHHMMField, Invalid \"until\" field value is not a multiple of the minutes for each timestep: UNTIL: 23:52",
+    "   **   ~~~   ** Other errors may result. Occurred in Day Schedule=REFRIGERATION WALK IN 3 DEFROST DRIP DOWN SCHEDULE_dy_1",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS OFF DISCRETE\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS ON CONTINUOUS\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** GetHTSurfaceData: Surfaces with interface to Ground found but no \"Ground Temperatures\" were input.",
+    "   **   ~~~   ** Found first in surface=STORY 1 CORE SPACE EXTERIOR GROUND FLOOR",
+    "   **   ~~~   ** Defaults, constant throughout the year of (18.0) will be used.",
+    "   ** Warning ** CheckUsedConstructions: There are 6 nominally unused constructions in input.",
+    "   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;",
+    "   ** Warning ** Refrigeration:Case=\"REFRIGERATION CASE 4\", Case Defrost Power per Unit Length for Case Defrost Type None or Off-Cycle will be set to 0 and simulation continues.",
+    "   ** Warning ** Refrigeration:SecondarySystem=\"REFRIGERATION SECONDARY SYSTEM 1\" You may wish to check the system sizing. Total nominal refrigerating load is 19019 (Including cases, walk-ins, and pump heat).  The nominal secondary loop heat exchanger capacity is 35000",
+    "   ** Warning ** Refrigeration:System=\"REFRIGERATION SYSTEM 2\", You may wish to check the system sizing. Total nominal cooling capacity is 44557W. Condenser capacity is 43100W. Nominal compressor capacity is 52789W.",
+    "   ** Warning ** Refrigeration:System=\"REFRIGERATION SYSTEM 4\", The system specified minimum condensing temperature is greater than the rated condensing temperature for the cascade condenser. ",
+    "   ** Warning ** Refrigeration:System=\"REFRIGERATION SYSTEM 5\", You may wish to check the system sizing. Total nominal cooling capacity is 64934W. Condenser capacity is 362105W. Nominal compressor capacity is 28579W.",
+    "   ** Warning ** GetSimpleAirModelInputs: ZoneInfiltration:DesignFlowRate=\"STORY 1 CORE THERMAL ZONE BASELINE MODEL INFILTRATION\", Design Flow Rate Calculation Method specifies Flow Rate per Exterior Surface Area, but Exterior Surface Area = 0.  0 Infiltration will result.",
+    "   ** Warning ** Refrigeration:Condenser:WaterCooled REFRIGERATION CONDENSER WATER COOLED 1",
+    "   **   ~~~   ** Water-cooled condenser inlet temp lower than minimum allowed temp. Check returning water temperature and/or minimum temperature setpoints relative to minimum allowed condensing temperature.",
+    "   ** Warning ** Calculated design cooling load for zone=STORY 1 EAST PERIMETER THERMAL ZONE is zero.",
+    "   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.",
+    "   ** Warning ** Calculated design cooling load for zone=STORY 1 WEST PERIMETER THERMAL ZONE is zero.",
+    "   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.",
+    "   ************* Beginning System Sizing Calculations",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 1",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 2",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 3",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 4",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 5",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 6",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 7",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 8",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 9",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = CONSTANT, input for Fixed Minimum Air Flow Rate will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:Reheat = AIR TERMINAL SINGLE DUCT VAV REHEAT 10",
+    "   ************* Beginning Plant Sizing Calculations",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 1 CORE THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 1 EAST PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 1 NORTH PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 1 SOUTH PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 1 WEST PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 2 CORE THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 2 EAST PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 2 NORTH PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 2 SOUTH PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"CONTROLLER MECHANICAL VENTILATION 1\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"STORY 2 WEST PERIMETER THERMAL ZONE\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** Output:Meter: invalid Key Name=\"DISTRICTCOOLING:FACILITY\" - not found.",
+    "   ** Warning ** Output:Meter: invalid Key Name=\"DISTRICTHEATING:FACILITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly requested for \"Electricity:Facility\" (TimeStep), already on \"Output:Meter\". Will report to both eplusout.eso and eplusout.mtr",
+    "   ************* Testing Individual Branch Integrity",
+    "   ************* All Branches passed integrity testing",
+    "   ************* Testing Individual Supply Air Path Integrity",
+    "   ************* All Supply Air Paths passed integrity testing",
+    "   ************* Testing Individual Return Air Path Integrity",
+    "   ************* All Return Air Paths passed integrity testing",
+    "   ************* No node connection errors were found.",
+    "   ************* Beginning Simulation",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'EXTERIORLIGHTS:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'HUMIDIFIER:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'HEATRECOVERY:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'COGENERATION:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'INTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'COOLING:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'COGENERATION:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'FANS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'PUMPS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HEATING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'COOLING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'COGENERATION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'FANS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'PUMPS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HEATING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'COOLING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'COGENERATION:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'EXTERIORLIGHTS:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'HUMIDIFIER:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'HEATRECOVERY:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'INTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'COOLING:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'DISTRICTHEATING:FACILITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'FANS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'PUMPS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HEATING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'COOLING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'DISTRICTCOOLING:FACILITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'FANS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'PUMPS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HEATING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'COOLING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:DISTRICTCOOLING'",
+    "   ** Warning ** Processing Monthly Tabular Reports: Variable names not valid for this simulation",
+    "   **   ~~~   ** ...use Output:Diagnostics,DisplayExtraWarnings; to show more details on individual variables.",
+    "   ** Warning ** CoolingTower:SingleSpeed \"COOLING TOWER SINGLE SPEED 1\"",
+    "   **   ~~~   ** Cooling tower water outlet temperature (-0.20 C) is below the specified minimum condenser loop temp of 0.00 C",
+    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/01 00:15 - 00:30",
+    "   ** Warning ** GetSpecificHeatGlycol: Temperature is out of range (too low) for fluid [WATER] specific heat supplied values **",
+    "   **   ~~~   ** ..Called From:PlantLoopSolver::UpdateAnyLoopDemandAlterations,Temperature=[-0.20], supplied data range=[0.00,125.00]",
+    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/01 00:15 - 00:30",
+    "   ** Warning ** GetDensityGlycol: Temperature is out of range (too low) for fluid [WATER] density **",
+    "   **   ~~~   ** ..Called From:NodeReportingCalc:NODE 62,Temperature=[-1.16], supplied data range=[0.00,100.00]",
+    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/01 04:45 - 05:00",
+    "   ** Warning ** Refrigeration:System: REFRIGERATION SYSTEM 2",
+    "   **   ~~~   **  The specified high-stage compressors for this system are unable to meet ",
+    "   **   ~~~   **  the sum of the refrigerated case loads, subcooler loads (if any) and ",
+    "   **   ~~~   **  low-stage compressor loads for this sytem.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-ELECTRICITY\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-DISTILLATE OIL\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-RESIDUAL OIL\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-NATURAL GAS\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-COAL\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ************* Simulation Error Summary *************",
+    "   ************* There are 4 unused schedules in input.",
+    "   ************* There are 4 unused week schedules in input.",
+    "   ************* There are 8 unused day schedules in input.",
+    "   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.",
+    "   *************",
+    "   ************* ===== Recurring Error Summary =====",
+    "   ************* The following recurring error messages occurred.",
+    "   *************",
+    "   *************  ** Warning ** Refrigeration:Condenser:WaterCooled REFRIGERATION CONDENSER WATER COOLED 1 - Condenser inlet temp lower than minimum allowed ... continues",
+    "   *************  **   ~~~   **   This error occurred 146889 total times;",
+    "   *************  **   ~~~   **   during Warmup 7335 times;",
+    "   *************  **   ~~~   **   during Sizing 5850 times.",
+    "   *************",
+    "   *************  ** Warning ** Coil:Heating:Desuperheater COIL HEATING DESUPERHEATER 1 - Waste heat source temperature was too low to be useful.",
+    "   *************  **   ~~~   **   This error occurred 98771 total times;",
+    "   *************  **   ~~~   **   during Warmup 1606 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************",
+    "   *************  ** Warning ** WaterHeating:Desuperheater COIL WATER HEATING DESUPERHEATER 1 - Waste heat source temperature was too low to be useful.",
+    "   *************  **   ~~~   **   This error occurred 562392 total times;",
+    "   *************  **   ~~~   **   during Warmup 6600 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************",
+    "   *************  ** Warning ** Refrigeration:Condenser:WaterCooledREFRIGERATION CONDENSER WATER COOLED 1Water-cooled condenser has no cooling water flow. Heat is not being rejected from compressor rack condenser.",
+    "   *************  **   ~~~   **   This error occurred 8 total times;",
+    "   *************  **   ~~~   **   during Warmup 8 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************",
+    "   *************  ** Warning ** GetSpecificHeatGlycol: Temperature out of range (too low) for fluid [WATER] specific heat **",
+    "   *************  **   ~~~   **   This error occurred 3354 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=-0.000089 {C}  Min=-5.031696 {C}",
+    "   *************",
+    "   *************  ** Warning ** CoolingTower:SingleSpeed \"COOLING TOWER SINGLE SPEED 1\" Cooling tower water outlet temperature is below the specified minimum condenser loop temp error continues...",
+    "   *************  **   ~~~   **   This error occurred 3417 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=-0.000089  Min=-5.031696",
+    "   *************",
+    "   *************  ** Warning ** GetDensityGlycol: Temperature out of range (too low) for fluid [WATER] density **",
+    "   *************  **   ~~~   **   This error occurred 2451 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=-0.017241 {C}  Min=-4.872950 {C}",
+    "   *************",
+    "   *************",
+    "   ************* ===== Final Error Summary =====",
+    "   ************* The following error categories occurred.  Consider correcting or noting.",
+    "   ************* Nominally Unused Constructions",
+    "   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause",
+    "   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm",
+    "   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).",
+    "   *************",
+    "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Sizing Error Summary. During Sizing: 86 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Completed Successfully-- 817461 Warning; 0 Severe Errors; "
+  ],
+  "file_paths": [
+    "/home/julien/Software/Others/OpenStudio-resources/testruns/refrigeration_system.rb/generated_files",
+    "./files",
+    "./weather",
+    "../../files",
+    "../../weather",
+    "./"
+  ],
+  "seed_file": "in.osm",
+  "steps": [
+    {
+      "arguments": {
+      },
+      "measure_dir_name": "openstudio_results",
+      "result": {
+        "measure_class_name": "OpenStudioResults",
+        "measure_display_name": "OpenStudio Results",
+        "measure_name": "openstudio_results",
+        "measure_taxonomy": "Reporting.QAQC",
+        "measure_type": "ReportingMeasure",
+        "measure_uid": "a25386cd-60e4-46bc-8b11-c755f379d916",
+        "measure_version_id": "02ad7007-fe7b-4747-bd7a-29d697c4d91a",
+        "measure_version_modified": "20180711T183039Z",
+        "measure_xml_checksum": "557BF06F",
+        "stderr": "",
+        "stdout": "",
+        "step_errors": [
+
+        ],
+        "step_final_condition": "Generated report with 19 sections to ./report.html.",
+        "step_info": [
+
+        ],
+        "step_initial_condition": "Gathering data from EnergyPlus SQL file and OSM model.",
+        "step_result": "Success",
+        "step_values": [
+          {
+            "name": "building_summary_section",
+            "value": true
+          },
+          {
+            "name": "annual_overview_section",
+            "value": true
+          },
+          {
+            "name": "monthly_overview_section",
+            "value": true
+          },
+          {
+            "name": "utility_bills_rates_section",
+            "value": true
+          },
+          {
+            "name": "envelope_section_section",
+            "value": true
+          },
+          {
+            "name": "space_type_breakdown_section",
+            "value": true
+          },
+          {
+            "name": "space_type_details_section",
+            "value": true
+          },
+          {
+            "name": "interior_lighting_section",
+            "value": true
+          },
+          {
+            "name": "plug_loads_section",
+            "value": true
+          },
+          {
+            "name": "exterior_light_section",
+            "value": true
+          },
+          {
+            "name": "water_use_section",
+            "value": true
+          },
+          {
+            "name": "hvac_load_profile",
+            "value": true
+          },
+          {
+            "name": "zone_condition_section",
+            "value": true
+          },
+          {
+            "name": "zone_summary_section",
+            "value": true
+          },
+          {
+            "name": "zone_equipment_detail_section",
+            "value": true
+          },
+          {
+            "name": "air_loops_detail_section",
+            "value": true
+          },
+          {
+            "name": "plant_loops_detail_section",
+            "value": true
+          },
+          {
+            "name": "outdoor_air_section",
+            "value": true
+          },
+          {
+            "name": "cost_summary_section",
+            "value": true
+          },
+          {
+            "name": "source_energy_section",
+            "value": true
+          },
+          {
+            "name": "schedules_overview_section",
+            "value": true
+          },
+          {
+            "name": "standards_gem_version",
+            "value": "0.4.0"
+          },
+          {
+            "name": "workflow_gem_version",
+            "value": "2.3.1"
+          },
+          {
+            "display_name": "Building 1",
+            "name": "building_name",
+            "value": "n/a"
+          },
+          {
+            "name": "total_site_energy",
+            "units": "kBtu",
+            "value": 8599819.6
+          },
+          {
+            "name": "net_site_energy",
+            "units": "kBtu",
+            "value": 8599819.6
+          },
+          {
+            "name": "total_building_area",
+            "units": "ft^2",
+            "value": 107639.1
+          },
+          {
+            "name": "total_site_eui",
+            "units": "kBtu/ft^2",
+            "value": 79.89
+          },
+          {
+            "name": "eui",
+            "units": "kBtu/ft^2",
+            "value": 79.89
+          },
+          {
+            "name": "unmet_hours_during_heating",
+            "units": "hr",
+            "value": 8074.5
+          },
+          {
+            "name": "unmet_hours_during_cooling",
+            "units": "hr",
+            "value": 0.0
+          },
+          {
+            "name": "unmet_hours_during_occupied_heating",
+            "units": "hr",
+            "value": 4585.0
+          },
+          {
+            "name": "unmet_hours_during_occupied_cooling",
+            "units": "hr",
+            "value": 0.0
+          },
+          {
+            "name": "unmet_hours_tolerance_heating",
+            "units": "F",
+            "value": 0.36
+          },
+          {
+            "name": "unmet_hours_tolerance_cooling",
+            "units": "F",
+            "value": 0.36
+          },
+          {
+            "name": "electricity_heating_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_cooling_ip",
+            "units": "kWh",
+            "value": 136383.0
+          },
+          {
+            "name": "electricity_interior_lighting_ip",
+            "units": "kWh",
+            "value": 306147.14
+          },
+          {
+            "name": "electricity_exterior_lighting_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_interior_equipment_ip",
+            "units": "kWh",
+            "value": 306147.14
+          },
+          {
+            "name": "electricity_exterior_equipment_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_fans_ip",
+            "units": "kWh",
+            "value": 12929.06
+          },
+          {
+            "name": "electricity_pumps_ip",
+            "units": "kWh",
+            "value": 95973.86
+          },
+          {
+            "name": "electricity_heat_rejection_ip",
+            "units": "kWh",
+            "value": 42431.66
+          },
+          {
+            "name": "electricity_humidification_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_heat_recovery_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_water_systems_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_refrigeration_ip",
+            "units": "kWh",
+            "value": 534849.72
+          },
+          {
+            "name": "electricity_generators_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_ip",
+            "units": "kWh",
+            "value": 1434861.59
+          },
+          {
+            "name": "natural_gas_heating_ip",
+            "units": "MBtu",
+            "value": 3692.11
+          },
+          {
+            "name": "natural_gas_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_water_systems_ip",
+            "units": "MBtu",
+            "value": 11.76
+          },
+          {
+            "name": "natural_gas_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_ip",
+            "units": "MBtu",
+            "value": 3703.87
+          },
+          {
+            "name": "gasoline_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "ashrae_189_1_2009_ext_roof_iead_climate_zone_2_5",
+            "units": "ft^2",
+            "value": 53819.55
+          },
+          {
+            "name": "ashrae_189_1_2009_ext_wall_steel_frame_climate_zone_4_8",
+            "units": "ft^2",
+            "value": 15500.03
+          },
+          {
+            "name": "ashrae_189_1_2009_ext_window_climate_zone_4_5",
+            "units": "ft^2",
+            "value": 10333.35
+          },
+          {
+            "name": "gross_window_wall_ratio",
+            "units": "%",
+            "value": 40.0
+          },
+          {
+            "name": "gross_window_wall_ratio_conditioned",
+            "units": "%",
+            "value": 40.0
+          },
+          {
+            "name": "skylight_roof_ratio",
+            "units": "%",
+            "value": 0.0
+          },
+          {
+            "name": "space_type_baseline_model_space_type",
+            "units": "ft^2",
+            "value": 107639.1
+          },
+          {
+            "name": "exterior_lighting_total_power",
+            "units": "W",
+            "value": 0.0
+          },
+          {
+            "name": "exterior_lighting_total_consumption",
+            "units": "kWh",
+            "value": 2520358.33
+          },
+          {
+            "name": "inflation_approach",
+            "value": "Constant Dollar"
+          },
+          {
+            "name": "analysis_length",
+            "units": "yrs",
+            "value": 25
+          },
+          {
+            "name": "annual_peak_electric_demand",
+            "units": "kW",
+            "value": 431.15
+          },
+          {
+            "name": "first_year_capital_cost",
+            "units": "$",
+            "value": 0.0
+          },
+          {
+            "name": "annual_utility_cost",
+            "units": "$",
+            "value": 0.0
+          },
+          {
+            "name": "total_lifecycle_cost",
+            "units": "$",
+            "value": 0.0
+          }
+        ],
+        "step_warnings": [
+          "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
+          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1187:in `execute'\n:/openstudio_cli.rb:817:in `execute'\n:/openstudio_cli.rb:1984:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'",
+          "Plant Loops Detail section failed and was skipped because: undefined local variable or method `compressorMotorEfficiency' for #<OpenStudio::Model::ChillerElectricEIR:0x0000562d5cb87dd0>. Detail on error follows.",
+          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.ChillerElectricEIR.rb:56:in `performanceCharacteristics'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.HVACComponent.rb:94:in `performanceCharacteristics'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:761:in `general_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1112:in `plant_loop_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1173:in `block (2 levels) in plant_loops_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `block in plant_loops_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `plant_loops_detail_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1187:in `execute'\n:/openstudio_cli.rb:817:in `execute'\n:/openstudio_cli.rb:1984:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+        ]
+      }
+    }
+  ],
+  "weather_file": "../../weatherdata/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+}

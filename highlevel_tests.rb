@@ -2,13 +2,15 @@
 
 require 'openstudio' unless defined?(OpenStudio)
 
+require 'pathname'
+
 # The config and helpers are inside this file
 require_relative 'test_helpers'
 
 # Some High level tests, that should help us in maintaining the repo/test suite
 # in an orderly fashion. These tests should ALWAYS pass, and other tests should
 # probably not be run until these do.
-class HighLevelTests < MiniTest::Test
+class HighLevelTests < Minitest::Test
   parallelize_me!
 
   puts 'Running HighLevelTests'
@@ -24,7 +26,10 @@ class HighLevelTests < MiniTest::Test
     missing_osms = all_model_filenames - osms_in_sim_test
 
     # These are the OSMS we expect NOT to find in a sim_test
-    expected_sim_missing = []
+    expected_sim_missing = [
+      # Unusual structure
+      'space_level_dsoa.osm'
+    ]
     missing_osms -= expected_sim_missing
 
     assert missing_osms.empty?, "Error in model_tests.rb: The following OSMs are not in any sim_tests:\n  * #{missing_osms.join("\n  * ")}"
@@ -46,12 +51,48 @@ class HighLevelTests < MiniTest::Test
       'autosize_hvac.rb',
       # This one has an unusual structure, and I don't feel like playing with the
       # regex above any more
-      'outputcontrol_files.rb'
+      'outputcontrol_files.rb',
+      'space_level_dsoa.rb'
     ]
 
     missing_rbs -= expected_sim_missing
 
     assert missing_rbs.empty?, "Error in model_tests.rb: The following Ruby tests are not in any sim_tests:\n  * #{missing_rbs.join("\n  * ")}"
+  end
+
+  # Ensures that all Python files are included in an actual model_test
+  def test_pys_are_defined_sim_tests
+    all_python_paths = Dir.glob(File.join($ModelDir, '*.py'))
+    all_python_filenames = all_python_paths.map { |p| File.basename(p) }
+    all_python_filenames -= ['python_plugin_program.py']
+
+    content = File.read('model_tests.rb')
+    sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.py)\'\)\n(?:\s*#)*\s+end')
+    pys_in_sim_test = content.scan(sim_test_re).map(&:first)
+    missing_pys = all_python_filenames - pys_in_sim_test
+
+    expected_sim_missing = [
+      'outputcontrol_files.py',
+      'space_level_dsoa.py'
+    ]
+    missing_pys -= expected_sim_missing
+
+    assert missing_pys.empty?, "Error in model_tests.rb: The following Python tests are not in any sim_tests:\n  * #{missing_pys.join("\n  * ")}"
+  end
+
+  def test_all_ruby_have_matching_python_tests
+    model_dir = Pathname.new($ModelDir)
+
+    expected_missing = [
+      'autosize_hvac.py'
+    ]
+
+    model_dir.glob('*.rb').each do |ruby_file|
+      python_file = ruby_file.sub_ext('.py')
+      next if expected_missing.include?(python_file.basename.to_s)
+
+      assert_path_exists(python_file)
+    end
   end
 
   # Ensures that all Ruby tests have a matching OSM tests in model_tests,

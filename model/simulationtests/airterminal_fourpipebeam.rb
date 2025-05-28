@@ -48,28 +48,48 @@ p_hw = b.plantLoop.get
 ch = m.getChillerElectricEIRs.first
 p_chw = ch.plantLoop.get
 
-# Recreate the same TableMultiVariableLookup that is created in the Ctor for
-# CoilCoolingFourPipeBeam
-capModFuncOfWaterFlow = OpenStudio::Model::TableMultiVariableLookup.new(m, 1)
-capModFuncOfWaterFlow.setName('CapModFuncOfWaterFlow')
-capModFuncOfWaterFlow.setCurveType('Quadratic')
-capModFuncOfWaterFlow.setInterpolationMethod('EvaluateCurveToLimits')
-capModFuncOfWaterFlow.setMinimumValueofX1(0)
-capModFuncOfWaterFlow.setMaximumValueofX1(1.33)
-capModFuncOfWaterFlow.setMinimumTableOutput(0.0)
-capModFuncOfWaterFlow.setMaximumTableOutput(1.04)
-capModFuncOfWaterFlow.setInputUnitTypeforX1('Dimensionless')
-capModFuncOfWaterFlow.setOutputUnitType('Dimensionless')
+# Recreate the same TableMultiVariableLookup/TableLookup that is created
+# in the Ctor for CoilCoolingFourPipeBeam
+if Gem::Version.new(OpenStudio.openStudioVersion) > Gem::Version.new('3.4.0')
 
-capModFuncOfWaterFlow.addPoint(0.0, 0.0)
-capModFuncOfWaterFlow.addPoint(0.05, 0.001)
-capModFuncOfWaterFlow.addPoint(0.33333, 0.71)
-capModFuncOfWaterFlow.addPoint(0.5, 0.85)
-capModFuncOfWaterFlow.addPoint(0.666667, 0.92)
-capModFuncOfWaterFlow.addPoint(0.833333, 0.97)
-capModFuncOfWaterFlow.addPoint(1.0, 1.0)
-capModFuncOfWaterFlow.addPoint(1.333333, 1.04)
+  coolCapModFuncOfWaterFlow = OpenStudio::Model::TableLookup.new(m)
 
+  coolCapModFuncOfWaterFlow.setName('CoolCapModFuncOfWaterFlow')
+  coolCapModFuncOfWaterFlow.setMinimumOutput(0.0)
+  coolCapModFuncOfWaterFlow.setMaximumOutput(1.04)
+  coolCapModFuncOfWaterFlow.setOutputUnitType('Dimensionless')
+  coolCapModFuncOfWaterFlow.setOutputValues([0.0, 0.001, 0.71, 0.85, 0.92, 0.97, 1.0, 1.04])
+
+  coolCapModFuncOfWaterFlowVar1 = OpenStudio::Model::TableIndependentVariable.new(m)
+  coolCapModFuncOfWaterFlow.addIndependentVariable(coolCapModFuncOfWaterFlowVar1)
+  coolCapModFuncOfWaterFlowVar1.setName('CoolCapModFuncOfWaterFlow_IndependentVariable1')
+  coolCapModFuncOfWaterFlowVar1.setInterpolationMethod('Cubic')
+  coolCapModFuncOfWaterFlowVar1.setExtrapolationMethod('Constant')
+  coolCapModFuncOfWaterFlowVar1.setMinimumValue(0.0)
+  coolCapModFuncOfWaterFlowVar1.setMaximumValue(1.33)
+  coolCapModFuncOfWaterFlowVar1.setUnitType('Dimensionless')
+  coolCapModFuncOfWaterFlowVar1.setValues([0.0, 0.05, 0.33333, 0.5, 0.666667, 0.833333, 1.0, 1.333333])
+else
+  coolCapModFuncOfWaterFlow = OpenStudio::Model::TableMultiVariableLookup.new(m, 1)
+  coolCapModFuncOfWaterFlow.setName('CapModFuncOfWaterFlow')
+  coolCapModFuncOfWaterFlow.setCurveType('Quadratic')
+  coolCapModFuncOfWaterFlow.setInterpolationMethod('EvaluateCurveToLimits')
+  coolCapModFuncOfWaterFlow.setMinimumValueofX1(0)
+  coolCapModFuncOfWaterFlow.setMaximumValueofX1(1.33)
+  coolCapModFuncOfWaterFlow.setMinimumTableOutput(0.0)
+  coolCapModFuncOfWaterFlow.setMaximumTableOutput(1.04)
+  coolCapModFuncOfWaterFlow.setInputUnitTypeforX1('Dimensionless')
+  coolCapModFuncOfWaterFlow.setOutputUnitType('Dimensionless')
+
+  coolCapModFuncOfWaterFlow.addPoint(0.0, 0.0)
+  coolCapModFuncOfWaterFlow.addPoint(0.05, 0.001)
+  coolCapModFuncOfWaterFlow.addPoint(0.33333, 0.71)
+  coolCapModFuncOfWaterFlow.addPoint(0.5, 0.85)
+  coolCapModFuncOfWaterFlow.addPoint(0.666667, 0.92)
+  coolCapModFuncOfWaterFlow.addPoint(0.833333, 0.97)
+  coolCapModFuncOfWaterFlow.addPoint(1.0, 1.0)
+  coolCapModFuncOfWaterFlow.addPoint(1.333333, 1.04)
+end
 # Replace all terminals with ATUFourPipeBeams
 # There is only one airLoopHVAC, so I get it here
 air_loop = m.getAirLoopHVACs[0]
@@ -85,7 +105,7 @@ zones.each do |z|
   cc = OpenStudio::Model::CoilCoolingFourPipeBeam.new(m)
   cc.setName("#{z.name} ATU FourPipeBeam Cooling Coil")
   # Set the curve with the above table
-  cc.setBeamCoolingCapacityChilledWaterFlowModificationFactorCurve(capModFuncOfWaterFlow)
+  cc.setBeamCoolingCapacityChilledWaterFlowModificationFactorCurve(coolCapModFuncOfWaterFlow)
   p_chw.addDemandBranchForComponent(cc)
 
   # Create a heating coil, and add it to the HW Loop

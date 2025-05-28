@@ -40,15 +40,27 @@ systems.each_with_index do |system, i|
     ventilationTemperatureSchedule = OpenStudio::Model::ScheduleRuleset.new(model)
     ventilationTemperatureSchedule.defaultDaySchedule.addValue(OpenStudio::Time.new(0, 24, 0, 0), 18.0)
     avm.setVentilationTemperatureSchedule(ventilationTemperatureSchedule)
-    system.setAvailabilityManager(avm)
+    if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('2.3.1')
+      system.setAvailabilityManagers([avm])
+    else
+      system.setAvailabilityManager(avm)
+    end
 
   when 1
     avm = OpenStudio::Model::AvailabilityManagerOptimumStart.new(model)
-    system.setAvailabilityManager(avm)
+    if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('2.3.1')
+      system.setAvailabilityManagers([avm])
+    else
+      system.setAvailabilityManager(avm)
+    end
 
   when 2
     avm = OpenStudio::Model::AvailabilityManagerHybridVentilation.new(model)
-    system.setAvailabilityManager(avm)
+    if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('2.3.1')
+      system.setAvailabilityManagers([avm])
+    else
+      system.setAvailabilityManager(avm)
+    end
 
   when 3
     system.setNightCycleControlType('CycleOnAny')

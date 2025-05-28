@@ -73,7 +73,7 @@ chiller_eir.setName('Chiller EIR')
 heating_loop.addDemandBranchForComponent(chiller_eir)
 
 model.rename_loop_nodes
-model.renames_air_nodes
+model.rename_air_nodes
 
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm({ 'osm_save_directory' => Dir.pwd,

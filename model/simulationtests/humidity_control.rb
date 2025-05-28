@@ -81,6 +81,7 @@ add_out_vars = false
 if add_out_vars
   # Request timeseries data for debugging
   reporting_frequency = 'hourly'
+  var_names = []
   var_names << 'System Node Setpoint Temperature'
   var_names << 'System Node Setpoint Minimum Humidity Ratio'
   var_names << 'System Node Setpoint Humidity Ratio'

@@ -81,13 +81,7 @@ model.add_design_days
 
 # create the swh loop and uses
 mixed_swh_loop = model.add_swh_loop('Mixed')
-
-# In order to produce more consistent results between different runs,
-# we sort the zones by names
-zones = model.getThermalZones.sort_by { |z| z.name.to_s }
-zones.each do |thermal_zone|
-  model.add_swh_end_uses(mixed_swh_loop, 'Medium Office Bldg Swh')
-end
+model.add_swh_end_uses(mixed_swh_loop, 'Medium Office Bldg Swh')
 
 # remove the existing water heater
 supply_components = mixed_swh_loop.supplyComponents('OS:WaterHeater:Mixed'.to_IddObjectType)
@@ -192,7 +186,8 @@ collector.autosizeDesignFlowRate
 
 # Modify the Performance object
 # (Here I hardset them exactly like the constructor does)
-perf = collector.solarCollectorPerformance
+# Note: Before 3.6.0, the cast is not needed, but it is mandatory starting in 3.6.0
+perf = collector.solarCollectorPerformance.to_SolarCollectorPerformancePhotovoltaicThermalSimple.get
 perf.setName('Solar Collector Performance Photovoltaic Thermal Simple')
 perf.setFractionOfSurfaceAreaWithActiveThermalCollector(1.0)
 perf.setThermalConversionEfficiency(0.3)

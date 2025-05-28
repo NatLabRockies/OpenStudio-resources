@@ -388,7 +388,11 @@ class CreateTypicalBuildingFromModel < OpenStudio::Measure::ModelMeasure
       else
         is_residential = 'No'
       end
-      climate_zone = standard.model_get_building_climate_zone_and_building_type(model)['climate_zone']
+      if standard.respond_to?('model_get_building_properties')
+        climate_zone = standard.model_get_building_properties(model)['climate_zone']
+      else
+        climate_zone = standard.model_get_building_climate_zone_and_building_type(model)['climate_zone']
+      end
       bldg_def_const_set = standard.model_add_construction_set(model, climate_zone, lookup_building_type, nil, is_residential)
       if bldg_def_const_set.is_initialized
         bldg_def_const_set = bldg_def_const_set.get
@@ -417,8 +421,12 @@ class CreateTypicalBuildingFromModel < OpenStudio::Measure::ModelMeasure
       standard.model_modify_infiltration_coefficients(model, primary_bldg_type, climate_zone)
 
       # set ground temperatures from DOE prototype buildings
-      standard.model_add_ground_temperatures(model, primary_bldg_type, climate_zone)
-
+      if standard.respond_to?('model_add_ground_temperatures')
+        standard.model_add_ground_temperatures(model, primary_bldg_type, climate_zone)
+      else
+        # 0.6.0+, model_set_ground_temperatures
+        OpenstudioStandards::Weather.model_set_ground_temperatures(model, climate_zone: climate_zone)
+      end
     end
 
     # add elevators (returns ElectricEquipment object)
@@ -641,7 +649,12 @@ class CreateTypicalBuildingFromModel < OpenStudio::Measure::ModelMeasure
         else
 
           # Group the zones by story
-          story_groups = standard.model_group_zones_by_story(model, model.getThermalZones)
+          if standard.respond_to?('model_group_zones_by_story')
+            story_groups = standard.model_group_zones_by_story(model, model.getThermalZones)
+          else
+            # 0.6.0+
+            story_groups = OpenstudioStandards::Geometry.model_group_thermal_zones_by_building_story(model, model.getThermalZones)
+          end
 
           # Add the user specified HVAC system for each story.
           # Single-zone systems will get one per zone.

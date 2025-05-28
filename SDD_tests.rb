@@ -269,6 +269,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('centralheatpumpsystem.osm')
   end
 
+  def test_FT_chiller_electric_ashrae205
+    sdd_ft_test('chiller_electric_ashrae205.osm')
+  end
+
   def test_FT_chiller_reformulated
     sdd_ft_test('chiller_reformulated.osm')
   end
@@ -279,6 +283,14 @@ class SddForwardTranslatorTests < Minitest::Test
 
   def test_FT_coil_cooling_dx
     sdd_ft_test('coil_cooling_dx.osm')
+  end
+
+  def test_FT_coil_cooling_dx_airloop
+    sdd_ft_test('coil_cooling_dx_airloop.osm')
+  end
+
+  def test_FT_coil_cooling_dx_singlespeed_thermalstorage
+    sdd_ft_test('coil_cooling_dx_singlespeed_thermalstorage.osm')
   end
 
   def test_FT_coilsystem_dxhx
@@ -299,6 +311,14 @@ class SddForwardTranslatorTests < Minitest::Test
 
   def test_FT_coil_waterheating_desuperheater
     sdd_ft_test('coil_waterheating_desuperheater.osm')
+  end
+
+  def test_FT_coil_waterheating_desuperheater_2
+    sdd_ft_test('coil_waterheating_desuperheater_2.osm')
+  end
+
+  def test_FT_coil_userdefined
+    sdd_ft_test('coil_userdefined.osm')
   end
 
   def test_FT_cooling_coils
@@ -425,6 +445,22 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('generator_windturbine.osm')
   end
 
+  def test_FT_ghx_horizontal_trench_kusuda
+    sdd_ft_test('ghx_horizontal_trench_kusuda.osm')
+  end
+
+  def test_FT_ghx_horizontal_trench_xing
+    sdd_ft_test('ghx_horizontal_trench_xing.osm')
+  end
+
+  def test_FT_ghx_vertical_kusuda
+    sdd_ft_test('ghx_vertical_kusuda.osm')
+  end
+
+  def test_FT_ghx_vertical_xing
+    sdd_ft_test('ghx_vertical_xing.osm')
+  end
+
   def test_FT_headered_pumps
     sdd_ft_test('headered_pumps.osm')
   end
@@ -437,6 +473,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('heatexchanger_desiccant_balancedflow.osm')
   end
 
+  def test_FT_heatpump_airtowater_fuelfired
+    sdd_ft_test('heatpump_airtowater_fuelfired.osm')
+  end
+
   def test_FT_heatpump_hot_water
     sdd_ft_test('heatpump_hot_water.osm')
   end
@@ -445,8 +485,16 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('heatpump_plantloop_eir.osm')
   end
 
+  def test_FT_heatpump_plantloop_eir_heatrecovery
+    sdd_ft_test('heatpump_plantloop_eir_heatrecovery.osm')
+  end
+
   def test_FT_heatpump_varspeed
     sdd_ft_test('heatpump_varspeed.osm')
+  end
+
+  def test_FT_heatrecovery_chiller
+    sdd_ft_test('heatrecovery_chiller.osm')
   end
 
   def test_FT_hightemprad
@@ -509,6 +557,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('multi_stage.osm')
   end
 
+  def test_FT_multi_stage_electric
+    sdd_ft_test('multi_stage_electric.osm')
+  end
+
   def test_FT_multiple_airloops
     sdd_ft_test('multiple_airloops.osm')
   end
@@ -521,6 +573,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('performanceprecisiontradeoffs.osm')
   end
 
+  def test_FT_phase_change
+    sdd_ft_test('phase_change.osm')
+  end
+
   def test_FT_photovoltaics_sandia
     sdd_ft_test('photovoltaics_sandia.osm')
   end
@@ -529,8 +585,16 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('outputcontrol_files.osm')
   end
 
+  def test_FT_outputcontrol_timestamp
+    sdd_ft_test('outputcontrol_timestamp.osm')
+  end
+
   def test_FT_output_objects
     sdd_ft_test('output_objects.osm')
+  end
+
+  def test_FT_output_objects_2
+    sdd_ft_test('output_objects_2.osm')
   end
 
   def test_FT_photovoltaics
@@ -581,6 +645,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('pvwatts.osm')
   end
 
+  def test_FT_python_plugin
+    sdd_ft_test('python_plugin.osm')
+  end
+
   def test_FT_refrigeration_system
     sdd_ft_test('refrigeration_system.osm')
   end
@@ -625,6 +693,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('setpoint_managers.osm')
   end
 
+  def test_FT_setpoint_manager_systemnodereset
+    sdd_ft_test('setpoint_manager_systemnodereset.osm')
+  end
+
   def test_FT_shadingcontrol_singlezone
     sdd_ft_test('shadingcontrol_singlezone.osm')
   end
@@ -641,12 +713,20 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('solar_collector_flat_plate_photovoltaicthermal.osm')
   end
 
+  def test_FT_solar_collector_flat_plate_photovoltaicthermal_bipvt
+    sdd_ft_test('solar_collector_flat_plate_photovoltaicthermal_bipvt.osm')
+  end
+
   def test_FT_solar_collector_flat_plate_water
     sdd_ft_test('solar_collector_flat_plate_water.osm')
   end
 
   def test_FT_solar_collector_integralcollectorstorage
     sdd_ft_test('solar_collector_integralcollectorstorage.osm')
+  end
+
+  def test_FT_space_level_dsoa
+    sdd_ft_test('space_level_dsoa.osm')
   end
 
   def test_FT_space_load_instances
@@ -665,12 +745,20 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('surface_properties_lwr.osm')
   end
 
+  def test_FT_surface_properties_ground_and_solarmult
+    sdd_ft_test('surface_properties_ground_and_solarmult.osm')
+  end
+
   def test_FT_surfacecontrol_moveableinsulation
     sdd_ft_test('surfacecontrol_moveableinsulation.osm')
   end
 
   def test_FT_swimmingpool_indoor
     sdd_ft_test('swimmingpool_indoor.osm')
+  end
+
+  def test_FT_tablelookup
+    sdd_ft_test('tablelookup.osm')
   end
 
   def test_FT_tablemultivariablelookup
@@ -727,6 +815,14 @@ class SddForwardTranslatorTests < Minitest::Test
 
   def test_FT_vrf_airloophvac
     sdd_ft_test('vrf_airloophvac.osm')
+  end
+
+  def test_FT_vrf_fluid_temperature_control
+    sdd_ft_test('vrf_fluid_temperature_control.osm')
+  end
+
+  def test_FT_vrf_fluid_temperature_control_hr
+    sdd_ft_test('vrf_fluid_temperature_control_hr.osm')
   end
 
   def test_FT_vrf_watercooled

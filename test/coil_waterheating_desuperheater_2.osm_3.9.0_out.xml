@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<SDDXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RulesetFilename file="CEC 2013 NonRes.bin" />
+  <Proj>
+    <Name>unknown</Name>
+    <Mat>
+      <Name>000_F04 Wall air space resistance</Name>
+    </Mat>
+    <Mat>
+      <Name>000_F05 Ceiling air space resistance</Name>
+    </Mat>
+    <Mat>
+      <Name>000_F08 Metal surface</Name>
+    </Mat>
+    <Mat>
+      <Name>000_F16 Acoustic tile</Name>
+    </Mat>
+    <Mat>
+      <Name>000_G01a 19mm gypsum board</Name>
+    </Mat>
+    <Mat>
+      <Name>000_G05 25mm wood</Name>
+    </Mat>
+    <Mat>
+      <Name>000_I01 25mm insulation board</Name>
+    </Mat>
+    <Mat>
+      <Name>000_M11 100mm lightweight concrete</Name>
+    </Mat>
+    <Mat>
+      <Name>1/2IN Gypsum</Name>
+    </Mat>
+    <Mat>
+      <Name>CP02 CARPET PAD</Name>
+    </Mat>
+    <Mat>
+      <Name>MAT-CC05 4 HW CONCRETE</Name>
+    </Mat>
+    <Mat>
+      <Name>MAT-SHEATH</Name>
+    </Mat>
+    <Mat>
+      <Name>Metal Decking</Name>
+    </Mat>
+    <Mat>
+      <Name>Roof Insulation [21]</Name>
+    </Mat>
+    <Mat>
+      <Name>Roof Membrane</Name>
+    </Mat>
+    <Mat>
+      <Name>Wall Insulation [39]</Name>
+    </Mat>
+    <ConsAssm>
+      <Name>000_ExtSlabCarpet_4in_ClimateZone 1-8</Name>
+      <MatRef>MAT-CC05 4 HW CONCRETE</MatRef>
+      <MatRef>CP02 CARPET PAD</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</Name>
+      <MatRef>Roof Membrane</MatRef>
+      <MatRef>Roof Insulation [21]</MatRef>
+      <MatRef>Metal Decking</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</Name>
+      <MatRef>MAT-SHEATH</MatRef>
+      <MatRef>Wall Insulation [39]</MatRef>
+      <MatRef>1/2IN Gypsum</MatRef>
+    </ConsAssm>
+    <FenCons>
+      <Name>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</Name>
+      <CertificationMthd>NFRCRated</CertificationMthd>
+    </FenCons>
+    <Bldg>
+      <Name>Building 1</Name>
+      <BldgAz>0</BldgAz>
+      <Story>
+        <Name>Story 1</Name>
+        <Spc>
+          <Name>Story 1 Core Space</Name>
+          <Vol>706293</Vol>
+          <Area>53819.6</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>328.084</Coord>
+              <Coord>164.042</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>328.084</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>164.042</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Story 1 Core Thermal Zone</ThrmlZnRef>
+          <UndgrFlr>
+            <Name>Story 1 Core Space Exterior Ground Floor</Name>
+            <ConsAssmRef>000_ExtSlabCarpet_4in_ClimateZone 1-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <Roof>
+            <Name>Story 1 Core Space Exterior Roof</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+          <ExtWall>
+            <Name>Story 1 Core Space Exterior Wall</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Story 1 Core Space Exterior Wall Window</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>0</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>0</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>0</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>0</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+          <ExtWall>
+            <Name>Story 1 Core Space Exterior Wall 1</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Story 1 Core Space Exterior Wall 1 Window</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+          <ExtWall>
+            <Name>Story 1 Core Space Exterior Wall 2</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Story 1 Core Space Exterior Wall 2 Window</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+          <ExtWall>
+            <Name>Story 1 Core Space Exterior Wall 3</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Story 1 Core Space Exterior Wall 3 Window</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+        </Spc>
+      </Story>
+      <ThrmlZn>
+        <Name>Story 1 Core Thermal Zone</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <AirSys>
+        <Name>Packaged Rooftop Air Conditioner</Name>
+        <TypeSim>SZAC</TypeSim>
+        <NightCycleFanCtrl>StaysOff</NightCycleFanCtrl>
+        <Cnt>1</Cnt>
+        <FanPos>DrawThrough</FanPos>
+        <ClgCtrl>NoSATControl</ClgCtrl>
+        <AirSeg>
+          <Name>Packaged Rooftop Air Conditioner Supply AirSeg</Name>
+          <Type>Supply</Type>
+          <CoilClg>
+            <Type>DirectExpansion</Type>
+            <NumClgStages>1</NumClgStages>
+            <DXEER>8.60076</DXEER>
+            <CndsrType>Air</CndsrType>
+          </CoilClg>
+          <CoilHtg>
+            <Type>Furnace</Type>
+            <FuelSrc>NaturalGas</FuelSrc>
+            <FurnThrmlEff>2.72971</FurnThrmlEff>
+          </CoilHtg>
+          <Fan>
+            <CtrlMthdSim>ConstantVolume</CtrlMthdSim>
+            <Class>Axial</Class>
+            <ModelingMthd>StaticPressure</ModelingMthd>
+            <FlowEff>0.7</FlowEff>
+            <TotStaticPress>2.00732</TotStaticPress>
+            <MtrEff>0.9</MtrEff>
+            <MtrfPos>InAirStream</MtrfPos>
+          </Fan>
+        </AirSeg>
+        <OACtrl />
+      </AirSys>
+    </Bldg>
+  </Proj>
+</SDDXML>

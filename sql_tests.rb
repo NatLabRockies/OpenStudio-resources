@@ -6,7 +6,7 @@ require 'openstudio' unless defined?(OpenStudio)
 require_relative 'test_helpers'
 
 # the tests
-class SqlTests < MiniTest::Unit::TestCase
+class SqlTests < Minitest::Test
   parallelize_me!
 
   def test_sql_default_fullyear

@@ -84,7 +84,10 @@ m.setSchedule(model.alwaysOnContinuousSchedule)
 # conserve some mass
 zamfc = model.getZoneAirMassFlowConservation
 zamfc.setAdjustZoneMixingForZoneAirMassFlowBalance(true)
-zamfc.setSourceZoneInfiltrationTreatment('AddInfiltrationFlow')
+if Gem::Version.new(OpenStudio.openStudioVersion) <= Gem::Version.new('3.4.0')
+  # Does nothing as of 1.9.3, removed after 3.4.0
+  zamfc.setSourceZoneInfiltrationTreatment('AddInfiltrationFlow')
+end
 
 # add thermostats
 model.add_thermostats({ 'heating_setpoint' => 24,

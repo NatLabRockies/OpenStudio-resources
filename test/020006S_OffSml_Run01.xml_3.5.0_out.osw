@@ -1,0 +1,34 @@
+{
+  "completed_status": "Fail",
+  "current_step": 0,
+  "eplusout_err": [
+    "Program Version,EnergyPlus, Version 22.2.0-aa78da9668, ",
+    "   ** Severe  ** Table:IndependentVariable \"{C0BBD2EC-5823-46D9-B173-BB6963BF89B0}\": axis is not sorted.",
+    "   **  Fatal  ** Btwxt: Errors discovered, program terminates.",
+    "   ...Summary of Errors that led to program termination:",
+    "   ..... Reference severe error count=1",
+    "   ..... Last severe error=Table:IndependentVariable \"{C0BBD2EC-5823-46D9-B173-BB6963BF89B0}\": axis is not sorted.",
+    "   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).",
+    "   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.",
+    "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Terminated--Fatal Error Detected. 0 Warning; 1 Severe Errors; "
+  ],
+  "file_paths": [
+    "/home/julien/Software/Others/OpenStudio-resources/testruns/020006S_OffSml_Run01.xml/generated_files",
+    "./files",
+    "./weather",
+    "../../files",
+    "../../weather",
+    "./"
+  ],
+  "seed_file": "in.osm",
+  "steps": [
+    {
+      "arguments": {
+      },
+      "measure_dir_name": "openstudio_results"
+    }
+  ],
+  "weather_file": "../../weatherdata/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+}

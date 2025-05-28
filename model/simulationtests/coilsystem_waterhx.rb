@@ -62,8 +62,11 @@ plant = coil.plantLoop.get
 plant.addDemandBranchForComponent(water_coil)
 coil.remove
 
-hx = coil_system.heatExchanger
+hx = coil_system.heatExchanger.to_HeatExchangerAirToAirSensibleAndLatent.get
 hx.setName('CoilSystemWaterHX HX')
+if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('3.8.0')
+  hx.assignHistoricalEffectivenessCurves
+end
 
 # Rename some nodes and such, for ease of debugging
 airloop.supplyInletNode.setName("#{airloop.name} Supply Inlet Node")

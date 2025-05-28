@@ -42,9 +42,10 @@ model.getSurfaces.each do |surface|
   next unless surface.surfaceType.downcase == 'wall'
 
   surface.construction.get.to_Construction.get.layers.each do |layer|
-    next unless layer.to_StandardOpaqueMaterial.is_initialized
+    std_mat_ = layer.to_StandardOpaqueMaterial
+    next unless std_mat_.is_initialized
 
-    layer.createMaterialPropertyMoisturePenetrationDepthSettings(8.9, 0.0069, 0.9066, 0.0404, 22.1121, 0.005, 140) # drywall
+    std_mat_.get.createMaterialPropertyMoisturePenetrationDepthSettings(8.9, 0.0069, 0.9066, 0.0404, 22.1121, 0.005, 140) # drywall
   end
 end
 

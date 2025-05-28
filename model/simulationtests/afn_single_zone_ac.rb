@@ -53,7 +53,7 @@ def addSystemType3(model)
   # set the default parameters correctly for a constant volume system with no VAV terminals
   sizingSystem.setTypeofLoadtoSizeOn('Sensible')
   sizingSystem.autosizeDesignOutdoorAirFlowRate
-  sizingSystem.setMinimumSystemAirFlowRatio(1.0)
+  sizingSystem.setCentralHeatingMaximumSystemAirFlowRatio(1.0)
   sizingSystem.setPreheatDesignTemperature(7.0)
   sizingSystem.setPreheatDesignHumidityRatio(0.008)
   sizingSystem.setPrecoolDesignTemperature(12.8)
@@ -125,7 +125,7 @@ def addSimpleSystem(model)
   # set the default parameters correctly for a constant volume system with no VAV terminals
   sizingSystem.setTypeofLoadtoSizeOn('Sensible')
   sizingSystem.autosizeDesignOutdoorAirFlowRate
-  sizingSystem.setMinimumSystemAirFlowRatio(1.0)
+  sizingSystem.setCentralHeatingMaximumSystemAirFlowRatio(1.0)
   sizingSystem.setPreheatDesignTemperature(7.0)
   sizingSystem.setPreheatDesignHumidityRatio(0.008)
   sizingSystem.setPrecoolDesignTemperature(12.8)
@@ -196,7 +196,11 @@ def addSimpleSystemAFN(model)
   # set the default parameters correctly for a constant volume system with no VAV terminals
   sizingSystem.setTypeofLoadtoSizeOn('Sensible')
   sizingSystem.autosizeDesignOutdoorAirFlowRate
-  sizingSystem.setMinimumSystemAirFlowRatio(1.0)
+  if Gem::Version.new(OpenStudio.openStudioVersion) >= Gem::Version.new('3.3.0')
+    sizingSystem.setCentralHeatingMaximumSystemAirFlowRatio(1.0)
+  else
+    sizingSystem.setMinimumSystemAirFlowRatio(1.0)
+  end
   sizingSystem.setPreheatDesignTemperature(7.0)
   sizingSystem.setPreheatDesignHumidityRatio(0.008)
   sizingSystem.setPrecoolDesignTemperature(12.8)
@@ -371,7 +375,7 @@ hvac = addSimpleSystemAFN(model)
 hvac = hvac.to_AirLoopHVAC.get
 hvac.addBranchForZone(zone)
 outlet_node = hvac.supplyOutletNode
-setpoint_manager = outlet_node.getSetpointManagerSingleZoneReheat.get
+setpoint_manager = outlet_node.setpointManagers.select { |spm| spm.to_SetpointManagerSingleZoneReheat.is_initialized }.first.to_SetpointManagerSingleZoneReheat.get
 setpoint_manager.setControlZone(zone)
 
 # add ASHRAE System type 08, VAV w/ PFP Boxes

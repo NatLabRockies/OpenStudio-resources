@@ -53,7 +53,8 @@ class OpenStudio::Model::ChillerElectricEIR
   def performanceCharacteristics
     effs = []
     effs << [referenceCOP, 'Reference COP']
-    effs << [compressorMotorEfficiency, 'Compressor Motor Efficiency']
+    # E+ 8.0 changed it to Fraction of Compressor Electric Consumption Rejected by Condenser
+    # effs << [compressorMotorEfficiency, 'Compressor Motor Efficiency']
     return effs
   end
 end

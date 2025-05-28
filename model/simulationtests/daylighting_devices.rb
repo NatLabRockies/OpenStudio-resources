@@ -31,16 +31,16 @@ model.set_space_type
 # add design days to the model (Chicago)
 model.add_design_days
 
-thermal_zones = model.getThermalZones.sort_by { |tz| tz.name.to_s }
+thermal_zones = model.getThermalZones.sort_by(&:nameString)
 thermal_zone = thermal_zones[0]
 thermal_zone.setUseIdealAirLoads(true)
-spaces = thermal_zone.spaces.sort_by { |s| s.name.to_s }
+spaces = thermal_zone.spaces.sort_by(&:nameString)
 
 windows = []
 spaces.each do |space|
-  surfaces = space.surfaces.sort_by { |s| s.name.to_s }
+  surfaces = space.surfaces.sort_by(&:azimuth)
   surfaces.each do |surface|
-    sub_surfaces = surface.subSurfaces.sort_by { |ss| ss.name.to_s }
+    sub_surfaces = surface.subSurfaces.sort_by(&:nameString)
     sub_surfaces.each do |sub_surface|
       next if sub_surface.subSurfaceType != 'FixedWindow'
 
@@ -49,8 +49,8 @@ spaces.each do |space|
   end
 end
 
-window1 = windows[0]
-window2 = windows[1]
+window1 = windows[1] # Azimuth is 180 degrees
+window2 = windows[2]
 
 ###############################################################################
 #                          DaylightingDeviceTubular                           #
@@ -64,6 +64,7 @@ material.setSpecificHeat(837.4)
 construction = OpenStudio::Model::Construction.new(model)
 construction.insertLayer(0, material)
 
+# Azimuth here is 180 degrees as well
 points = OpenStudio::Point3dVector.new
 points << OpenStudio::Point3d.new(0, 1, 0.2)
 points << OpenStudio::Point3d.new(0, 0, 0.2)

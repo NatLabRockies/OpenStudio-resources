@@ -4,22 +4,30 @@ on:
   workflow_dispatch:
     inputs:
       os_installer_link:
-        description: 'The Link where to download the LINUX OpenStudio SDK Installer (.DEB)'
+        description: 'The Link where to download the Ubuntu 22.04 OpenStudio SDK Installer (.DEB)'
         required: true
-        default: 'https://openstudio-ci-builds.s3.amazonaws.com/develop/OpenStudio-3.1.0-alpha%2B7e9cd9eaf5-Linux.deb'
+        default: 'https://openstudio-ci-builds.s3-us-west-2.amazonaws.com/develop/OpenStudio-3.5.1-alpha%2B59f1eb448b-Ubuntu-22.04.deb'
       branch_name:
         description: 'The branch name to use and where to commit the test results. If ommited, it will default to the installer SHA'
         required: false
+      cli_subcommand:
+        type: choice
+        description: Force using the labs (C++) or classic (Ruby) CLI
+        default: default
+        options:
+        - default
+        - labs
+        - classic
 
 jobs:
   test_installer:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
       with:
-        python-version: '3.8.x'
+        python-version: '3.12.2'
 
     - uses: ruby/setup-ruby@v1
       with:
@@ -31,6 +39,9 @@ jobs:
         set -x
         echo "Installer link: ${{ github.event.inputs.os_installer_link }}"
         echo "Branch Name: ${{ github.event.inputs.branch_name }}"
+        CLI_SUBCOMMAND=${{ github.event.inputs.cli_subcommand }}
+        echo "CLI_SUBCOMMAND=$CLI_SUBCOMMAND"
+        echo CLI_SUBCOMMAND=$CLI_SUBCOMMAND >> $GITHUB_ENV
         sudo apt update
         wget '${{ github.event.inputs.os_installer_link }}'
         sudo apt install -y ./OpenStudio*.deb
@@ -66,7 +77,7 @@ jobs:
       run: |
         set -x
         echo "nproc=$(nproc)"
-        N=$(nproc) CUSTOMTAG=SHA openstudio model_tests.rb || true
+        N=$(nproc) CUSTOMTAG=SHA CLI_SUBCOMMAND=$CLI_SUBCOMMAND openstudio model_tests.rb || true
 
     - name: Run model_tests - second pass for failed tests
       continue-on-error: true
@@ -74,7 +85,7 @@ jobs:
       run: |
         set -x
         echo "nproc=$(nproc)"
-        DONOTRERUNIFSUCCESS=true N=$(nproc) CUSTOMTAG=SHA openstudio model_tests.rb || true
+        DONOTRERUNIFSUCCESS=true N=$(nproc) CUSTOMTAG=SHA CLI_SUBCOMMAND=$CLI_SUBCOMMAND openstudio model_tests.rb || true
 
     # This is a failing step!
     - name: Run highlevel_tests
@@ -101,7 +112,7 @@ jobs:
 
     - name: Archive test results
       if: always()
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
           name: Test-Results
           path: Test-Stability/*

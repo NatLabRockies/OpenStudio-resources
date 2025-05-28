@@ -4,6 +4,8 @@
 # added in 3.5.0:
 # * OutputControlTableStyle
 # * OutputSQLite
+# * OutputSchedules
+# * OutputConstructions
 
 require 'openstudio'
 require_relative 'lib/baseline_model'
@@ -59,6 +61,21 @@ outputcontrol_table_style.setUnitConversion('InchPound')
 output_sqlite = model.getOutputSQLite
 output_sqlite.setOptionType('SimpleAndTabular')
 output_sqlite.setUnitConversionforTabularData('None')
+
+###############################################################################
+#                              OUTPUT:SCHEDULES                               #
+###############################################################################
+
+output_schedules = model.getOutputSchedules
+output_schedules.setKeyField('Timestep')
+
+###############################################################################
+#                            OUTPUT:CONSTRUCTIONS                             #
+###############################################################################
+
+output_constructions = model.getOutputConstructions
+output_constructions.setReportConstructions(true)
+output_constructions.setReportMaterials(true)
 
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm({ 'osm_save_directory' => Dir.pwd,

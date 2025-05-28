@@ -4,4 +4,4 @@ source 'http://rubygems.org'
 
 # openstudio-standards is HUGE because of many very very large test files etc
 # gem 'openstudio-standards', github: 'nrel/openstudio-standards', tag: 'v0.2.11'
-gem 'openstudio-extension', github: 'nrel/openstudio-extension-gem', tag: 'v0.4.3'
+gem 'openstudio-extension', github: 'nrel/openstudio-extension-gem', tag: 'v0.8.1'

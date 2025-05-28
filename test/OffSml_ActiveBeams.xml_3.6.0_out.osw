@@ -1,0 +1,1709 @@
+{
+  "completed_status": "Success",
+  "current_step": 1,
+  "eplusout_err": [
+    "Program Version,EnergyPlus, Version 23.1.0-87ed9199d4, ",
+    "   ************* Beginning Zone Sizing Calculations",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"{838FB070-376D-40C9-BFEE-4F66D22A1851}\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"{860A7C40-3497-4F86-A7F4-645E4A884BAD}\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"{A9281BD7-EF1B-4766-B4FE-C7D663BF0B70}\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"{E941F99E-E0D2-4CE2-9B75-0D6FDB755E66}\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval=\"{FDD67954-78A0-4FAF-8283-081EBD7DEE75}\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year=\"CORE_ZN TARGET SHW TEMP\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year=\"PERIMETER_ZN_1 TARGET SHW TEMP\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year=\"PERIMETER_ZN_2 TARGET SHW TEMP\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year=\"PERIMETER_ZN_3 TARGET SHW TEMP\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year=\"PERIMETER_ZN_4 TARGET SHW TEMP\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS OFF DISCRETE\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS ON CONTINUOUS\", Blank Schedule Type Limits Name input -- will not be validated.",
+    "   ** Warning ** Weather file location will be used rather than entered (IDF) Location object.",
+    "   **   ~~~   ** ..Location object={D87AA04E-ED0E-474C-99D4-3F41D72F5D6E}",
+    "   **   ~~~   ** ..Weather File Location=Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300",
+    "   **   ~~~   ** ..due to location differences, Latitude difference=[3.48] degrees, Longitude difference=[33.58] degrees.",
+    "   **   ~~~   ** ..Time Zone difference=[2.0] hour(s), Elevation difference=[4972.68] percent, [197.04] meters.",
+    "   ** Warning ** CalculateZoneVolume: 2 zones are not fully enclosed. For more details use:  Output:Diagnostics,DisplayExtrawarnings; ",
+    "   ** Warning ** GetDaylightingControls: Fraction of zone or space controlled by the Daylighting reference points is < 1.0.",
+    "   **   ~~~   ** ..discovered in Daylighting:Controls=\"PERIMZN1-2 DAYLIGHTINGCONTROLS\", only 0.910 of the zone or space is controlled.",
+    "   ** Warning ** GetDaylightingControls: Fraction of zone or space controlled by the Daylighting reference points is < 1.0.",
+    "   **   ~~~   ** ..discovered in Daylighting:Controls=\"PERIMZN3-4 DAYLIGHTINGCONTROLS\", only 0.902 of the zone or space is controlled.",
+    "   ** Warning ** GetSimpleAirModelInputs: ZoneInfiltration:DesignFlowRate=\"ATTIC SPACE INFILTRATION DESIGN FLOW RATE 1\", Design Flow Rate Calculation Method specifies Flow Rate per Exterior Surface Area, but Exterior Wall Area = 0.  0 Infiltration will result.",
+    "   ** Warning ** GetSimpleAirModelInputs: ZoneInfiltration:DesignFlowRate=\"CORE_ZN SPACE INFILTRATION DESIGN FLOW RATE 1\", Design Flow Rate Calculation Method specifies Flow Rate per Exterior Surface Area, but Exterior Wall Area = 0.  0 Infiltration will result.",
+    "   ** Warning ** GetElectricEIRChillerInput: Chiller:Electric:EIR=\"OFCSMLCHLR\"",
+    "   **   ~~~   ** Energy input ratio as a function of temperature curve output is not equal to 1.0 (+ or - 10%) at reference conditions.",
+    "   **   ~~~   ** Curve output at reference conditions = 0.871",
+    "   ************* Beginning System Sizing Calculations",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = FIXEDFLOWRATE, input for Constant Minimum Air Flow Fraction will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = CORE CHBEAM TRMLUNIT",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = FIXEDFLOWRATE, input for Constant Minimum Air Flow Fraction will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = PERIM1-2 BEAM TRMLUNIT",
+    "   ** Warning ** Since Zone Minimum Air Flow Input Method = FIXEDFLOWRATE, input for Constant Minimum Air Flow Fraction will be ignored.",
+    "   **   ~~~   ** Occurs in AirTerminal:SingleDuct:VAV:NoReheat = PERIM3-4 BEAM TRMLUNIT",
+    "   ************* Beginning Plant Sizing Calculations",
+    "   ** Warning ** SizeWaterCoil: Coil=\"CORE BEAM COILCLG\", Cooling Coil is running dry for sizing and has minimum humidity ratio at saturation for inlet chilled water temperature > design air entering humidity ratio.",
+    "   **   ~~~   **     Wair,in =  8.643831E-003 [kgWater/kgDryAir]",
+    "   **   ~~~   **     Wair,out = 8.500000E-003 [kgWater/kgDryAir]",
+    "   **   ~~~   **     Inlet chilled water temperature = 14.444 [C]",
+    "   **   ~~~   **     Minimum humidity ratio at saturation for inlet chilled water temperature = 1.051919E-002 [kgWater/kgDryAir]",
+    "   **   ~~~   ** ....coil leaving humidity ratio will be reset to:",
+    "   **   ~~~   **     Wair,out = 8.643831E-003 [kgWater/kgDryAir]",
+    "   ** Warning ** SizeWaterCoil: Coil=\"PERIM1-2 BEAM COILCLG\", Cooling Coil has leaving air temperature < entering water temperature.",
+    "   **   ~~~   **     Tair,out  =  12.777",
+    "   **   ~~~   **     Twater,in = 14.444",
+    "   **   ~~~   ** ....coil leaving air temperature will be reset to:",
+    "   **   ~~~   **     Tair,out = 14.944",
+    "   ** Warning ** SizeWaterCoil: Coil=\"PERIM1-2 BEAM COILCLG\", Cooling Coil is running dry for sizing and has minimum humidity ratio at saturation for inlet chilled water temperature > design air entering humidity ratio.",
+    "   **   ~~~   **     Wair,in =  8.631017E-003 [kgWater/kgDryAir]",
+    "   **   ~~~   **     Wair,out = 8.500000E-003 [kgWater/kgDryAir]",
+    "   **   ~~~   **     Inlet chilled water temperature = 14.444 [C]",
+    "   **   ~~~   **     Minimum humidity ratio at saturation for inlet chilled water temperature = 1.051919E-002 [kgWater/kgDryAir]",
+    "   **   ~~~   ** ....coil leaving humidity ratio will be reset to:",
+    "   **   ~~~   **     Wair,out = 8.631017E-003 [kgWater/kgDryAir]",
+    "   ** Warning ** SizeWaterCoil: Coil=\"PERIM3-4 BEAM COILCLG\", Cooling Coil has leaving air temperature < entering water temperature.",
+    "   **   ~~~   **     Tair,out  =  12.777",
+    "   **   ~~~   **     Twater,in = 14.444",
+    "   **   ~~~   ** ....coil leaving air temperature will be reset to:",
+    "   **   ~~~   **     Tair,out = 14.944",
+    "   ** Warning ** SizeWaterCoil: Coil=\"PERIM3-4 BEAM COILCLG\", Cooling Coil is running dry for sizing and has minimum humidity ratio at saturation for inlet chilled water temperature > design air entering humidity ratio.",
+    "   **   ~~~   **     Wair,in =  8.635346E-003 [kgWater/kgDryAir]",
+    "   **   ~~~   **     Wair,out = 8.500000E-003 [kgWater/kgDryAir]",
+    "   **   ~~~   **     Inlet chilled water temperature = 14.444 [C]",
+    "   **   ~~~   **     Minimum humidity ratio at saturation for inlet chilled water temperature = 1.051919E-002 [kgWater/kgDryAir]",
+    "   **   ~~~   ** ....coil leaving humidity ratio will be reset to:",
+    "   **   ~~~   **     Wair,out = 8.635346E-003 [kgWater/kgDryAir]",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"DOAS OACTRL MECH VENT CONTROLLER\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"COREZN\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"DOAS OACTRL MECH VENT CONTROLLER\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"PERIMZN1-2\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** GetOAControllerInputs: Controller:MechanicalVentilation=\"DOAS OACTRL MECH VENT CONTROLLER\"",
+    "   **   ~~~   ** Cannot locate a matching DesignSpecification:ZoneAirDistribution object for Zone=\"PERIMZN3-4\".",
+    "   **   ~~~   ** Using default zone air distribution effectiveness of 1.0 for heating and cooling.",
+    "   ** Warning ** Invalid design inlet water temperature for Coil:Cooling:Water = DOAS CLG",
+    "   **   ~~~   ** ...design inlet water temperature = 14.444 C",
+    "   **   ~~~   ** ...design outlet air temperature = 12.778 C",
+    "   **   ~~~   ** ...design inlet water temperature should be less than the design outlet air temperature",
+    "   **   ~~~   ** ...design inlet water temperature is set to the design outlet air temperature minus 5.0C",
+    "   ** Warning ** In calculating the design coil UA for Coil:Cooling:Water DOAS CLG",
+    "   **   ~~~   ** the coil bypass factor is unrealistically large;",
+    "   **   ~~~   ** The initial design conditions are: Tair,in = 26.0571",
+    "   **   ~~~   **                                    Wair,in = 1.026379E-002",
+    "   **   ~~~   **                                    Twater,in = 7.7778",
+    "   **   ~~~   **                                    Tair,out = 11.0840",
+    "   **   ~~~   **                                    Wair,out = 8.500000E-003",
+    "   ** Warning ** Check input. Pump nominal power or motor efficiency is set to 0, for pump={5C47D9D4-8A2A-4332-8D7E-40A3E9FDB008}",
+    "   ** Warning ** Output:Meter: invalid Key Name=\"DISTRICTCOOLING:FACILITY\" - not found.",
+    "   ** Warning ** Output:Meter: invalid Key Name=\"DISTRICTHEATING:FACILITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COGENERATION:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COGENERATION:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COGENERATION:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COGENERATION:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COGENERATION:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COOLING:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COOLING:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COOLING:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COOLING:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIOREQUIPMENT:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIOREQUIPMENT:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIOREQUIPMENT:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIOREQUIPMENT:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIOREQUIPMENT:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIORLIGHTS:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIORLIGHTS:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIORLIGHTS:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIORLIGHTS:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"EXTERIORLIGHTS:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"FANS:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"FANS:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"FANS:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"FANS:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATING:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATING:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATING:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATRECOVERY:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATRECOVERY:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATRECOVERY:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATRECOVERY:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATRECOVERY:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATREJECTION:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATREJECTION:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATREJECTION:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATREJECTION:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HEATREJECTION:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HUMIDIFIER:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HUMIDIFIER:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HUMIDIFIER:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HUMIDIFIER:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"HUMIDIFIER:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIOREQUIPMENT:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIOREQUIPMENT:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIOREQUIPMENT:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIOREQUIPMENT:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIORLIGHTS:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIORLIGHTS:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIORLIGHTS:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERIORLIGHTS:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"INTERNAL TRANSPORT:INTERIOREQUIPMENT:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"NONCOMPLIANCELTG:INTERIORLIGHTS:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"NONREG LTG:EXTERIORLIGHTS:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PROCESS:EXTERIOREQUIPMENT:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PROCESS:EXTERIOREQUIPMENT:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PROCESS:INTERIOREQUIPMENT:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PROCESS:INTERIOREQUIPMENT:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PUMPS:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PUMPS:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PUMPS:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"PUMPS:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"RECEPTACLE:EXTERIOREQUIPMENT:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"RECEPTACLE:EXTERIOREQUIPMENT:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"RECEPTACLE:INTERIOREQUIPMENT:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REFRIG:EXTERIOREQUIPMENT:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REFRIG:INTERIOREQUIPMENT:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REFRIGERATION:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REFRIGERATION:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REFRIGERATION:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REFRIGERATION:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REFRIGERATION:NATURALGAS\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"REG LTG:EXTERIORLIGHTS:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"WATERSYSTEMS:COAL\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"WATERSYSTEMS:DISTRICTCOOLING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"WATERSYSTEMS:DISTRICTHEATING\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"WATERSYSTEMS:ELECTRICITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"COAL:FACILITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"DISTRICTCOOLING:FACILITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"DISTRICTHEATING:FACILITY\" - not found.",
+    "   ** Warning ** Output:Meter:MeterFileOnly requested for \"Electricity:Facility\" (TimeStep), already on \"Output:Meter\". Will report to both eplusout.eso and eplusout.mtr",
+    "   ************* Testing Individual Branch Integrity",
+    "   ************* All Branches passed integrity testing",
+    "   ************* Testing Individual Supply Air Path Integrity",
+    "   ************* All Supply Air Paths passed integrity testing",
+    "   ************* Testing Individual Return Air Path Integrity",
+    "   ************* All Return Air Paths passed integrity testing",
+    "   ************* No node connection errors were found.",
+    "   ************* Beginning Simulation",
+    "   ** Warning ** CalcEquipmentFlowRates: \"PERIMETER_ZN_1 WATER USE EQUIPMENT\" - Target water temperature is greater than the hot water temperature by (0.98 C)",
+    "   **   ~~~   **  Environment=SACRAMENTO-EXECUTIVE_724830_CZ2010, at Simulation time=01/01 00:00 - 00:15",
+    "   **   ~~~   ** ...target water temperature     = 57.22 C",
+    "   **   ~~~   ** ...hot water temperature        = 56.24 C",
+    "   **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.",
+    "   ** Warning ** CalcEquipmentFlowRates: \"PERIMETER_ZN_2 WATER USE EQUIPMENT\" - Target water temperature is greater than the hot water temperature by (0.98 C)",
+    "   **   ~~~   **  Environment=SACRAMENTO-EXECUTIVE_724830_CZ2010, at Simulation time=01/01 00:00 - 00:15",
+    "   **   ~~~   ** ...target water temperature     = 57.22 C",
+    "   **   ~~~   ** ...hot water temperature        = 56.24 C",
+    "   **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.",
+    "   ** Warning ** CalcEquipmentFlowRates: \"PERIMETER_ZN_3 WATER USE EQUIPMENT\" - Target water temperature is greater than the hot water temperature by (0.98 C)",
+    "   **   ~~~   **  Environment=SACRAMENTO-EXECUTIVE_724830_CZ2010, at Simulation time=01/01 00:00 - 00:15",
+    "   **   ~~~   ** ...target water temperature     = 57.22 C",
+    "   **   ~~~   ** ...hot water temperature        = 56.24 C",
+    "   **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.",
+    "   ** Warning ** CalcEquipmentFlowRates: \"PERIMETER_ZN_4 WATER USE EQUIPMENT\" - Target water temperature is greater than the hot water temperature by (0.98 C)",
+    "   **   ~~~   **  Environment=SACRAMENTO-EXECUTIVE_724830_CZ2010, at Simulation time=01/01 00:00 - 00:15",
+    "   **   ~~~   ** ...target water temperature     = 57.22 C",
+    "   **   ~~~   ** ...hot water temperature        = 56.24 C",
+    "   **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.",
+    "   ** Warning ** CalcEquipmentFlowRates: \"CORE_ZN WATER USE EQUIPMENT\" - Target water temperature is greater than the hot water temperature by (0.98 C)",
+    "   **   ~~~   **  Environment=SACRAMENTO-EXECUTIVE_724830_CZ2010, at Simulation time=01/01 00:00 - 00:15",
+    "   **   ~~~   ** ...target water temperature     = 57.22 C",
+    "   **   ~~~   ** ...hot water temperature        = 56.24 C",
+    "   **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'EXTERIORLIGHTS:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'HEATREJECTION:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'HUMIDIFIER:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'HEATRECOVERY:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'WATERSYSTEMS:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'COGENERATION:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY' invalid Variable or Meter Name 'REFRIGERATION:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'INTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'COOLING:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS' invalid Variable or Meter Name 'COGENERATION:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'FANS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'PUMPS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HEATING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'COOLING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING' invalid Variable or Meter Name 'COGENERATION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'FANS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'PUMPS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HEATING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'COOLING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING' invalid Variable or Meter Name 'COGENERATION:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'EXTERIORLIGHTS:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'HEATREJECTION:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'HUMIDIFIER:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'HEATRECOVERY:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'WATERSYSTEMS:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:ELECTRICITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'INTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'COOLING:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:NATURALGAS'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'DISTRICTHEATING:FACILITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'FANS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'PUMPS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HEATING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'COOLING:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT HEATING PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:DISTRICTHEATING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'DISTRICTCOOLING:FACILITY'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'INTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIORLIGHTS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'INTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'EXTERIOREQUIPMENT:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'FANS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'PUMPS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HEATING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'COOLING:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HEATREJECTION:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HUMIDIFIER:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'HEATRECOVERY:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'WATERSYSTEMS:DISTRICTCOOLING'",
+    "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:DISTRICTCOOLING'",
+    "   ** Warning ** Processing Monthly Tabular Reports: Variable names not valid for this simulation",
+    "   **   ~~~   ** ...use Output:Diagnostics,DisplayExtraWarnings; to show more details on individual variables.",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:00 - 05:15",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   **   ~~~   ** ...use Output:Diagnostics,DisplayExtraWarnings; to show more details on each max iteration exceeded.",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:00 - 05:01",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:01 - 05:02",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   **   ~~~   ** The solution for one or more plant systems did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:02 - 05:03",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:03 - 05:04",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:04 - 05:05",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:05 - 05:06",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   **   ~~~   ** The solution for one or more plant systems did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:06 - 05:08",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:08 - 05:09",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   **   ~~~   ** The solution for one or more plant systems did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:15 - 05:18",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   **   ~~~   ** The solution for one or more plant systems did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:18 - 05:21",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   **   ~~~   ** The solution for one or more plant systems did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:24 - 05:27",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:27 - 05:30",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Warning ** SimHVAC: Maximum iterations (20) exceeded for all HVAC loops, at SACRAMENTO-EXECUTIVE_724830_CZ2010, 01/01 05:30 - 05:45",
+    "   **   ~~~   ** The solution for one or more of the Air Loop HVAC systems did not appear to converge",
+    "   **   ~~~   ** The solution for zone HVAC equipment did not appear to converge",
+    "   ** Severe  ** FindRootSimpleController: Controller error for controller = \"CONTROLLER WATER COIL 2\"",
+    "   **   ~~~   **  Environment=SACRAMENTO-EXECUTIVE_724830_CZ2010, at Simulation time=01/17 12:30 - 12:45",
+    "   **   ~~~   **   Controller function is inconsistent with user specified controller action = Reverse action",
+    "   **   ~~~   **   Actuator will be set to maximum action",
+    "   **   ~~~   ** Controller control type=Temperature",
+    "   **   ~~~   ** Controller temperature setpoint = 11.06 [C]",
+    "   **   ~~~   ** Controller sensed temperature = 13.93 [C]",
+    "   **   ~~~   ** Controller actuator mass flow rate set to 0.63 [kg/s]",
+    "   **   ~~~   ** Controller actuator temperature = 14.44 [C]",
+    "   **   ~~~   **   Note: Chilled water coils should be reverse action and the entering chilled",
+    "   **   ~~~   **         water temperature (controller actuator temperature) should be below the setpoint temperature",
+    "   **   ~~~   **   Note: Hot water coils should be normal action and the entering hot",
+    "   **   ~~~   **         water temperature (controller actuator temperature) should be above the setpoint temperature",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-ELECTRICITY\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-DISTILLATE OIL\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-RESIDUAL OIL\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-NATURAL GAS\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-COAL\" has no energy cost. ",
+    "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
+    "   ************* Simulation Error Summary *************",
+    "   ** Warning ** The following Report Variables were requested but not generated -- check.rdd file",
+    "   **   ~~~   ** Either the IDF did not contain these elements, the variable name is misspelled,",
+    "   **   ~~~   ** or the requested variable is an advanced output which requires Output : Diagnostics, DisplayAdvancedReportVariables;",
+    "   ************* Key=*, VarName=ZONE PACKAGED TERMINAL HEAT PUMP TOTAL HEATING RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=ZONE PACKAGED TERMINAL HEAT PUMP TOTAL COOLING RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=ZONE PACKAGED TERMINAL AIR CONDITIONER TOTAL HEATING RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=ZONE PACKAGED TERMINAL AIR CONDITIONER TOTAL COOLING RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=HEATING COIL AIR HEATING RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=COOLING COIL ELECTRICITY RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=COOLING COIL PART LOAD RATIO, Frequency=Hourly",
+    "   ************* Key=*, VarName=COOLING COIL RUNTIME FRACTION, Frequency=Hourly",
+    "   ************* Key=*, VarName=HEATING COIL NATURALGAS RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=HEATING COIL RUNTIME FRACTION, Frequency=Hourly",
+    "   ************* Key=*, VarName=HEATING COIL PART LOAD RATIO, Frequency=Hourly",
+    "   ************* Key=*, VarName=EVAPORATIVE COOLER ELECTRICITY RATE, Frequency=Hourly",
+    "   ************* Key=*, VarName=HEATING COIL TOTAL HEATING RATE, Frequency=Hourly",
+    "   ************* Key=DOAS-ChilledBeam_Sys Supply Side (Return Air) Inlet Node, VarName=SYSTEM NODE TEMPERATURE, Frequency=Hourly",
+    "   ************* Key=DOAS-ChilledBeam_Sys Demand Side (Supply Air) Inlet Node, VarName=SYSTEM NODE TEMPERATURE, Frequency=Hourly",
+    "   ************* Key=DOAS-ChilledBeam_Sys Demand Side (Supply Air) Inlet Node, VarName=SYSTEM NODE STANDARD DENSITY VOLUME FLOW RATE, Frequency=Hourly",
+    "   ************* There are 5 unused schedules in input.",
+    "   ************* There are 5 unused week schedules in input.",
+    "   ************* There are 7 unused day schedules in input.",
+    "   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.",
+    "   *************",
+    "   ************* ===== Recurring Error Summary =====",
+    "   ************* The following recurring error messages occurred.",
+    "   *************",
+    "   *************  ** Warning ** \"PERIMETER_ZN_1 WATER USE EQUIPMENT\" - Target water temperature should be less than or equal to the hot water temperature error continues...",
+    "   *************  **   ~~~   **   This error occurred 734619 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=1.521618  Min=0.600249",
+    "   *************",
+    "   *************  ** Warning ** \"PERIMETER_ZN_2 WATER USE EQUIPMENT\" - Target water temperature should be less than or equal to the hot water temperature error continues...",
+    "   *************  **   ~~~   **   This error occurred 734619 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=1.521618  Min=0.600249",
+    "   *************",
+    "   *************  ** Warning ** \"PERIMETER_ZN_3 WATER USE EQUIPMENT\" - Target water temperature should be less than or equal to the hot water temperature error continues...",
+    "   *************  **   ~~~   **   This error occurred 734619 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=1.521618  Min=0.600249",
+    "   *************",
+    "   *************  ** Warning ** \"PERIMETER_ZN_4 WATER USE EQUIPMENT\" - Target water temperature should be less than or equal to the hot water temperature error continues...",
+    "   *************  **   ~~~   **   This error occurred 734619 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=1.521618  Min=0.600249",
+    "   *************",
+    "   *************  ** Warning ** \"CORE_ZN WATER USE EQUIPMENT\" - Target water temperature should be less than or equal to the hot water temperature error continues...",
+    "   *************  **   ~~~   **   This error occurred 734619 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=1.521618  Min=0.600249",
+    "   *************",
+    "   *************  ** Warning ** SimHVAC: Exceeding Maximum iterations for all HVAC loops, during SACRAMENTO-EXECUTIVE_724830_CZ2010 continues",
+    "   *************  **   ~~~   **   This error occurred 3165 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************",
+    "   *************  ** Severe  ** FindRootSimpleController: Previous controller action error continues for controller = CONTROLLER WATER COIL 2",
+    "   *************  **   ~~~   **   This error occurred 3220 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************",
+    "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Sizing Error Summary. During Sizing: 22 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Completed Successfully-- 3676477 Warning; 3221 Severe Errors; "
+  ],
+  "file_paths": [
+    "/home/julien/Software/Others/OpenStudio-resources/testruns/OffSml_ActiveBeams.xml/generated_files",
+    "./files",
+    "./weather",
+    "../../files",
+    "../../weather",
+    "./"
+  ],
+  "seed_file": "in.osm",
+  "steps": [
+    {
+      "arguments": {
+      },
+      "measure_dir_name": "openstudio_results",
+      "result": {
+        "measure_class_name": "OpenStudioResults",
+        "measure_display_name": "OpenStudio Results",
+        "measure_name": "openstudio_results",
+        "measure_taxonomy": "Reporting.QAQC",
+        "measure_type": "ReportingMeasure",
+        "measure_uid": "a25386cd-60e4-46bc-8b11-c755f379d916",
+        "measure_version_id": "02ad7007-fe7b-4747-bd7a-29d697c4d91a",
+        "measure_version_modified": "20180711T183039Z",
+        "measure_xml_checksum": "557BF06F",
+        "stderr": "",
+        "stdout": "",
+        "step_errors": [
+
+        ],
+        "step_final_condition": "Generated report with 19 sections to ./report.html.",
+        "step_info": [
+
+        ],
+        "step_initial_condition": "Gathering data from EnergyPlus SQL file and OSM model.",
+        "step_result": "Success",
+        "step_values": [
+          {
+            "name": "building_summary_section",
+            "value": true
+          },
+          {
+            "name": "annual_overview_section",
+            "value": true
+          },
+          {
+            "name": "monthly_overview_section",
+            "value": true
+          },
+          {
+            "name": "utility_bills_rates_section",
+            "value": true
+          },
+          {
+            "name": "envelope_section_section",
+            "value": true
+          },
+          {
+            "name": "space_type_breakdown_section",
+            "value": true
+          },
+          {
+            "name": "space_type_details_section",
+            "value": true
+          },
+          {
+            "name": "interior_lighting_section",
+            "value": true
+          },
+          {
+            "name": "plug_loads_section",
+            "value": true
+          },
+          {
+            "name": "exterior_light_section",
+            "value": true
+          },
+          {
+            "name": "water_use_section",
+            "value": true
+          },
+          {
+            "name": "hvac_load_profile",
+            "value": true
+          },
+          {
+            "name": "zone_condition_section",
+            "value": true
+          },
+          {
+            "name": "zone_summary_section",
+            "value": true
+          },
+          {
+            "name": "zone_equipment_detail_section",
+            "value": true
+          },
+          {
+            "name": "air_loops_detail_section",
+            "value": true
+          },
+          {
+            "name": "plant_loops_detail_section",
+            "value": true
+          },
+          {
+            "name": "outdoor_air_section",
+            "value": true
+          },
+          {
+            "name": "cost_summary_section",
+            "value": true
+          },
+          {
+            "name": "source_energy_section",
+            "value": true
+          },
+          {
+            "name": "schedules_overview_section",
+            "value": true
+          },
+          {
+            "name": "standards_gem_version",
+            "value": "0.4.0"
+          },
+          {
+            "name": "workflow_gem_version",
+            "value": "2.3.1"
+          },
+          {
+            "display_name": "Small Office",
+            "name": "building_name",
+            "value": "n/a"
+          },
+          {
+            "name": "total_site_energy",
+            "units": "kBtu",
+            "value": 322892.86
+          },
+          {
+            "name": "net_site_energy",
+            "units": "kBtu",
+            "value": 322892.86
+          },
+          {
+            "name": "total_building_area",
+            "units": "ft^2",
+            "value": 11615.77
+          },
+          {
+            "name": "total_site_eui",
+            "units": "kBtu/ft^2",
+            "value": 27.8
+          },
+          {
+            "name": "eui",
+            "units": "kBtu/ft^2",
+            "value": 27.8
+          },
+          {
+            "name": "unmet_hours_during_heating",
+            "units": "hr",
+            "value": 526.5
+          },
+          {
+            "name": "unmet_hours_during_cooling",
+            "units": "hr",
+            "value": 0.0
+          },
+          {
+            "name": "unmet_hours_during_occupied_heating",
+            "units": "hr",
+            "value": 15.75
+          },
+          {
+            "name": "unmet_hours_during_occupied_cooling",
+            "units": "hr",
+            "value": 0.0
+          },
+          {
+            "name": "unmet_hours_tolerance_heating",
+            "units": "F",
+            "value": 1.01
+          },
+          {
+            "name": "unmet_hours_tolerance_cooling",
+            "units": "F",
+            "value": 1.01
+          },
+          {
+            "name": "electricity_heating_ip",
+            "units": "kWh",
+            "value": 13.31
+          },
+          {
+            "name": "electricity_cooling_ip",
+            "units": "kWh",
+            "value": 5167.12
+          },
+          {
+            "name": "electricity_interior_lighting_ip",
+            "units": "kWh",
+            "value": 6785.3
+          },
+          {
+            "name": "electricity_exterior_lighting_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_interior_equipment_ip",
+            "units": "kWh",
+            "value": 23566.68
+          },
+          {
+            "name": "electricity_exterior_equipment_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_fans_ip",
+            "units": "kWh",
+            "value": 5250.05
+          },
+          {
+            "name": "electricity_pumps_ip",
+            "units": "kWh",
+            "value": 553.14
+          },
+          {
+            "name": "electricity_heat_rejection_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_humidification_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_heat_recovery_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_water_systems_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_refrigeration_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_generators_ip",
+            "units": "kWh",
+            "value": 0.0
+          },
+          {
+            "name": "electricity_ip",
+            "units": "kWh",
+            "value": 41335.6
+          },
+          {
+            "name": "natural_gas_heating_ip",
+            "units": "MBtu",
+            "value": 175.54
+          },
+          {
+            "name": "natural_gas_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_water_systems_ip",
+            "units": "MBtu",
+            "value": 6.31
+          },
+          {
+            "name": "natural_gas_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "natural_gas_ip",
+            "units": "MBtu",
+            "value": 181.85
+          },
+          {
+            "name": "gasoline_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "gasoline_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "diesel_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "coal_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_1_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "fuel_oil_no_2_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "propane_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_1_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "other_fuel_2_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "district_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_heating_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_cooling_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_interior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_exterior_lighting_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_interior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_exterior_equipment_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_fans_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_pumps_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_heat_rejection_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_humidification_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_heat_recovery_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_water_systems_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_refrigeration_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_generators_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "water_ip",
+            "units": "MBtu",
+            "value": 0.0
+          },
+          {
+            "name": "base_cz_12_nonres_metal_frame_wall_u_062",
+            "units": "ft^2",
+            "value": 2387.78
+          },
+          {
+            "name": "base_cz_12_nonres_other_floor_u_071",
+            "units": "ft^2",
+            "value": 611.6
+          },
+          {
+            "name": "base_cz_12_steep_nonres_wood_framing_and_other_roof_u_039",
+            "units": "ft^2",
+            "value": 6445.01
+          },
+          {
+            "name": "base_all_cz_fixed_window_u_36",
+            "units": "ft^2",
+            "value": 642.43
+          },
+          {
+            "name": "gross_window_wall_ratio",
+            "units": "%",
+            "value": 21.2
+          },
+          {
+            "name": "gross_window_wall_ratio_conditioned",
+            "units": "%",
+            "value": 21.2
+          },
+          {
+            "name": "skylight_roof_ratio",
+            "units": "%",
+            "value": 0.0
+          },
+          {
+            "name": "space_type_no_space_type",
+            "units": "ft^2",
+            "value": 11615.71
+          },
+          {
+            "name": "exterior_lighting_total_power",
+            "units": "W",
+            "value": 0.0
+          },
+          {
+            "name": "exterior_lighting_total_consumption",
+            "units": "kWh",
+            "value": 94630.56
+          },
+          {
+            "name": "core_zn_water_use_equipment",
+            "units": "gal/min",
+            "value": 0.02
+          },
+          {
+            "name": "perimeter_zn_1_water_use_equipment",
+            "units": "gal/min",
+            "value": 0.02
+          },
+          {
+            "name": "perimeter_zn_2_water_use_equipment",
+            "units": "gal/min",
+            "value": 0.01
+          },
+          {
+            "name": "perimeter_zn_3_water_use_equipment",
+            "units": "gal/min",
+            "value": 0.02
+          },
+          {
+            "name": "perimeter_zn_4_water_use_equipment",
+            "units": "gal/min",
+            "value": 0.01
+          },
+          {
+            "name": "inflation_approach",
+            "value": "Constant Dollar"
+          },
+          {
+            "name": "analysis_length",
+            "units": "yrs",
+            "value": 25
+          },
+          {
+            "name": "annual_peak_electric_demand",
+            "units": "kW",
+            "value": 17.84
+          },
+          {
+            "name": "first_year_capital_cost",
+            "units": "$",
+            "value": 0.0
+          },
+          {
+            "name": "annual_utility_cost",
+            "units": "$",
+            "value": 0.0
+          },
+          {
+            "name": "total_lifecycle_cost",
+            "units": "$",
+            "value": 0.0
+          }
+        ],
+        "step_warnings": [
+          "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
+          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1187:in `execute'\n:/openstudio_cli.rb:817:in `execute'\n:/openstudio_cli.rb:1984:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'",
+          "Plant Loops Detail section failed and was skipped because: undefined local variable or method `compressorMotorEfficiency' for #<OpenStudio::Model::ChillerElectricEIR:0x00005603fb5c1fc0>. Detail on error follows.",
+          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.ChillerElectricEIR.rb:56:in `performanceCharacteristics'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.HVACComponent.rb:94:in `performanceCharacteristics'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:761:in `general_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1112:in `plant_loop_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1173:in `block (2 levels) in plant_loops_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `block in plant_loops_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `plant_loops_detail_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1187:in `execute'\n:/openstudio_cli.rb:817:in `execute'\n:/openstudio_cli.rb:1984:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+        ]
+      }
+    }
+  ],
+  "weather_file": "../../weatherdata/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+}
