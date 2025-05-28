@@ -72,18 +72,22 @@ sub_surfaces = sub_surfaces.sort_by { |ss| ss.name.to_s }
 
 # make afn zones
 afnzone1 = zones[0].getAirflowNetworkZone
+afnzone1.setMinimumVentingOpenFactor(0.1)
 afnzone2 = zones[1].getAirflowNetworkZone
+afnzone2.setMinimumVentingOpenFactor(0.2)
 
 # Simple Opening
 simpleOpening = OpenStudio::Model::AirflowNetworkSimpleOpening.new(model, 1.0, 0.65, 0.5, 0.5)
-sub_surfaces[0].getAirflowNetworkSurface(simpleOpening)
+afnsurf1 = sub_surfaces[0].getAirflowNetworkSurface(simpleOpening)
+afnsurf1.setWindowDoorOpeningFactorOrCrackFactor(0.1)
 
 # Detailed Opening
 data = OpenStudio::Model::DetailedOpeningFactorDataVector.new
 data << OpenStudio::Model::DetailedOpeningFactorData.new(0.0, 0.01, 0.0, 0.0, 0.0)
 data << OpenStudio::Model::DetailedOpeningFactorData.new(1.0, 0.5, 1.0, 1.0, 0.0)
 detailedOpening = OpenStudio::Model::AirflowNetworkDetailedOpening.new(model, 1.0, data)
-sub_surfaces[1].getAirflowNetworkSurface(detailedOpening)
+afnsurf2 = sub_surfaces[1].getAirflowNetworkSurface(detailedOpening)
+afnsurf2.setWindowDoorOpeningFactorOrCrackFactor(0.2)
 
 # Horizontal Opening
 adjacent_surface = adjacent_surfaces[0]
