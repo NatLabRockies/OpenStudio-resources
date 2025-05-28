@@ -72,8 +72,8 @@ sub_surfaces = sub_surfaces.sort_by { |ss| ss.name.to_s }
 
 # make afn zones
 afnzone1 = zones[0].getAirflowNetworkZone
-afnzone1.setMinimumVentingOpenFactor(0.1)
 afnzone2 = zones[1].getAirflowNetworkZone
+afnzone1.setMinimumVentingOpenFactor(0.1)
 afnzone2.setMinimumVentingOpenFactor(0.2)
 
 # Simple Opening
