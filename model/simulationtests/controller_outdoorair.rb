@@ -24,7 +24,7 @@ air_loop = OpenStudio::Model::AirLoopHVAC.new(model, true)
 fan = OpenStudio::Model::FanVariableVolume.new(model)
 fan.addToNode(air_loop.supplyInletNode)
 
-# Similar to the FurnaceWithDXSystemRHcontrol.idf test file
+# Similar to FurnaceWithDXSystemRHcontrol.idf
 
 enthalpy_limit_curve = OpenStudio::Model::CurveCubic.new(model)
 enthalpy_limit_curve.setName('ElectronicEnthalpyCurveA')
