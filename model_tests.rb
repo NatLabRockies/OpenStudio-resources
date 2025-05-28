@@ -1774,6 +1774,70 @@ class ModelTests < Minitest::Test
     result = sim_test('solar_collector_integralcollectorstorage.osm')
   end
 
+  def _helper_space_level_dsoa(filename:)
+    result_osw = sim_test(filename, { compare_eui: false })
+    if $UseEplusSpaces == false
+      cp_out_osw = File.join($OutOSWDir, "#{filename}_#{$SdkVersion}_out#{$Custom_tag}.osw")
+      compare_osw_eui_with_previous_version(cp_out_osw)
+      return
+    end
+
+    out_dir = File.join($TestDir, filename)
+    idf_path = File.join(out_dir, 'run', 'in.idf')
+    assert(File.exist?(idf_path), "Can't find idf file #{idf_path}")
+    w = OpenStudio::Workspace.load(idf_path, 'EnergyPlus'.to_IddFileType).get
+
+    controller_mvs = w.getObjectsByType('Controller:MechanicalVentilation')
+    assert_equal(1, controller_mvs.size, "Expected only one Controller:MechanicalVentilation, not #{controller_mvs.size}")
+
+    controller_mv = controller_mvs[0]
+    assert_equal(1, controller_mv.numExtensibleGroups)
+    eg = controller_mv.extensibleGroups[0]
+    assert_equal(['Zone or ZoneList Name', 'Design Specification Outdoor Air Object Name', 'Design Specification Zone Air Distribution Object Name'], controller_mv.iddObject.extensibleGroup.map(&:name))
+    assert_equal('Zone with 5 Spaces', eg.getString(0).get)
+    assert_equal('Zone with 5 Spaces DSOA Space List', eg.getString(1).get)
+    assert(eg.isEmpty(2))
+
+    assert_equal(1, w.getObjectsByType('SpaceList').size)
+    assert_equal(4, w.getObjectsByType('DesignSpecification:OutdoorAir').size)
+
+    assert_equal(1, w.getObjectsByType('DesignSpecification:OutdoorAir:SpaceList').size)
+    dsoa_sp_list = w.getObjectsByType('DesignSpecification:OutdoorAir:SpaceList').first
+    assert_equal('Zone with 5 Spaces DSOA Space List', dsoa_sp_list.nameString)
+    assert_equal(4, dsoa_sp_list.numExtensibleGroups)
+
+    assert_equal(1, w.getObjectsByType('AirTerminal:SingleDuct:VAV:Reheat').size)
+    atu = w.getObjectsByType('AirTerminal:SingleDuct:VAV:Reheat').first
+    dsoa_field_idx = atu.iddObject.numFields.times.find { |i| atu.iddObject.getField(i).get.name.include?('Design Specification Outdoor Air') }
+    refute(dsoa_field_idx.nil?)
+    assert_equal('Zone with 5 Spaces DSOA Space List', atu.getString(dsoa_field_idx).get)
+
+    cp_out_osw = File.join($OutOSWDir, "#{filename}_#{$SdkVersion}_out#{$Custom_tag}.osw")
+    # We know it was broken between 3.5.0 and 3.10.0
+    eui_pct_threshold = 0.5
+    if Gem::Version.new($SdkVersion) >= Gem::Version.new('3.5.0') && Gem::Version.new($SdkVersion) <= Gem::Version.new('3.10.0')
+      eui_pct_threshold = 200.0
+    end
+    compare_osw_eui_with_previous_version(cp_out_osw, eui_pct_threshold: eui_pct_threshold)
+  end
+
+  def test_space_level_dsoa_rb
+    # result = sim_test('space_level_dsoa.rb')
+    # We're going to do it manually here, above line is just for CI to detect changed tests
+    _helper_space_level_dsoa(filename: 'space_level_dsoa.rb')
+  end
+
+  def test_space_level_dsoa_py
+    # result = sim_test('space_level_dsoa.py')
+    # We're going to do it manually here, above line is just for CI to detect changed tests
+    _helper_space_level_dsoa(filename: 'space_level_dsoa.py')
+  end
+
+  def test_space_level_dsoa_osm
+    # result = sim_test('space_level_dsoa.osm')
+    _helper_space_level_dsoa(filename: 'space_level_dsoa.osm')
+  end
+
   def test_space_load_instances_rb
     result = sim_test('space_load_instances.rb')
   end

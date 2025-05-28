@@ -975,7 +975,11 @@ zones.each_with_index do |zn, zone_index|
   when 3
 
   when 4
-    OpenStudio::Model::ZoneHVACHighTemperatureRadiant.new(model).addToThermalZone(zn)
+    hightempradiant = OpenStudio::Model::ZoneHVACHighTemperatureRadiant.new(model)
+    radiant_heating_schedule = OpenStudio::Model::ScheduleConstant.new(model)
+    radiant_heating_schedule.setValue(24.0)
+    hightempradiant.setHeatingSetpointTemperatureSchedule(radiant_heating_schedule)
+    hightempradiant.addToThermalZone(zn)
   when 5
     fan = OpenStudio::Model::FanOnOff.new(model, s1)
     fan.setName('ZoneHVACPackagedTerminalHeatPump Fan On Off')
