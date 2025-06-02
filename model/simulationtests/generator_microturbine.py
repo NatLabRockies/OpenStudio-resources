@@ -1,7 +1,6 @@
 import json
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 
@@ -333,7 +332,9 @@ model.add_swh_end_uses(mixed_swh_loop, "Medium Office Bldg Swh")
 # The Capstone Reference Heat Recovery Water Flow Rate = 40 GPM
 gpm = 150.0
 water_use_connection = (
-    mixed_swh_loop.demandComponents(openstudio.IddObjectType("OS:WaterUse:Connections"))[0].to_WaterUseConnections().get()
+    mixed_swh_loop.demandComponents(openstudio.IddObjectType("OS:WaterUse:Connections"))[0]
+    .to_WaterUseConnections()
+    .get()
 )
 water_use_equipment = water_use_connection.waterUseEquipment()[0]
 water_equip_def = water_use_equipment.waterUseEquipmentDefinition()
