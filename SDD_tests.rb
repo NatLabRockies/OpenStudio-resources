@@ -189,6 +189,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('afn_single_zone_nv.osm')
   end
 
+  def test_FT_afn_multiple_zones
+    sdd_ft_test('afn_multiple_zones.osm')
+  end
+
   def test_FT_air_chillers
     sdd_ft_test('air_chillers.osm')
   end
