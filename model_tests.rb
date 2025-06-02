@@ -2314,6 +2314,10 @@ class ModelTests < Minitest::Test
     result = sim_test('afn_multiple_zones.rb')
   end
 
+  def test_afn_multiple_zones_py
+    result = sim_test('afn_multiple_zones.py')
+  end
+
   # TODO: To be added in the next official release after: 3.3.0
   # def test_afn_multiple_zones_osm
   #   result = sim_test('afn_multiple_zones.osm')
