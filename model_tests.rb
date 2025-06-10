@@ -442,10 +442,9 @@ class ModelTests < Minitest::Test
     result = sim_test('controller_outdoorair.rb')
   end
 
-  # TODO: To be added in the next official release after: 3.8.0
-  # def test_controller_outdoorair_osm
-  # result = sim_test('controller_outdoorair.osm')
-  # end
+  def test_controller_outdoorair_osm
+    result = sim_test('controller_outdoorair.osm')
+  end
 
   def test_coolingtowers_osm
     result = sim_test('coolingtowers.osm')
