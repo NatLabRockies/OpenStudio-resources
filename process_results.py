@@ -147,89 +147,95 @@ Help:
 
 from docopt import docopt
 
-
 if __name__ == "__main__":
 
     """Main CLI entrypoint."""
-    from python.regression_analysis import cli_heatmap
-    from python.regression_analysis import cli_upload
-    from python.regression_analysis import delete_custom_tagged_osws
-    from python.regression_analysis import test_stability
-    from python.regression_analysis import cli_test_status_html
+    from python.regression_analysis import (
+        cli_heatmap,
+        cli_test_status_html,
+        cli_upload,
+        delete_custom_tagged_osws,
+        test_stability,
+    )
+
     options = docopt(__doc__)
 
     # Debug
     # print(options)
     # exit()
 
-    if options['heatmap']:
-        max_eplus_versions = options['--max_eplus_versions']
+    if options["heatmap"]:
+        max_eplus_versions = options["--max_eplus_versions"]
         if max_eplus_versions is not None:
             try:
                 max_eplus_versions = int(max_eplus_versions)
             except ValueError:
                 raise ValueError("max_eplus_versions must be an int")
 
-        if options['--granular']:
-            options['--row_threshold'] = 0.0005
-            options['--display_threshold'] = 0.0001
+        if options["--granular"]:
+            options["--row_threshold"] = 0.0005
+            options["--display_threshold"] = 0.0001
         else:
             try:
 
-                r_t = float(options['--row_threshold'])
-                options['--row_threshold'] = r_t
+                r_t = float(options["--row_threshold"])
+                options["--row_threshold"] = r_t
 
-                d_t = float(options['--display_threshold'])
-                options['--display_threshold'] = d_t
+                d_t = float(options["--display_threshold"])
+                options["--display_threshold"] = d_t
             except ValueError:
                 raise ValueError("row_threshold and display_threshold must be numeric")
 
-        cli_heatmap(tagged=options['--tagged'],
-                    all_osws=options['--all'],
-                    row_threshold=options['--row_threshold'],
-                    display_threshold=options['--display_threshold'],
-                    save_indiv_figs_for_ax=options['--indiv_axes'],
-                    figname_with_thresholds=options['--figname_with_thresholds'],
-                    quiet=options['--quiet'],
-                    max_eplus_versions=max_eplus_versions,
-                    ci_annotations=options['--ci'])
-    elif options['upload']:
+        cli_heatmap(
+            tagged=options["--tagged"],
+            all_osws=options["--all"],
+            row_threshold=options["--row_threshold"],
+            display_threshold=options["--display_threshold"],
+            save_indiv_figs_for_ax=options["--indiv_axes"],
+            figname_with_thresholds=options["--figname_with_thresholds"],
+            quiet=options["--quiet"],
+            max_eplus_versions=max_eplus_versions,
+            ci_annotations=options["--ci"],
+        )
+    elif options["upload"]:
         cli_upload()
 
-    elif options['test-stability']:
-        if options['clean']:
-            delete_custom_tagged_osws(contains=options['--contains'],
-                                      regex_pattern=options['--pattern'])
-        elif options['run']:
+    elif options["test-stability"]:
+        if options["clean"]:
+            delete_custom_tagged_osws(contains=options["--contains"], regex_pattern=options["--pattern"])
+        elif options["run"]:
             try:
-                options['--run_n_times'] = int(options['--run_n_times'])
-                options['--start_at'] = int(options['--start_at'])
+                options["--run_n_times"] = int(options["--run_n_times"])
+                options["--start_at"] = int(options["--start_at"])
 
             except ValueError:
                 print("N (run_n_times) must be numeric")
                 exit()
-            test_stability(os_cli=options['--os_cli'],
-                           test_filter=options['--test_filter'],
-                           run_n_times=options['--run_n_times'],
-                           start_at=options['--start_at'],
-                           save_idf=options['--save_idf'],
-                           energyplus_exe_path=options['--eplus_exe'],
-                           platform_name=options['--platform_name'])
+            test_stability(
+                os_cli=options["--os_cli"],
+                test_filter=options["--test_filter"],
+                run_n_times=options["--run_n_times"],
+                start_at=options["--start_at"],
+                save_idf=options["--save_idf"],
+                energyplus_exe_path=options["--eplus_exe"],
+                platform_name=options["--platform_name"],
+            )
 
-        elif options['analyze']:
+        elif options["analyze"]:
             pass
-    elif options['test-status']:
-        max_eplus_versions = options['--max_eplus_versions']
+    elif options["test-status"]:
+        max_eplus_versions = options["--max_eplus_versions"]
         if max_eplus_versions is not None:
             try:
                 max_eplus_versions = int(max_eplus_versions)
             except ValueError:
                 raise ValueError("max_eplus_versions must be an int")
         return_code = cli_test_status_html(
-            entire_table=options['--entire_table'],
-            tagged=options['--tagged'],
-            all_osws=options['--all'],
-            quiet=options['--quiet'],
+            entire_table=options["--entire_table"],
+            tagged=options["--tagged"],
+            all_osws=options["--all"],
+            quiet=options["--quiet"],
             max_eplus_versions=max_eplus_versions,
-            ci_annotations=options['--ci'])
+            ci_annotations=options["--ci"],
+        )
         exit(return_code)

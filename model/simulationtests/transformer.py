@@ -1,7 +1,6 @@
 import re
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 model = BaselineModel()

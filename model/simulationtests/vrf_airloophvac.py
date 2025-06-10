@@ -3,7 +3,6 @@
 # This feature was added in 3.2.0
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 model = BaselineModel()
