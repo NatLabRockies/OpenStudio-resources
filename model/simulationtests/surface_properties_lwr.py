@@ -3,7 +3,6 @@
 # Loosely adapted from SurfacePropTest_SurfLWR.idf (from E+ 9.6)
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 model = BaselineModel()

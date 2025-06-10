@@ -4,7 +4,6 @@
 # and 1ZoneEvapCooler_4Win_incidentSolarMultiplier.idf (from E+ 22.2.0)
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 model = BaselineModel()

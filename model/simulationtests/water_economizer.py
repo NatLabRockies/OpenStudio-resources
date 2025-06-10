@@ -1,5 +1,4 @@
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 # use line below when running in ruby 2.0

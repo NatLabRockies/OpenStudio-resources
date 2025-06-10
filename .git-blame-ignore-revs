@@ -1,0 +1,36 @@
+# This file includes the list of commits to exclude from `git blame`.
+# These are chores, like upgrading copyrights, or running any kind of automated tools like black, isort, rubocop, etc.
+#
+# How-to:
+# * Use only full 40-character hashes
+# * Here's an example of a way to grep the commit history to find commits to exclude:
+# ```
+# git log --all --reverse --grep='copyright' --grep='license' --grep='\[chore\]' --shortstat --pretty='format:# %C(auto)%s [%an, %as]%n%H%n' >> .git-blame-ignore-revs
+# Add commits from the style bot
+# git log --all --reverse --shortstat --pretty='format:# %C(auto)%s [%an, %as]%n%H%n' --author='energyplus-style-bot' >> .git-blame-ignore-revs
+# ```
+# You can add `--shortstat` to it to see the number of files changes, then do a replace `:%s/\n \(files\? changed.*\)/#    \1/g`
+#
+# To add the last commit:
+# ```
+# echo '' >> .git-blame-ignore-revs
+# git log -n1 --pretty='format:# %C(auto)%s [%an, %as]%n%H%n' >> .git-blame-ignore-revs
+# ```
+#
+# Note: On older git (like 2.17 which is default in 18.04, without `sudo add-apt-repository ppa:git-core/ppa`),
+# '%as' (date in YYYY-MM-DD)  doesn't work, use '%ai' instead
+#
+# * Locally, you can do `$ git config blame.ignoreRevsFile .git-blame-ignore-revs`
+# * Add to the bottom of the list, so we keep everything in chronological order (oldest to newest)
+
+# Adding copyright and license [Dan Macumber, 2017-03-02]
+039ea58b899401fe1cff7beabe04eb0d1b04715d
+#    2 files changed, 26 insertions(+)
+
+# tweak notebook slightly [chore] [Julien Marrec, 2023-05-22]
+126330e0c55b9b231918d7e0e519ecc8883a7931
+#    1 file changed, 24 insertions(+), 19 deletions(-)
+
+# [chore] isort + black entire repo [Julien Marrec, 2025-06-02]
+ce917f77e19b2350ca1111c5522555bf4c3a2306
+#    176 files changed, 713 insertions(+), 793 deletions(-)
