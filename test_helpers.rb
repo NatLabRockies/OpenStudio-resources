@@ -708,7 +708,7 @@ def sim_test(filename, options = {})
       cbor_target_path = File.join(files_dir, File.basename(cbor_ori_path))
 
       FileUtils.cp(cbor_ori_path, cbor_target_path)
-    when 'python_plugin.osm', 'python_plugin_search_paths'
+    when 'python_plugin.osm', 'python_plugin_search_paths.osm'
       # We need to manually copy the supporting schedule into
       # the testruns folder for the simulation to be able to find it
       program_file_name = "#{File.basename(filename, File.extname(filename))}_program.py"
