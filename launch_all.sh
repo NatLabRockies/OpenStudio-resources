@@ -32,10 +32,12 @@ declare -a all_versions=(
   "3.0.0" "3.0.1" "3.1.0" "3.2.0" "3.2.1" "3.3.0" "3.4.0" "3.5.0" "3.5.1" "3.6.0" "3.6.1" "3.7.0" "3.8.0" "3.9.0"
 )
 
-# declare -a all_versions=("3.0.0" "3.0.1" "3.1.0")
+# declare -a all_versions=("3.6.1" "3.7.0" "3.8.0" "3.9.0")
 
 #for os_version in "${all_versions[@]}"; do
-#  /Applications/OpenStudio-${os_version}/bin/openstudio model_tests.rb -n /space_level_dsoa/
+#  rm -Rf testruns/afn_*
+#  /usr/local/openstudio-${os_version}/bin/openstudio model_tests.rb -n /afn_multiple/
+#  /Applications/OpenStudio-${os_version}/bin/openstudio model_tests.rb -n /afn_multiple/
 #done
 
 # Do you want to ask the user to set these arguments?
@@ -49,7 +51,7 @@ force_rebuild=false
 test_file="model_tests.rb"
 
 # Test filter: passed as model_tests -n /$filter/
-filter="space_level_dsoa"
+filter="afn_multiple"
 # Run only osms tests: filter="_osm"
 
 # Delete custom/openstudio:$os_version image after having used it?
