@@ -3,7 +3,6 @@
 # (OutdoorWetBulb is tested in plant_op_schemes.rb)
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 model = BaselineModel()

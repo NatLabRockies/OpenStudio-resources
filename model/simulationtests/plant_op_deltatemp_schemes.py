@@ -12,7 +12,6 @@
 # (so you can't pass model.outdoorAirNode for eg)
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 model = BaselineModel()

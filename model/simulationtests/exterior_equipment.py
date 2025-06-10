@@ -1,7 +1,6 @@
 # This tests the classes that derive from ExteriorLoadDefinition and ExteriorLoadInstance
 
 import openstudio
-
 from lib.baseline_model import BaselineModel
 
 model = BaselineModel()
