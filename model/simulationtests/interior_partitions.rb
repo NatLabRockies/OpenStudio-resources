@@ -65,8 +65,8 @@ spaces.each do |space|
   y = 1
   interiorArea = 0
   heights.each_index do |i|
-    new_x = x + lengths[i] * dir_x[i]
-    new_y = y + lengths[i] * dir_y[i]
+    new_x = x + (lengths[i] * dir_x[i])
+    new_y = y + (lengths[i] * dir_y[i])
     points = OpenStudio::Point3dVector.new
     points << OpenStudio::Point3d.new(x, y, 0)
     points << OpenStudio::Point3d.new(new_x, new_y, 0)
