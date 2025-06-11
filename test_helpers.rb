@@ -598,12 +598,14 @@ def sim_test(filename, options = {})
     # Cp to the OutOSW directory
     cp_out_osw = File.join($OutOSWDir, "#{filename}_#{$SdkVersion}_out#{$Custom_tag}.osw")
   end
+  # rubocop:disable Style/RedundantCondition
   if options[:base_dir]
     base_dir = options[:base_dir]
     # puts "Setting base_dir to #{base_dir}"
   else
     base_dir = $ModelDir
   end
+  # rubocop:enable Style/RedundantCondition
 
   if options[:compare_eui].nil?
     compare_eui = true
