@@ -567,9 +567,7 @@ def postprocess_out_osw_and_copy(out_osw, cp_out_osw, compare_eui = true)
       result_osw.delete(:eplusout_err)
     end
 
-    File.open(cp_out_osw, 'w') do |f|
-      f.write(JSON.pretty_generate(result_osw))
-    end
+    File.write(cp_out_osw, JSON.pretty_generate(result_osw))
 
   end
 
