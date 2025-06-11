@@ -67,9 +67,9 @@ data = CSV.read(THERMOCHROMIC_PATH, headers: true, converters: :float)
 # Group rows by opticalDataTemperature column
 groups = data.group_by { |row| row['opticalDataTemperature'].to_i }
 
-groups.each_with_index do |(opticalDataTemperature, rows), i|
+groups.each_with_index do |(optical_data_temp, rows), i|
   s = OpenStudio::Model::StandardGlazing.new(model)
-  s.setName("WO18RT#{opticalDataTemperature}")
+  s.setName("WO18RT#{optical_data_temp}")
   s.setThickness(0.0075)
 
   s.resetSolarTransmittanceatNormalIncidence
@@ -90,7 +90,7 @@ groups.each_with_index do |(opticalDataTemperature, rows), i|
   s.setWindowGlassSpectralDataSet(data_set)
   s.setOpticalDataType('Spectral')
 
-  data_set.setName("WO18RT#{opticalDataTemperature}SP")
+  data_set.setName("WO18RT#{optical_data_temp}SP")
 
   rows.each do |row|
     data_set.addSpectralDataField(
@@ -102,9 +102,9 @@ groups.each_with_index do |(opticalDataTemperature, rows), i|
   end
 
   if i.even?
-    raise 'Failed to add ThermochromicGroup' unless t.addThermochromicGroup(s, opticalDataTemperature)
+    raise 'Failed to add ThermochromicGroup' unless t.addThermochromicGroup(s, optical_data_temp)
   else
-    group = OpenStudio::Model::ThermochromicGroup.new(s, opticalDataTemperature)
+    group = OpenStudio::Model::ThermochromicGroup.new(s, optical_data_temp)
     raise 'Failed to add ThermochromicGroup object' unless t.addThermochromicGroup(group)
   end
 end

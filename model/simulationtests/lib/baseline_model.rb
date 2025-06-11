@@ -994,7 +994,7 @@ class BaselineModel < OpenStudio::Model::Model
     return service_water_loop
   end
 
-  def add_water_heater(water_heater_type, water_heater_fuel, temp_sch_type_limits = nil, swh_temp_sch = nil, ambient_temperature_thermal_zone = nil, service_water_flowrate_schedule = nil)
+  def add_water_heater(water_heater_type, water_heater_fuel, temp_sch_type_limits = nil, swh_temp_sch = nil, ambient_temperature_thermal_zone = nil, service_water_flowrate_schedule = nil) # rubocop:disable Metrics/ParameterLists
     # Water heater
     # TODO Standards - Change water heater methodology to follow
     # 'Model Enhancements Appendix A.'

@@ -86,8 +86,8 @@ Metrics/BlockNesting:
   #CountComments: false
   #Severity: warning
 
-#Metrics/CollectionLiteralLength:
-#    Enabled: false
+Metrics/CollectionLiteralLength:
+  Enabled: false
 
 Metrics/CyclomaticComplexity:
   Max: 60
@@ -126,6 +126,10 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/ClassVars:
+  Enabled: false
+
+# Don't force an if to a case
+Style/CaseLikeIf:
   Enabled: false
 
 # Allow this syntax -- do not autocorrect.

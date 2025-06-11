@@ -55,9 +55,7 @@ spaces.each do |space|
     elsif surface.adjacentSurface.is_initialized
       adjacent_surfaces << surface
     end
-  end
 
-  space.surfaces.each do |surface|
     surface.subSurfaces.each do |sub_surface|
       sub_surfaces << sub_surface
     end
