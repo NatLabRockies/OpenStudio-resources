@@ -107,7 +107,7 @@ class HighLevelTests < Minitest::Test
                           'afn_single_zone_ac.rb']
 
     content = File.read('model_tests.rb')
-    sim_test_commented_out_re = /TODO[ :\w]+(\d\.\d\.\d).*?#\s*result = sim_test\('([\w\.]+)'\)/m
+    sim_test_commented_out_re = /TODO[ :\w]+(\d+\.\d+\.\d+).*?#\s*result = sim_test\('([\w\.]+)'\)/m
     # eg: [["3.1.0", "coil_cooling_dx.osm"], ["3.1.0", "swimmingpool_indoor.osm"]]
     matches = content.scan(sim_test_commented_out_re)
     files_with_todo = matches.map { |m| m[1] }
@@ -147,7 +147,7 @@ class HighLevelTests < Minitest::Test
             msg += "```\n"
             msg += "  # TODO: To be added in the next official release after: #{OpenStudio.openStudioVersion}\n"
             msg += "  def test_#{osm_name.sub('.osm', '_osm')}\n"
-            msg += "    result = sim_test('#{osm_name.sub('.osm', '_osm')}')\n"
+            msg += "    result = sim_test('#{osm_name}')\n"
             msg += "  end\n"
             msg += '```'
             raise msg
@@ -165,7 +165,7 @@ class HighLevelTests < Minitest::Test
     end
 
     content = File.read('model_tests.rb')
-    sim_test_commented_out_re = /TODO[ :\w]+(\d\.\d\.\d).*?#\s*result = sim_test\('([\w\.]+)'\)/m
+    sim_test_commented_out_re = /TODO[ :\w]+(\d+\.\d+\.\d+).*?#\s*result = sim_test\('([\w\.]+)'\)/m
     # eg: [["3.1.0", "coil_cooling_dx.osm"], ["3.1.0", "swimmingpool_indoor.osm"]]
     matches = content.scan(sim_test_commented_out_re)
     matches.each do |v, t|

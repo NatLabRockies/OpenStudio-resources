@@ -1957,7 +1957,7 @@ class ModelTests < Minitest::Test
     result = sim_test('thermochromic_windows.py')
   end
 
-  # TODO: To be added in the next official release after: 3.10.0
+  # TODO: To be added in the next official release after: 3.9.0
   # def test_thermochromic_windows_osm
   #   result = sim_test('thermochromic_windows.osm')
   # end
