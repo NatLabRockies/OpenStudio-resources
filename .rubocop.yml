@@ -4,6 +4,7 @@
 # Where a Cop is not listed, it uses the Rubocop defaults.
 
 AllCops:
+  TargetRubyVersion: 2.5
   NewCops: enable
   Exclude:
     - 'doc/**/*'
@@ -85,6 +86,9 @@ Metrics/BlockNesting:
   #CountComments: false
   #Severity: warning
 
+#Metrics/CollectionLiteralLength:
+#    Enabled: false
+
 Metrics/CyclomaticComplexity:
   Max: 60
   Severity: warning
@@ -96,7 +100,7 @@ Metrics/CyclomaticComplexity:
 #  Severity: warning
 
 Metrics/MethodLength:
-  Max: 350
+  Max: 600
   CountComments: false
   Severity: warning
 
