@@ -26,7 +26,7 @@ model.add_hvac({ 'ashrae_sys_num' => '07' })
 plant = OpenStudio::Model::PlantLoop.new(model)
 plant.setName('Economizing Plant')
 
-sizingPlant = plant.sizingPlant()
+sizingPlant = plant.sizingPlant
 sizingPlant.setLoopType('Condenser')
 sizingPlant.setDesignLoopExitTemperature(26.0)
 sizingPlant.setLoopDesignTemperatureDifference(5.6)

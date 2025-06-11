@@ -17,7 +17,7 @@ USE_PIPE_INDOOR = false
 condenserWaterPlant = OpenStudio::Model::PlantLoop.new(model)
 condenserWaterPlant.setName('Condenser Water Plant')
 
-sizingPlant = condenserWaterPlant.sizingPlant()
+sizingPlant = condenserWaterPlant.sizingPlant
 sizingPlant.setLoopType('Heating')
 sizingPlant.setDesignLoopExitTemperature(30.0)
 sizingPlant.setLoopDesignTemperatureDifference(11.0)

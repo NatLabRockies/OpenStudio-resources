@@ -185,7 +185,7 @@ class BaselineModel < OpenStudio::Model::Model
       # Rename all surfaces with a unique name for easy diffing
       space.surfaces.each do |s|
         fromSpaceName = space.nameString
-        surfaceType = s.surfaceType()
+        surfaceType = s.surfaceType
         boundaryCondition = s.outsideBoundaryCondition
         if boundaryCondition.downcase == 'ground'
           s.setName("#{fromSpaceName} Exterior Ground Floor")

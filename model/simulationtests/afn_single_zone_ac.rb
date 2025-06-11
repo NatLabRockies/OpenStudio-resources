@@ -48,7 +48,7 @@ def addSystemType3(model)
   # this systems is a constant volume system with no VAV terminals, and needs different default settings
 
   # get the sizing:system object associated with the airloophvac
-  sizingSystem = airLoopHVAC.sizingSystem()
+  sizingSystem = airLoopHVAC.sizingSystem
 
   # set the default parameters correctly for a constant volume system with no VAV terminals
   sizingSystem.setTypeofLoadtoSizeOn('Sensible')
@@ -84,7 +84,7 @@ def addSystemType3(model)
 
   outdoorAirSystem = OpenStudio::Model::AirLoopHVACOutdoorAirSystem.new(model, controllerOutdoorAir)
 
-  supplyOutletNode = airLoopHVAC.supplyOutletNode()
+  supplyOutletNode = airLoopHVAC.supplyOutletNode
 
   outdoorAirSystem.addToNode(supplyOutletNode)
   coilCooling.addToNode(supplyOutletNode)
@@ -120,7 +120,7 @@ def addSimpleSystem(model)
   # this systems is a constant volume system with no VAV terminals, and needs different default settings
 
   # get the sizing:system object associated with the airloophvac
-  sizingSystem = airLoopHVAC.sizingSystem()
+  sizingSystem = airLoopHVAC.sizingSystem
 
   # set the default parameters correctly for a constant volume system with no VAV terminals
   sizingSystem.setTypeofLoadtoSizeOn('Sensible')
@@ -156,7 +156,7 @@ def addSimpleSystem(model)
 
   # outdoorAirSystem = OpenStudio::Model::AirLoopHVACOutdoorAirSystem.new(model,controllerOutdoorAir)
 
-  supplyOutletNode = airLoopHVAC.supplyOutletNode()
+  supplyOutletNode = airLoopHVAC.supplyOutletNode
 
   # outdoorAirSystem.addToNode(supplyOutletNode)
   fan.addToNode(supplyOutletNode)
@@ -191,7 +191,7 @@ def addSimpleSystemAFN(model)
   # this systems is a constant volume system with no VAV terminals, and needs different default settings
 
   # get the sizing:system object associated with the airloophvac
-  sizingSystem = airLoopHVAC.sizingSystem()
+  sizingSystem = airLoopHVAC.sizingSystem
 
   # set the default parameters correctly for a constant volume system with no VAV terminals
   sizingSystem.setTypeofLoadtoSizeOn('Sensible')
@@ -231,7 +231,7 @@ def addSimpleSystemAFN(model)
 
   # outdoorAirSystem = OpenStudio::Model::AirLoopHVACOutdoorAirSystem.new(model,controllerOutdoorAir)
 
-  supplyOutletNode = airLoopHVAC.supplyOutletNode()
+  supplyOutletNode = airLoopHVAC.supplyOutletNode
 
   # outdoorAirSystem.addToNode(supplyOutletNode)
   fan.addToNode(supplyOutletNode)

@@ -131,7 +131,7 @@ hw_temp_sch = OpenStudio::Model::ScheduleRuleset.new(model)
 hw_temp_sch.defaultDaySchedule.addValue(OpenStudio::Time.new(0, 24, 0, 0), hw_temp_c)
 hw_stpt_manager = OpenStudio::Model::SetpointManagerScheduled.new(model, hw_temp_sch)
 hw_stpt_manager.addToNode(hw_loop.supplyOutletNode)
-sizingPlant = hw_loop.sizingPlant()
+sizingPlant = hw_loop.sizingPlant
 sizingPlant.setLoopType('Heating')
 sizingPlant.setDesignLoopExitTemperature(82.0)
 sizingPlant.setLoopDesignTemperatureDifference(11.0)

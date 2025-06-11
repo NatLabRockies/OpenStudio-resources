@@ -28,7 +28,7 @@ _chilledWaterSchedule.defaultDaySchedule.addValue(OpenStudio::Time.new(0, 24, 0,
 
 # Hot Water Plant
 hotWaterPlant = OpenStudio::Model::PlantLoop.new(model)
-sizingPlant = hotWaterPlant.sizingPlant()
+sizingPlant = hotWaterPlant.sizingPlant
 sizingPlant.setLoopType('Heating')
 sizingPlant.setDesignLoopExitTemperature(82.0)
 sizingPlant.setLoopDesignTemperatureDifference(11.0)
@@ -63,7 +63,7 @@ hotWaterSPM.addToNode(hotWaterOutletNode)
 
 # Chilled Water Plant
 chilledWaterPlant = OpenStudio::Model::PlantLoop.new(model)
-sizingPlant = chilledWaterPlant.sizingPlant()
+sizingPlant = chilledWaterPlant.sizingPlant
 sizingPlant.setLoopType('Cooling')
 sizingPlant.setDesignLoopExitTemperature(7.22)
 sizingPlant.setLoopDesignTemperatureDifference(6.67)
@@ -130,7 +130,7 @@ chilledWaterDemandInlet.addToNode(chilledWaterDemandInletNode)
 
 # Condenser System
 condenserSystem = OpenStudio::Model::PlantLoop.new(model)
-sizingPlant = condenserSystem.sizingPlant()
+sizingPlant = condenserSystem.sizingPlant
 sizingPlant.setLoopType('Condenser')
 sizingPlant.setDesignLoopExitTemperature(29.4)
 sizingPlant.setLoopDesignTemperatureDifference(5.6)
