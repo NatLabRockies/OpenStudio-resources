@@ -15,6 +15,7 @@ AllCops:
     - 'update_eplus_compare/**/*'
     - 'weatherdata/**/*'
     - 'model/refbuildingtests/measures/**/*'
+    - 'convert_ruby_to_python.rb'
 
 # inherit_from:
 #  - http://s3.amazonaws.com/openstudio-resources/styles/rubocop.yml

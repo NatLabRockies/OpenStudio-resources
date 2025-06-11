@@ -13,6 +13,7 @@ on:
       - 'update_eplus_compare/**/*'
       - 'weatherdata/**/*'
       - 'model/refbuildingtests/measures/**/*'
+      - 'convert_ruby_to_python.rb'
 
 jobs:
   rubocop:
