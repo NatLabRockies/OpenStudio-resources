@@ -132,7 +132,7 @@ raise if s_sp.surroundingSurfaceGroupIndex(group1).get != s_sp.surroundingSurfac
 # values
 s_sp.addSurroundingSurfaceGroup('SurroundingSurface2', 0.4, tempSch1)
 raise if s_sp.numberofSurroundingSurfaceGroups != 2
-raise if s_sp.surroundingSurfaceGroups[1].viewFactor != 0.4
+raise if (s_sp.surroundingSurfaceGroups[1].viewFactor - 0.4).abs > Float::EPSILON
 
 # Save the groups
 groups = s_sp.surroundingSurfaceGroups
@@ -151,12 +151,12 @@ raise if s_sp.numberofSurroundingSurfaceGroups != 2
 g1 = s_sp.surroundingSurfaceGroups[0]
 
 raise if g1.surroundingSurfaceName != 'SurroundingSurface1'
-raise if g1.viewFactor != 0.5
+raise if (g1.viewFactor - 0.5).abs > Float::EPSILON
 raise if g1.temperatureSchedule != tempSch1
 
 g2 = s_sp.getSurroundingSurfaceGroup(1).get
 raise if g2.surroundingSurfaceName != 'SurroundingSurface2'
-raise if g2.viewFactor != 0.4
+raise if (g2.viewFactor - 0.4).abs > Float::EPSILON
 raise if g2.temperatureSchedule != tempSch1
 
 ###############################################################################
