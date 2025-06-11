@@ -198,7 +198,7 @@ proc_file = '/proc/1/cgroup'
 is_docker = File.file?(proc_file) && !File.readlines(proc_file).grep(/docker/).empty?
 if is_docker
   # Mounted directory is at /root/test
-  $OutOSWDir = File.join(ENV.fetch('HOME', nil), 'test')
+  $OutOSWDir = File.join(Dir.home, 'test')
 else
   # Directly in here
   $OutOSWDir = File.join($RootDir, 'test')
