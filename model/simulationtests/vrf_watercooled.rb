@@ -70,7 +70,7 @@ end
 # (Controls could be better)
 condenserSystem = OpenStudio::Model::PlantLoop.new(model)
 condenserSystem.setName('CW Loop')
-sizingPlant = condenserSystem.sizingPlant()
+sizingPlant = condenserSystem.sizingPlant
 sizingPlant.setLoopType('Condenser')
 sizingPlant.setDesignLoopExitTemperature(29.4)
 sizingPlant.setLoopDesignTemperatureDifference(5.6)

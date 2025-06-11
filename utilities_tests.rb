@@ -19,9 +19,7 @@ end
 
 # (Over)write a hash as a pretty json into a file
 def output_json_status(test_result_file, result_h)
-  File.open(test_result_file, 'w') do |f|
-    f.write(JSON.pretty_generate(result_h))
-  end
+  File.write(test_result_file, JSON.pretty_generate(result_h))
 end
 
 # the tests

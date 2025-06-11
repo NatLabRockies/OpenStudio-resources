@@ -62,7 +62,7 @@ coil.remove
 # fan.remove
 
 hotWaterPlant = OpenStudio::Model::PlantLoop.new(model)
-sizingPlant = hotWaterPlant.sizingPlant()
+sizingPlant = hotWaterPlant.sizingPlant
 sizingPlant.setLoopType('Heating')
 sizingPlant.setDesignLoopExitTemperature(82.0)
 sizingPlant.setLoopDesignTemperatureDifference(11.0)

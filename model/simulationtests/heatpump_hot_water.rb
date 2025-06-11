@@ -60,7 +60,7 @@ pump.addToNode(plant.supplyInletNode)
 
 hot_water_heater = OpenStudio::Model::WaterHeaterHeatPumpWrappedCondenser.new(model)
 hot_water_heater.addToThermalZone(zone)
-tank = hot_water_heater.tank()
+tank = hot_water_heater.tank
 plant.addSupplyBranchForComponent(tank)
 
 # hot_water_heater = OpenStudio::Model::WaterHeaterHeatPumpWrappedCondenser.new(model)

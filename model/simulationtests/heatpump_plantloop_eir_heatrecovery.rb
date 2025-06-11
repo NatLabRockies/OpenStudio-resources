@@ -135,7 +135,7 @@ plhp_airsource_clg.capacityModifierFunctionofTemperatureCurve.setName('CapCurveF
 plhp_airsource_clg.electricInputtoOutputRatioModifierFunctionofTemperatureCurve.setName('EIRCurveFuncTemp2 Air Source')
 plhp_airsource_clg.electricInputtoOutputRatioModifierFunctionofPartLoadRatioCurve.setName('EIRCurveFuncPLR2 Air Source')
 
-# Note: Heat Recovery is ONLY available for 'AirSource' HeatPumpPlantLoopEIRs
+# NOTE: Heat Recovery is ONLY available for 'AirSource' HeatPumpPlantLoopEIRs
 tertiary = true
 hw_loop.addSupplyBranchForComponent(plhp_airsource_htg)
 # If not passing tertiary=true here, this would connect the Source Water Side

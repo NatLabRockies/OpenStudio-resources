@@ -27,7 +27,7 @@ zones = model.getThermalZones.sort_by { |z| z.name.to_s }
 hotWaterPlant = OpenStudio::Model::PlantLoop.new(model)
 hotWaterPlant.setName('Hot Water Plant')
 
-sizingPlant = hotWaterPlant.sizingPlant()
+sizingPlant = hotWaterPlant.sizingPlant
 sizingPlant.setLoopType('Heating')
 sizingPlant.setDesignLoopExitTemperature(60.0)
 sizingPlant.setLoopDesignTemperatureDifference(11.0)
@@ -42,7 +42,7 @@ heatingPump.addToNode(hotWaterInletNode)
 chilledWaterPlant = OpenStudio::Model::PlantLoop.new(model)
 chilledWaterPlant.setName('Chilled Water Plant')
 
-sizingPlant = chilledWaterPlant.sizingPlant()
+sizingPlant = chilledWaterPlant.sizingPlant
 sizingPlant.setLoopType('Cooling')
 sizingPlant.setDesignLoopExitTemperature(10.0)
 sizingPlant.setLoopDesignTemperatureDifference(11.0)

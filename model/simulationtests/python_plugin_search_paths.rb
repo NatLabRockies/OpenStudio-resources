@@ -25,7 +25,7 @@ model.add_design_days
 
 zone_names = model.getThermalZones.map(&:nameString).sort
 
-zone_names_str_list = '["' + zone_names.join('", "') + '"]'
+zone_names_str_list = "[\"#{zone_names.join('", "')}\"]"
 
 # Add a PythonPlugin:Variable (all OS SDK PythonPluginVariable objects are
 # translated to a single E+ PythonPlugin:Variables (extensible object))
@@ -69,7 +69,7 @@ out_trend_var.setReportingFrequency('Timestep')
 
 pluginClassName = 'AverageZoneTemps'
 
-python_plugin_file_content = ''"from pyenergyplus.plugin import EnergyPlusPlugin
+python_plugin_file_content = "from pyenergyplus.plugin import EnergyPlusPlugin
 # NOTE: This external script must be locatable, so we'll add it to the PythonPluginSearchPaths
 import python_plugin_search_paths_script
 
@@ -110,7 +110,7 @@ class #{pluginClassName}(EnergyPlusPlugin):
         past_daily_avg_temp = self.api.exchange.get_trend_average(state, self.data['trend'], #{n_timesteps})
         self.api.exchange.set_global_value(state, self.data['running_avg_temp_variable'], past_daily_avg_temp)
         return 0
-"''
+"
 
 # Write it to a temporary directory so we don't pollute the current directory
 # ExternalFile will copy it

@@ -130,7 +130,7 @@ spigs.addGroundSurfaceGroup('GndSurfs:Parking', 0.2,
                             OpenStudio::Model::OptionalSchedule.new(parkingTempSch),
                             OpenStudio::Model::OptionalSchedule.new(parkingReflSch))
 raise if spigs.numberofGroundSurfaceGroups != 2
-raise if spigs.groundSurfaceGroups[1].viewFactor != 0.2
+raise if (spigs.groundSurfaceGroups[1].viewFactor - 0.2).abs > Float::EPSILON
 
 # Save the groups
 groups = spigs.groundSurfaceGroups
@@ -150,7 +150,8 @@ raise if spigs.numberofGroundSurfaceGroups != 2
 
 g1 = spigs.groundSurfaceGroups[0]
 raise if g1.groundSurfaceName != 'GndSurfs:Grass'
-raise if g1.viewFactor != 0.3
+raise if (g1.viewFactor - 0.3).abs > Float::EPSILON
+
 raise if g1.temperatureSchedule.empty?
 raise if g1.temperatureSchedule.get != grassTempSch
 raise if g1.reflectanceSchedule.empty?
@@ -158,7 +159,7 @@ raise if g1.reflectanceSchedule.get != grassReflSch
 
 g2 = spigs.getGroundSurfaceGroup(1).get
 raise if g2.groundSurfaceName != 'GndSurfs:Parking'
-raise if g2.viewFactor != 0.2
+raise if (g2.viewFactor - 0.2).abs > Float::EPSILON
 raise if g2.temperatureSchedule.empty?
 raise if g2.temperatureSchedule.get != parkingTempSch
 raise if g2.reflectanceSchedule.empty?

@@ -39,13 +39,11 @@ if check_all
 
   weather_files = Dir.glob('../../weatherdata/EPW/*.epw')
   weather_files.each do |weather_file|
-    begin
-      epw_file = OpenStudio::EpwFile.new(weather_file)
-      epw_design_conditions = epw_file.designConditions
-      puts "#{File.basename(weather_file)}: success"
-    rescue StandardError
-      puts "#{File.basename(weather_file)}: FAILURE"
-    end
+    epw_file = OpenStudio::EpwFile.new(weather_file)
+    epw_design_conditions = epw_file.designConditions
+    puts "#{File.basename(weather_file)}: success"
+  rescue StandardError
+    puts "#{File.basename(weather_file)}: FAILURE"
   end
 
 else

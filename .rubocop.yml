@@ -4,6 +4,7 @@
 # Where a Cop is not listed, it uses the Rubocop defaults.
 
 AllCops:
+  TargetRubyVersion: 2.5
   NewCops: enable
   Exclude:
     - 'doc/**/*'
@@ -14,6 +15,7 @@ AllCops:
     - 'update_eplus_compare/**/*'
     - 'weatherdata/**/*'
     - 'model/refbuildingtests/measures/**/*'
+    - 'convert_ruby_to_python.rb'
 
 # inherit_from:
 #  - http://s3.amazonaws.com/openstudio-resources/styles/rubocop.yml
@@ -85,6 +87,9 @@ Metrics/BlockNesting:
   #CountComments: false
   #Severity: warning
 
+Metrics/CollectionLiteralLength:
+  Enabled: false
+
 Metrics/CyclomaticComplexity:
   Max: 60
   Severity: warning
@@ -96,7 +101,7 @@ Metrics/CyclomaticComplexity:
 #  Severity: warning
 
 Metrics/MethodLength:
-  Max: 350
+  Max: 600
   CountComments: false
   Severity: warning
 
@@ -122,6 +127,10 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/ClassVars:
+  Enabled: false
+
+# Don't force an if to a case
+Style/CaseLikeIf:
   Enabled: false
 
 # Allow this syntax -- do not autocorrect.

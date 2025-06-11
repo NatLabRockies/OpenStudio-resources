@@ -69,7 +69,7 @@ def curve_quadratic(model, c_1constant, c_2x, c_3xPOW2, minx, maxx, miny = nil, 
   return curve
 end
 
-def curve_triquadratic(model, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, minx, maxx, miny, maxy, minz, maxz)
+def curve_triquadratic(model, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, minx, maxx, miny, maxy, minz, maxz) # rubocop:disable Metrics/ParameterLists
   curve = OpenStudio::Model::CurveTriquadratic.new(model)
   curve.setCoefficient1Constant(c1)
   curve.setCoefficient2xPOW2(c2)

@@ -38,7 +38,7 @@ model.add_hvac({ 'ashrae_sys_num' => '07' })
 z = model.getThermalZones.min_by(&:nameString)
 airLoop = model.getAirLoopHVACs.min_by(&:nameString)
 # get supplyOutletNode
-supplyOutletNode = airLoop.supplyOutletNode()
+supplyOutletNode = airLoop.supplyOutletNode
 
 # make CoilUserDefined
 coil = OpenStudio::Model::CoilUserDefined.new(model)
