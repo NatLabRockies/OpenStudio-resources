@@ -1537,6 +1537,19 @@ class ModelTests < Minitest::Test
     result = sim_test('python_plugin.osm')
   end
 
+  # TODO: To be added in the next official release after: 3.9.0
+  # def test_python_plugin_search_paths_osm
+  #   result = sim_test('python_plugin_search_paths.osm')
+  # end
+
+  def test_python_plugin_search_paths_rb
+    result = sim_test('python_plugin_search_paths.rb')
+  end
+
+  def test_python_plugin_search_paths_py
+    result = sim_test('python_plugin_search_paths.py')
+  end
+
   def test_refrigeration_system_rb
     result = sim_test('refrigeration_system.rb')
   end

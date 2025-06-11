@@ -1,3 +1,4 @@
+# This file is used by python_plugin.osm
 from pyenergyplus.plugin import EnergyPlusPlugin
 
 
