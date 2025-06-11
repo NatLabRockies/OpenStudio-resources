@@ -146,7 +146,7 @@ def make_tes_coil(model)
 
     props = field.properties
     olist = props.objectLists.first
-    setter = 'set' + field_name.gsub(' ', '')
+    setter = "set#{field_name.gsub(' ', '')}"
     raise "Undefined method #{setter} for field_name=#{field_name} at index #{i}" unless tes_coil.respond_to?(setter)
 
     tes_coil.send(setter, object_list_to_curve[olist])

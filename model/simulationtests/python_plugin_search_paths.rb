@@ -25,7 +25,7 @@ model.add_design_days
 
 zone_names = model.getThermalZones.map(&:nameString).sort
 
-zone_names_str_list = '["' + zone_names.join('", "') + '"]'
+zone_names_str_list = "[\"#{zone_names.join('", "')}\"]"
 
 # Add a PythonPlugin:Variable (all OS SDK PythonPluginVariable objects are
 # translated to a single E+ PythonPlugin:Variables (extensible object))
