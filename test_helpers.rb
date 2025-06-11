@@ -290,7 +290,7 @@ def find_previous_version
 
   # We parse the test/ folder for all osm tests
   out_files = Dir.glob(File.join($OutOSWDir, '*'))
-  re_version = Regexp.new('.*\.osm_(\d\.\d\.\d)_out\.osw')
+  re_version = Regexp.new('.*\.osm_(\d+\.\d+\.\d+)_out\.osw')
   version_strings = out_files.select { |f| f.match(re_version) }.map { |f| f.scan(re_version).first.last }.uniq
   # We sort them by the actual version
   versions = version_strings.map { |v| Gem::Version.new(v) }.sort
