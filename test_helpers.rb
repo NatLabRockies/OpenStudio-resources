@@ -509,7 +509,7 @@ end
 #
 # @return result_osw [Hash]: the sanitized result_osw should you need to do
 # more stuff with it
-def postprocess_out_osw_and_copy(out_osw, cp_out_osw, compare_eui = true)
+def postprocess_out_osw_and_copy(out_osw, cp_out_osw, compare_eui: true)
   raise "Cannot find file #{out_osw}" if !File.exist?(out_osw)
 
   result_osw = nil
@@ -797,7 +797,7 @@ def sim_test(filename, options = {})
   end
 
   # Post-process the out_osw
-  result_osw = postprocess_out_osw_and_copy(out_osw, cp_out_osw, compare_eui)
+  result_osw = postprocess_out_osw_and_copy(out_osw, cp_out_osw, compare_eui: compare_eui)
 
   # return result_osw for further checks
   return result_osw
@@ -884,7 +884,7 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
 
   # false to skip the call to compare_osw_eui_with_previous_version
   # this is an ever changing test, so EUI comparison is boggus
-  result_osw = postprocess_out_osw_and_copy(out_osw, cp_out_osw, false)
+  result_osw = postprocess_out_osw_and_copy(out_osw, cp_out_osw, compare_eui: false)
 
   # Load the model
   versionTranslator = OpenStudio::OSVersion::VersionTranslator.new
