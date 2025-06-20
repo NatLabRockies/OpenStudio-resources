@@ -433,10 +433,9 @@ class ModelTests < Minitest::Test
     result = sim_test('coilsystem_cooling_water.py')
   end
 
-  # TODO: To be added in the next official release after: 3.9.0
-  # def test_coilsystem_cooling_water_osm
-  # result = sim_test('coilsystem_cooling_water.osm')
-  # end
+  def test_coilsystem_cooling_water_osm
+    result = sim_test('coilsystem_cooling_water.osm')
+  end
 
   def test_coolingtowers_osm
     result = sim_test('coolingtowers.osm')
@@ -1372,10 +1371,9 @@ class ModelTests < Minitest::Test
     result = sim_test('output_tables.py')
   end
 
-  # TODO: To be added in the next official release after: 3.9.0
-  # def test_output_tables_osm
-  #   result = sim_test('output_tables.osm')
-  # end
+  def test_output_tables_osm
+    result = sim_test('output_tables.osm')
+  end
 
   def test_performanceprecisiontradeoffs_rb
     result = sim_test('performanceprecisiontradeoffs.rb')
@@ -1537,17 +1535,16 @@ class ModelTests < Minitest::Test
     result = sim_test('python_plugin.osm')
   end
 
-  # TODO: To be added in the next official release after: 3.9.0
-  # def test_python_plugin_search_paths_osm
-  #   result = sim_test('python_plugin_search_paths.osm')
-  # end
-
   def test_python_plugin_search_paths_rb
     result = sim_test('python_plugin_search_paths.rb')
   end
 
   def test_python_plugin_search_paths_py
     result = sim_test('python_plugin_search_paths.py')
+  end
+
+  def test_python_plugin_search_paths_osm
+    result = sim_test('python_plugin_search_paths.osm')
   end
 
   def test_refrigeration_system_rb
@@ -1970,10 +1967,9 @@ class ModelTests < Minitest::Test
     result = sim_test('thermochromic_windows.py')
   end
 
-  # TODO: To be added in the next official release after: 3.9.0
-  # def test_thermochromic_windows_osm
-  #   result = sim_test('thermochromic_windows.osm')
-  # end
+  def test_thermochromic_windows_osm
+    result = sim_test('thermochromic_windows.osm')
+  end
 
   def test_transformer_rb
     result = sim_test('transformer.rb')
@@ -2271,10 +2267,9 @@ class ModelTests < Minitest::Test
     result = sim_test('zone_hvac_evaporative_cooler.py')
   end
 
-  # TODO: To be added in the next official release after: 3.9.0
-  # def test_zone_hvac_evaporative_cooler_osm
-  #   result = sim_test('zone_hvac_evaporative_cooler.osm')
-  # end
+  def test_zone_hvac_evaporative_cooler_osm
+    result = sim_test('zone_hvac_evaporative_cooler.osm')
+  end
 
   def test_zone_hvac_equipment_list_rb
     result = sim_test('zone_hvac_equipment_list.rb')
