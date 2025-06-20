@@ -1,0 +1,45 @@
+{
+  "completed_status": "Fail",
+  "current_step": 0,
+  "eplusout_err": [
+    "Program Version,EnergyPlus, Version 25.1.0-1c11a3d85f, ",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = SCHEDULE DAY 2",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = SCHEDULE DAY 3",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ************* Beginning Plant Sizing Calculations",
+    "   **  Fatal  ** Site:GroundTemperature:Undisturbed:Xing--Errors getting input for ground temperature model",
+    "   ...Summary of Errors that led to program termination:",
+    "   ..... Reference severe error count=0",
+    "   ..... Last severe error=",
+    "   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).",
+    "   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.",
+    "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.",
+    "   ************* EnergyPlus Terminated--Fatal Error Detected. 2 Warning; 0 Severe Errors; "
+  ],
+  "file_paths": [
+    "/home/julien/Software/Others/OpenStudio-resources/testruns/ghx_horizontal_trench_xing.py/generated_files",
+    "./files",
+    "./weather",
+    "../../files",
+    "../../weather",
+    "./"
+  ],
+  "run_options": {
+    "ft_options": {
+      "no_space_translation": true
+    }
+  },
+  "seed_file": "in.osm",
+  "steps": [
+    {
+      "arguments": {
+      },
+      "measure_dir_name": "openstudio_results"
+    }
+  ],
+  "weather_file": "../../weatherdata/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+}
