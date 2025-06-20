@@ -723,7 +723,7 @@ def sim_test(filename, options = {})
       if filename == 'python_plugin_search_paths.osm'
         # We also need to copy the supporting python script
         script_ori_path = File.join(File.dirname(__FILE__),
-                                          'model/simulationtests', 'python_plugin_search_paths_script.py')
+                                    'model/simulationtests', 'python_plugin_search_paths_script.py')
         script_ori_path = File.realpath(script_ori_path)
         script_target_path = File.join(files_dir, File.basename(script_ori_path))
         FileUtils.cp(script_ori_path, script_target_path)
