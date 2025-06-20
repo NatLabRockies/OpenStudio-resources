@@ -15,6 +15,7 @@ from __future__ import division, print_function
 import glob as gb
 import json
 import os
+import packaging
 import platform
 import re
 import shlex
@@ -545,6 +546,7 @@ def find_info_osws_with_tags(compat_matrix=None, test_dir=None, tags_only=True, 
     df_files = (
         df_files.set_index(["Test", "Type", "Tag", "version"])["path"].unstack(["version", "Tag"]).sort_index(axis=1)
     )
+    df_files = df_files[sorted(df_files.columns, key=lambda x: packaging.version.parse(x[0]))]
 
     version_dict = compat_matrix.set_index("OpenStudio")["E+"].to_dict()
 
