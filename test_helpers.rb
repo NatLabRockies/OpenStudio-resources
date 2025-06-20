@@ -709,17 +709,25 @@ def sim_test(filename, options = {})
     when 'python_plugin.osm', 'python_plugin_search_paths.osm'
       # We need to manually copy the supporting schedule into
       # the testruns folder for the simulation to be able to find it
+      # Have to make the directory first
+      files_dir = File.join(dir, 'files/')
+      FileUtils.mkdir_p(files_dir)
+
       program_file_name = "#{File.basename(filename, File.extname(filename))}_program.py"
       plugin_ori_path = File.join(File.dirname(__FILE__),
                                   'model/simulationtests', program_file_name)
       plugin_ori_path = File.realpath(plugin_ori_path)
-
-      # Have to make the directory first
-      files_dir = File.join(dir, 'files/')
-      FileUtils.mkdir_p(files_dir)
       python_target_path = File.join(files_dir, File.basename(plugin_ori_path))
-
       FileUtils.cp(plugin_ori_path, python_target_path)
+
+      if filename == 'python_plugin_search_paths.osm'
+        # We also need to copy the supporting python script
+        script_ori_path = File.join(File.dirname(__FILE__),
+                                          'model/simulationtests', 'python_plugin_search_paths_script.py')
+        script_ori_path = File.realpath(script_ori_path)
+        script_target_path = File.join(files_dir, File.basename(script_ori_path))
+        FileUtils.cp(script_ori_path, script_target_path)
+      end
     end
 
   when '.rb', '.py'
