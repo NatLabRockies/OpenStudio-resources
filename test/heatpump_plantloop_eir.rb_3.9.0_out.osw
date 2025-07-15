@@ -2,7 +2,7 @@
   "completed_status": "Success",
   "current_step": 1,
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/heatpump_plantloop_eir.rb/generated_files",
+    "C:/OpenStudio/OpenStudio-resources/testruns/heatpump_plantloop_eir.rb/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -1568,7 +1568,7 @@
         ],
         "step_warnings": [
           "Envelope Summary section failed and was skipped because: undefined local variable or method `surface_construction' for OsLib_Reporting:Module. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1488:in `block in envelope_section_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1468:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1468:in `envelope_section_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'"
+          "C:/OpenStudio/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1488:in `block in envelope_section_section'\nC:/OpenStudio/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1468:in `each'\nC:/OpenStudio/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1468:in `envelope_section_section'\n(eval):1:in `block in run'\nC:/OpenStudio/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\nC:/OpenStudio/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\nC:/OpenStudio/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\nC:/OpenStudio/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'"
         ]
       }
     }
