@@ -2251,17 +2251,17 @@ class ModelTests < Minitest::Test
     result = sim_test('zone_hvac2.osm')
   end
 
-  def test_zone_hvac3_rb
-    result = sim_test('zone_hvac3.rb')
+  def test_steam_systems_rb
+    result = sim_test('steam_systems.rb')
   end
 
-  # def test_zone_hvac3_py
-  # result = sim_test('zone_hvac3.py')
+  # def test_steam_systems_py
+  # result = sim_test('steam_systems.py')
   # end
 
   # TODO: To be added in the next official release after: 3.10.0
-  # def test_zone_hvac3_osm
-  # result = sim_test('zone_hvac3.osm')
+  # def test_steam_systems_osm
+  # result = sim_test('steam_systems.osm')
   # end
 
   def test_zone_hvac_cooling_panel_rb
