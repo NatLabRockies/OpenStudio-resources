@@ -63,32 +63,32 @@ condenser_loop = cts[0].plantLoop().get()
 condenser_loop.addDemandBranchForComponent(water_coil)
 
 # Rename some nodes and such, for ease of debugging
-airloop.supplyInletNode().setName("#{airloop.nameString()} Supply Inlet Node")
-airloop.supplyOutletNode().setName("#{airloop.nameString()} Supply Outlet Node")
-airloop.mixedAirNode().get().setName("#{airloop.nameString()} Mixed Air Node")
+airloop.supplyInletNode().setName(f"{airloop.nameString()} Supply Inlet Node")
+airloop.supplyOutletNode().setName(f"{airloop.nameString()} Supply Outlet Node")
+airloop.mixedAirNode().get().setName(f"{airloop.nameString()} Mixed Air Node")
 
 central_heating_coil = (
     airloop.supplyComponents(openstudio.model.CoilHeatingWater.iddObjectType())[0].to_CoilHeatingWater().get()
 )
 central_heating_coil.setName("Central HW Coil")
 coil_system.outletModelObject().get().to_Node().get().setName(
-    "#{coil_system.nameString()} Air Outlet to #{central_cooling_coil.nameString()} Inlet Node"
+    f"{coil_system.nameString()} Air Outlet to {central_cooling_coil.nameString()} Inlet Node"
 )
 central_cooling_coil.airOutletModelObject().get().to_Node().get().setName(
-    "#{central_cooling_coil.nameString()} Air Outlet to #{central_heating_coil.nameString()} Inlet Node"
+    f"{central_cooling_coil.nameString()} Air Outlet to {central_heating_coil.nameString()} Inlet Node"
 )
 
-water_coil.waterInletModelObject().get().setName("#{water_coil.nameString()} Water Inlet Node")
-water_coil.waterOutletModelObject().get().setName("#{water_coil.nameString()} Water Outlet Node")
+water_coil.waterInletModelObject().get().setName(f"{water_coil.nameString()} Water Inlet Node")
+water_coil.waterOutletModelObject().get().setName(f"{water_coil.nameString()} Water Outlet Node")
 # water_coil.controllerWaterCoil.get.setName("#{water_coil.name} Controller")
 
 fan = airloop.supplyFan().get()
 fan.setName("Supply Fan")
 
-central_heating_coil.waterOutletModelObject().get().setName("#{airloop.nameString()} Heating Coil Water Outlet Node")
-central_heating_coil.controllerWaterCoil().get().setName("#{airloop.nameString()} Heating Coil Controller")
+central_heating_coil.waterOutletModelObject().get().setName(f"{airloop.nameString()} Heating Coil Water Outlet Node")
+central_heating_coil.controllerWaterCoil().get().setName(f"{airloop.nameString()} Heating Coil Controller")
 central_heating_coil.airOutletModelObject().get().setName(
-    "#{central_heating_coil.nameString()} Air Outlet to #{fan.nameString()} Inlet Node"
+    f"{central_heating_coil.nameString()} Air Outlet to {fan.nameString()} Inlet Node"
 )
 
 ######
@@ -124,11 +124,11 @@ oa_sys = airloop.airLoopHVACOutdoorAirSystem().get()
 
 # TODO: use a CoilSystemCoolingWaterHeatExchangerAssisted
 primary_coil = openstudio.model.CoilCoolingWater(m, m.alwaysOnDiscreteSchedule())
-primary_coil.setName("#{airloop.nameString()} Primary HR Coil")
+primary_coil.setName(f"{airloop.nameString()} Primary HR Coil")
 # primary_coil.setDesignWaterTemperatureDifference(4)
 
 companion_coil = openstudio.model.CoilCoolingWater(m, m.alwaysOnDiscreteSchedule())
-companion_coil.setName("#{airloop.nameString()} Companion HR Coil")
+companion_coil.setName(f"{airloop.nameString()} Companion HR Coil")
 # companion_coil.setDesignWaterTemperatureDifference(4)
 
 coil_sys = openstudio.model.CoilSystemCoolingWater(m, primary_coil)
@@ -179,8 +179,8 @@ oa_sys.outboardReliefNode().get().setName("OA Relief Node")
 oa_sys.reliefAirModelObject().get().setName("Return to OA System Node")
 oa_sys.outdoorAirModelObject().get().setName("OA System Outlet to Mixed Node")
 
-primary_coil.waterInletModelObject().get().setName("#{primary_coil.name()} Water Inlet Node")
-primary_coil.waterOutletModelObject().get().setName("#{primary_coil.name()} Water Outlet Node")
+primary_coil.waterInletModelObject().get().setName(f"{primary_coil.name()} Water Inlet Node")
+primary_coil.waterOutletModelObject().get().setName(f"{primary_coil.name()} Water Outlet Node")
 # primary_coil.controllerWaterCoil.get.setName("#{primary_coil.name} Controller")
 
 

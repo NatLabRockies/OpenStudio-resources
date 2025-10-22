@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<SDDXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RulesetFilename file="CEC 2013 NonRes.bin" />
+  <Proj>
+    <Name>unknown</Name>
+    <Mat>
+      <Name>IntStudAndAirWall</Name>
+    </Mat>
+    <Mat>
+      <Name>Mat-Fic-Slab</Name>
+    </Mat>
+    <Mat>
+      <Name>RoofIns</Name>
+    </Mat>
+    <Mat>
+      <Name>SlabMass</Name>
+    </Mat>
+    <Mat>
+      <Name>Soil-12in</Name>
+    </Mat>
+    <Mat>
+      <Name>StudAndAirRoof</Name>
+    </Mat>
+    <Mat>
+      <Name>StudAndCavity</Name>
+    </Mat>
+    <Mat>
+      <Name>UnfinStudAndAirFloor</Name>
+    </Mat>
+    <ConsAssm>
+      <Name>ExtInsFinWall</Name>
+      <MatRef>StudAndCavity</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>FinInsExtRoof</Name>
+      <MatRef>RoofIns</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>FinUninsFinWall</Name>
+      <MatRef>IntStudAndAirWall</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>Slab</Name>
+      <MatRef>Mat-Fic-Slab</MatRef>
+      <MatRef>Soil-12in</MatRef>
+      <MatRef>SlabMass</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>UnfinUninsExtRoof</Name>
+      <MatRef>StudAndAirRoof</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>UnfinUninsUnfinFloor</Name>
+      <MatRef>UnfinStudAndAirFloor</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>UnfinUninsUnfinWall</Name>
+      <MatRef>IntStudAndAirWall</MatRef>
+    </ConsAssm>
+    <Bldg>
+      <Name>Building</Name>
+      <BldgAz>0</BldgAz>
+      <ThrmlZn>
+        <Name>corridor zone</Name>
+        <Type>Unconditioned</Type>
+      </ThrmlZn>
+      <ThrmlZn>
+        <Name>living zone</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <ThrmlZn>
+        <Name>living zone|unit 2</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+    </Bldg>
+  </Proj>
+</SDDXML>

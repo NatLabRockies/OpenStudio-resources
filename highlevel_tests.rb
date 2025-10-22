@@ -64,7 +64,11 @@ class HighLevelTests < Minitest::Test
   def test_pys_are_defined_sim_tests
     all_python_paths = Dir.glob(File.join($ModelDir, '*.py'))
     all_python_filenames = all_python_paths.map { |p| File.basename(p) }
-    all_python_filenames -= ['python_plugin_program.py', 'python_plugin_search_paths_script.py']
+    all_python_filenames -= [
+      'python_plugin_program.py',
+      'python_plugin_search_paths_program.py',
+      'python_plugin_search_paths_script.py'
+    ]
 
     content = File.read('model_tests.rb')
     sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.py)\'\)\n(?:\s*#)*\s+end')

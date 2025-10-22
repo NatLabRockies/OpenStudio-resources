@@ -309,6 +309,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('coilsystem_integrated_heatpump.osm')
   end
 
+  def test_FT_coilsystem_cooling_water
+    sdd_ft_test('coilsystem_cooling_water.osm')
+  end
+
   def test_FT_coilsystem_waterhx
     sdd_ft_test('coilsystem_waterhx.osm')
   end
@@ -601,6 +605,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('output_objects_2.osm')
   end
 
+  def test_FT_output_tables
+    sdd_ft_test('output_tables.osm')
+  end
+
   def test_FT_photovoltaics
     sdd_ft_test('photovoltaics.osm')
   end
@@ -651,6 +659,10 @@ class SddForwardTranslatorTests < Minitest::Test
 
   def test_FT_python_plugin
     sdd_ft_test('python_plugin.osm')
+  end
+
+  def test_FT_python_plugin_search_paths
+    sdd_ft_test('python_plugin_search_paths.osm')
   end
 
   def test_FT_refrigeration_system
@@ -773,6 +785,10 @@ class SddForwardTranslatorTests < Minitest::Test
     sdd_ft_test('thermal_storage.osm')
   end
 
+  def test_FT_thermochromic_windows
+    sdd_ft_test('thermochromic_windows.osm')
+  end
+
   def test_FT_transformer
     sdd_ft_test('transformer.osm')
   end
@@ -867,6 +883,10 @@ class SddForwardTranslatorTests < Minitest::Test
 
   def test_FT_zone_hvac_cooling_panel
     sdd_ft_test('zone_hvac_cooling_panel.osm')
+  end
+
+  def test_FT_zone_hvac_evaporative_cooler
+    sdd_ft_test('zone_hvac_evaporative_cooler.osm')
   end
 
   def test_FT_zone_hvac_equipment_list
