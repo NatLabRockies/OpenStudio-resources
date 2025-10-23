@@ -175,7 +175,18 @@ $OswFile = File.join($RootDir, 'test.osw')
 $ModelDir = File.join($RootDir, 'model/simulationtests/')
 $IntersectDir = File.join($RootDir, 'model/intersectiontests/')
 $IntersectFile = File.join($RootDir, 'intersect.rb.erb')
-$TestDir = File.join($RootDir, 'testruns')
+
+if !ENV['TEST_DIR'].nil?
+  $TestDir = ENV.fetch('TEST_DIR', 'testruns')
+  # If it's a relative path, make it absolute
+  if File.expand_path($TestDir) != $TestDir
+    $TestDir = File.join($RootDir, $TestDir)
+  end
+  puts "Setting TestDir to #{$TestDir}"
+else
+  $TestDir = File.join($RootDir, 'testruns')
+end
+
 $SddSimDir = File.join($RootDir, 'model/sddtests/')
 # $TestDirSddFT = File.join($RootDir, 'testruns/SddForwardTranslator/')
 # if !File.exist?($TestDirSddFT)

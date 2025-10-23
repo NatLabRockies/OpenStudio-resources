@@ -1,5 +1,5 @@
 .idea
-testruns/
+testruns*/
 perf_test/
 gemfiles/
 # test
@@ -33,6 +33,7 @@ test/*_3.11.0*_out.sqltest
 test/*_3.11.0*_out*.xml
 # Ignore alphas and rcs. CI will force add anything under test/ so it's unaffected
 test/*_[0-9].[0-9].[0-9]-*_out*
+test/*_[0-9].[0-9][0.9].[0-9]-*_out*
 
 Regression_Test_Status.html
 
