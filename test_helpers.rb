@@ -176,15 +176,15 @@ $ModelDir = File.join($RootDir, 'model/simulationtests/')
 $IntersectDir = File.join($RootDir, 'model/intersectiontests/')
 $IntersectFile = File.join($RootDir, 'intersect.rb.erb')
 
-if !ENV['TEST_DIR'].nil?
+if ENV['TEST_DIR'].nil?
+  $TestDir = File.join($RootDir, 'testruns')
+else
   $TestDir = ENV.fetch('TEST_DIR', 'testruns')
   # If it's a relative path, make it absolute
   if File.expand_path($TestDir) != $TestDir
     $TestDir = File.join($RootDir, $TestDir)
   end
   puts "Setting TestDir to #{$TestDir}"
-else
-  $TestDir = File.join($RootDir, 'testruns')
 end
 
 $SddSimDir = File.join($RootDir, 'model/sddtests/')
@@ -982,7 +982,18 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     ],
     'OS:HeatPump:AirToWater:FuelFired:Heating' => [
       'autosizedDesignTemperatureLift' # E+ is missing it
-    ]
+    ],
+    'OS:EvaporativeFluidCooler:SingleSpeed' => [
+      'autosizedDesignEnteringWaterTemperature' # E+ is missing it
+    ],
+    'OS:EvaporativeFluidCooler:TwoSpeed' => [
+      'autosizedDesignEnteringWaterTemperature' # E+ is missing it
+    ],
+    # TODO: temp
+    'OS:HeatPump:AirToWater:Heating' => 'all', # Not in test model
+    'OS:HeatPump:AirToWater:Cooling' => 'all', # Not in test model
+    'OS:HeatPump:AirToWater:Heating:SpeedData' => 'all', # Not in test model
+    'OS:HeatPump:AirToWater:Cooling:SpeedData' => 'all' # Not in test model
   }
 
   # Aliases for some OS onjects
