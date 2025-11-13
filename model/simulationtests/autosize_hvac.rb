@@ -391,8 +391,16 @@ chw_loop.addSupplyBranchForComponent(OpenStudio::Model::DistrictCooling.new(mode
 wwhp = OpenStudio::Model::HeatPumpWaterToWaterEquationFitCooling.new(model)
 chw_loop.addSupplyBranchForComponent(wwhp)
 cw_loop.addDemandBranchForComponent(wwhp)
+
 chw_storage = OpenStudio::Model::ThermalStorageChilledWaterStratified.new(model)
 chw_storage.setSetpointTemperatureSchedule(chw_temp_sch)
+chw_storage.setTankRecoveryTime(4.0)
+chw_storage.waterHeaterSizing.setTimeforTankRecovery(4.0)
+chw_storage.autosizeSourceSideDesignFlowRate
+chw_storage.autosizeNominalCoolingCapacity
+chw_storage.autosizeUseSideDesignFlowRate
+chw_storage.autocalculateSourceSideOutletHeight
+chw_storage.autocalculateUseSideInletHeight
 chw_loop.addSupplyBranchForComponent(chw_storage)
 storage_loop.addDemandBranchForComponent(chw_storage)
 
