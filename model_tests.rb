@@ -946,7 +946,6 @@ class ModelTests < Minitest::Test
   #   result = sim_test('heatpump_airtowater.osm')
   # end
 
-
   def test_heatpump_hot_water_rb
     result = sim_test('heatpump_hot_water.rb')
   end
