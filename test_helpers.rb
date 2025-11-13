@@ -176,15 +176,15 @@ $ModelDir = File.join($RootDir, 'model/simulationtests/')
 $IntersectDir = File.join($RootDir, 'model/intersectiontests/')
 $IntersectFile = File.join($RootDir, 'intersect.rb.erb')
 
-if !ENV['TEST_DIR'].nil?
+if ENV['TEST_DIR'].nil?
+  $TestDir = File.join($RootDir, 'testruns')
+else
   $TestDir = ENV.fetch('TEST_DIR', 'testruns')
   # If it's a relative path, make it absolute
   if File.expand_path($TestDir) != $TestDir
     $TestDir = File.join($RootDir, $TestDir)
   end
   puts "Setting TestDir to #{$TestDir}"
-else
-  $TestDir = File.join($RootDir, 'testruns')
 end
 
 $SddSimDir = File.join($RootDir, 'model/sddtests/')
