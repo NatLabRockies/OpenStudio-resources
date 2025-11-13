@@ -937,9 +937,9 @@ class ModelTests < Minitest::Test
     result = sim_test('heatpump_airtowater.rb')
   end
 
-  # def test_heatpump_airtowater_py
-  #   result = sim_test('heatpump_airtowater.py')
-  # end
+  def test_heatpump_airtowater_py
+    result = sim_test('heatpump_airtowater.py')
+  end
 
   # TODO: To be added in the next official release after: 3.10.0
   # def test_heatpump_airtowater_osm
