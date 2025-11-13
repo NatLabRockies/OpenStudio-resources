@@ -1959,6 +1959,10 @@ class ModelTests < Minitest::Test
     result = sim_test('thermal_storage.osm')
   end
 
+  def test_thermal_storage_chw_rb
+    result = sim_test('thermal_storage_chw.rb')
+  end
+
   def test_thermochromic_windows_rb
     result = sim_test('thermochromic_windows.rb')
   end
