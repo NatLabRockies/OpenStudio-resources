@@ -982,7 +982,18 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     ],
     'OS:HeatPump:AirToWater:FuelFired:Heating' => [
       'autosizedDesignTemperatureLift' # E+ is missing it
-    ]
+    ],
+    'OS:EvaporativeFluidCooler:SingleSpeed' => [
+      'autosizedDesignEnteringWaterTemperature' # E+ is missing it
+    ],
+    'OS:EvaporativeFluidCooler:TwoSpeed' => [
+      'autosizedDesignEnteringWaterTemperature' # E+ is missing it
+    ],
+    # TODO: temp
+    'OS:HeatPump:AirToWater:Heating' => 'all', # Not in test model
+    'OS:HeatPump:AirToWater:Cooling' => 'all', # Not in test model
+    'OS:HeatPump:AirToWater:Heating:SpeedData' => 'all', # Not in test model
+    'OS:HeatPump:AirToWater:Cooling:SpeedData' => 'all' # Not in test model
   }
 
   # Aliases for some OS onjects
