@@ -988,7 +988,7 @@ def autosizing_test(filename, weather_file = nil, model_measures = [], energyplu
     ],
     'OS:EvaporativeFluidCooler:TwoSpeed' => [
       'autosizedDesignEnteringWaterTemperature' # E+ is missing it
-    ],
+    ]
   }
 
   # Aliases for some OS onjects
