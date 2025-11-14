@@ -7,7 +7,7 @@ Pull request overview
 
 Link to relevant GitHub Issue(s) if appropriate:
 
-Link to the **Ubuntu 22.04 .deb** installer to use for CI Testing. If not set, it will default to latest official release.
+Link to the **Ubuntu 24.04 .deb** installer to use for CI Testing. If not set, it will default to latest official release.
 [OpenStudio Installer]: http://
 
 
