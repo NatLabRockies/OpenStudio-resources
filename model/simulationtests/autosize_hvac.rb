@@ -434,6 +434,15 @@ ffhp_airsource_clg.autosizeDesignTemperatureLift
 ffhp_airsource_clg.setNominalAuxiliaryElectricPower(500)
 chw_loop.addSupplyBranchForComponent(ffhp_airsource_clg)
 
+awhp = OpenStudio::Model::HeatPumpAirToWater.new(model)
+
+awhp_cc = OpenStudio::Model::HeatPumpAirToWaterCooling.new(model)
+awhp.setCoolingOperationMode(awhp_cc)
+awhp_cc_low_speed = OpenStudio::Model::HeatPumpAirToWaterCoolingSpeedData.new(model)
+awhp_cc_low_speed.autosizeRatedCoolingCapacity
+awhp_cc.addSpeed(awhp_cc_low_speed)
+chw_loop.addSupplyBranchForComponent(awhp_cc)
+
 # chw_loop.addSupplyBranchForComponent(OpenStudio::Model::ChillerHeaterPerformanceElectricEIR.new(model))
 
 ### Hot water loop ###
@@ -519,6 +528,13 @@ hw_loop.addSupplyBranchForComponent(ffhp_airsource_htg)
 
 ffhp_airsource_clg.setCompanionHeatingHeatPump(ffhp_airsource_htg)
 ffhp_airsource_htg.setCompanionCoolingHeatPump(ffhp_airsource_clg)
+
+awhp_hc = OpenStudio::Model::HeatPumpAirToWaterHeating.new(model)
+awhp.setHeatingOperationMode(awhp_hc)
+awhp_hc_low_speed = OpenStudio::Model::HeatPumpAirToWaterHeatingSpeedData.new(model)
+awhp_hc_low_speed.autosizeRatedHeatingCapacity
+awhp_hc.addSpeed(awhp_hc_low_speed)
+hw_loop.addSupplyBranchForComponent(awhp_hc)
 
 # This is an Uncontrolled component, should be last
 hw_loop.addSupplyBranchForComponent(OpenStudio::Model::PlantComponentTemperatureSource.new(model))
