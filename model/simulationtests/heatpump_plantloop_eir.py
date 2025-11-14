@@ -111,7 +111,7 @@ groundHX.setUTubeDistance(5.1225e-02)
 
 cw_loop.addSupplyBranchForComponent(groundHX)
 
-ground_temp = openstudio.model.SiteGroundTemperatureDeep(model)
+ground_temp = model.getSiteGroundTemperatureDeep()
 ground_temp.setAllMonthlyTemperatures(
     [13.03, 13.03, 13.13, 13.30, 13.43, 13.52, 13.62, 13.77, 13.78, 13.55, 13.44, 13.20]
 )
