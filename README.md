@@ -1,5 +1,5 @@
 OpenStudio Resources
-==========
+===========
 
 This repository includes a suite of simulation tests that can be used to validate new OpenStudio model objects as well as ensure that objects continue to work after they are added.
 Each new OpenStudio Model object should ideally have two simulation tests associated with it:
