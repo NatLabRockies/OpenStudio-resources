@@ -6123,7 +6123,28 @@ OS:Connection,
 OS:ZoneControl:Humidistat,
   {4ecf77f1-57a1-456b-90c4-5b4b5a9b4e6a}, !- Handle
   Zone Control Humidistat 1,              !- Name
-  ;                                       !- Humidifying Relative Humidity Setpoint Schedule Name
+  {353e3e4f-acd3-4752-a7bf-111811a68a08}, !- Humidifying Relative Humidity Setpoint Schedule Name
+  {7f508801-b056-4f71-9f37-307d2a235fa1}; !- Dehumidifying Relative Humidity Setpoint Schedule Name
+
+OS:Schedule:Constant,
+  {353e3e4f-acd3-4752-a7bf-111811a68a08}, !- Handle
+  Humidifying Schedule 30 Percent,        !- Name
+  {2557588f-b28a-4bb9-99aa-db4a77eaf86e}, !- Schedule Type Limits Name
+  30;                                     !- Value
+
+OS:ScheduleTypeLimits,
+  {2557588f-b28a-4bb9-99aa-db4a77eaf86e}, !- Handle
+  Percent,                                !- Name
+  0,                                      !- Lower Limit Value
+  100,                                    !- Upper Limit Value
+  Continuous,                             !- Numeric Type
+  Percent;                                !- Unit Type
+
+OS:Schedule:Constant,
+  {7f508801-b056-4f71-9f37-307d2a235fa1}, !- Handle
+  Dehumidifying Schedule 80 Percent,      !- Name
+  {2557588f-b28a-4bb9-99aa-db4a77eaf86e}, !- Schedule Type Limits Name
+  80;                                     !- Value
 
 OS:ZoneHVAC:Dehumidifier:DX,
   {c99ee959-6537-44d2-b73f-65baa58af9df}, !- Handle

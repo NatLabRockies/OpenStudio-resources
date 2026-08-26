@@ -243,6 +243,16 @@ humidistat.setHumidifyingRelativeHumiditySetpointSchedule(dehumidify_sch)
 story_3_east_thermal_zone.setZoneControlHumidistat(humidistat)
 
 # Add ZoneHVACDehumidifierDX
+dx_hum_schedule = openstudio.model.ScheduleConstant(model)
+dx_hum_schedule.setName("Humidifying Schedule - OFF")
+dx_hum_schedule.setValue(0.0)
+dx_dehum_schedule = openstudio.model.ScheduleConstant(model)
+dx_dehum_schedule.setName("Dehumidifying Schedule 80 Percent")
+dx_dehum_schedule.setValue(80.0)
+dx_humidistat = openstudio.model.ZoneControlHumidistat(model)
+dx_humidistat.setHumidifyingRelativeHumiditySetpointSchedule(dx_hum_schedule)
+dx_humidistat.setDehumidifyingRelativeHumiditySetpointSchedule(dx_dehum_schedule)
+story_1_west_thermal_zone.setZoneControlHumidistat(dx_humidistat)
 zoneHVACDehumidifierDX = openstudio.model.ZoneHVACDehumidifierDX(model)
 zoneHVACDehumidifierDX.addToThermalZone(story_1_west_thermal_zone)
 
