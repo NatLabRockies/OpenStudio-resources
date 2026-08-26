@@ -11,7 +11,7 @@ gemfiles/*
 LocalOnly
 __pycache__
 python
-testruns
+testruns*
 test
 update_eplus_compare
 
