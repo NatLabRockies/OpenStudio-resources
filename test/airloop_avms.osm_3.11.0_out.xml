@@ -1,0 +1,947 @@
+<?xml version="1.0"?>
+<SDDXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RulesetFilename file="CEC 2013 NonRes.bin" />
+  <Proj>
+    <Name>unknown</Name>
+    <Mat>
+      <Name>000_F04 Wall air space resistance</Name>
+    </Mat>
+    <Mat>
+      <Name>000_F05 Ceiling air space resistance</Name>
+    </Mat>
+    <Mat>
+      <Name>000_F08 Metal surface</Name>
+    </Mat>
+    <Mat>
+      <Name>000_F16 Acoustic tile</Name>
+    </Mat>
+    <Mat>
+      <Name>000_G01a 19mm gypsum board</Name>
+    </Mat>
+    <Mat>
+      <Name>000_G05 25mm wood</Name>
+    </Mat>
+    <Mat>
+      <Name>000_I01 25mm insulation board</Name>
+    </Mat>
+    <Mat>
+      <Name>000_M11 100mm lightweight concrete</Name>
+    </Mat>
+    <Mat>
+      <Name>1/2IN Gypsum</Name>
+    </Mat>
+    <Mat>
+      <Name>CP02 CARPET PAD</Name>
+    </Mat>
+    <Mat>
+      <Name>MAT-CC05 4 HW CONCRETE</Name>
+    </Mat>
+    <Mat>
+      <Name>MAT-SHEATH</Name>
+    </Mat>
+    <Mat>
+      <Name>Metal Decking</Name>
+    </Mat>
+    <Mat>
+      <Name>Roof Insulation [21]</Name>
+    </Mat>
+    <Mat>
+      <Name>Roof Membrane</Name>
+    </Mat>
+    <Mat>
+      <Name>Wall Insulation [39]</Name>
+    </Mat>
+    <ConsAssm>
+      <Name>000_ExtSlabCarpet_4in_ClimateZone 1-8</Name>
+      <MatRef>MAT-CC05 4 HW CONCRETE</MatRef>
+      <MatRef>CP02 CARPET PAD</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>000_Interior Wall</Name>
+      <MatRef>000_G01a 19mm gypsum board</MatRef>
+      <MatRef>000_F04 Wall air space resistance</MatRef>
+      <MatRef>000_G01a 19mm gypsum board</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</Name>
+      <MatRef>Roof Membrane</MatRef>
+      <MatRef>Roof Insulation [21]</MatRef>
+      <MatRef>Metal Decking</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</Name>
+      <MatRef>MAT-SHEATH</MatRef>
+      <MatRef>Wall Insulation [39]</MatRef>
+      <MatRef>1/2IN Gypsum</MatRef>
+    </ConsAssm>
+    <FenCons>
+      <Name>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</Name>
+      <CertificationMthd>NFRCRated</CertificationMthd>
+    </FenCons>
+    <Bldg>
+      <Name>Building 1</Name>
+      <BldgAz>0</BldgAz>
+      <Story>
+        <Name>Story 1</Name>
+        <Spc>
+          <Name>Story 1 Core Space</Name>
+          <Vol>584246</Vol>
+          <Area>44519.5</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>318.241</Coord>
+              <Coord>154.199</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>318.241</Coord>
+              <Coord>9.84252</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>9.84252</Coord>
+              <Coord>9.84252</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>9.84252</Coord>
+              <Coord>154.199</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Story 1 Core Thermal Zone</ThrmlZnRef>
+          <UndgrFlr>
+            <Name>Surface 25</Name>
+            <ConsAssmRef>000_ExtSlabCarpet_4in_ClimateZone 1-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <IntWall>
+            <Name>Surface 26</Name>
+            <AdjacentSpcRef>Story 1 West Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <IntWall>
+            <Name>Surface 27</Name>
+            <AdjacentSpcRef>Story 1 North Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <IntWall>
+            <Name>Surface 28</Name>
+            <AdjacentSpcRef>Story 1 East Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <IntWall>
+            <Name>Surface 29</Name>
+            <AdjacentSpcRef>Story 1 South Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <Roof>
+            <Name>Surface 30</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+        </Spc>
+        <Spc>
+          <Name>Story 1 East Perimeter Space</Name>
+          <Vol>19917.5</Vol>
+          <Area>1517.71</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>328.084</Coord>
+              <Coord>164.042</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>328.084</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>318.241</Coord>
+              <Coord>9.84252</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>318.241</Coord>
+              <Coord>154.199</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Story 1 East Perimeter Thermal Zone</ThrmlZnRef>
+          <UndgrFlr>
+            <Name>Surface 13</Name>
+            <ConsAssmRef>000_ExtSlabCarpet_4in_ClimateZone 1-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <ExtWall>
+            <Name>Surface 14</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Sub Surface 4</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.084</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+          <IntWall>
+            <Name>Surface 15</Name>
+            <AdjacentSpcRef>Story 1 South Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <IntWall>
+            <Name>Surface 17</Name>
+            <AdjacentSpcRef>Story 1 North Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <Roof>
+            <Name>Surface 18</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+        </Spc>
+        <Spc>
+          <Name>Story 1 North Perimeter Space</Name>
+          <Vol>41106.3</Vol>
+          <Area>3132.3</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>328.084</Coord>
+              <Coord>164.042</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>318.241</Coord>
+              <Coord>154.199</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>9.84252</Coord>
+              <Coord>154.199</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>164.042</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Story 1 North Perimeter Thermal Zone</ThrmlZnRef>
+          <IntWall>
+            <Name>Surface 11</Name>
+            <AdjacentSpcRef>Story 1 West Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <Roof>
+            <Name>Surface 12</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+          <UndgrFlr>
+            <Name>Surface 7</Name>
+            <ConsAssmRef>000_ExtSlabCarpet_4in_ClimateZone 1-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <ExtWall>
+            <Name>Surface 8</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Sub Surface 1</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>164.042</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+        </Spc>
+        <Spc>
+          <Name>Story 1 South Perimeter Space</Name>
+          <Vol>41106.3</Vol>
+          <Area>3132.3</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>318.241</Coord>
+              <Coord>9.84252</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>328.084</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>9.84252</Coord>
+              <Coord>9.84252</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Story 1 South Perimeter Thermal Zone</ThrmlZnRef>
+          <UndgrFlr>
+            <Name>Surface 19</Name>
+            <ConsAssmRef>000_ExtSlabCarpet_4in_ClimateZone 1-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <ExtWall>
+            <Name>Surface 20</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Sub Surface 3</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>0</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0.0833333</Coord>
+                  <Coord>0</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>0</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>328.001</Coord>
+                  <Coord>0</Coord>
+                  <Coord>8.53285</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+          <IntWall>
+            <Name>Surface 21</Name>
+            <AdjacentSpcRef>Story 1 West Perimeter Space</AdjacentSpcRef>
+            <ConsAssmRef>000_Interior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <Roof>
+            <Name>Surface 24</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>318.241</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>328.084</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+        </Spc>
+        <Spc>
+          <Name>Story 1 West Perimeter Space</Name>
+          <Vol>19917.5</Vol>
+          <Area>1517.71</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>164.042</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>9.84252</Coord>
+              <Coord>154.199</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>9.84252</Coord>
+              <Coord>9.84252</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Story 1 West Perimeter Thermal Zone</ThrmlZnRef>
+          <UndgrFlr>
+            <Name>Surface 1</Name>
+            <ConsAssmRef>000_ExtSlabCarpet_4in_ClimateZone 1-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <ExtWall>
+            <Name>Surface 2</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Sub Surface 2</Name>
+              <FenConsRef>ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>163.959</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>0</Coord>
+                  <Coord>0.0833333</Coord>
+                  <Coord>8.53552</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+          <Roof>
+            <Name>Surface 6</Name>
+            <ConsAssmRef>ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>9.84252</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>9.84252</Coord>
+                <Coord>154.199</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>164.042</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>13.1234</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+        </Spc>
+      </Story>
+      <ThrmlZn>
+        <Name>Story 1 Core Thermal Zone</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <ThrmlZn>
+        <Name>Story 1 East Perimeter Thermal Zone</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <ThrmlZn>
+        <Name>Story 1 North Perimeter Thermal Zone</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <ThrmlZn>
+        <Name>Story 1 South Perimeter Thermal Zone</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <ThrmlZn>
+        <Name>Story 1 West Perimeter Thermal Zone</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <AirSys>
+        <Name>Packaged Rooftop VAV with PFP Boxes and Reheat</Name>
+        <TypeSim>PVAV</TypeSim>
+        <NightCycleFanCtrl>CycleOnCallAnyZone</NightCycleFanCtrl>
+        <Cnt>1</Cnt>
+        <FanPos>DrawThrough</FanPos>
+        <ClgCtrl>Scheduled</ClgCtrl>
+        <ClgSetptSchRef>Deck_Temperature</ClgSetptSchRef>
+        <AirSeg>
+          <Name>Packaged Rooftop VAV with PFP Boxes and Reheat Supply AirSeg</Name>
+          <Type>Supply</Type>
+        </AirSeg>
+        <OACtrl />
+      </AirSys>
+    </Bldg>
+  </Proj>
+</SDDXML>
