@@ -6337,9 +6337,9 @@ OS:ScheduleTypeLimits,
 
 OS:Schedule:Constant,
   {bd2c9eab-ad08-4e3e-be65-9b15091e8eb8}, !- Handle
-  Dehumidifying Schedule 80 Percent,      !- Name
+  Dehumidifying Schedule 100 Percent,     !- Name
   {121415a7-cad3-42de-abea-9f2d8bda9d1c}, !- Schedule Type Limits Name
-  80;                                     !- Value
+  100;                                    !- Value
 
 OS:ZoneControl:Humidistat,
   {dc8d61f8-cbc0-4488-8dfc-3892bc556944}, !- Handle
@@ -6355,9 +6355,9 @@ OS:Schedule:Constant,
 
 OS:Schedule:Constant,
   {c8ebb8e2-bc38-4504-bfab-939153134472}, !- Handle
-  Dehumidifying Schedule 80 Percent 2,    !- Name
+  Dehumidifying Schedule 100 Percent 2,   !- Name
   {121415a7-cad3-42de-abea-9f2d8bda9d1c}, !- Schedule Type Limits Name
-  80;                                     !- Value
+  100;                                    !- Value
 
 OS:ZoneHVAC:Dehumidifier:DX,
   {9d96e4ee-470b-4621-b602-62641af54f03}, !- Handle
