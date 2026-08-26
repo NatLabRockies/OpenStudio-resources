@@ -178,7 +178,7 @@
     "   **   ~~~   **    3) is used as part of a HX assisted cooling coil which uses a high sensible effectiveness. Check inputs.",
     "   ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)",
     "   **   ~~~   **  Routine=CalcMultiSpeedDXCoilCooling, Environment=RUN PERIOD 1, at Simulation time=11/12 07:30 - 07:45",
-    "   **   ~~~   **  Input Temperature=-279.33",
+    "   **   ~~~   **  Input Temperature=-279.12",
     "   ** Warning ** WetBulb not converged after 101 iterations(PsyTwbFnTdbWPb)",
     "   **   ~~~   **  Routine=CalcMultiSpeedDXCoilCooling, Environment=RUN PERIOD 1, at Simulation time=12/20 12:20 - 12:25",
     "   **   ~~~   **  Input Temperature = 7.53",
@@ -205,45 +205,45 @@
     "   ************* The following recurring error messages occurred.",
     "   *************",
     "   *************  ** Warning ** SimHVAC: Exceeding Maximum iterations for all HVAC loops, during RUN PERIOD 1 continues",
-    "   *************  **   ~~~   **   This error occurred 8657 total times;",
+    "   *************  **   ~~~   **   This error occurred 8713 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 2\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 970 total times;",
+    "   *************  **   ~~~   **   This error occurred 969 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
     "   *************  **   ~~~   **   Max=-2.500000E-002 [C]  Min=-17.8 [C]",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 2\" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:",
-    "   *************  **   ~~~   **   This error occurred 3591 total times;",
+    "   *************  **   ~~~   **   This error occurred 3575 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
     "   *************  **   ~~~   **   Max=1.993985  Min=-8.089399",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 3\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 169 total times;",
+    "   *************  **   ~~~   **   This error occurred 168 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
     "   *************  **   ~~~   **   Max=-2.500000E-002 [C]  Min=-14.45 [C]",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 3\" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:",
-    "   *************  **   ~~~   **   This error occurred 2269 total times;",
+    "   *************  **   ~~~   **   This error occurred 2264 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=1.997963  Min=-7.729362",
+    "   *************  **   ~~~   **   Max=1.998257  Min=-7.729362",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 1\" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:",
     "   *************  **   ~~~   **   This error occurred 1138 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=1.996979  Min=-5.223985",
+    "   *************  **   ~~~   **   Max=1.998499  Min=-5.223984",
     "   *************",
     "   *************  ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)",
     "   *************  **   ~~~   **   This error occurred 2 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-231.723709 C  Min=-279.331818 C",
+    "   *************  **   ~~~   **   Max=-231.82016 C  Min=-279.12709 C",
     "   *************",
     "   *************  ** Warning ** WetBulb not converged after max iterations(PsyTwbFnTdbWPb)",
     "   *************  **   ~~~   **   This error occurred 2 total times;",
@@ -260,10 +260,10 @@
     "   *************",
     "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
     "   ************* EnergyPlus Sizing Error Summary. During Sizing: 8 Warning; 0 Severe Errors.",
-    "   ************* EnergyPlus Completed Successfully-- 16913 Warning; 0 Severe Errors; "
+    "   ************* EnergyPlus Completed Successfully-- 16946 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/multi_stage.osm/generated_files",
+    "/home/ubuntu/OpenStudio-resources/testruns/multi_stage.osm/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -398,12 +398,12 @@
           {
             "name": "total_site_energy",
             "units": "kBtu",
-            "value": 2983974.73
+            "value": 2983576.64
           },
           {
             "name": "net_site_energy",
             "units": "kBtu",
-            "value": 2983974.73
+            "value": 2983576.64
           },
           {
             "name": "total_building_area",
@@ -423,7 +423,7 @@
           {
             "name": "unmet_hours_during_heating",
             "units": "hr",
-            "value": 730.25
+            "value": 737.5
           },
           {
             "name": "unmet_hours_during_cooling",
@@ -433,12 +433,12 @@
           {
             "name": "unmet_hours_during_occupied_heating",
             "units": "hr",
-            "value": 450.5
+            "value": 450.75
           },
           {
             "name": "unmet_hours_during_occupied_cooling",
             "units": "hr",
-            "value": 532.25
+            "value": 532.0
           },
           {
             "name": "unmet_hours_tolerance_heating",
@@ -453,12 +453,12 @@
           {
             "name": "electricity_heating_ip",
             "units": "kWh",
-            "value": 39967.96
+            "value": 39969.5
           },
           {
             "name": "electricity_cooling_ip",
             "units": "kWh",
-            "value": 4289.94
+            "value": 4289.76
           },
           {
             "name": "electricity_interior_lighting_ip",
@@ -483,7 +483,7 @@
           {
             "name": "electricity_fans_ip",
             "units": "kWh",
-            "value": 43011.17
+            "value": 43009.36
           },
           {
             "name": "electricity_pumps_ip",
@@ -523,12 +523,12 @@
           {
             "name": "electricity_ip",
             "units": "kWh",
-            "value": 393416.18
+            "value": 393415.73
           },
           {
             "name": "natural_gas_heating_ip",
             "units": "MBtu",
-            "value": 1638.19
+            "value": 1637.79
           },
           {
             "name": "natural_gas_cooling_ip",
@@ -598,7 +598,7 @@
           {
             "name": "natural_gas_ip",
             "units": "MBtu",
-            "value": 1641.58
+            "value": 1641.19
           },
           {
             "name": "gasoline_heating_ip",
@@ -1468,7 +1468,7 @@
           {
             "name": "exterior_lighting_total_consumption",
             "units": "kWh",
-            "value": 874516.67
+            "value": 874400.0
           },
           {
             "name": "inflation_approach",
@@ -1502,7 +1502,7 @@
         ],
         "step_warnings": [
           "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
         ]
       }
     }
