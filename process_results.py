@@ -1,4 +1,4 @@
-"""
+r"""
 Command Line Utility (CLI) to parse and analyze the regression tests results.
 
 Use it like so:

@@ -1,0 +1,55 @@
+{
+  "completed_status": "Fail",
+  "current_step": 0,
+  "eplusout_err": [
+    "Program Version,EnergyPlus, Version 25.2.0-cf7368216c, ",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {56013305-309B-4E99-A26F-C3C97EF2DCFA}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {927F6C72-95E2-4697-BCE5-1175D6992632}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {B27C1D44-D292-46C2-84C3-EEF7ADAFF869}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {C13409A5-2260-43A8-B40F-F0E70D323682}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {FBD8BE17-753E-4936-A2FE-25E8501AF204}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = FRONTLOUNGEFLR1 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = FRONTOFFICEFLR1 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = LAUNDRYROOMFLR1 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = MECHANICALROOMFLR1 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = MEETINGROOMFLR1 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated."
+  ],
+  "file_paths": [
+    "/home/julien/Software/Others/OpenStudio-resources/testruns/070012_HotSml_CECStd.xml/generated_files",
+    "./files",
+    "./weather",
+    "../../files",
+    "../../weather",
+    "./"
+  ],
+  "run_options": null,
+  "seed_file": "in.osm",
+  "steps": [
+    {
+      "arguments": {
+      },
+      "measure_dir_name": "openstudio_results"
+    }
+  ],
+  "weather_file": "../../weatherdata/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+}

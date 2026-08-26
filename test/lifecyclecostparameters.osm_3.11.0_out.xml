@@ -1,0 +1,884 @@
+<?xml version="1.0"?>
+<SDDXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RulesetFilename file="CEC 2013 NonRes.bin" />
+  <Proj>
+    <Name>unknown</Name>
+    <Mat>
+      <Name>CP02 CARPET PAD</Name>
+    </Mat>
+    <Mat>
+      <Name>F04 Wall air space resistance</Name>
+    </Mat>
+    <Mat>
+      <Name>F05 Ceiling air space resistance</Name>
+    </Mat>
+    <Mat>
+      <Name>F08 Metal surface</Name>
+    </Mat>
+    <Mat>
+      <Name>F16 Acoustic tile</Name>
+    </Mat>
+    <Mat>
+      <Name>G01a 19mm gypsum board</Name>
+    </Mat>
+    <Mat>
+      <Name>G05 25mm wood</Name>
+    </Mat>
+    <Mat>
+      <Name>I02 25mm insulation board</Name>
+    </Mat>
+    <Mat>
+      <Name>I02 50mm insulation board</Name>
+    </Mat>
+    <Mat>
+      <Name>M01 100mm brick</Name>
+    </Mat>
+    <Mat>
+      <Name>M11 100mm lightweight concrete</Name>
+    </Mat>
+    <Mat>
+      <Name>M15 200mm heavyweight concrete</Name>
+    </Mat>
+    <Mat>
+      <Name>MAT-CC05 8 HW CONCRETE</Name>
+    </Mat>
+    <ConsAssm>
+      <Name>Exterior Roof</Name>
+      <MatRef>M11 100mm lightweight concrete</MatRef>
+      <MatRef>F05 Ceiling air space resistance</MatRef>
+      <MatRef>F16 Acoustic tile</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>Exterior Wall</Name>
+      <MatRef>M01 100mm brick</MatRef>
+      <MatRef>M15 200mm heavyweight concrete</MatRef>
+      <MatRef>I02 50mm insulation board</MatRef>
+      <MatRef>F04 Wall air space resistance</MatRef>
+      <MatRef>G01a 19mm gypsum board</MatRef>
+    </ConsAssm>
+    <ConsAssm>
+      <Name>Slab</Name>
+      <MatRef>MAT-CC05 8 HW CONCRETE</MatRef>
+      <MatRef>CP02 CARPET PAD</MatRef>
+    </ConsAssm>
+    <DrCons>
+      <Name>Exterior Door</Name>
+    </DrCons>
+    <FenCons>
+      <Name>Exterior Window</Name>
+      <CertificationMthd>NFRCRated</CertificationMthd>
+      <SHGC>0.39</SHGC>
+      <UFactor>0.569974</UFactor>
+      <VT>0.6</VT>
+    </FenCons>
+    <ExtShdgObj>
+      <Name>Shading Surface 3</Name>
+      <SolRefl>0</SolRefl>
+      <VisRefl>0</VisRefl>
+      <PolyLp>
+        <CartesianPt>
+          <Coord>-98.4252</Coord>
+          <Coord>0</Coord>
+          <Coord>65.6168</Coord>
+        </CartesianPt>
+        <CartesianPt>
+          <Coord>-98.4252</Coord>
+          <Coord>0</Coord>
+          <Coord>0</Coord>
+        </CartesianPt>
+        <CartesianPt>
+          <Coord>-98.4252</Coord>
+          <Coord>65.6168</Coord>
+          <Coord>0</Coord>
+        </CartesianPt>
+        <CartesianPt>
+          <Coord>-98.4252</Coord>
+          <Coord>65.6168</Coord>
+          <Coord>65.6168</Coord>
+        </CartesianPt>
+      </PolyLp>
+    </ExtShdgObj>
+    <Bldg>
+      <Name>Building 1</Name>
+      <BldgAz>0</BldgAz>
+      <ExtShdgObj>
+        <Name>Shading Surface 2</Name>
+        <SolRefl>0</SolRefl>
+        <VisRefl>0</VisRefl>
+        <PolyLp>
+          <CartesianPt>
+            <Coord>6.56168</Coord>
+            <Coord>0</Coord>
+            <Coord>6.56168</Coord>
+          </CartesianPt>
+          <CartesianPt>
+            <Coord>6.56168</Coord>
+            <Coord>-3.28084</Coord>
+            <Coord>6.56168</Coord>
+          </CartesianPt>
+          <CartesianPt>
+            <Coord>13.1234</Coord>
+            <Coord>-3.28084</Coord>
+            <Coord>6.56168</Coord>
+          </CartesianPt>
+          <CartesianPt>
+            <Coord>13.1234</Coord>
+            <Coord>0</Coord>
+            <Coord>6.56168</Coord>
+          </CartesianPt>
+        </PolyLp>
+      </ExtShdgObj>
+      <Story>
+        <Name>Building Story 1</Name>
+        <Spc>
+          <Name>Space 1</Name>
+          <Vol>10594.4</Vol>
+          <Area>1076.39</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Thermal Zone 1</ThrmlZnRef>
+          <UndgrFlr>
+            <Name>Surface 1</Name>
+            <ConsAssmRef>Slab</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <ExtWall>
+            <Name>Surface 2</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </ExtWall>
+          <IntWall>
+            <Name>Surface 3</Name>
+            <AdjacentSpcRef>Space 3</AdjacentSpcRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <IntWall>
+            <Name>Surface 4</Name>
+            <AdjacentSpcRef>Space 2</AdjacentSpcRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <ExtWall>
+            <Name>Surface 5</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Dr>
+              <Name>Sub Surface 1</Name>
+              <DrConsRef>Exterior Door</DrConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>6.56168</Coord>
+                  <Coord>0</Coord>
+                  <Coord>6.56168</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>6.56168</Coord>
+                  <Coord>0</Coord>
+                  <Coord>0</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>13.1234</Coord>
+                  <Coord>0</Coord>
+                  <Coord>0</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>13.1234</Coord>
+                  <Coord>0</Coord>
+                  <Coord>6.56168</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Dr>
+          </ExtWall>
+          <Roof>
+            <Name>Surface 6</Name>
+            <ConsAssmRef>Exterior Roof</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+        </Spc>
+        <Spc>
+          <Name>Space 2</Name>
+          <Vol>10594.4</Vol>
+          <Area>1076.39</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>65.6168</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>65.6168</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Thermal Zone 1</ThrmlZnRef>
+          <ExtShdgObj>
+            <Name>Shading Surface 1</Name>
+            <SolRefl>0</SolRefl>
+            <VisRefl>0</VisRefl>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>26.5748</Coord>
+                <Coord>6.88976</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>6.2336</Coord>
+                <Coord>6.88976</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>67.4213</Coord>
+                <Coord>6.2336</Coord>
+                <Coord>6.88976</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>67.4213</Coord>
+                <Coord>26.5748</Coord>
+                <Coord>6.88976</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </ExtShdgObj>
+          <ExtWall>
+            <Name>Surface 10</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+            <Win>
+              <Name>Sub Surface 2</Name>
+              <FenConsRef>Exterior Window</FenConsRef>
+              <PolyLp>
+                <CartesianPt>
+                  <Coord>65.6168</Coord>
+                  <Coord>6.56168</Coord>
+                  <Coord>6.56168</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>65.6168</Coord>
+                  <Coord>6.56168</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>65.6168</Coord>
+                  <Coord>26.2467</Coord>
+                  <Coord>3.28084</Coord>
+                </CartesianPt>
+                <CartesianPt>
+                  <Coord>65.6168</Coord>
+                  <Coord>26.2467</Coord>
+                  <Coord>6.56168</Coord>
+                </CartesianPt>
+              </PolyLp>
+            </Win>
+          </ExtWall>
+          <UndgrFlr>
+            <Name>Surface 12</Name>
+            <ConsAssmRef>Slab</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+          <IntWall>
+            <Name>Surface 7</Name>
+            <AdjacentSpcRef>Space 4</AdjacentSpcRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <Roof>
+            <Name>Surface 8</Name>
+            <ConsAssmRef>Exterior Roof</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+          <ExtWall>
+            <Name>Surface 9</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </ExtWall>
+        </Spc>
+        <Spc>
+          <Name>Space 3</Name>
+          <Vol>10594.4</Vol>
+          <Area>1076.39</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>65.6168</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>0</Coord>
+              <Coord>65.6168</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Thermal Zone 1</ThrmlZnRef>
+          <ExtWall>
+            <Name>Surface 13</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </ExtWall>
+          <Roof>
+            <Name>Surface 14</Name>
+            <ConsAssmRef>Exterior Roof</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+          <IntWall>
+            <Name>Surface 16</Name>
+            <AdjacentSpcRef>Space 4</AdjacentSpcRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </IntWall>
+          <ExtWall>
+            <Name>Surface 17</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </ExtWall>
+          <UndgrFlr>
+            <Name>Surface 18</Name>
+            <ConsAssmRef>Slab</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>0</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+        </Spc>
+        <Spc>
+          <Name>Space 4</Name>
+          <Vol>10594.4</Vol>
+          <Area>1076.39</Area>
+          <PolyLp>
+            <CartesianPt>
+              <Coord>65.6168</Coord>
+              <Coord>65.6168</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>65.6168</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>32.8084</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+            <CartesianPt>
+              <Coord>32.8084</Coord>
+              <Coord>65.6168</Coord>
+              <Coord>0</Coord>
+            </CartesianPt>
+          </PolyLp>
+          <ThrmlZnRef>Thermal Zone 1</ThrmlZnRef>
+          <ExtWall>
+            <Name>Surface 19</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </ExtWall>
+          <Roof>
+            <Name>Surface 20</Name>
+            <ConsAssmRef>Exterior Roof</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </Roof>
+          <ExtWall>
+            <Name>Surface 22</Name>
+            <ConsAssmRef>Exterior Wall</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>9.84252</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </ExtWall>
+          <UndgrFlr>
+            <Name>Surface 24</Name>
+            <ConsAssmRef>Slab</ConsAssmRef>
+            <PolyLp>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>32.8084</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>65.6168</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+              <CartesianPt>
+                <Coord>65.6168</Coord>
+                <Coord>32.8084</Coord>
+                <Coord>0</Coord>
+              </CartesianPt>
+            </PolyLp>
+          </UndgrFlr>
+        </Spc>
+      </Story>
+      <ThrmlZn>
+        <Name>Thermal Zone 1</Name>
+        <Type>Conditioned</Type>
+      </ThrmlZn>
+      <AirSys>
+        <Name>Air Loop HVAC 1</Name>
+        <TypeSim>SZAC</TypeSim>
+        <NightCycleFanCtrl>StaysOff</NightCycleFanCtrl>
+        <Cnt>1</Cnt>
+        <FanPos>DrawThrough</FanPos>
+        <ClgCtrl>NoSATControl</ClgCtrl>
+        <AirSeg>
+          <Name>Air Loop HVAC 1 Supply AirSeg</Name>
+          <Type>Supply</Type>
+          <CoilClg>
+            <Type>DirectExpansion</Type>
+            <NumClgStages>1</NumClgStages>
+            <DXEER>8.60076</DXEER>
+            <CndsrType>Air</CndsrType>
+          </CoilClg>
+          <CoilHtg>
+            <Type>Furnace</Type>
+            <FuelSrc>NaturalGas</FuelSrc>
+            <FurnThrmlEff>2.72971</FurnThrmlEff>
+          </CoilHtg>
+          <Fan>
+            <CtrlMthdSim>ConstantVolume</CtrlMthdSim>
+            <Class>Axial</Class>
+            <ModelingMthd>StaticPressure</ModelingMthd>
+            <FlowEff>0.7</FlowEff>
+            <TotStaticPress>1.00366</TotStaticPress>
+            <MtrEff>0.9</MtrEff>
+            <MtrfPos>InAirStream</MtrfPos>
+          </Fan>
+        </AirSeg>
+        <OACtrl />
+      </AirSys>
+    </Bldg>
+  </Proj>
+</SDDXML>

@@ -1,0 +1,55 @@
+{
+  "completed_status": "Fail",
+  "current_step": 0,
+  "eplusout_err": [
+    "Program Version,EnergyPlus, Version 25.2.0-cf7368216c, ",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {52F51AEC-0B76-4074-B595-077A7620B8FE}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {9B276F71-A4D7-4FEA-80F1-77A54A485953}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {AD760B72-7F9C-4811-9804-FFDD1AD2D162}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {B2B9CDBC-881B-4F6C-B4B6-1569F8AC861A}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval = {ED39DC6D-37C5-4D2E-905E-570EEAA116CF}",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = CORE_ZN TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = PERIMETER_ZN_1 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = PERIMETER_ZN_2 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = PERIMETER_ZN_3 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated.",
+    "   ** Warning ** ProcessScheduleInput: Schedule:Year = PERIMETER_ZN_4 TARGET SHW TEMP",
+    "   **   ~~~   ** Schedule Type Limits Name is empty.",
+    "   **   ~~~   ** Schedule will not be validated."
+  ],
+  "file_paths": [
+    "/home/julien/Software/Others/OpenStudio-resources/testruns/020006_OffSml_Run25.xml/generated_files",
+    "./files",
+    "./weather",
+    "../../files",
+    "../../weather",
+    "./"
+  ],
+  "run_options": null,
+  "seed_file": "in.osm",
+  "steps": [
+    {
+      "arguments": {
+      },
+      "measure_dir_name": "openstudio_results"
+    }
+  ],
+  "weather_file": "../../weatherdata/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+}
