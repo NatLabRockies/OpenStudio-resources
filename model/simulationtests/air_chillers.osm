@@ -2120,7 +2120,8 @@ OS:ThermalZone,
   ,                                       !- Illuminance Map Name
   ,                                       !- Group Rendering Name
   {ff54caa2-d05a-47a5-9bc1-5d642f69f023}, !- Thermostat Name
-  No;                                     !- Use Ideal Air Loads
+  No,                                     !- Use Ideal Air Loads
+  {178bb844-5197-4262-8020-8cac4bec82f4}; !- Humidistat Name
 
 OS:Node,
   {689d7840-72e3-413f-a322-832c38f6ba0b}, !- Handle
@@ -6323,7 +6324,8 @@ OS:Schedule:Constant,
 OS:ZoneControl:Humidistat,
   {1a4e23f0-663b-4219-a572-4294f9fbc89d}, !- Handle
   Zone Control Humidistat 1,              !- Name
-  {100f63ba-e9c6-4884-afd1-97ddc03ccee5}; !- Humidifying Relative Humidity Setpoint Schedule Name
+  {100f63ba-e9c6-4884-afd1-97ddc03ccee5}, !- Humidifying Relative Humidity Setpoint Schedule Name
+  {dbb28d83-a63a-4e40-ba3e-93ffc1c89a5e}; !- Dehumidifying Relative Humidity Setpoint Schedule Name
 
 OS:ScheduleTypeLimits,
   {9a5fe098-2d86-4ed4-b7bd-84d975147b01}, !- Handle
@@ -6332,6 +6334,30 @@ OS:ScheduleTypeLimits,
   100,                                    !- Upper Limit Value
   Continuous,                             !- Numeric Type
   Percent;                                !- Unit Type
+
+OS:Schedule:Constant,
+  {dbb28d83-a63a-4e40-ba3e-93ffc1c89a5e}, !- Handle
+  Dehumidifying Schedule 100 Percent,     !- Name
+  {9a5fe098-2d86-4ed4-b7bd-84d975147b01}, !- Schedule Type Limits Name
+  100;                                    !- Value
+
+OS:ZoneControl:Humidistat,
+  {178bb844-5197-4262-8020-8cac4bec82f4}, !- Handle
+  Zone Control Humidistat 2,              !- Name
+  {d9f06502-1fe8-4d83-ba84-8552abaa889a}, !- Humidifying Relative Humidity Setpoint Schedule Name
+  {cf84420d-2efd-4d5e-8ad6-288c8e6cf7f6}; !- Dehumidifying Relative Humidity Setpoint Schedule Name
+
+OS:Schedule:Constant,
+  {d9f06502-1fe8-4d83-ba84-8552abaa889a}, !- Handle
+  Humidifying Schedule - OFF,             !- Name
+  {9a5fe098-2d86-4ed4-b7bd-84d975147b01}, !- Schedule Type Limits Name
+  0;                                      !- Value
+
+OS:Schedule:Constant,
+  {cf84420d-2efd-4d5e-8ad6-288c8e6cf7f6}, !- Handle
+  Dehumidifying Schedule 100 Percent 2,   !- Name
+  {9a5fe098-2d86-4ed4-b7bd-84d975147b01}, !- Schedule Type Limits Name
+  100;                                    !- Value
 
 OS:ZoneHVAC:Dehumidifier:DX,
   {071d3bd9-9e5e-4abb-a215-48779317787c}, !- Handle
