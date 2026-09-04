@@ -59,8 +59,8 @@ peoples = []
 spaces.each do |space|
   definition1 = OpenStudio::Model::PeopleDefinition.new(model)
   definition1.setNumberofPeople(1.0)
-  definition1.setMeanRadiantTemperatureCalculationType("EnclosureAveraged")
-  definition1.setThermalComfortModelType(0, "Fanger")
+  definition1.setMeanRadiantTemperatureCalculationType('EnclosureAveraged')
+  definition1.setThermalComfortModelType(0, 'Fanger')
 
   people1 = OpenStudio::Model::People.new(definition1)
   people1.setWorkEfficiencySchedule(workeffsch)
@@ -71,8 +71,8 @@ spaces.each do |space|
 
   definition2 = OpenStudio::Model::PeopleDefinition.new(model)
   definition2.setNumberofPeople(1.0)
-  definition2.setMeanRadiantTemperatureCalculationType("EnclosureAveraged") # SurfaceWeighted, AngleFactor not supported?
-  definition2.setThermalComfortModelType(0, "Pierce")
+  definition2.setMeanRadiantTemperatureCalculationType('EnclosureAveraged') # SurfaceWeighted, AngleFactor not supported?
+  definition2.setThermalComfortModelType(0, 'Pierce')
 
   people2 = OpenStudio::Model::People.new(definition2)
   people2.setWorkEfficiencySchedule(workeffsch)
