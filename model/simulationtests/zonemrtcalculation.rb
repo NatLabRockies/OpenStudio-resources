@@ -51,7 +51,6 @@ model.add_windows({ 'wwr' => 0.4,
                     'offset' => 1,
                     'application_type' => 'Above Floor' })
 
-# create the zone property user view factors by surface name object
 # There are a number of preconditions you must meet:
 # * All People objects should be assigned directly to a space,
 # * All spaces should be assigned to the same Thermal Zone.
@@ -69,6 +68,23 @@ airvelsch.setValue(0.5)
 # get all people in the zone
 peoples = []
 spaces.each do |space|
+  surfaces = []
+  sub_surfaces = []
+  space.surfaces.each do |surface|
+    surfaces << surface
+    surface.subSurfaces.each do |sub_surface|
+      sub_surfaces << sub_surface
+    end
+  end
+
+  surfaces = surfaces.uniq.sort_by { |s| s.name.to_s }
+  sub_surfaces = sub_surfaces.uniq.sort_by { |s| s.name.to_s }
+
+  comfortview = OpenStudio::Model::ComfortViewFactorAngles.new(model)
+  (surfaces + sub_surfaces).each do |surface|
+    comfortview.addAngleFactor(surface, 1.0 / (surfaces.size + sub_surfaces.size))
+  end
+
   definition1 = OpenStudio::Model::PeopleDefinition.new(model)
   definition1.setNumberofPeople(1.0)
   definition1.setMeanRadiantTemperatureCalculationType('EnclosureAveraged')
@@ -83,7 +99,8 @@ spaces.each do |space|
 
   definition2 = OpenStudio::Model::PeopleDefinition.new(model)
   definition2.setNumberofPeople(1.0)
-  definition2.setMeanRadiantTemperatureCalculationType('EnclosureAveraged') # SurfaceWeighted, AngleFactor not supported?
+  definition2.setMeanRadiantTemperatureCalculationType('SurfaceWeighted')
+  definition2.setSurfaceNameAngleFactorListName(surfaces[0])
   definition2.setThermalComfortModelType(0, 'Pierce')
 
   people2 = OpenStudio::Model::People.new(definition2)
@@ -92,6 +109,19 @@ spaces.each do |space|
   people2.setAirVelocitySchedule(airvelsch)
   people2.setSpace(space)
   peoples << people2
+
+  definition3 = OpenStudio::Model::PeopleDefinition.new(model)
+  definition3.setNumberofPeople(1.0)
+  definition3.setMeanRadiantTemperatureCalculationType('AngleFactor')
+  definition3.setSurfaceNameAngleFactorListName(comfortview)
+  definition3.setThermalComfortModelType(0, 'KSU')
+
+  people3 = OpenStudio::Model::People.new(definition3)
+  people3.setWorkEfficiencySchedule(workeffsch)
+  people3.setClothingInsulationSchedule(cloinssch)
+  people3.setAirVelocitySchedule(airvelsch)
+  people3.setSpace(space)
+  peoples << people3
 end
 
 # Extensible: MRT Weighting Factors for people
