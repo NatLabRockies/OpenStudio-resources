@@ -51,12 +51,6 @@ model.add_windows({ 'wwr' => 0.4,
                     'offset' => 1,
                     'application_type' => 'Above Floor' })
 
-# There are a number of preconditions you must meet:
-# * All People objects should be assigned directly to a space,
-# * All spaces should be assigned to the same Thermal Zone.
-# The Sum of the MRT Weighting Factors for all People objects in the same Thermal Zone must be < 1.0
-zonemrtcalc = thermal_zone.getZoneMRTCalculation
-
 # create thermal comfort schedules
 workeffsch = OpenStudio::Model::ScheduleConstant.new(model)
 workeffsch.setValue(0.5)
@@ -65,12 +59,28 @@ cloinssch.setValue(0.5)
 airvelsch = OpenStudio::Model::ScheduleConstant.new(model)
 airvelsch.setValue(0.5)
 
-# get all people in the zone
-peoples = []
 spaces.each do |space|
+  surfaces = []
+  sub_surfaces = []
+  space.surfaces.each do |surface|
+    surfaces << surface
+    surface.subSurfaces.each do |sub_surface|
+      sub_surfaces << sub_surface
+    end
+  end
+
+  surfaces = surfaces.uniq.sort_by { |s| s.name.to_s }
+  sub_surfaces = sub_surfaces.uniq.sort_by { |s| s.name.to_s }
+
+  comfortview = OpenStudio::Model::ComfortViewFactorAngles.new(model)
+  (surfaces + sub_surfaces).each do |surface|
+    comfortview.addAngleFactor(surface, 1.0 / (surfaces.size + sub_surfaces.size))
+  end
+
   definition1 = OpenStudio::Model::PeopleDefinition.new(model)
   definition1.setNumberofPeople(1.0)
-  definition1.setMeanRadiantTemperatureCalculationType('EnclosureAveraged')
+  definition1.setMeanRadiantTemperatureCalculationType('SurfaceWeighted')
+  definition1.setSurfaceNameAngleFactorListName(surfaces[0])
   definition1.setThermalComfortModelType(0, 'Fanger')
 
   people1 = OpenStudio::Model::People.new(definition1)
@@ -78,11 +88,11 @@ spaces.each do |space|
   people1.setClothingInsulationSchedule(cloinssch)
   people1.setAirVelocitySchedule(airvelsch)
   people1.setSpace(space)
-  peoples << people1
 
   definition2 = OpenStudio::Model::PeopleDefinition.new(model)
   definition2.setNumberofPeople(1.0)
-  definition2.setMeanRadiantTemperatureCalculationType('EnclosureAveraged')
+  definition2.setMeanRadiantTemperatureCalculationType('AngleFactor')
+  definition2.setSurfaceNameAngleFactorListName(comfortview)
   definition2.setThermalComfortModelType(0, 'Pierce')
 
   people2 = OpenStudio::Model::People.new(definition2)
@@ -90,55 +100,7 @@ spaces.each do |space|
   people2.setClothingInsulationSchedule(cloinssch)
   people2.setAirVelocitySchedule(airvelsch)
   people2.setSpace(space)
-  peoples << people2
 end
-
-# Extensible: MRT Weighting Factors for people
-
-people_one_mrt_weighting_factor = 0.37
-people_other_mrt_weighting_factor = (1 - people_one_mrt_weighting_factor) / (peoples.size - 1)
-# people, mrt_weighting_factor
-mrt_weighting_factor_infos = []
-mrt_weighting_factor_infos << [peoples[0], people_one_mrt_weighting_factor]
-peoples[1..-1].each do |people|
-  mrt_weighting_factor_infos << [people, people_other_mrt_weighting_factor]
-end
-# # To add a group, you can use the convenience method
-# bool addMRTWeightingFactor(const People&, double mRTWeightingFactor);
-zonemrtcalc.addMRTWeightingFactor(mrt_weighting_factor_infos[0][0], mrt_weighting_factor_infos[0][1])
-
-# This will in turn actually use the helper class MRTWeightingFactor
-zonemrtcalc.addMRTWeightingFactor(OpenStudio::Model::MRTWeightingFactor.new(mrt_weighting_factor_infos[1][0], mrt_weighting_factor_infos[1][1]))
-
-# NOTE: if you call addMRTWeightingFactor with a People object that is already in the list, it will update the
-# MRTWeightingFactor value for that People object.
-
-raise unless zonemrtcalc.numberofMRTWeightingFactors == 2
-# This is a vector of MRTWeightingFactor
-raise unless zonemrtcalc.mRTWeightingFactors.size == 2
-
-raise unless zonemrtcalc.mRTWeightingFactorIndex(peoples[0]).get == 0
-raise unless zonemrtcalc.mRTWeightingFactorIndex(peoples[1]).get == 1
-
-first_mrt_group = zonemrtcalc.mRTWeightingFactors.first
-# This returns an OptionalMRTWeightingFactor
-first_mrt_group_ = zonemrtcalc.getMRTWeightingFactor(0)
-raise unless first_mrt_group_.is_initialized
-raise unless first_mrt_group.people == first_mrt_group_.get.people
-
-zonemrtcalc.removeMRTWeightingFactor(0)
-raise unless zonemrtcalc.numberofMRTWeightingFactors == 1
-raise unless zonemrtcalc.numExtensibleGroups == 1
-raise unless zonemrtcalc.mRTWeightingFactorIndex(peoples[1]).get == 0
-
-zonemrtcalc.removeAllMRTWeightingFactors
-raise unless zonemrtcalc.numberofMRTWeightingFactors == 0
-raise unless zonemrtcalc.numExtensibleGroups == 0
-
-# There is also a batch add
-mrt_groups = mrt_weighting_factor_infos.map { |g| OpenStudio::Model::MRTWeightingFactor.new(g[0], g[1]) }
-zonemrtcalc.addMRTWeightingFactors(mrt_groups)
-raise unless zonemrtcalc.numberofMRTWeightingFactors == peoples.size
 
 # save the OpenStudio model (.osm)
 model.save_openstudio_osm({ 'osm_save_directory' => Dir.pwd,
