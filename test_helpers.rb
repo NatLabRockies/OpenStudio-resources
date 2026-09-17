@@ -125,6 +125,16 @@ when 'false'
   $UseEplusSpaces = false
 end
 
+$UseSpaceLoadInstances = nil
+case ENV['USE_SPACE_LOAD_INSTANCES'].to_s.downcase
+when 'true'
+  puts 'USE_SPACE_LOAD_INSTANCES=true: Will translate SpaceLoads to the E+ ...:Instance / ...:Definition object pairs'
+  $UseSpaceLoadInstances = true
+when 'false'
+  puts 'USE_SPACE_LOAD_INSTANCES=false: Will force using the legacy (combined) SpaceLoad objects'
+  $UseSpaceLoadInstances = false
+end
+
 def get_cli_subcommand_from_env(sdk_version_str, debug: false)
   cur_sdk_version = Gem::Version.new(sdk_version_str)
   if debug
@@ -796,6 +806,13 @@ def sim_test(filename, options = {})
       extra_run_options += '--space-translation '
     else
       extra_run_options += '--no-space-translation '
+    end
+  end
+  if !$UseSpaceLoadInstances.nil?
+    if $UseSpaceLoadInstances
+      extra_run_options += '--space-load-instances '
+    else
+      extra_run_options += '--no-space-load-instances '
     end
   end
 
