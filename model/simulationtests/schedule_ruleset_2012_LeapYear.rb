@@ -50,7 +50,13 @@ schedule.setName('Test Schedule')
 schedule.setSummerDesignDaySchedule(summer_design_day)
 schedule.setWinterDesignDaySchedule(winter_design_day)
 
+summer_design_day.setName("#{schedule.nameString} Summer Design Day Schedule")
+winter_design_day.setName("#{schedule.nameString} Winter Design Day Schedule")
+schedule.defaultDaySchedule.setName("#{schedule.nameString} Default Day Schedule")
+
 weekdayRule = OpenStudio::Model::ScheduleRule.new(schedule)
+weekdayRule.setName("#{schedule.nameString} Weekday Rule")
+weekdayRule.daySchedule.setName("#{schedule.nameString} Weekday Rule Day Schedule")
 weekdayRule.setApplySunday(false)
 weekdayRule.setApplyMonday(true)
 weekdayRule.setApplyTuesday(true)
@@ -61,6 +67,8 @@ weekdayRule.setApplySaturday(false)
 weekdayRule.daySchedule.addValue(OpenStudio::Time.new(0, 24, 0, 0), 0.9)
 
 weekendRule = OpenStudio::Model::ScheduleRule.new(schedule)
+weekendRule.setName("#{schedule.nameString} Weekend Rule")
+weekendRule.daySchedule.setName("#{schedule.nameString} Weekend Rule Day Schedule")
 weekendRule.setApplySunday(true)
 weekendRule.setApplyMonday(false)
 weekendRule.setApplyTuesday(false)
@@ -71,6 +79,8 @@ weekendRule.setApplySaturday(true)
 weekendRule.daySchedule.addValue(OpenStudio::Time.new(0, 24, 0, 0), 0.3)
 
 summerRule = OpenStudio::Model::ScheduleRule.new(schedule)
+summerRule.setName("#{schedule.nameString} Summer Rule")
+summerRule.daySchedule.setName("#{schedule.nameString} Summer Rule Day Schedule")
 summerRule.setApplySunday(true)
 summerRule.setApplyMonday(true)
 summerRule.setApplyTuesday(true)
@@ -90,11 +100,13 @@ end
 # add output reports
 add_out_vars = false
 if add_out_vars
-  # request hourly output
+  reporting_frequency = 'Timestep'
   var = OpenStudio::Model::OutputVariable.new('Schedule Value', model)
   var.setKeyValue('Test Schedule')
+  var.setReportingFrequency(reporting_frequency)
 
   var = OpenStudio::Model::OutputVariable.new('Site Day Type Index', model)
+  var.setReportingFrequency(reporting_frequency)
 end
 
 # save the OpenStudio model (.osm)
