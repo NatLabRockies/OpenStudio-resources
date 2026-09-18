@@ -437,6 +437,19 @@ class ModelTests < Minitest::Test
     result = sim_test('coilsystem_cooling_water.osm')
   end
 
+  def test_comfortviewfactorangles_rb
+    result = sim_test('comfortviewfactorangles.rb')
+  end
+
+  def test_comfortviewfactorangles_py
+    result = sim_test('comfortviewfactorangles.py')
+  end
+
+  # TODO: To be added in the next official release after: 3.11.0
+  # def test_comfortviewfactorangles_osm
+  #   result = sim_test('comfortviewfactorangles.osm')
+  # end
+
   def test_coolingtowers_osm
     result = sim_test('coolingtowers.osm')
   end
