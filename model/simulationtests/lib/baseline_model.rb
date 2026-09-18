@@ -351,10 +351,21 @@ class BaselineModel < OpenStudio::Model::Model
     # Add HVAC system type
     case sys_num
       # 1: PTAC, Residential
-      when '01' then hvac = OpenStudio::Model.addSystemType1(self, zones)
+      when '01'
+        OpenStudio::Model.addSystemType1(self, zones)
+        # Force an Always On schedule to make the PTAC Constant and not Cycling
+        # cf https://github.com/NREL/OpenStudio/issues/4699
+        self.getZoneHVACPackagedTerminalAirConditioners.each do |ptac|
+          ptac.setSupplyAirFanOperatingModeSchedule(self.alwaysOnDiscreteSchedule)
+        end
+
       # 2: PTHP, Residential
       when '02'
-        hvac = OpenStudio::Model.addSystemType2(self, zones)
+        OpenStudio::Model.addSystemType2(self, zones)
+        # Force an Always On schedule to make the PTAC Constant and not Cycling
+        self.getZoneHVACPackagedTerminalHeatPumps.each do |pthp|
+          pthp.setSupplyAirFanOperatingModeSchedule(self.alwaysOnDiscreteSchedule)
+        end
       # 3: PSZ-AC
       when '03'
         zones.each do |zone|

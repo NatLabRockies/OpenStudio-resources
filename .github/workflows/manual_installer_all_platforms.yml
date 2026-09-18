@@ -1,0 +1,332 @@
+name: Test OS SDK Installer - All Platforms
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'The base url to use to download each platform'
+        required: true
+        default: 'https://github.com/NREL/OpenStudio/releases/download/v3.5.1'
+      os_version:
+        description: 'OpenStudio Version (e.g. 3.5.1)'
+        required: true
+        default: '3.5.1'
+      os_prerelease_tag:
+        description: 'Pre-release tag (e.g. -alpha, -rc1). Leave empty if none' 
+        required: false
+        default: ''
+      os_build_sha:
+         description: 'OpenStudio Build sha (first 10 chars)'
+         required: true
+         default: '22e1db7be5'
+
+jobs:
+  installer_ubuntu_2204:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.x'
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+
+    - name: Download and install OS SDK installer
+      shell: bash
+      run: |
+        set -x
+        installer_url="${{ github.event.inputs.base_url}}/OpenStudio-${{ github.event.inputs.os_version}}${{ github.event.inputs.os_prerelease_tag}}%2B${{ github.event.inputs.os_build_sha}}-Ubuntu-22.04-x86_64.deb"
+        echo "Installer link: $installer_url"
+        sudo apt update
+        wget $installer_url
+        sudo apt install -y ./OpenStudio*.deb
+        openstudio openstudio_version
+
+    - name: Setup python deps
+      shell: bash
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run model_tests.rb
+      shell: bash
+      run: |
+        set -x
+        echo "nproc=$(nproc)"
+        N=$(nproc) CUSTOMTAG=cli openstudio model_tests.rb
+
+    - name: Run highlevel_tests
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        MT_CPU=$(nproc) CUSTOMTAG=cli openstudio highlevel_tests.rb
+
+    - name: Run highlevel_tests (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        RUBYPATH=$(find /usr/local -type d -regex ".*openstudio.*/Ruby$")
+        export RUBYLIB=$RUBYPATH
+        ruby -v
+        MT_CPU=$(nproc) CUSTOMTAG=ruby ruby highlevel_tests.rb
+
+    - name: Run model_tests.rb (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        RUBYPATH=$(find /usr/local -type d -regex ".*openstudio.*/Ruby$")
+        export RUBYLIB=$RUBYPATH
+        ruby -v
+        MT_CPU=$(nproc) CUSTOMTAG=ruby ruby model_tests.rb
+
+    - name: Generate HTML and heatmap
+      if: ${{ always() }}
+      shell: bash
+      run: |
+        set -x
+        python process_results.py test-status --tagged --quiet || true
+        python process_results.py heatmap --tagged --quiet || true
+
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+          name: Test-Results
+          path: Test-Stability/*
+
+  installer_ubuntu_2004:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.x'
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+
+    - name: Download and install OS SDK installer
+      shell: bash
+      run: |
+        set -x
+        installer_url="${{ github.event.inputs.base_url}}/OpenStudio-${{ github.event.inputs.os_version}}${{ github.event.inputs.os_prerelease_tag}}%2B${{ github.event.inputs.os_build_sha}}-Ubuntu-20.04-x86_64.deb"
+        echo "Installer link: $installer_url"
+        sudo apt update
+        wget $installer_url
+        sudo apt install -y ./OpenStudio*.deb
+        openstudio openstudio_version
+
+    - name: Setup python deps
+      shell: bash
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run model_tests.rb
+      shell: bash
+      run: |
+        set -x
+        echo "nproc=$(nproc)"
+        N=$(nproc) CUSTOMTAG=cli openstudio model_tests.rb
+
+    - name: Run highlevel_tests
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        MT_CPU=$(nproc) CUSTOMTAG=cli openstudio highlevel_tests.rb
+
+    - name: Run highlevel_tests (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        RUBYPATH=$(find /usr/local -type d -regex ".*openstudio.*/Ruby$")
+        export RUBYLIB=$RUBYPATH
+        ruby -v
+        MT_CPU=$(nproc) CUSTOMTAG=ruby ruby highlevel_tests.rb
+
+    - name: Run model_tests.rb (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        RUBYPATH=$(find /usr/local -type d -regex ".*openstudio.*/Ruby$")
+        export RUBYLIB=$RUBYPATH
+        ruby -v
+        MT_CPU=$(nproc) CUSTOMTAG=ruby ruby model_tests.rb
+
+    - name: Generate HTML and heatmap
+      if: ${{ always() }}
+      shell: bash
+      run: |
+        set -x
+        python process_results.py test-status --tagged --quiet || true
+        python process_results.py heatmap --tagged --quiet || true
+
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+          name: Test-Results
+          path: Test-Stability/*
+
+  installer_windows:
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.x'
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+
+    - name: Download and install OS SDK installer
+      shell: bash
+      run: |
+        set -x
+        installer_url="${{ github.event.inputs.base_url}}/OpenStudio-${{ github.event.inputs.os_version}}${{ github.event.inputs.os_prerelease_tag}}%2B${{ github.event.inputs.os_build_sha}}-Windows.exe"
+        echo "Installer link: $installer_url"
+        curl -SLO  $installer_url
+        OS_NAME=$(ls *.exe)
+        # script installs to /c/openstudio
+        sed -i -e "s|REPLACEME|c:\\\\\\\\openstudio|" ci/install-openstudio.qs
+        ./$OS_NAME --script ci/install-openstudio.qs
+        /c/openstudio/bin/openstudio.exe openstudio_version
+
+    - name: Setup python deps
+      shell: bash
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run model_tests.rb
+      shell: bash
+      run: |
+        set -x
+        echo "nproc=$(nproc)"
+        N=$(nproc) CUSTOMTAG=cli /c/openstudio/bin/openstudio.exe model_tests.rb
+
+    - name: Run highlevel_tests
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        MT_CPU=$(nproc) CUSTOMTAG=cli /c/openstudio/bin/openstudio.exe highlevel_tests.rb
+
+    - name: Run highlevel_tests (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        export RUBYLIB=/c/openstudio/Ruby
+        ruby -v
+        MT_CPU=$(nproc) CUSTOMTAG=ruby ruby highlevel_tests.rb
+
+    - name: Run model_tests.rb (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        export RUBYLIB=/c/openstudio/Ruby
+        ruby -v
+        MT_CPU=$(nproc) CUSTOMTAG=ruby ruby model_tests.rb
+
+    - name: Generate HTML and heatmap
+      if: ${{ always() }}
+      shell: bash
+      run: |
+        set -x
+        python process_results.py test-status --tagged --quiet || true
+        python process_results.py heatmap --tagged --quiet || true
+
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+          name: Test-Results
+          path: Test-Stability/*
+
+  installer_mac_osx:
+    runs-on: macos-11
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.x'
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+
+    - name: Download and install OS SDK installer
+      shell: bash
+      run: |
+        set -x
+        installer_url="${{ github.event.inputs.base_url}}/OpenStudio-${{ github.event.inputs.os_version}}${{ github.event.inputs.os_prerelease_tag}}%2B${{ github.event.inputs.os_build_sha}}-Darwin-x86_64.dmg"
+        echo "Installer link: $installer_url"
+        echo "Installer link: ${{ github.event.inputs.os_installer_osx }}"
+        wget $installer_url
+        OS_NAME=$(ls *.dmg)
+        OS_NAME_NO_EXT=$(basename $OS_NAME .dmg)
+        sed -i -e "s|REPLACEME|$HOME/openstudio|" ci/install-openstudio.qs
+        hdiutil attach ${OS_NAME}
+        sudo /Volumes/${OS_NAME_NO_EXT}/${OS_NAME_NO_EXT}.app/Contents/MacOS/${OS_NAME_NO_EXT} --script ci/install-openstudio.qs
+        hdiutil detach /Volumes/${OS_NAME_NO_EXT} -force
+        openstudio openstudio_version
+
+    - name: Setup python deps
+      shell: bash
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run model_tests.rb
+      shell: bash
+      run: |
+        set -x
+        echo "nproc=$(sysctl -n hw.logicalcpu)"
+        N=$(sysctl -n hw.logicalcpu) CUSTOMTAG=cli openstudio model_tests.rb
+
+    - name: Run highlevel_tests
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        MT_CPU=$(sysctl -n hw.logicalcpu) CUSTOMTAG=cli openstudio highlevel_tests.rb
+
+    - name: Run highlevel_tests (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        export RUBYLIB=$HOME/openstudio/Ruby
+        ruby -v
+        MT_CPU=$(sysctl -n hw.logicalcpu) CUSTOMTAG=ruby ruby highlevel_tests.rb
+
+    - name: Run model_tests.rb (Ruby bindings)
+      if: always()
+      shell: bash
+      run: |
+        set -x
+        export RUBYLIB=$HOME/openstudio/Ruby
+        ruby -v
+        MT_CPU=$(sysctl -n hw.logicalcpu) CUSTOMTAG=ruby ruby model_tests.rb
+
+    - name: Generate HTML and heatmap
+      if: ${{ always() }}
+      shell: bash
+      run: |
+        set -x
+        python process_results.py test-status --tagged --quiet || true
+        python process_results.py heatmap --tagged --quiet || true
+
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+          name: Test-Results
+          path: Test-Stability/*

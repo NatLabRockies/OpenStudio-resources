@@ -114,14 +114,8 @@
     "   **   ~~~   ** ...hot water temperature       = 43.08 C",
     "   **   ~~~   ** ...Note: target water temperature should be less than or equal to the hot water temperature",
     "   **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 4\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -5.43",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/01 10:40 - 10:45",
-    "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 5\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -3.30",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 02/16 14:53 - 15:00",
-    "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 2\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -3.88",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 02/20 09:35 - 09:40",
+    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 4\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -7.80",
+    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/05 11:45 - 12:00",
     "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
     "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-ELECTRICITY\" has no energy cost. ",
     "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
@@ -143,28 +137,16 @@
     "   ************* The following recurring error messages occurred.",
     "   *************",
     "   *************  ** Warning ** \"SERVICE WATER USE 1GAL/MIN\" - Target water temperature should be less than or equal to the hot water temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 211013 total times;",
+    "   *************  **   ~~~   **   This error occurred 170843 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=14.253949  Min=1.127301E-003",
+    "   *************  **   ~~~   **   Max=14.253807  Min=1.960015E-003",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 4\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 559 total times;",
+    "   *************  **   ~~~   **   This error occurred 121 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-0.15 [C]  Min=-16.55 [C]",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 5\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 13 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-0.55 [C]  Min=-4.4 [C]",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 2\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 7 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-2.500000E-002 [C]  Min=-3.875 [C]",
+    "   *************  **   ~~~   **   Max=-0.15 [C]  Min=-12.2 [C]",
     "   *************",
     "   *************",
     "   ************* ===== Final Error Summary =====",
@@ -176,10 +158,10 @@
     "   *************",
     "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
     "   ************* EnergyPlus Sizing Error Summary. During Sizing: 14 Warning; 0 Severe Errors.",
-    "   ************* EnergyPlus Completed Successfully-- 211689 Warning; 0 Severe Errors; "
+    "   ************* EnergyPlus Completed Successfully-- 171061 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/generator_microturbine.rb/generated_files",
+    "/home/ubuntu/OpenStudio-resources/testruns/generator_microturbine.rb/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -314,12 +296,12 @@
           {
             "name": "total_site_energy",
             "units": "kBtu",
-            "value": 48438298.19
+            "value": 55735883.42
           },
           {
             "name": "net_site_energy",
             "units": "kBtu",
-            "value": 46824165.64
+            "value": 54120537.66
           },
           {
             "name": "total_building_area",
@@ -329,17 +311,17 @@
           {
             "name": "total_site_eui",
             "units": "kBtu/ft^2",
-            "value": 90.0
+            "value": 103.56
           },
           {
             "name": "eui",
             "units": "kBtu/ft^2",
-            "value": 87.0
+            "value": 100.56
           },
           {
             "name": "unmet_hours_during_heating",
             "units": "hr",
-            "value": 69.0
+            "value": 70.5
           },
           {
             "name": "unmet_hours_during_cooling",
@@ -349,7 +331,7 @@
           {
             "name": "unmet_hours_during_occupied_heating",
             "units": "hr",
-            "value": 11.5
+            "value": 12.25
           },
           {
             "name": "unmet_hours_during_occupied_cooling",
@@ -374,7 +356,7 @@
           {
             "name": "electricity_cooling_ip",
             "units": "kWh",
-            "value": 185814.76
+            "value": 183115.39
           },
           {
             "name": "electricity_interior_lighting_ip",
@@ -399,12 +381,12 @@
           {
             "name": "electricity_fans_ip",
             "units": "kWh",
-            "value": 331921.36
+            "value": 992711.94
           },
           {
             "name": "electricity_pumps_ip",
             "units": "kWh",
-            "value": 164029.86
+            "value": 165372.17
           },
           {
             "name": "electricity_heat_rejection_ip",
@@ -439,12 +421,12 @@
           {
             "name": "electricity_ip",
             "units": "kWh",
-            "value": 3743237.1
+            "value": 4402670.62
           },
           {
             "name": "natural_gas_heating_ip",
             "units": "MBtu",
-            "value": 25028.05
+            "value": 30076.23
           },
           {
             "name": "natural_gas_cooling_ip",
@@ -499,7 +481,7 @@
           {
             "name": "natural_gas_water_systems_ip",
             "units": "MBtu",
-            "value": 4085.75
+            "value": 4082.57
           },
           {
             "name": "natural_gas_refrigeration_ip",
@@ -514,7 +496,7 @@
           {
             "name": "natural_gas_ip",
             "units": "MBtu",
-            "value": 29113.8
+            "value": 34158.8
           },
           {
             "name": "gasoline_heating_ip",
@@ -1384,7 +1366,7 @@
           {
             "name": "exterior_lighting_total_consumption",
             "units": "kWh",
-            "value": 13722808.33
+            "value": 15861163.89
           },
           {
             "name": "service_water_use_1_gal_min",
@@ -1403,7 +1385,7 @@
           {
             "name": "annual_peak_electric_demand",
             "units": "kW",
-            "value": 1574.65
+            "value": 1706.26
           },
           {
             "name": "first_year_capital_cost",
@@ -1423,7 +1405,7 @@
         ],
         "step_warnings": [
           "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
         ]
       }
     }
