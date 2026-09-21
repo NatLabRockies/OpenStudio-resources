@@ -607,6 +607,8 @@ end
 #   * :outdir [String]: another level
 #   * :base_dir [String]: where to look for filename to copy it (OSM) or run it
 #   (RB), defaults to $ModelDir
+#   * :epw_name [String]: name of a weather file in the weatherdata/ dir (eg 'foo.epw')
+#   to override the default one in in.osw
 def sim_test(filename, options = {})
   dir = File.join($TestDir, filename)
   if options[:outdir]
@@ -789,6 +791,15 @@ def sim_test(filename, options = {})
 
   raise "Cannot find file #{in_osm}" if !File.exist?(in_osm)
   raise "Cannot find file #{in_osw}" if !File.exist?(in_osw)
+
+  if options[:epw_name]
+    epw_path = File.join($RootDir, 'weatherdata', options[:epw_name])
+    raise "Cannot find weather file #{epw_path}" if !File.exist?(epw_path)
+
+    osw_content = JSON.parse(File.read(in_osw))
+    osw_content['weather_file'] = "../../weatherdata/#{options[:epw_name]}"
+    File.write(in_osw, JSON.generate(osw_content))
+  end
 
   # extra options passed to cli
   extra_options = ''

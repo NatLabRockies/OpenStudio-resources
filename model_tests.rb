@@ -1600,39 +1600,48 @@ class ModelTests < Minitest::Test
   end
 
   def test_schedule_ruleset_2012_LeapYear_rb
-    result = sim_test('schedule_ruleset_2012_LeapYear.rb')
+    result = sim_test('schedule_ruleset_2012_LeapYear.rb',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2012_LeapYear.epw')
   end
 
   def test_schedule_ruleset_2012_LeapYear_py
-    result = sim_test('schedule_ruleset_2012_LeapYear.py')
+    result = sim_test('schedule_ruleset_2012_LeapYear.py',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2012_LeapYear.epw')
   end
 
   def test_schedule_ruleset_2012_LeapYear_osm
-    result = sim_test('schedule_ruleset_2012_LeapYear.osm')
+    result = sim_test('schedule_ruleset_2012_LeapYear.osm',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2012_LeapYear.epw')
   end
 
   def test_schedule_ruleset_2012_NonLeapYear_rb
-    result = sim_test('schedule_ruleset_2012_NonLeapYear.rb')
+    result = sim_test('schedule_ruleset_2012_NonLeapYear.rb',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2012_NonLeapYear.epw')
   end
 
   def test_schedule_ruleset_2012_NonLeapYear_py
-    result = sim_test('schedule_ruleset_2012_NonLeapYear.py')
+    result = sim_test('schedule_ruleset_2012_NonLeapYear.py',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2012_NonLeapYear.epw')
   end
 
   def test_schedule_ruleset_2012_NonLeapYear_osm
-    result = sim_test('schedule_ruleset_2012_NonLeapYear.osm')
+    result = sim_test('schedule_ruleset_2012_NonLeapYear.osm',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2012_NonLeapYear.epw')
   end
 
   def test_schedule_ruleset_2013_rb
-    result = sim_test('schedule_ruleset_2013.rb')
+    result = sim_test('schedule_ruleset_2013.rb',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2013.epw')
   end
 
   def test_schedule_ruleset_2013_py
-    result = sim_test('schedule_ruleset_2013.py')
+    result = sim_test('schedule_ruleset_2013.py',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2013.epw')
   end
 
   def test_schedule_ruleset_2013_osm
-    result = sim_test('schedule_ruleset_2013.osm')
+    result = sim_test('schedule_ruleset_2013.osm',
+                      epw_name: 'USA_IL_Chicago-OHare.Intl.AP.725300_AMY_2013.epw')
   end
 
   def test_schedule_file_rb

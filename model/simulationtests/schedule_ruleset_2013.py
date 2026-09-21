@@ -40,7 +40,13 @@ schedule.setName("Test Schedule")
 schedule.setSummerDesignDaySchedule(summer_design_day)
 schedule.setWinterDesignDaySchedule(winter_design_day)
 
+summer_design_day.setName(f"{schedule.nameString()} Summer Design Day Schedule")
+winter_design_day.setName(f"{schedule.nameString()} Winter Design Day Schedule")
+schedule.defaultDaySchedule().setName(f"{schedule.nameString()} Default Day Schedule")
+
 weekdayRule = openstudio.model.ScheduleRule(schedule)
+weekdayRule.setName(f"{schedule.nameString()} Weekday Rule")
+weekdayRule.daySchedule().setName(f"{schedule.nameString()} Weekday Rule Day Schedule")
 weekdayRule.setApplySunday(False)
 weekdayRule.setApplyMonday(True)
 weekdayRule.setApplyTuesday(True)
@@ -51,6 +57,8 @@ weekdayRule.setApplySaturday(False)
 weekdayRule.daySchedule().addValue(openstudio.Time(0, 24, 0, 0), 0.9)
 
 weekendRule = openstudio.model.ScheduleRule(schedule)
+weekendRule.setName(f"{schedule.nameString()} Weekend Rule")
+weekendRule.daySchedule().setName(f"{schedule.nameString()} Weekend Rule Day Schedule")
 weekendRule.setApplySunday(True)
 weekendRule.setApplyMonday(False)
 weekendRule.setApplyTuesday(False)
@@ -61,6 +69,8 @@ weekendRule.setApplySaturday(True)
 weekendRule.daySchedule().addValue(openstudio.Time(0, 24, 0, 0), 0.3)
 
 summerRule = openstudio.model.ScheduleRule(schedule)
+summerRule.setName(f"{schedule.nameString()} Summer Rule")
+summerRule.daySchedule().setName(f"{schedule.nameString()} Summer Rule Day Schedule")
 summerRule.setApplySunday(True)
 summerRule.setApplyMonday(True)
 summerRule.setApplyTuesday(True)
@@ -80,10 +90,13 @@ for lights in model.getLightss():
 # add output reports
 add_out_vars = False
 if add_out_vars:
-    # request hourly output
+    reporting_frequency = "Timestep"
     var = openstudio.model.OutputVariable("Schedule Value", model)
     var.setKeyValue("Test Schedule")
+    var.setReportingFrequency(reporting_frequency)
+
     var = openstudio.model.OutputVariable("Site Day Type Index", model)
+    var.setReportingFrequency(reporting_frequency)
 
 
 # save the OpenStudio model (.osm)
