@@ -21,7 +21,7 @@ class HighLevelTests < Minitest::Test
     all_model_filenames = all_model_paths.map { |p| File.basename(p) }
 
     content = File.read('model_tests.rb')
-    sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.osm)\'\)\n(?:\s*#)*\s+end')
+    sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.osm)\'(?:,[\s\S]*?)?\)\n(?:\s*#)*\s+end')
     osms_in_sim_test = content.scan(sim_test_re).map(&:first)
     missing_osms = all_model_filenames - osms_in_sim_test
 
@@ -41,7 +41,7 @@ class HighLevelTests < Minitest::Test
     all_ruby_filenames = all_ruby_paths.map { |p| File.basename(p) }
 
     content = File.read('model_tests.rb')
-    sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.rb)\'\)\n(?:\s*#)*\s+end')
+    sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.rb)\'(?:,[\s\S]*?)?\)\n(?:\s*#)*\s+end')
     rbs_in_sim_test = content.scan(sim_test_re).map(&:first)
     missing_rbs = all_ruby_filenames - rbs_in_sim_test
 
@@ -71,7 +71,7 @@ class HighLevelTests < Minitest::Test
     ]
 
     content = File.read('model_tests.rb')
-    sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.py)\'\)\n(?:\s*#)*\s+end')
+    sim_test_re = Regexp.new('def test_.*\n(?:\s*#)*\s+result = sim_test\(\'(?<filename>.*\.py)\'(?:,[\s\S]*?)?\)\n(?:\s*#)*\s+end')
     pys_in_sim_test = content.scan(sim_test_re).map(&:first)
     missing_pys = all_python_filenames - pys_in_sim_test
 
