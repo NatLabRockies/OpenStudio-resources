@@ -42,21 +42,21 @@ model.add_windows({ 'wwr' => 0.4,
 
 # create thermal comfort schedules
 workeffsch = OpenStudio::Model::ScheduleConstant.new(model)
-workeffsch.setName("Work Efficiency Schedule")
+workeffsch.setName('Work Efficiency Schedule')
 workeffsch.setValue(0.2)
 
 # Trousers, long-sleeve shirt: 0.61 clo
 cloinssch = OpenStudio::Model::ScheduleConstant.new(model)
-cloinssch.setName("Clothing Insulation Schedule")
+cloinssch.setName('Clothing Insulation Schedule')
 cloinssch.setValue(0.61)
 
 airvelsch = OpenStudio::Model::ScheduleConstant.new(model)
-airvelsch.setName("Air Velocity Schedule")
+airvelsch.setName('Air Velocity Schedule')
 airvelsch.setValue(0.2)
 
 # Office activity, typing: 117 W/person
 actsch = OpenStudio::Model::ScheduleConstant.new(model)
-actsch.setName("Activity Level Schedule")
+actsch.setName('Activity Level Schedule')
 actsch.setValue(117.0)
 
 # get a construction for internal mass object
