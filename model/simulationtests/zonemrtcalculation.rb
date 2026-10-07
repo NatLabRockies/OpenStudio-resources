@@ -51,7 +51,6 @@ model.add_windows({ 'wwr' => 0.4,
                     'offset' => 1,
                     'application_type' => 'Above Floor' })
 
-# create the zone property user view factors by surface name object
 # There are a number of preconditions you must meet:
 # * All People objects should be assigned directly to a space,
 # * All spaces should be assigned to the same Thermal Zone.
@@ -83,7 +82,7 @@ spaces.each do |space|
 
   definition2 = OpenStudio::Model::PeopleDefinition.new(model)
   definition2.setNumberofPeople(1.0)
-  definition2.setMeanRadiantTemperatureCalculationType('EnclosureAveraged') # SurfaceWeighted, AngleFactor not supported?
+  definition2.setMeanRadiantTemperatureCalculationType('EnclosureAveraged')
   definition2.setThermalComfortModelType(0, 'Pierce')
 
   people2 = OpenStudio::Model::People.new(definition2)
