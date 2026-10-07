@@ -268,7 +268,7 @@
     "   ************* EnergyPlus Terminated--Fatal Error Detected. 56248 Warning; 1 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/zone_hvac.rb/generated_files",
+    "/home/ubuntu/OpenStudio-resources/testruns/zone_hvac.rb/generated_files",
     "./files",
     "./weather",
     "../../files",

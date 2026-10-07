@@ -131,54 +131,42 @@
     "   ** Warning ** In Output:Table:Monthly 'BUILDING ENERGY PERFORMANCE - DISTRICT COOLING PEAK DEMAND' invalid Variable or Meter Name 'COGENERATION:DISTRICTCOOLING'",
     "   ** Warning ** Processing Monthly Tabular Reports: Variable names not valid for this simulation",
     "   **   ~~~   ** ...use Output:Diagnostics,DisplayExtraWarnings; to show more details on individual variables.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 1\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -7.80",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/01 09:15 - 09:20",
+    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 4\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -9.00",
+    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/05 11:08 - 11:15",
     "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 1\" - Full load outlet air dry-bulb temperature < 2C. This indicates the possibility of coil frost/freeze. Outlet temperature = -17.64 C.",
-    "   **   ~~~   **  ...Occurrence info = RUN PERIOD 1, 01/01 09:15 - 09:20",
-    "   **   ~~~   ** ... Possible reasons for low outlet air dry-bulb temperatures are: This DX coil",
-    "   **   ~~~   **    1) may have a low inlet air dry-bulb temperature. Inlet air temperature = 4.749 C.",
-    "   **   ~~~   **    2) may have a low air flow rate per watt of cooling capacity. Check inputs.",
-    "   **   ~~~   **    3) is used as part of a HX assisted cooling coil which uses a high sensible effectiveness. Check inputs.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 4\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -6.28",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/01 10:08 - 10:15",
+    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 9\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -6.43",
+    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/05 13:08 - 13:15",
     "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 6\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -5.85",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/01 10:20 - 10:25",
-    "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 6\" - Full load outlet air dry-bulb temperature < 2C. This indicates the possibility of coil frost/freeze. Outlet temperature = -5.23 C.",
-    "   **   ~~~   **  ...Occurrence info = RUN PERIOD 1, 01/01 10:20 - 10:25",
-    "   **   ~~~   ** ... Possible reasons for low outlet air dry-bulb temperatures are: This DX coil",
-    "   **   ~~~   **    1) may have a low inlet air dry-bulb temperature. Inlet air temperature = 18.935 C.",
-    "   **   ~~~   **    2) may have a low air flow rate per watt of cooling capacity. Check inputs.",
-    "   **   ~~~   **    3) is used as part of a HX assisted cooling coil which uses a high sensible effectiveness. Check inputs.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 9\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -4.15",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/01 11:15 - 11:30",
-    "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** GetConductivityGlycol: Temperature is out of range (too high) for fluid [WATER] conductivity **",
-    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[100.07], supplied data range=[0.00,100.00]",
-    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/10 12:30 - 12:45",
-    "   ** Warning ** GetViscosityGlycol: Temperature is out of range (too high) for fluid [WATER] viscosity **",
-    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[100.07], supplied data range=[0.00,100.00]",
-    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/10 12:30 - 12:45",
     "   ** Warning ** GetDensityGlycol: Temperature is out of range (too high) for fluid [WATER] density **",
-    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[100.07], supplied data range=[0.00,100.00]",
+    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[101.10], supplied data range=[0.00,100.00]",
     "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/10 12:30 - 12:45",
+    "   ** Warning ** GetConductivityGlycol: Temperature is out of range (too high) for fluid [WATER] conductivity **",
+    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[100.97], supplied data range=[0.00,100.00]",
+    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/11 13:30 - 13:45",
+    "   ** Warning ** GetViscosityGlycol: Temperature is out of range (too high) for fluid [WATER] viscosity **",
+    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[100.97], supplied data range=[0.00,100.00]",
+    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=01/11 13:30 - 13:45",
     "   ** Warning ** GetSpecificHeatGlycol: Temperature is out of range (too high) for fluid [WATER] specific heat **",
-    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[169.05], supplied data range=[0.00,125.00]",
-    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=02/01 11:05 - 11:10",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 5\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -10.30",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 02/06 15:15 - 15:30",
+    "   **   ~~~   ** ..Called From:SolarCollectors:CalcConvCoeffAbsPlateAndWater,Temperature=[173.42], supplied data range=[0.00,125.00]",
+    "   **   ~~~   **  Environment=RUN PERIOD 1, at Simulation time=02/01 11:23 - 11:30",
+    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 5\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -3.30",
+    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 02/16 15:30 - 15:38",
     "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 2\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -5.88",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 02/16 10:40 - 10:45",
-    "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 10\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -3.30",
-    "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 02/16 15:15 - 15:22",
-    "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
-    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 7\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -2.50E-002",
+    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 6\" - Full load outlet air dry-bulb temperature < 2C. This indicates the possibility of coil frost/freeze. Outlet temperature = 0.17 C.",
+    "   **   ~~~   **  ...Occurrence info = RUN PERIOD 1, 03/09 16:45 - 17:00",
+    "   **   ~~~   ** ... Possible reasons for low outlet air dry-bulb temperatures are: This DX coil",
+    "   **   ~~~   **    1) may have a low inlet air dry-bulb temperature. Inlet air temperature = 23.337 C.",
+    "   **   ~~~   **    2) may have a low air flow rate per watt of cooling capacity. Check inputs.",
+    "   **   ~~~   **    3) is used as part of a HX assisted cooling coil which uses a high sensible effectiveness. Check inputs.",
+    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 2\" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -2.50E-002",
     "   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 03/18 09:05 - 09:10",
     "   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.",
+    "   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed \"COIL COOLING DX SINGLE SPEED 1\" - Full load outlet air dry-bulb temperature < 2C. This indicates the possibility of coil frost/freeze. Outlet temperature = 1.16 C.",
+    "   **   ~~~   **  ...Occurrence info = RUN PERIOD 1, 03/19 16:15 - 16:30",
+    "   **   ~~~   ** ... Possible reasons for low outlet air dry-bulb temperatures are: This DX coil",
+    "   **   ~~~   **    1) may have a low inlet air dry-bulb temperature. Inlet air temperature = 20.652 C.",
+    "   **   ~~~   **    2) may have a low air flow rate per watt of cooling capacity. Check inputs.",
+    "   **   ~~~   **    3) is used as part of a HX assisted cooling coil which uses a high sensible effectiveness. Check inputs.",
     "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-ELECTRICITY\" has no energy cost. ",
     "   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.",
     "   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-DISTILLATE OIL\" has no energy cost. ",
@@ -199,94 +187,70 @@
     "   ************* The following recurring error messages occurred.",
     "   *************",
     "   *************  ** Warning ** Plant loop exceeding upper temperature limit, PlantLoop=\"STORAGE WATER LOOP\"",
-    "   *************  **   ~~~   **   This error occurred 13266 total times;",
+    "   *************  **   ~~~   **   This error occurred 12459 total times;",
     "   *************  **   ~~~   **   during Warmup 12 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=125.830051",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 1\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 1829 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-2.500000E-002 [C]  Min=-18.35 [C]",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 1\" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:",
-    "   *************  **   ~~~   **   This error occurred 5627 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=1.997274  Min=-25.568123",
+    "   *************  **   ~~~   **   Max=124.596613",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 4\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 1070 total times;",
+    "   *************  **   ~~~   **   This error occurred 320 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-0.15 [C]  Min=-17.25 [C]",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 6\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 1436 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-2.500000E-002 [C]  Min=-17.2 [C]",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 6\" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:",
-    "   *************  **   ~~~   **   This error occurred 3948 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=1.997775  Min=-6.902024",
+    "   *************  **   ~~~   **   Max=-0.15 [C]  Min=-15.15 [C]",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 9\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 814 total times;",
+    "   *************  **   ~~~   **   This error occurred 155 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-0.1 [C]  Min=-16.4 [C]",
-    "   *************",
-    "   *************  ** Warning ** GetConductivityGlycol: Temperature out of range (too high) for fluid [WATER] conductivity **",
-    "   *************  **   ~~~   **   This error occurred 11352 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=254.978354 {C}  Min=100.050028 {C}",
-    "   *************",
-    "   *************  ** Warning ** GetViscosityGlycol: Temperature out of range (too high) for fluid [WATER] viscosity **",
-    "   *************  **   ~~~   **   This error occurred 11352 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=254.978354 {C}  Min=100.050028 {C}",
+    "   *************  **   ~~~   **   Max=-0.15 [C]  Min=-13.3 [C]",
     "   *************",
     "   *************  ** Warning ** GetDensityGlycol: Temperature out of range (too high) for fluid [WATER] density **",
-    "   *************  **   ~~~   **   This error occurred 45237 total times;",
+    "   *************  **   ~~~   **   This error occurred 40926 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=254.978354 {C}  Min=100.001744 {C}",
+    "   *************  **   ~~~   **   Max=249.398965 {C}  Min=100.003223 {C}",
+    "   *************",
+    "   *************  ** Warning ** GetConductivityGlycol: Temperature out of range (too high) for fluid [WATER] conductivity **",
+    "   *************  **   ~~~   **   This error occurred 10200 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=249.398965 {C}  Min=100.022189 {C}",
+    "   *************",
+    "   *************  ** Warning ** GetViscosityGlycol: Temperature out of range (too high) for fluid [WATER] viscosity **",
+    "   *************  **   ~~~   **   This error occurred 10200 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=249.398965 {C}  Min=100.022189 {C}",
     "   *************",
     "   *************  ** Warning ** GetSpecificHeatGlycol: Temperature out of range (too high) for fluid [WATER] specific heat **",
-    "   *************  **   ~~~   **   This error occurred 807 total times;",
+    "   *************  **   ~~~   **   This error occurred 700 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=254.978354 {C}  Min=125.03412 {C}",
+    "   *************  **   ~~~   **   Max=249.398965 {C}  Min=125.799502 {C}",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 5\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 43 total times;",
+    "   *************  **   ~~~   **   This error occurred 5 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-0.275 [C]  Min=-10.45 [C]",
+    "   *************  **   ~~~   **   Max=-3.3 [C]  Min=-3.85 [C]",
+    "   *************",
+    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 6\" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:",
+    "   *************  **   ~~~   **   This error occurred 117 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=1.986432  Min=9.867670E-002",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 2\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 33 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-2.500000E-002 [C]  Min=-5.875 [C]",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 10\" - Low condenser dry-bulb temperature error continues...",
-    "   *************  **   ~~~   **   This error occurred 19 total times;",
-    "   *************  **   ~~~   **   during Warmup 0 times;",
-    "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-0.55 [C]  Min=-4.4 [C]",
-    "   *************",
-    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 7\" - Low condenser dry-bulb temperature error continues...",
     "   *************  **   ~~~   **   This error occurred 2 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
     "   *************  **   ~~~   **   Max=-2.500000E-002 [C]  Min=-2.500000E-002 [C]",
+    "   *************",
+    "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 1\" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:",
+    "   *************  **   ~~~   **   This error occurred 74 total times;",
+    "   *************  **   ~~~   **   during Warmup 0 times;",
+    "   *************  **   ~~~   **   during Sizing 0 times.",
+    "   *************  **   ~~~   **   Max=1.973075  Min=-0.418157",
     "   *************",
     "   *************",
     "   ************* ===== Final Error Summary =====",
@@ -298,10 +262,10 @@
     "   *************",
     "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
     "   ************* EnergyPlus Sizing Error Summary. During Sizing: 33 Warning; 0 Severe Errors.",
-    "   ************* EnergyPlus Completed Successfully-- 96954 Warning; 0 Severe Errors; "
+    "   ************* EnergyPlus Completed Successfully-- 75277 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/solar_collector_integralcollectorstorage.rb/generated_files",
+    "/home/ubuntu/OpenStudio-resources/testruns/solar_collector_integralcollectorstorage.rb/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -436,12 +400,12 @@
           {
             "name": "total_site_energy",
             "units": "kBtu",
-            "value": 6264341.35
+            "value": 7710700.79
           },
           {
             "name": "net_site_energy",
             "units": "kBtu",
-            "value": 6264341.35
+            "value": 7710700.79
           },
           {
             "name": "total_building_area",
@@ -451,32 +415,32 @@
           {
             "name": "total_site_eui",
             "units": "kBtu/ft^2",
-            "value": 58.2
+            "value": 71.63
           },
           {
             "name": "eui",
             "units": "kBtu/ft^2",
-            "value": 58.2
+            "value": 71.63
           },
           {
             "name": "unmet_hours_during_heating",
             "units": "hr",
-            "value": 82.75
+            "value": 115.5
           },
           {
             "name": "unmet_hours_during_cooling",
             "units": "hr",
-            "value": 3.25
+            "value": 2.75
           },
           {
             "name": "unmet_hours_during_occupied_heating",
             "units": "hr",
-            "value": 12.25
+            "value": 21.0
           },
           {
             "name": "unmet_hours_during_occupied_cooling",
             "units": "hr",
-            "value": 3.25
+            "value": 2.75
           },
           {
             "name": "unmet_hours_tolerance_heating",
@@ -496,7 +460,7 @@
           {
             "name": "electricity_cooling_ip",
             "units": "kWh",
-            "value": 81089.63
+            "value": 65780.22
           },
           {
             "name": "electricity_interior_lighting_ip",
@@ -521,12 +485,12 @@
           {
             "name": "electricity_fans_ip",
             "units": "kWh",
-            "value": 40863.99
+            "value": 140396.17
           },
           {
             "name": "electricity_pumps_ip",
             "units": "kWh",
-            "value": 25057.59
+            "value": 26013.81
           },
           {
             "name": "electricity_heat_rejection_ip",
@@ -561,12 +525,12 @@
           {
             "name": "electricity_ip",
             "units": "kWh",
-            "value": 759305.49
+            "value": 844484.47
           },
           {
             "name": "natural_gas_heating_ip",
             "units": "MBtu",
-            "value": 3042.55
+            "value": 4198.59
           },
           {
             "name": "natural_gas_cooling_ip",
@@ -621,7 +585,7 @@
           {
             "name": "natural_gas_water_systems_ip",
             "units": "MBtu",
-            "value": 630.93
+            "value": 630.61
           },
           {
             "name": "natural_gas_refrigeration_ip",
@@ -636,7 +600,7 @@
           {
             "name": "natural_gas_ip",
             "units": "MBtu",
-            "value": 3673.48
+            "value": 4829.2
           },
           {
             "name": "gasoline_heating_ip",
@@ -1506,7 +1470,7 @@
           {
             "name": "exterior_lighting_total_consumption",
             "units": "kWh",
-            "value": 1835897.22
+            "value": 2259783.33
           },
           {
             "name": "service_water_use_1_gal_min",
@@ -1570,7 +1534,7 @@
           {
             "name": "annual_peak_electric_demand",
             "units": "kW",
-            "value": 334.68
+            "value": 349.27
           },
           {
             "name": "first_year_capital_cost",
@@ -1590,7 +1554,7 @@
         ],
         "step_warnings": [
           "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
         ]
       }
     }

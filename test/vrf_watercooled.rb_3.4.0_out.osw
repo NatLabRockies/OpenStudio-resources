@@ -139,22 +139,22 @@
     "   ************* The following recurring error messages occurred.",
     "   *************",
     "   *************  ** Warning ** CoolingTower:SingleSpeed \"COOLING TOWER SINGLE SPEED 1\" Cooling tower water outlet temperature is below the specified minimum condenser loop temp error continues...",
-    "   *************  **   ~~~   **   This error occurred 38531 total times;",
+    "   *************  **   ~~~   **   This error occurred 38593 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-1.577515E-003  Min=-16.288701",
+    "   *************  **   ~~~   **   Max=-1.580801E-003  Min=-16.288701",
     "   *************",
     "   *************  ** Warning ** GetSpecificHeatGlycol: Temperature out of range (too low) for fluid [WATER] specific heat **",
-    "   *************  **   ~~~   **   This error occurred 8494 total times;",
+    "   *************  **   ~~~   **   This error occurred 8506 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-1.599400E-003 {C}  Min=-16.288701 {C}",
+    "   *************  **   ~~~   **   Max=-1.602682E-003 {C}  Min=-16.288701 {C}",
     "   *************",
     "   *************  ** Warning ** GetDensityGlycol: Temperature out of range (too low) for fluid [WATER] density **",
-    "   *************  **   ~~~   **   This error occurred 16430 total times;",
+    "   *************  **   ~~~   **   This error occurred 16406 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-1.599400E-003 {C}  Min=-16.288701 {C}",
+    "   *************  **   ~~~   **   Max=-1.602682E-003 {C}  Min=-16.288701 {C}",
     "   *************",
     "   *************",
     "   ************* ===== Final Error Summary =====",
@@ -166,10 +166,10 @@
     "   *************",
     "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
     "   ************* EnergyPlus Sizing Error Summary. During Sizing: 10 Warning; 0 Severe Errors.",
-    "   ************* EnergyPlus Completed Successfully-- 63552 Warning; 0 Severe Errors; "
+    "   ************* EnergyPlus Completed Successfully-- 63602 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/vrf_watercooled.rb/generated_files",
+    "/home/ubuntu/OpenStudio-resources/testruns/vrf_watercooled.rb/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -304,12 +304,12 @@
           {
             "name": "total_site_energy",
             "units": "kBtu",
-            "value": 7310086.93
+            "value": 7311774.05
           },
           {
             "name": "net_site_energy",
             "units": "kBtu",
-            "value": 7310086.93
+            "value": 7311774.05
           },
           {
             "name": "total_building_area",
@@ -319,32 +319,32 @@
           {
             "name": "total_site_eui",
             "units": "kBtu/ft^2",
-            "value": 67.91
+            "value": 67.93
           },
           {
             "name": "eui",
             "units": "kBtu/ft^2",
-            "value": 67.91
+            "value": 67.93
           },
           {
             "name": "unmet_hours_during_heating",
             "units": "hr",
-            "value": 188.75
+            "value": 181.0
           },
           {
             "name": "unmet_hours_during_cooling",
             "units": "hr",
-            "value": 740.5
+            "value": 739.25
           },
           {
             "name": "unmet_hours_during_occupied_heating",
             "units": "hr",
-            "value": 177.75
+            "value": 170.0
           },
           {
             "name": "unmet_hours_during_occupied_cooling",
             "units": "hr",
-            "value": 358.0
+            "value": 356.75
           },
           {
             "name": "unmet_hours_tolerance_heating",
@@ -359,12 +359,12 @@
           {
             "name": "electricity_heating_ip",
             "units": "kWh",
-            "value": 397283.14
+            "value": 397314.22
           },
           {
             "name": "electricity_cooling_ip",
             "units": "kWh",
-            "value": 57641.32
+            "value": 57636.72
           },
           {
             "name": "electricity_interior_lighting_ip",
@@ -394,12 +394,12 @@
           {
             "name": "electricity_pumps_ip",
             "units": "kWh",
-            "value": 48739.69
+            "value": 48812.89
           },
           {
             "name": "electricity_heat_rejection_ip",
             "units": "kWh",
-            "value": 1362.32
+            "value": 1362.31
           },
           {
             "name": "electricity_humidification_ip",
@@ -429,12 +429,12 @@
           {
             "name": "electricity_ip",
             "units": "kWh",
-            "value": 1215605.81
+            "value": 1215705.48
           },
           {
             "name": "natural_gas_heating_ip",
             "units": "MBtu",
-            "value": 3162.26
+            "value": 3163.61
           },
           {
             "name": "natural_gas_cooling_ip",
@@ -504,7 +504,7 @@
           {
             "name": "natural_gas_ip",
             "units": "MBtu",
-            "value": 3162.26
+            "value": 3163.61
           },
           {
             "name": "gasoline_heating_ip",
@@ -1374,7 +1374,7 @@
           {
             "name": "exterior_lighting_total_consumption",
             "units": "kWh",
-            "value": 2142375.0
+            "value": 2142869.44
           },
           {
             "name": "inflation_approach",
@@ -1408,9 +1408,9 @@
         ],
         "step_warnings": [
           "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'",
-          "Zone Equipment Detail section failed and was skipped because: undefined method `maxHeatingCapacity' for #<OpenStudio::Model::OptionalCoilHeatingDXVariableRefrigerantFlow:0x000055d1bec8c220>. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.ZoneHVACTerminalUnitVariableRefrigerantFlow.rb:3:in `maxHeatingCapacity'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.HVACComponent.rb:6:in `maxHeatingCapacity'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:745:in `public_send'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:745:in `block in general_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:738:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:738:in `general_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1301:in `zone_equipment_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1335:in `block (2 levels) in zone_equipment_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1333:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1333:in `block in zone_equipment_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1325:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1325:in `zone_equipment_detail_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'",
+          "Zone Equipment Detail section failed and was skipped because: undefined method `maxHeatingCapacity' for #<OpenStudio::Model::OptionalCoilHeatingDXVariableRefrigerantFlow:0x000055d14aa20be0>. Detail on error follows.",
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/Siz.ZoneHVACTerminalUnitVariableRefrigerantFlow.rb:3:in `maxHeatingCapacity'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/Siz.HVACComponent.rb:6:in `maxHeatingCapacity'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:745:in `public_send'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:745:in `block in general_component_summary_logic'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:738:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:738:in `general_component_summary_logic'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1301:in `zone_equipment_component_summary_logic'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1335:in `block (2 levels) in zone_equipment_detail_section'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1333:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1333:in `block in zone_equipment_detail_section'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1325:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1325:in `zone_equipment_detail_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
         ]
       }
     }
