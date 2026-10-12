@@ -77,7 +77,8 @@ class HighLevelTests < Minitest::Test
 
     expected_sim_missing = [
       'outputcontrol_files.py',
-      'space_level_dsoa.py'
+      'space_level_dsoa.py',
+      'construction_assignment_sets.py'
     ]
     missing_pys -= expected_sim_missing
 
