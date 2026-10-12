@@ -86,6 +86,8 @@ we skip the test.
 
 * `USE_EPLUS_SPACES`: if set to True (case-insensitive) or False, forces the `--[no-]space-translation` argument to the openstudio `run` method
 
+* `USE_SPACE_LOAD_INSTANCES`: if set to True (case-insensitive) or False, forces the `--[no-]space-load-instances` argument to the openstudio `run` method
+
 * `USE_CONSTRUCTION_ASSIGNMENT_SETS`: if set to True (case-insensitive) or False, forces the `--[no-]construction-assignment-sets` argument to the openstudio `run` method
 
 * `CLI_SUBCOMMAND`: one of `["classic", "labs"]`, to switch between the Ruby CLI and the C++ CLI (otherwise uses default)
