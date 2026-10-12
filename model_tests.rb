@@ -451,7 +451,8 @@ class ModelTests < Minitest::Test
   # end
 
   def _helper_construction_assignment_sets(filename:)
-    result = sim_test(filename)
+    # The EUI is compared at the end: it skips the test when there's no previous version to compare to, and we want our checks to run anyway
+    result = sim_test(filename, { compare_eui: false })
 
     out_dir = File.join($TestDir, filename)
     osm_path = File.join(out_dir, 'in.osm')
@@ -530,6 +531,9 @@ class ModelTests < Minitest::Test
 
     assert_operator(n_checked, :>, 0)
     assert_operator(n_sources_checked, :>, 0, 'Expected the Construction Assignment Source in the EnvelopeSummary') if cas_supported
+
+    cp_out_osw = File.join($OutOSWDir, "#{filename}_#{$SdkVersion}_out#{$Custom_tag}.osw")
+    compare_osw_eui_with_previous_version(cp_out_osw)
   end
 
   def test_construction_assignment_sets_py
