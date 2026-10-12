@@ -459,8 +459,12 @@ class ModelTests < Minitest::Test
     sql_path = File.join(out_dir, 'run', 'eplusout.sql')
     [osm_path, idf_path, sql_path].each { |p| assert(File.exist?(p), "Can't find #{p}") }
 
+    # Older SDKs don't have the ConstructionAssignmentSets: all constructions are written to the surfaces, which we can still check
+    cas_supported = OpenStudio::EnergyPlus::ForwardTranslator.method_defined?(:setExcludeConstructionAssignmentSets)
+    cas_used = cas_supported && ($UseConstructionAssignmentSets != false)
+
     # Make sure the ConstructionAssignmentSets were actually used, otherwise this test is pointless
-    if $UseConstructionAssignmentSets != false
+    if cas_used
       w = OpenStudio::Workspace.load(idf_path, 'EnergyPlus'.to_IddFileType).get
       defaulted = w.getObjectsByType('BuildingSurface:Detailed'.to_IddObjectType).select { |s| s.isEmpty(2) }
       refute_empty(defaulted, 'Expected some BuildingSurface:Detailed to have their construction resolved by E+')
@@ -473,7 +477,7 @@ class ModelTests < Minitest::Test
     # Reference: translate the same model with all constructions written to the surfaces
     m = OpenStudio::Model::Model.load(osm_path).get
     ft = OpenStudio::EnergyPlus::ForwardTranslator.new
-    ft.setExcludeConstructionAssignmentSets(true)
+    ft.setExcludeConstructionAssignmentSets(true) if cas_supported
     ft.setExcludeSpaceTranslation(!$UseEplusSpaces) if !$UseEplusSpaces.nil?
     w_ref = ft.translateModel(m)
 
@@ -506,9 +510,9 @@ class ModelTests < Minitest::Test
             AND ColumnName = 'Construction Assignment Source'
             AND RowName = '#{surface_name}'
         SQL
-        next if source.empty? # Interior surfaces and doors aren't in those two tables
+        next if source.empty? # Interior surfaces and doors aren't in those two tables (nor is the column there with older E+ versions)
 
-        if $UseConstructionAssignmentSets == false
+        if !cas_used
           assert_equal('Explicit', source.get, "#{surface.nameString} should be written to the surface")
         elsif space_level_prefixes.any? { |prefix| expected_construction.start_with?(prefix) }
           # Without E+ Spaces, they are hard-assigned by the FT
@@ -525,7 +529,7 @@ class ModelTests < Minitest::Test
     sql.close
 
     assert_operator(n_checked, :>, 0)
-    assert_operator(n_sources_checked, :>, 0, 'Expected the Construction Assignment Source in the EnvelopeSummary')
+    assert_operator(n_sources_checked, :>, 0, 'Expected the Construction Assignment Source in the EnvelopeSummary') if cas_supported
   end
 
   def test_construction_assignment_sets_py
