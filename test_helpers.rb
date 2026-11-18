@@ -135,6 +135,16 @@ when 'false'
   $UseSpaceLoadInstances = false
 end
 
+$UseConstructionAssignmentSets = nil
+case ENV['USE_CONSTRUCTION_ASSIGNMENT_SETS'].to_s.downcase
+when 'true'
+  puts 'USE_CONSTRUCTION_ASSIGNMENT_SETS=true: Will translate DefaultConstructionSets to the E+ ConstructionAssignmentSet objects'
+  $UseConstructionAssignmentSets = true
+when 'false'
+  puts 'USE_CONSTRUCTION_ASSIGNMENT_SETS=false: Will force writing all constructions to the Surfaces/SubSurfaces'
+  $UseConstructionAssignmentSets = false
+end
+
 def get_cli_subcommand_from_env(sdk_version_str, debug: false)
   cur_sdk_version = Gem::Version.new(sdk_version_str)
   if debug
@@ -824,6 +834,13 @@ def sim_test(filename, options = {})
       extra_run_options += '--space-load-instances '
     else
       extra_run_options += '--no-space-load-instances '
+    end
+  end
+  if !$UseConstructionAssignmentSets.nil?
+    if $UseConstructionAssignmentSets
+      extra_run_options += '--construction-assignment-sets '
+    else
+      extra_run_options += '--no-construction-assignment-sets '
     end
   end
 
