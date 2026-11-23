@@ -450,6 +450,96 @@ class ModelTests < Minitest::Test
   #   result = sim_test('comfortviewfactorangles.osm')
   # end
 
+  def _helper_construction_assignment_sets(filename:)
+    # The EUI is compared at the end: it skips the test when there's no previous version to compare to, and we want our checks to run anyway
+    result = sim_test(filename, { compare_eui: false })
+
+    out_dir = File.join($TestDir, filename)
+    osm_path = File.join(out_dir, 'in.osm')
+    idf_path = File.join(out_dir, 'run', 'in.idf')
+    sql_path = File.join(out_dir, 'run', 'eplusout.sql')
+    [osm_path, idf_path, sql_path].each { |p| assert(File.exist?(p), "Can't find #{p}") }
+
+    # Older SDKs don't have the ConstructionAssignmentSets: all constructions are written to the surfaces, which we can still check
+    cas_supported = OpenStudio::EnergyPlus::ForwardTranslator.method_defined?(:setExcludeConstructionAssignmentSets)
+    cas_used = cas_supported && ($UseConstructionAssignmentSets != false)
+
+    # Make sure the ConstructionAssignmentSets were actually used, otherwise this test is pointless
+    if cas_used
+      w = OpenStudio::Workspace.load(idf_path, 'EnergyPlus'.to_IddFileType).get
+      defaulted = w.getObjectsByType('BuildingSurface:Detailed'.to_IddObjectType).select { |s| s.isEmpty(2) }
+      refute_empty(defaulted, 'Expected some BuildingSurface:Detailed to have their construction resolved by E+')
+      if $UseEplusSpaces != false
+        n_cas = w.getObjectsByType('ConstructionAssignmentSet'.to_IddObjectType).size
+        assert_operator(n_cas, :>, 1, 'Expected Space level ConstructionAssignmentSets in addition to the Building level one')
+      end
+    end
+
+    # Reference: translate the same model with all constructions written to the surfaces
+    m = OpenStudio::Model::Model.load(osm_path).get
+    ft = OpenStudio::EnergyPlus::ForwardTranslator.new
+    ft.setExcludeConstructionAssignmentSets(true) if cas_supported
+    ft.setExcludeSpaceTranslation(!$UseEplusSpaces) if !$UseEplusSpaces.nil?
+    w_ref = ft.translateModel(m)
+
+    # The constructions from the Space, SpaceType and BuildingStory levels are uniquely named in construction_assignment_sets.py
+    space_level_prefixes = ['STORY ', 'SHARED SPACETYPE ']
+
+    sql = OpenStudio::SqlFile.new(OpenStudio::Path.new(sql_path))
+    n_checked = 0
+    n_sources_checked = 0
+    ['BuildingSurface:Detailed', 'FenestrationSurface:Detailed'].each do |idd_type|
+      w_ref.getObjectsByType(idd_type.to_IddObjectType).each do |surface|
+        surface_name = surface.nameString.upcase
+        expected_construction = surface.getString(2).get.upcase
+
+        # Which construction E+ used for this surface
+        eplus_construction = sql.execAndReturnFirstString(<<~SQL)
+          SELECT c.Name FROM Surfaces s
+          INNER JOIN Constructions c ON s.ConstructionIndex = c.ConstructionIndex
+          WHERE s.SurfaceName = '#{surface_name}'
+        SQL
+        assert(eplus_construction.is_initialized, "Can't find #{idd_type} '#{surface.nameString}' in the SQL file")
+        assert_equal(expected_construction, eplus_construction.get, "Wrong construction for #{idd_type} '#{surface.nameString}'")
+        n_checked += 1
+
+        # How E+ resolved it: 'Explicit' (on the surface), or via the 'Space' / 'Building' ConstructionAssignmentSet
+        source = sql.execAndReturnFirstString(<<~SQL)
+          SELECT Value FROM TabularDataWithStrings
+          WHERE ReportName = 'EnvelopeSummary'
+            AND TableName IN ('Opaque Exterior', 'Exterior Fenestration')
+            AND ColumnName = 'Construction Assignment Source'
+            AND RowName = '#{surface_name}'
+        SQL
+        next if source.empty? # Interior surfaces and doors aren't in those two tables (nor is the column there with older E+ versions)
+
+        if !cas_used
+          assert_equal('Explicit', source.get, "#{surface.nameString} should be written to the surface")
+        elsif space_level_prefixes.any? { |prefix| expected_construction.start_with?(prefix) }
+          # Without E+ Spaces, they are hard-assigned by the FT
+          expected = $UseEplusSpaces == false ? 'Explicit' : 'Space'
+          assert_equal(expected, source.get, "Wrong Construction Assignment Source for #{surface.nameString}")
+        else
+          # Without E+ Spaces, combining the spaces of a zone hard-assigns their constructions
+          expected = $UseEplusSpaces == false ? ['Building', 'Explicit'] : ['Building']
+          assert_includes(expected, source.get, "Wrong Construction Assignment Source for #{surface.nameString}")
+        end
+        n_sources_checked += 1
+      end
+    end
+    sql.close
+
+    assert_operator(n_checked, :>, 0)
+    assert_operator(n_sources_checked, :>, 0, 'Expected the Construction Assignment Source in the EnvelopeSummary') if cas_supported
+
+    cp_out_osw = File.join($OutOSWDir, "#{filename}_#{$SdkVersion}_out#{$Custom_tag}.osw")
+    compare_osw_eui_with_previous_version(cp_out_osw)
+  end
+
+  def test_construction_assignment_sets_py
+    _helper_construction_assignment_sets(filename: 'construction_assignment_sets.py')
+  end
+
   def test_coolingtowers_osm
     result = sim_test('coolingtowers.osm')
   end
