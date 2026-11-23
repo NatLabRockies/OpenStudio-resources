@@ -198,7 +198,7 @@
     "   ************* The following recurring error messages occurred.",
     "   *************",
     "   *************  ** Warning ** Plant loop exceeding upper temperature limit, PlantLoop=\"STORAGE WATER LOOP\"",
-    "   *************  **   ~~~   **   This error occurred 21176 total times;",
+    "   *************  **   ~~~   **   This error occurred 21166 total times;",
     "   *************  **   ~~~   **   during Warmup 123 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
     "   *************  **   ~~~   **   Max=200.",
@@ -240,22 +240,22 @@
     "   *************  **   ~~~   **   Max=-0.1 [C]  Min=-16.4 [C]",
     "   *************",
     "   *************  ** Warning ** GetSpecificHeatGlycol: Temperature out of range (too high) for fluid [WATER] specific heat **",
-    "   *************  **   ~~~   **   This error occurred 23256 total times;",
+    "   *************  **   ~~~   **   This error occurred 23347 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
     "   *************  **   ~~~   **   Max=367007.943639 {C}  Min=125.006633 {C}",
     "   *************",
     "   *************  ** Warning ** GetDensityGlycol: Temperature out of range (too high) for fluid [WATER] density **",
-    "   *************  **   ~~~   **   This error occurred 98030 total times;",
+    "   *************  **   ~~~   **   This error occurred 97971 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=200. {C}  Min=100.009656 {C}",
+    "   *************  **   ~~~   **   Max=200. {C}  Min=100.000948 {C}",
     "   *************",
     "   *************  ** Warning ** GetSpecificHeatGlycol: Temperature out of range (too low) for fluid [WATER] specific heat **",
-    "   *************  **   ~~~   **   This error occurred 8 total times;",
+    "   *************  **   ~~~   **   This error occurred 7 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-1.44875 {C}  Min=-11.32375 {C}",
+    "   *************  **   ~~~   **   Max=-1.44875 {C}  Min=-10.89875 {C}",
     "   *************",
     "   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed=\"COIL COOLING DX SINGLE SPEED 10\" - Low condenser dry-bulb temperature error continues...",
     "   *************  **   ~~~   **   This error occurred 43 total times;",
@@ -291,10 +291,10 @@
     "   *************",
     "   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.",
     "   ************* EnergyPlus Sizing Error Summary. During Sizing: 34 Warning; 0 Severe Errors.",
-    "   ************* EnergyPlus Completed Successfully-- 157411 Warning; 0 Severe Errors; "
+    "   ************* EnergyPlus Completed Successfully-- 157432 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/solar_collector_flat_plate_water.osm/generated_files",
+    "/home/ubuntu/OpenStudio-resources/testruns/solar_collector_flat_plate_water.osm/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -429,12 +429,12 @@
           {
             "name": "total_site_energy",
             "units": "kBtu",
-            "value": 6115060.15
+            "value": 6115050.67
           },
           {
             "name": "net_site_energy",
             "units": "kBtu",
-            "value": 6115060.15
+            "value": 6115050.67
           },
           {
             "name": "total_building_area",
@@ -614,7 +614,7 @@
           {
             "name": "natural_gas_water_systems_ip",
             "units": "MBtu",
-            "value": 481.65
+            "value": 481.64
           },
           {
             "name": "natural_gas_refrigeration_ip",
@@ -629,7 +629,7 @@
           {
             "name": "natural_gas_ip",
             "units": "MBtu",
-            "value": 3524.2
+            "value": 3524.19
           },
           {
             "name": "gasoline_heating_ip",
@@ -1499,7 +1499,7 @@
           {
             "name": "exterior_lighting_total_consumption",
             "units": "kWh",
-            "value": 1792147.22
+            "value": 1792144.44
           },
           {
             "name": "service_water_use_1_0_gal_min",
@@ -1583,7 +1583,7 @@
         ],
         "step_warnings": [
           "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
         ]
       }
     }

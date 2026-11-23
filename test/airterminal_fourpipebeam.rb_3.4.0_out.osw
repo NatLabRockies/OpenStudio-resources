@@ -154,19 +154,19 @@
     "   *************  **   ~~~   **   This error occurred 2181 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-1.501046E-004 {C}  Min=-1.245691 {C}",
+    "   *************  **   ~~~   **   Max=-1.501042E-004 {C}  Min=-1.245691 {C}",
     "   *************",
     "   *************  ** Warning ** GetDensityGlycol: Temperature out of range (too low) for fluid [WATER] density **",
     "   *************  **   ~~~   **   This error occurred 17436 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-4.912015E-005 {C}  Min=-1.245691 {C}",
+    "   *************  **   ~~~   **   Max=-4.911970E-005 {C}  Min=-1.245691 {C}",
     "   *************",
     "   *************  ** Warning ** CoolingTower:SingleSpeed \"CNDW LOOP COOLINGTOWERSINGLESPEED\" Cooling tower water outlet temperature is below the specified minimum condenser loop temp error continues...",
     "   *************  **   ~~~   **   This error occurred 461 total times;",
     "   *************  **   ~~~   **   during Warmup 0 times;",
     "   *************  **   ~~~   **   during Sizing 0 times.",
-    "   *************  **   ~~~   **   Max=-1.358821E-003  Min=-1.245691",
+    "   *************  **   ~~~   **   Max=-1.358820E-003  Min=-1.245691",
     "   *************",
     "   *************",
     "   ************* ===== Final Error Summary =====",
@@ -181,7 +181,7 @@
     "   ************* EnergyPlus Completed Successfully-- 20178 Warning; 0 Severe Errors; "
   ],
   "file_paths": [
-    "/home/julien/Software/Others/OpenStudio-resources/testruns/airterminal_fourpipebeam.rb/generated_files",
+    "/home/ubuntu/OpenStudio-resources/testruns/airterminal_fourpipebeam.rb/generated_files",
     "./files",
     "./weather",
     "../../files",
@@ -316,12 +316,12 @@
           {
             "name": "total_site_energy",
             "units": "kBtu",
-            "value": 6122472.08
+            "value": 6122481.56
           },
           {
             "name": "net_site_energy",
             "units": "kBtu",
-            "value": 6122472.08
+            "value": 6122481.56
           },
           {
             "name": "total_building_area",
@@ -376,7 +376,7 @@
           {
             "name": "electricity_cooling_ip",
             "units": "kWh",
-            "value": 134966.1
+            "value": 134966.13
           },
           {
             "name": "electricity_interior_lighting_ip",
@@ -406,12 +406,12 @@
           {
             "name": "electricity_pumps_ip",
             "units": "kWh",
-            "value": 69168.11
+            "value": 69168.42
           },
           {
             "name": "electricity_heat_rejection_ip",
             "units": "kWh",
-            "value": 32887.82
+            "value": 32887.83
           },
           {
             "name": "electricity_humidification_ip",
@@ -441,7 +441,7 @@
           {
             "name": "electricity_ip",
             "units": "kWh",
-            "value": 583690.09
+            "value": 583690.43
           },
           {
             "name": "natural_gas_heating_ip",
@@ -1386,7 +1386,7 @@
           {
             "name": "exterior_lighting_total_consumption",
             "units": "kWh",
-            "value": 1794319.44
+            "value": 1794322.22
           },
           {
             "name": "inflation_approach",
@@ -1420,9 +1420,9 @@
         ],
         "step_warnings": [
           "Annual Overview section failed and was skipped because: Optional not initialized. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'",
-          "Plant Loops Detail section failed and was skipped because: undefined local variable or method `compressorMotorEfficiency' for #<OpenStudio::Model::ChillerElectricEIR:0x000055e396e321d0>. Detail on error follows.",
-          "/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.ChillerElectricEIR.rb:56:in `performanceCharacteristics'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/Siz.HVACComponent.rb:94:in `performanceCharacteristics'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:761:in `general_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1112:in `plant_loop_component_summary_logic'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1173:in `block (2 levels) in plant_loops_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `block in plant_loops_detail_section'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `plant_loops_detail_section'\n(eval):1:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/julien/Software/Others/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `get'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:501:in `block in output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:491:in `output_data_end_use_table'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:258:in `annual_overview_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'",
+          "Plant Loops Detail section failed and was skipped because: undefined local variable or method `compressorMotorEfficiency' for #<OpenStudio::Model::ChillerElectricEIR:0x000055bb03bb9ec8>. Detail on error follows.",
+          "/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/Siz.ChillerElectricEIR.rb:56:in `performanceCharacteristics'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/Siz.HVACComponent.rb:94:in `performanceCharacteristics'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:761:in `general_component_summary_logic'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1112:in `plant_loop_component_summary_logic'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1173:in `block (2 levels) in plant_loops_detail_section'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1154:in `block in plant_loops_detail_section'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/resources/os_lib_reporting.rb:1144:in `plant_loops_detail_section'\n(eval):1:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `eval'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:237:in `block in run'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `each'\n/home/ubuntu/OpenStudio-resources/measures/openstudio_results/measure.rb:233:in `run'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:521:in `apply_measure'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:114:in `block in apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `each_index'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/util/measure.rb:67:in `apply_measures'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/jobs/run_reporting_measures.rb:117:in `perform'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:291:in `step'\n:/ruby/2.7.0/gems/openstudio-workflow-2.3.1/lib/openstudio/workflow/run.rb:233:in `run'\n:/openstudio_cli.rb:1173:in `execute'\n:/openstudio_cli.rb:803:in `execute'\n:/openstudio_cli.rb:1972:in `<main>'\neval:188:in `eval'\neval:188:in `require_embedded_absolute'\neval:173:in `block in require_embedded'\neval:167:in `each'\neval:167:in `require_embedded'\neval:126:in `require'\neval:3:in `<main>'"
         ]
       }
     }
